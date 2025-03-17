@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-database.js"></script>
+    <script src="../Java Script/Presets.js"></script>
+	<script src="../Java Script/Connection.js"></script>
+    <link rel="stylesheet" href="../css/Presets.css">
+    <title>Home Automation| SmartLinx Living<</title>
+</head>
+<body>
+
+    <div class="container">
+        
+        <aside>
+            <div class="toggle">
+                <div class="logo">
+                    <img src="../images/SmartLinxLIving_Logo.png">
+                    <h2><font size="2.5">SmartLinx<span class="danger"> Living</span></h2></font>
+                    </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">
+                        close
+                    </span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+
+                <a href="Index.html">
+                    <span class="material-icons-sharp">
+                        dashboard
+                    </span>
+                    <h3>Dashboard</h3>
+                </a>
+
+                <a href="Rooms.html">
+                    <span class="material-symbols-outlined">
+                        nest_multi_room
+                    </span>
+                    <h3>Rooms</h3>
+                </a>
+
+                <div class="sidebar_menu">
+                    <span class="material-icons-sharp">
+                        report_gmailerrorred
+                    </span>
+                    <button class="menu_btns">Presets</button>
+                </div>
+
+                <a href="Settings.html">
+                    <span class="material-icons-sharp">
+                        settings
+                    </span>
+                    <h3>Settings</h3>
+                </a>
+
+                    <a href="Login.html">
+                        <span class="material-icons-sharp">
+                            add
+                        </span>
+                        <h3>New Login</h3>
+                    </a>
+                    <a href="Login.html">
+                        <span class="material-icons-sharp">
+                            logout
+                        </span>
+                        <h3>LogOut</h3>
+                    </a>
+                
+            </div>
+        </aside>
+
+        <main>
+
+            <div class="right-section">
+                <div class="nav">
+                    <button id="menu-btn">
+                        <span class="material-icons-sharp">
+                            menu
+                        </span>
+                    </button>
+                    <div class="dark-mode">
+                        <span class="material-icons-sharp active">
+                            light_mode
+                        </span>
+                        <span class="material-icons-sharp">
+                            dark_mode
+                        </span>
+                    </div>
+    
+                    <div class="profile">
+                        <div class="info">
+                            <p>Hey, <b>Leo</b></p>
+                            <small class="text-muted">Admin</small>
+                        </div>
+                        <div class="profile-photo" onclick="showAdminPopup()">
+                            <img src="../images/badass_leo_song_1695907284597_1695907284857.jpg">
+                        </div>
+                    </div>
+    
+                </div>
+
+            </div>
+            <div class="card-list">
+                <div class="card">
+                  <header class="card-header">
+                    <h2>Preset 1</h2>
+                  </header>
+          
+                  <div class="card-author">
+                    <a class="author-avatar" href="#">
+                      <img src="avatar.png" />
+                    </a>
+                    <svg class="half-circle" viewBox="0 0 106 57">
+                      <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
+                    </svg>
+          
+                    <div class="author-name">
+                      <div class="author-name-prefix">Author</div>
+                      Jeff Delaney
+                    </div>
+                  </div>
+                  <div class="tags">
+                    <a href="#">html</a>
+                    <a href="#">css</a>
+                    <a href="#">web-dev</a>
+                  </div>
+                </div>
+          
+          
+          
+                <div class="card">
+                  <header class="card-header">
+                    <h2>Preset 2</h2>
+                  </header>
+          
+                  <div class="card-author">
+                    <a class="author-avatar" href="#">
+                      <img src="https://api.adorable.io/avatars/172/a.png" />
+                    </a>
+                    <svg class="half-circle" viewBox="0 0 106 57">
+                      <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
+                    </svg>
+          
+                    <div class="author-name">
+                      <div class="author-name-prefix">Pirate</div>
+                      Zheng Zhilong
+                    </div>
+                  </div>
+                  <div class="tags">
+                    <a href="#">html</a>
+                    <a href="#">css</a>
+                  </div>
+                </div>
+          
+          
+          
+          
+                <div class="card">
+                  <header class="card-header">
+                    <h2>Preset 3</h2>
+                  </header>
+          
+                  <div class="card-author">
+                    <a class="author-avatar" href="#">
+                      <img src="https://api.adorable.io/avatars/172/b.png" />
+                    </a>
+                    <svg class="half-circle" viewBox="0 0 106 57">
+                      <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
+                    </svg>
+          
+                    <div class="author-name">
+                      <div class="author-name-prefix">Pirate</div>
+                      Francis Drake
+                    </div>
+                  </div>
+                  <div class="tags">
+                    <a href="#">html</a>
+                    <a href="#">css</a>
+                  </div>
+                </div>
+          
+
+                <div class="card">
+                  <header class="card-header">
+                    <h2>Preset 4</h2>
+                  </header>
+          
+                  <div class="card-author">
+                    <a class="author-avatar" href="#">
+                      <img src="https://api.adorable.io/avatars/172/c.png" />
+                    </a>
+                    <svg class="half-circle" viewBox="0 0 106 57">
+                      <path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"></path>
+                    </svg>
+          
+                    <div class="author-name">
+                      <div class="author-name-prefix">Pirate</div>
+                      Edward Teach
+                    </div>
+                  </div>
+                  <div class="tags">
+                    <a href="#">html</a>
+                    <a href="#">css</a>
+                  </div>
+                </div>
+                
+            </div>
+
+        </main>
+
+    </div>
+
+</body>
+</html>
