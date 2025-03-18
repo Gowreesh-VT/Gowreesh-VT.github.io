@@ -1,3 +1,30 @@
+/**
+ * =================================================================== 
+ *  TOC:
+ *  01. webfonts and iconfonts
+ *  02. base style overrides
+ *  03. typography & general theme styles
+ *  04. preloader
+ *  05. forms
+ *  06. buttons 
+ *  07. other components
+ *  08. common styles
+ *  09. header styles
+ *  10. Login
+ *  11. intro
+ *  12. about
+ *  13. resume
+ *  14. portfolio
+ *  15. call-to-action section
+ *  16. services
+ *  17. stats
+ *  18. contact
+ *  19. footer
+ *
+ * =================================================================== 
+ */
+
+
 /* 
  * ===================================================================
  * 01. webfonts and iconfonts - (_document-setup.scss)
@@ -69,6 +96,14 @@ h1, .h01 {
 	line-height: 1.355;
 	letter-spacing: -.1rem;
 }
+
+@media only screen and (max-width:600px) {
+	h1, .h01 {
+		font-size: 2.6rem;
+		letter-spacing: -.07rem;
+	}
+}
+
 h2, .h02 {
 	font-size: 2.4rem;
 	line-height: 1.25;
@@ -102,6 +137,13 @@ p.lead {
 	line-height: 1.8;
 	color: #888888;
 }
+
+@media only screen and (max-width:768px) {
+	p.lead {
+		font-size: 1.7rem;
+	}
+}
+
 em, i, strong, b {
 	font-size: 1.7rem;
 	line-height: 3rem;
@@ -332,6 +374,26 @@ img.pull-left {
  */
 .bgrid {
 	padding: 0 20px;
+}
+@media only screen and (max-width:1024px) {
+	.bgrid {
+		padding: 0 18px;
+	}
+}
+@media only screen and (max-width:768px) {
+	.bgrid {
+		padding: 0 15px;
+	}
+}
+@media only screen and (max-width:600px) {
+	.bgrid {
+		padding: 0 10px;
+	}
+}
+@media only screen and (max-width:400px) {
+	.bgrid {
+		padding: 0;
+	}
 }
 
 /**
@@ -921,6 +983,30 @@ button.stroke:hover, .button.stroke:hover {
 	letter-spacing: .4rem;
 }
 
+@media only screen and (max-width:768px) {
+	.section-intro {
+		max-width: 650px;
+	}
+	.section-intro h1 {
+		font-size: 3rem;
+	}
+}
+@media only screen and (max-width:600px) {
+	.section-intro h1 {
+		font-size: 2.6rem;
+	}
+	.section-intro h5 {
+		font-size: 1.5rem;
+		letter-spacing: .3rem;
+	}
+}
+@media only screen and (max-width:400px) {
+	.section-intro h1 {
+		font-size: 2.4rem;
+	}
+}
+
+
 /** 
  * ===================================================================
  * 09. header styles - (_layout.scss)
@@ -1078,6 +1164,28 @@ header .logo a {
 	background: none;
 	color: #FF0077;
 }
+
+@media only screen and (max-width:1024px) {
+	header .top-bar {
+		left: 60px;
+	}
+}
+@media only screen and (max-width:768px) {
+	header .top-bar {
+		left: 50px;
+	}
+}
+@media only screen and (max-width:600px) {
+	header .top-bar {
+		left: 35px;
+	}
+}
+@media only screen and (max-width:400px) {
+	header .top-bar {
+		left: 25px;
+	}
+}
+
 
 /** 
  * ===================================================================
@@ -1401,6 +1509,65 @@ header .logo a {
 .intro-social li a:hover, .intro-social li a:focus {
 	color: #cc005f;
 }
+
+@media only screen and (max-width:1024px) {
+	.intro-content h1 {
+		font-size: 7.6rem;
+	}
+	.intro-social {
+		font-size: 3rem;
+	}
+	.intro-social li {
+		margin: 0 15px;
+	}
+}
+@media only screen and (max-width:768px) {
+	#intro {
+		min-height: 660px;
+	}
+	.intro-content h1 {
+		font-size: 5.2rem;
+	}
+	.intro-content h5 {
+		font-size: 1.8rem;
+	}
+	.intro-content .intro-position {
+		font-size: 1.3rem;
+	}
+	.intro-social {
+		font-size: 2.5rem;
+	}
+	.intro-social li {
+		margin: 0 10px;
+	}
+}
+@media only screen and (max-width:600px) {
+	#intro {
+		min-height: 600px;
+	}
+	.intro-content h1 {
+		font-size: 4.6rem;
+		margin-bottom: .6rem;
+	}
+	.intro-content h5 {
+		font-size: 1.5rem;
+		margin-bottom: .3rem;
+		letter-spacing: .2rem;
+	}
+	.intro-content .intro-position {
+		font-size: 1.2rem;
+	}
+	.intro-content .intro-position span {
+		padding: 0 .6rem;
+	}
+	.intro-content .intro-position span::before, .intro-content .intro-position span::after {
+		display: none !important;
+	}
+	.intro-social {
+		font-size: 2.4rem;
+	}
+}
+
 /** 
  * ===================================================================
  * 12. about - (_layout.scss)
@@ -1481,6 +1648,52 @@ header .logo a {
 .button-section [class*="col-"] .button:first-child {
 	margin-right: 4rem;
 }
+
+@media only screen and (max-width:1024px) {
+	.intro-info {
+		margin-right: 0;
+		margin-left: 0;
+	}
+}
+@media only screen and (max-width:768px) {
+	.intro-info img {
+		height: 7.8rem;
+		width: 7.8rem;
+	}
+	.intro-info .lead {
+		padding-left: 11rem;
+	}
+	.about-content h3 {
+		text-align: center;
+	}
+	.about-content .info-list, .about-content .skill-bars {
+		margin-bottom: 4.2rem;
+	}
+	.button-section .button {
+		width: 100%;
+		margin-bottom: 3rem;
+	}
+	.button-section [class*="col-"] .button:first-child {
+		margin-right: 0;
+	}
+}
+@media only screen and (max-width:600px) {
+	.intro-info {
+		text-align: center;
+		margin-top: 3rem;
+	}
+	.intro-info img {
+		height: 6.6rem;
+		width: 6.6rem;
+		float: none;
+		display: inline-block;
+	}
+	.intro-info .lead {
+		padding-left: 0;
+		text-align: center;
+	}
+}
+
 /** 
  * ===================================================================
  * 13. resume - (_layout.scss)
@@ -1572,6 +1785,79 @@ header .logo a {
 	left: 0;
 	bottom: 0;
 }
+
+@media only screen and (max-width:1024px) {
+	#resume .timeline-header {
+		padding-right: 50px;
+	}
+	#resume .timeline-header h3 {
+		font-size: 1.8rem;
+	}
+	#resume .timeline-header p {
+		font-size: 1.4rem;
+	}
+	#resume .timeline-content {
+		padding-left: 50px;
+	}
+}
+@media only screen and (max-width:768px) {
+	#resume .timeline-wrap::before {
+		left: 2.4rem;
+	}
+	#resume .timeline-ico {
+		left: 2.4rem;
+	}
+	#resume .timeline-header {
+		float: none;
+		width: auto;
+		padding-right: 15px;
+		text-align: left;
+	}
+	#resume .timeline-header h3 {
+		font-size: 2rem;
+	}
+	#resume .timeline-header p {
+		font-size: 1.5rem;
+		margin-bottom: 1.5rem;
+	}
+	#resume .timeline-content {
+		margin: 0;
+	}
+	#resume .timeline-content h4 {
+		padding-bottom: 0;
+		padding-top: 2.1rem;
+		margin-bottom: .6rem;
+		font-size: 1.7rem;
+	}
+	#resume .timeline-content h4::after {
+		bottom: auto;
+		top: 0;
+	}
+	#resume .timeline-header, #resume .timeline-content {
+		padding-left: 7rem;
+	}
+}
+@media only screen and (max-width:480px) {
+	#resume .resume-header h2 {
+		font-size: 2.2rem;
+	}
+	#resume .timeline-wrap::before {
+		left: 1.8rem;
+	}
+	#resume .timeline-ico {
+		height: 3.6rem;
+		width: 3.6rem;
+		line-height: 3.6rem;
+		left: 1.8rem;
+		margin-left: -1.8rem;
+		font-size: 1.5rem;
+	}
+	#resume .timeline-header, #resume .timeline-content {
+		padding-left: 5.5rem;
+	}
+}
+
+
 /** 
  * ===================================================================
  * 14. portfolio - (_layout.scss)
@@ -1583,7 +1869,7 @@ header .logo a {
 	padding-bottom: 12rem;
 }
 #portfolio .folio-item {
-	padding: 0;
+	padding: 10px;
 	position: relative;
 	overflow: hidden;
 }
@@ -1640,6 +1926,44 @@ header .logo a {
 #portfolio .folio-item:hover img {
 	transform: scale(1.05);
 }
+
+@media only screen and (max-width:1024px) {
+	#portfolio .folio-title {
+		font-size: 3.1rem;
+	}
+
+	#portfolio .folio-item {
+		padding: 8px;
+		position: relative;
+		overflow: hidden;
+	}
+
+}
+@media only screen and (max-width:768px) {
+	#portfolio .folio-title {
+		font-size: 2.5rem;
+	}
+
+	#portfolio .folio-item {
+		padding: 3px;
+		position: relative;
+		overflow: hidden;
+	}
+
+}
+@media only screen and (max-width:400px) {
+	#portfolio .folio-title {
+		font-size: 2.2rem;
+	}
+
+	#portfolio .folio-item {
+		padding: 3px;
+		position: relative;
+		overflow: hidden;
+	}
+
+}
+
 
 /**
  * Popup Modal - (_layout.scss)
@@ -1708,6 +2032,14 @@ header .logo a {
 	background: #cc005f;
 	border: none;
 }
+
+@media only screen and (max-width:600px) {
+	.popup-modal {
+		width: auto;
+		margin: 0 20px;
+	}
+}
+
 /**
  * transition effect for modal popup - (_layout.scss)
  * ------------------------------------------------------------------ 
@@ -1800,6 +2132,16 @@ header .logo a {
 .section-ads span {
 	color: #3F0D39;
 }
+
+@media only screen and (max-width:650px) {
+	.cta-content {
+		max-width: 650px;
+	}
+	.cta-content h2 {
+		font-size: 2.4rem;
+	}
+}
+
 /** 
  * ===================================================================
  * 16. services - (_layout.scss)
@@ -1923,6 +2265,30 @@ header .logo a {
 #stats .stat-title {
 	color: rgba(255, 255, 255, 0.5);
 }
+
+@media only screen and (max-width:1024px) {
+	#stats .stat:nth-child(n) {
+		border-left: 1px solid rgba(255, 255, 255, 0.12);
+		padding-bottom: 1.5rem;
+	}
+	#stats .stat:nth-child(3n+1) {
+		border: none;
+	}
+}
+@media only screen and (max-width:768px) {
+	#stats .stat:nth-child(n) {
+		border-left: 1px solid rgba(255, 255, 255, 0.12);
+	}
+	#stats .stat:nth-child(2n+1) {
+		border: none;
+	}
+}
+@media only screen and (max-width:600px) {
+	#stats .stat:nth-child(n) {
+		border: none;
+	}
+}
+
 /** 
  * ===================================================================
  * 18. contact - (_layout.scss)
@@ -2180,6 +2546,25 @@ footer .copyright span::after {
 footer .copyright span:last-child::after {
 	display: none;
 }
+
+@media only screen and (max-width:768px) {
+	footer {
+		text-align: center;
+	}
+	footer .social {
+		display: block;
+		width: 100%;
+		text-align: center;
+		margin-bottom: 1.5rem;
+	}
+	footer .copyright span {
+		display: block;
+	}
+	footer .copyright span::after {
+		display: none;
+	}
+}
+
 /**
  * go to top - (_layout.scss)
  * ------------------------------------------------------------------- 
