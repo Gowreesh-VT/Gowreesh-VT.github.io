@@ -1,4 +1,4 @@
-name: Sync SLL.io to gowreesh-VT.github.io/sll
+name: Sync SLL Website
 
 on:
   push:
@@ -12,20 +12,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout gowreesh-VT.github.io
+      - name: Checkout gowreesh.works
         uses: actions/checkout@v3
         with:
           persist-credentials: false
           fetch-depth: 0
 
-      - name: Clone SLL.io repository using PAT
+      - name: Sync SLL.github.io
         run: |
-          git clone --depth=1 https://${{ secrets.GH_PAT }}@github.com/Gowreesh-VT/SLL.io.git temp-sll
+          git clone --depth=1 https://github.com/Gowreesh-VT/SLL.github.io.git temp-sll
           rsync -av --delete temp-sll/ sll/
           rm -rf temp-sll
           git add sll/
-          git commit -m "Synced SLL.io to /sll" || echo "No changes to commit"
-
-      - name: Push changes to gowreesh-VT.github.io
-        run: |
-          git push https://${{ secrets.GH_PAT }}@github.com/Gowreesh-VT/gowreesh-VT.github.io.git main
+          git commit -m "Synced SLL site from SLL.github.io" || echo "No changes to commit"
+          git push origin main
