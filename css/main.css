@@ -2034,8 +2034,18 @@ header .logo a {
 }
 
 .More-Project a {
-  background-color: #4a95cc;
-  color: black;
+  background-color: gainsboro !important;
+  color: #000000 !important;
+  font-size: medium ;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.More-Project a:hover {
+  background-color: #282626 !important;
+  color: #ffffff !important;
+  font-size: medium;
   text-decoration: none;
   padding: 10px;
   border-radius: 5px;
@@ -2062,6 +2072,7 @@ header .logo a {
     position: relative;
     overflow: hidden;
   }
+
 }
 @media only screen and (max-width: 400px) {
   #portfolio .folio-title {
