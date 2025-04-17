@@ -1,0 +1,1036 @@
+/** 
+ * ===================================================================
+ * 01. base style overrides
+ * 02. typography & general theme styles
+ * 03. Header
+ * 04. Certificate Body
+ * 05. Popup Modal
+ * 06. Animations
+ * 07. Footer
+ * ------------------------------------------------------------------- 
+ */
+
+/** 
+ * ===================================================================
+ * 01. base style overrides
+ *
+ * ------------------------------------------------------------------- 
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 10px;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #151515;
+    font-family: "lora-regular", serif;
+    font-size: 1.7rem;
+    line-height: 3rem;
+    color: #6e6e6e;
+}
+  
+  /**
+   * links
+   * -------------------------------------------------------------------
+   */
+a,
+a:visited {
+    color: #000000;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+a:hover,
+a:focus,
+a:active {
+    color: #ff0077;
+    outline: 0;
+}
+  
+  /** 
+   * ===================================================================
+   * 02. typography & general theme styles
+   *
+   * ------------------------------------------------------------------- 
+   */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "poppins-semibold", sans-serif;
+    color: #313131;
+    font-style: normal;
+    text-rendering: optimizeLegibility;
+    margin-bottom: 2.1rem;
+}
+
+h3,
+h4{
+    margin-bottom: 1.8rem;
+}
+
+h5,
+h6{
+    font-family: "poppins-bold";
+    margin-bottom: 1.2rem;
+}
+
+h1{
+    font-size: 3.1rem;
+    line-height: 1.355;
+    letter-spacing: -0.1rem;
+}
+  
+h2 {
+    font-size: 2.4rem;
+    line-height: 1.25;
+}
+
+h3{
+    font-size: 2rem;
+    line-height: 1.5;
+}
+
+h4{
+    font-size: 1.7rem;
+    line-height: 1.765;
+}
+
+h5 {
+    font-size: 1.4rem;
+    line-height: 1.714;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+}
+
+h6{
+    font-size: 1.3rem;
+    line-height: 1.846;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+}
+
+p img {
+    margin: 0;
+}
+
+p.lead {
+    font-family: "lora-regular", serif;
+    font-size: 2rem;
+    line-height: 1.8;
+    color: #888888;
+}
+
+@media only screen and (max-width: 600px) {
+    h1{
+      font-size: 2.6rem;
+      letter-spacing: -0.07rem;
+    }
+}
+  
+@media only screen and (max-width: 768px) {
+    p.lead {
+      font-size: 1.7rem;
+    }
+}
+
+/** 
+ * ===================================================================
+ * 03. Header
+ * ------------------------------------------------------------------- 
+ */
+
+.main-container {
+    background-image: url(images/Dreamy\ Astronomer.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/**
+   * Responsive Styles (Media Queries)
+   * -------------------------------------------------------------------
+   */
+
+@media (max-width: 600px) {
+    .main-container {
+        background-position: 30% center;
+    }
+}
+
+@media (max-width: 500px) {
+    .main-container {
+        background-position: 30% center;
+    }
+}
+
+@media (max-width: 400px) {
+    .main-container {
+        background-position: 30% center;
+    }
+}
+
+@media (max-width: 375px) {
+    .main-container {
+        background-position: 30% center;
+    }
+}
+
+@media (max-width: 345px) {
+    .main-container {
+        background-position: 28% center;
+    }
+}
+
+@media (max-width: 300px) {
+    .main-container {
+        background-position: 27% center;
+    }
+}
+
+@media (max-width: 259px) {
+    .main-container {
+        background-position: 25% center;
+    }
+}
+
+@media (max-width: 190px) {
+    .main-container {
+        background-position: 23% center;
+    }
+}
+
+
+/* ------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------*/
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 2rem;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.logo-image {
+    width: 60px;
+    height: 60px;
+    margin-right: 1.5rem;
+}
+
+.logo h1 {
+    font-size: 2rem;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 5px;
+    margin-left: 0.8rem;
+    color: #c2b4b4cf;
+}
+
+.header-heading {
+    margin-top: 0;
+    margin-left: 0.8rem;
+    color: #c2b4b4cf;
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 1.9rem;
+    font-weight: 600;
+    gap: 0;
+}
+
+#sidebar-hide{
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 7rem;
+}
+
+nav a{
+    height: 100%;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: white !important;
+}
+
+nav a:hover{
+    color: #ff0077 !important;
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.sidebar a{
+    text-align: left;
+    margin-left: 2rem;
+}
+
+.menu-button{
+    display: none;
+}
+
+nav li{
+    height: 50px;
+}
+
+
+/**
+   * Responsive Styles (Media Queries)
+   * -------------------------------------------------------------------
+   */
+
+@media(max-width: 800px){
+    .hideOnMobile{
+        display: none;
+}
+    .menu-button{
+        display: block;
+}
+}  
+
+@media(max-width: 400px){
+    .sidebar{
+        width: 100%;
+}
+}
+
+@media(max-width: 355px){
+    .sidebar{
+        width: 100%;
+    }
+
+    .logo-image {
+        width: 50px;
+        height: 50px;
+        
+    }
+
+    .logo h1 {
+        font-size: 1.4rem;
+        margin-left: 0.5rem;
+    }
+}
+
+@media (max-width: 282px) {
+    .header {
+        padding: 1rem 1rem;
+    }
+
+    .sidebar{
+        width: 100%;
+    }
+
+    .logo-image {
+        width: 40px;
+        height: 40px;
+        
+    }
+
+    .logo h1 {
+        font-size: 1.2rem;
+        margin-left: 0.5rem;
+    }
+    
+}
+
+ /** 
+ * ===================================================================
+ * 04. Certificate Body
+ * ------------------------------------------------------------------- 
+ */
+
+ #intro {
+    width: 100%;
+    height: 100%;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+  }
+  .intro-overlay {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #111111;
+    opacity: 0.85;
+  }
+  
+  .intro-content {
+    vertical-align: middle;
+    transform: translateY(-2.1rem);
+  }
+  .intro-content h1 {
+    color: #ffffff;
+    font-family: "poppins-medium", sans-serif;
+    font-size: 8.4rem;
+    line-height: 1.071;
+    max-width: 900px;
+    margin-top: 0;
+    margin-bottom: 0.6rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+  .intro-content h5 {
+    color: #cc005f;
+    font-family: "poppins-bold", sans-serif;
+    font-size: 2.3rem;
+    line-height: 1.565;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  }
+  .intro-content .intro-position {
+    font-family: "lora-regular", serif;
+    font-size: 1.7rem;
+    line-height: 2.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    color: #ffffff;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  }
+  .intro-content .intro-position span {
+    display: inline-block;
+  }
+  .intro-content .intro-position span::after {
+    content: "|";
+    text-align: center;
+    display: inline-block;
+    padding: 0 8px 0 14px;
+    color: rgba(255, 255, 255, 0.3);
+  }
+  .intro-content .intro-position span:first-child::before {
+    content: "|";
+    text-align: center;
+    display: inline-block;
+    padding: 0 14px 0 8px;
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+.intro-content div {
+    text-align: center;
+}
+
+.intro-about {
+    margin-top: 2rem;
+}
+
+  .intro-content .button {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #ffffff !important;
+    height: 6rem !important;
+    line-height: 5.4rem !important;
+    padding: 2rem !important;
+    border: rgba(108, 107, 107, 0.8) solid 2.4px;
+    text-decoration: none;
+    margin-top: 0.6rem;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25rem;
+  }
+  .intro-content .button:hover,
+  .intro-content .button:focus {
+    border-color: #cc005f;
+  }
+  .intro-content .button::after {
+    display: inline-block;
+    content: "\f107";
+    font-family: fontAwesome;
+    font-size: 1.6rem;
+    line-height: inherit;
+    text-align: center;
+    position: relative;
+    left: 1.2rem;
+  }
+  
+  .intro-social {
+    display: block;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    left: 0;
+    bottom: 7.2rem;
+    font-size: 3.3rem;
+    margin: 0;
+    padding: 0;
+  }
+  .intro-social li {
+    display: inline-block;
+    margin: 0 20px;
+    padding: 0;
+  }
+  .intro-social li a,
+  .intro-social li a:visited {
+    color: #ffffff;
+  }
+  .intro-social li a:hover,
+  .intro-social li a:focus {
+    color: #cc005f;
+  }
+  
+  @media only screen and (max-width: 1024px) {
+    .intro-content h1 {
+      font-size: 7rem;
+    }
+    .intro-social {
+      font-size: 3rem;
+    }
+    .intro-social li {
+      margin: 0 15px;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+
+    .intro-content h1 {
+      font-size: 5.1rem;
+    }
+    .intro-content h5 {
+      font-size: 1.8rem;
+    }
+    .intro-content .intro-position {
+      font-size: 1.3rem;
+    }
+    .intro-about {
+        margin-top: 1.7rem;
+    }
+    .intro-content .button {
+      height: 5rem !important;
+      line-height: 4.4rem !important;
+      padding: 2rem !important;
+      font-size: 1.3rem;
+    }
+    .intro-social {
+      font-size: 2.5rem;
+    }
+    .intro-social li {
+      margin: 0 10px;
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    .intro-content h1 {
+      font-size: 4.5rem;
+      margin-bottom: 0.6rem;
+    }
+    .intro-content h5 {
+      font-size: 1.5rem;
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.2rem;
+    }
+    .intro-about {
+        margin-top: 1.5rem;
+    }
+    .intro-content .button {
+      height: 4.5rem !important;
+      line-height: 4rem !important;
+      padding: 1.5rem !important;
+      font-size: 1.2rem;
+    }
+    .intro-content .intro-position {
+      font-size: 1.2rem;
+    }
+    .intro-content .intro-position span {
+      padding: 0 0.6rem;
+    }
+    .intro-content .intro-position span::before,
+    .intro-content .intro-position span::after {
+      display: none !important;
+    }
+    .intro-social {
+      font-size: 2.4rem;
+    }
+  }
+  
+
+ /** 
+ * ===================================================================
+ * 04. Certificate Body
+ * ------------------------------------------------------------------- 
+ */
+
+.certificates {
+    padding-top: 5rem;
+}
+
+
+.Certificates-heading {
+    text-align: center;
+    color: #ff0077;
+    margin-bottom: 6rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.certifications-container {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.cert-header {
+    flex: 0 0 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 5rem;
+}
+
+.cert-header h2 {
+    font-size: 2.5rem;
+    color: #ff0077; /* Meta color */
+    margin-bottom: 0.5rem;
+}
+
+.cert-header h3 {
+    font-size: 1.rem;
+    color: #6e6e6e;
+    margin-bottom: 1.5rem;
+}
+
+.cert-header-span {
+    font-size: 1.3rem;
+    color: #6e6e6e;
+    margin-bottom: 1.5rem;
+}
+
+.cert-card-container {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2.5rem;
+    margin-right: 2rem;
+    margin-left: 1rem;
+}
+
+.cert-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+}
+
+.cert-card-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.cert-card:hover {
+    transform: scale(1.05);
+}
+
+.cert-logo {
+    width: 100%;
+    height: 200px;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-bottom: 0%;
+    object-fit: contain;
+}
+
+.view-btn {
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    color: #ff0077 !important;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    border: #6e6e6e solid 2.2px;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.cert-body h3 {
+    margin: 10px;
+    font-size: 1.5rem;
+}
+
+/**
+   * Responsive Styles (Media Queries)
+   * -------------------------------------------------------------------
+   */
+
+
+@media (max-width: 1200px) {
+    .cert-card-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .cert-header {
+        margin-left: 3rem;
+        justify-content: flex-start;
+    }
+
+}
+
+@media (max-width: 925) {
+    .view-btn {
+        font-size: 1.2rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .cert-card-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cert-header {
+        gap: 1.5rem;
+        margin-left: 2rem;
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .cert-card-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 400px) {
+    
+    .certificates {
+        padding-top: 3rem;
+        padding-bottom: 5rem;
+    }
+
+    .certifications-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .cert-header {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 0;
+        margin-bottom: 2rem;
+        align-items: center;
+        padding-top: 3.5rem;
+    }
+
+    .cert-header div {
+        text-align: center;
+    }
+
+    .cert-header-span {
+        font-size: 1.7rem;
+        color: #6e6e6e;
+    }
+
+    .cert-card-container {
+        grid-template-columns: 1fr; 
+        margin-left: 0;
+        gap: 15px;
+    }
+
+    .cert-card {
+        margin-left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .cert-card-container {
+        margin-right: 0;
+    }
+
+    .Certificates-heading {
+        font-size: 2rem;
+        margin-bottom: 0;
+        margin-top: 2rem;
+    }
+
+    .cert-header h3 {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 190px) {
+    .cert-card {
+        width: 100%;
+    }
+
+}
+
+ /** 
+ * ===================================================================
+ * 05. Popup Modal
+ * ------------------------------------------------------------------- 
+ */
+
+.popup-modal {
+    display: none; /* Hide by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    background: #ffffff;
+    max-width: 600px;
+    width: 70%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    overflow: hidden;
+}
+  
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+}
+  
+.popup-modal .media {
+  position: relative;
+}
+
+.popup-modal img {
+  vertical-align: bottom;
+  width: 100%;  
+  height: auto;
+  margin-top: 15px;
+}
+
+.popup-modal .description-box {
+  padding: 1.8rem 3.6rem 3rem;
+}
+
+.popup-modal .description-box h4 {
+  font-family: "poppins-bold", sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.1rem;
+  line-height: 2.4rem;
+  margin-bottom: 0.6rem;
+}
+
+.popup-modal .categories {
+  font-family: "poppins-bold", sans-serif;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  display: block;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-modal .link-box {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  background: #000000;
+}
+
+.popup-modal .link-box a {
+  font-family: "poppins-bold", sans-serif;
+  font-size: 1.2rem;
+  line-height: 6rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  cursor: pointer;
+  display: block;
+  text-align: center;
+  float: left;
+  width: 50%;
+  transition: all 0.3s ease-in-out;
+}
+
+.popup-modal .link-box a:first-child {
+  border-right: 1px solid rgba(200, 200, 200, 0.1);
+}
+
+.popup-modal .link-box a:hover {
+  background: #cc005f;
+  border: none;
+}
+
+.popup-modal.show {
+    display: block;
+    animation: popupFadeIn 0.1s ease-out forwards;
+}
+  
+.popup-overlay.show {
+    display: block;
+    animation: overlayFadeIn 0.1s ease-out forwards;
+}
+
+/**
+   * Responsive Styles (Media Queries)
+   * -------------------------------------------------------------------
+   */
+
+
+@media only screen and (max-width: 1220px) {
+    .popup-modal {
+      width: 40%;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .popup-modal {
+      width: 60%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+  .popup-modal {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+    .popup-modal {
+      width: 90%;
+    }
+}
+
+
+ /** 
+ * ===================================================================
+ * 06. Animations
+ * ------------------------------------------------------------------- 
+ */
+
+
+@keyframes popupFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translate(-50%, -50%);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translate(-50%, -50%);
+  }
+}
+
+@keyframes overlayFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+ /** 
+ * ===================================================================
+ * 07. Footer
+ * ------------------------------------------------------------------- 
+ */
+
+.footer-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px 0;
+    font-family: "poppins-regular", sans-serif;
+    color: white;
+    background-color: #1a1a1a;
+}
+
+.footer-social {
+    font-size: 2.5rem;
+    color: white;
+}
+
+.footer-social ul {
+    display: flex;
+    color: #ff0077;
+    gap: 25px;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+
+.footer-social a {
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: #ff0077;
+}
+
+/**
+   * Responsive Styles (Media Queries)
+   * -------------------------------------------------------------------
+   */
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    .footer-social ul {
+        gap: 30px;
+    }
+
+    .footer-social {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 315px) {
+    .footer-container {
+        padding: 10px 0;
+    }
+
+    .footer-social ul {
+        gap: 2rem;
+    }
+
+    .footer-container p {
+        font-size: 1.5rem;
+    }
+}
