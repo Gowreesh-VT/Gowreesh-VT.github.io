@@ -25,13 +25,12 @@ document.querySelectorAll('.cert-card').forEach((card) => {
 
     modalImg.src = imgSrc;
     modalTitle.textContent = title;
-    modalCategory.textContent = 'Programming'; // You can customize this
+    modalCategory.textContent = 'Programming';
     modalLink.href = imgSrc;
 
     modal.style.display = 'block';
     overlay.style.display = 'block';
 
-    // Force reflow to allow animation on display
     void modal.offsetWidth;
 
     modal.classList.add('show');
@@ -43,11 +42,10 @@ function closePopup() {
   modal.classList.remove('show');
   overlay.classList.remove('show');
 
-  // Hide after animation ends
   setTimeout(() => {
     modal.style.display = 'none';
     overlay.style.display = 'none';
-  }, 300); // Match transition time
+  }, 300);
 }
 
 closeModal.addEventListener('click', (e) => {
