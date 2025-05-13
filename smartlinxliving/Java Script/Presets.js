@@ -4,11 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeBtn = document.getElementById('close-btn');
     const darkMode = document.querySelector('.dark-mode');
 
-    if (!sideMenu || !menuBtn || !closeBtn || !darkMode) {
-        console.error("One or more elements not found in the DOM.");
-        return;
-    }
-
     function toggleDarkMode() {
         document.body.classList.toggle('dark-mode-variables');
 
@@ -26,3 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+
+document.getElementById("heading_logo").addEventListener("click", function() {
+        window.location.href = "../index.html";
+});

@@ -1,3 +1,7 @@
+document.getElementById("heading_logo").addEventListener("click", function() {
+        window.location.href = "index.html";
+});
+
 document.addEventListener("DOMContentLoaded", function () {
     const sideMenu = document.querySelector('aside');
     const menuBtn = document.getElementById('menu-btn');
