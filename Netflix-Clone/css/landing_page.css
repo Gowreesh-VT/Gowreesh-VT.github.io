@@ -138,9 +138,9 @@ body {
   gap: 8px;
 }
 
-.translate-icon {
-  font-size: 16px !important;
-  color: white;
+.selected-option svg {
+  width: 16px;
+  height: 16px;
 }
 
 .selected-option i {
@@ -305,7 +305,14 @@ body {
   padding: 1rem 2rem;
   max-height: 52px;
   font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+}
+
+.email-form button svg {
+  margin-left: 8px;
 }
 
 .arc-divider {
@@ -380,7 +387,7 @@ body {
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
-  gap: 10px;
+  gap: 15px;
   padding: 0px 0 20px;
   scrollbar-width: none;
   margin-bottom: 40px;
@@ -396,6 +403,9 @@ body {
   height: 252px;
   position: relative;
   transition: transform 0.3s ease;
+  cursor: pointer;
+  will-change: transform;
+  z-index: 1;
 }
 
 .movie-card:nth-child(1) {
@@ -410,14 +420,14 @@ body {
 
 .movie-card:hover {
   transform: scale(1.05);
-  z-index: 6;
+  z-index: 2;
 }
 
 .card-number {
   position: absolute;
-  bottom: -12px;
+  bottom: 0px;
   left: -8px;
-  font-size: 110px;
+  font-size: 100px;
   font-family: sans-serif;
   font-style: normal;
   font-stretch: 100%;
@@ -425,14 +435,14 @@ body {
   color: rgb(23, 23, 23);
   cursor: pointer;
   text-shadow: 
-    -2px -2px 0 white,
-     2px -2px 0 white,
-    -2px  2px 0 white,
-     2px  2px 0 white,
-    0px  2px 0 white,
-    2px  0px 0 white,
-    -2px  0px 0 white,
-    0px -2px 0 white;
+    -2px -2px 0 rgba(255, 255, 255, 0.5),
+     2px -2px 0 rgba(255, 255, 255, 0.5),
+    -2px  2px 0 rgba(255, 255, 255, 0.5),
+     2px  2px 0 rgba(255, 255, 255, 0.5),
+    0px  2px 0 rgba(255, 255, 255, 0.5),
+    2px  0px 0 rgba(255, 255, 255, 0.5),
+    -2px  0px 0 rgba(255, 255, 255, 0.5),
+    0px -2px 0 rgba(255, 255, 255, 0.5);
 }
 
 
@@ -468,6 +478,240 @@ body {
   margin-right: 10px;
   margin-top: -30px;
 }
+
+/**
+ * Popup Modal - (_layout.scss)
+ * ------------------------------------------------------------------
+ */
+
+#modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9998;
+  display: none;
+}
+
+#modal-overlay.active {
+  display: block;
+}
+
+/* MODAL OVERLAY */
+.popup-modal::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(22, 22, 22);
+  z-index: -1;
+}
+
+@keyframes fadeInModal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* MODAL CONTAINER */
+.popup-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  flex-direction: column;
+  max-width: 90%;
+  width: 660px;
+  height: 86%;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.8);
+  z-index: 9999;
+  overflow: hidden;
+  border: 0.8px solid rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* MODAL ACTIVE STATE */
+.popup-modal.active {
+  display: flex;
+  opacity: 1;
+  pointer-events: auto;
+  animation: fadeInModal 0.2s ease-in-out forwards;
+}
+
+/* LOCK SCROLL */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* MODAL CLOSE BUTTON */
+.modal-close {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 20px;
+  right: 20px;
+  width: 35px;
+  height: 35px;
+  color: white;
+  cursor: pointer;
+  z-index: 10;
+  text-align: center;
+  transition: background-color 0.2s ease;
+  border-radius: 50%;
+}
+
+.modal-close:hover {
+  background-color: rgba(100, 98, 98, 0.5);
+}
+
+/* IMAGE CONTAINER */
+.media {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.media::after {
+  content: "";
+  position: absolute;
+  top: 1px; left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(40deg, rgb(22, 22, 22) 24.16%, rgba(6, 10, 23, 0) 56.61%), linear-gradient(0deg, rgb(22, 22, 22) 3.91%, rgba(6, 10, 23, 0) 69.26%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.popup-image {
+  width: 103%;
+  object-fit: cover;
+  position: relative;
+  z-index: 0;
+}
+
+.image-name {
+  position: absolute;
+  bottom: -10px;
+  left: 40px;
+  width: 53%;
+  height: auto;
+  object-fit: contain;
+  z-index: 2;
+}
+
+.image-name-small{
+  position: absolute;
+  bottom: -10px;
+  left: 40px;
+  width: 15%;
+  height: auto;
+  object-fit: contain;
+  z-index: 2;
+}
+
+.image-name-medium {
+  position: absolute;
+  bottom: -10px;
+  left: 40px;
+  width: 24%;
+  height: auto;
+  object-fit: contain;
+  z-index: 2;
+}
+
+.image-name-small-1 {
+  position: absolute;
+  bottom: -10px;
+  left: 40px;
+  width: 40%;
+  height: auto;
+  object-fit: contain;
+  z-index: 2;
+}
+
+/* DESCRIPTION */
+.description-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 22px 40px 40px 40px;
+}
+
+.description-info {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.2rem;
+}
+
+.description-info h4 {
+  background: rgba(65,65,65);
+  padding: 5px 7px;
+  color: rgba(255, 255, 255, 0.7);
+  border-radius: 4px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 21px;
+}
+
+.description-box p {
+  font-size: 1.6rem;
+  padding-top: 16px;
+}
+
+.popup-get-strted-btn {
+  background-color: #e50914;
+  color: white;
+  height: 47px;
+  width: 160px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 40px;
+  font-size: 2rem;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.popup-get-strted-btn svg {
+  margin-left: 8px;
+  align-items: center;
+}
+
+
+/* RESPONSIVE */
+@media only screen and (max-width: 600px) {
+  .popup-modal.slider {
+    flex-direction: column;
+    width: 90%;
+    height: 90vh;
+    overflow-y: auto;
+  }
+
+  .popup-image {
+    border-radius: 8px 8px 0 0;
+  }
+
+  .image-name {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    width: 80%;
+    margin: 10px auto 0;
+  }
+}
+
 
 .cards-stk {
   display: grid;
@@ -649,7 +893,14 @@ body {
   border: none;
   border-radius: 4px;
   font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+}
+
+.email-form-fnl button svg {
+  margin-left: 8px;
 }
 
 .strt-ftr {

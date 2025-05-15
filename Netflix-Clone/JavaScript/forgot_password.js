@@ -1,3 +1,6 @@
+document.getElementById("netflix-full-logo").addEventListener("click", function() {
+  window.location.href = "../landing_page.html";
+});
 
 // Validation functionality
 const emailInput = document.getElementById("email");

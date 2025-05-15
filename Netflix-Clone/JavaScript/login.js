@@ -3,8 +3,13 @@ document.getElementById("netflix-full-logo").addEventListener("click", function(
     window.location.href = "../landing_page.html";
 });
 
+document.getElementById("Forgot-Password").addEventListener("click", function() {
+    window.location.href = "forgot_password.html";
+});
+
+
 document.getElementById('learn-more').addEventListener('click', function(e) {
-    e.preventDefault(); // Prevent link from navigating
+    e.preventDefault();
     document.getElementById('recaptcha-info').style.display = 'block';
     document.getElementById('learn-more').style.display = 'none';
 });
@@ -49,16 +54,26 @@ const emailInput = document.getElementById("email");
 const emailError = document.getElementById("email-error");
 const passwordError = document.getElementById("password-error");
 
-function validateEmail() {
-    const emailValue = emailInput.value.trim();
+function isValidEmail(email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+}
 
-    if (emailValue === "" || !emailValue.includes("@") || !emailValue.includes(".")) {
-        emailInput.classList.add("input-error");
-        emailError.style.display = "block";
+function validateEmail() {
+  const emailValue = emailInput.value.trim();
+
+  if (!isValidEmail(emailValue)) {
+    emailInput.classList.add("input-error");
+  
+    if (emailValue.includes("@")) {
+      emailError.style.display = "none";
     } else {
-        emailInput.classList.remove("input-error");
-        emailError.style.display = "none";
+      emailError.style.display = "block";
     }
+  } else {
+    emailInput.classList.remove("input-error");
+    emailError.style.display = "none";
+  }  
 }
 
 function validatePassword() {

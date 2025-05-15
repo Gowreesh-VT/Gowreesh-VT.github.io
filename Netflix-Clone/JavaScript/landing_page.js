@@ -96,25 +96,35 @@ emailInput.addEventListener("blur", () => {
     }
 });
 
+function isValidEmail(email) {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+}
+
+
 function validateEmail() {
   const emailValue = emailInput.value.trim();
 
-  if (emailValue.length > 4 && !emailValue.includes("@")) {
+  if (!isValidEmail(emailValue)) {
     emailInput.classList.add("input-error");
     emailInput.classList.remove("input-success");
-    emailError.style.display = "block";
-    emailError2.style.display = "none";
-  } else if (emailValue.length <= 4 || emailValue === "") {
-    emailInput.classList.add("input-error");
-    emailInput.classList.remove("input-success");
-    emailError2.style.display = "block";
-    emailError.style.display = "none";
-  } else if (emailValue.length > 4 && emailValue.includes("@") && emailValue.includes(".")) {
+  
+    if (emailValue.includes("@")) {
+      emailError.style.display = "none";
+      emailError2.style.display = "block";
+    } else {
+      emailError.style.display = "block";
+      emailError2.style.display = "none";
+    }
+  } else {
     emailInput.classList.remove("input-error");
     emailInput.classList.add("input-success");
     emailError.style.display = "none";
     emailError2.style.display = "none";
-  }
+  
+    emailInputFnl.value = emailValue;
+    validateEmailFnl(); 
+  }  
 }
 
 const emailInputFnl = document.getElementById("email-fnl");
@@ -136,43 +146,95 @@ emailInputFnl.addEventListener("blur", () => {
 function validateEmailFnl() {
   const emailValueFnl = emailInputFnl.value.trim();
 
-  if (emailValueFnl.length > 4 && !emailValueFnl.includes("@")) {
-      emailInputFnl.classList.add("input-error");
-      emailInputFnl.classList.remove("input-success");
+  if (!isValidEmail(emailValueFnl)) {
+    emailInputFnl.classList.add("input-error");
+    emailInputFnl.classList.remove("input-success");
+  
+    if (emailValueFnl.includes("@")) {
+      emailErrorFnl.style.display = "none";
+      emailError2Fnl.style.display = "block";
+    } else {
       emailErrorFnl.style.display = "block";
       emailError2Fnl.style.display = "none";
-  } else if (emailValueFnl.length <= 4 || emailValueFnl === "") {
-      emailInputFnl.classList.add("input-error");
-      emailInputFnl.classList.remove("input-success");
-      emailError2Fnl.style.display = "block";
-      emailErrorFnl.style.display = "none";
-  } else if (emailValueFnl.length > 4 && emailValueFnl.includes("@") && emailValueFnl.includes(".")) {
-      emailInputFnl.classList.remove("input-error");
-      emailInputFnl.classList.add("input-success");
-      emailErrorFnl.style.display = "none";
-      emailError2Fnl.style.display = "none";
+    }
+  } else {
+    emailInputFnl.classList.remove("input-error");
+    emailInputFnl.classList.add("input-success");
+    emailErrorFnl.style.display = "none";
+    emailError2Fnl.style.display = "none";
+  
+    emailInput.value = emailValueFnl;
+    validateEmail(); 
   }
 }
 
-document.getElementById("get-strted-btn").addEventListener("click", function(e) {
+document.getElementById("get-strted-btn").addEventListener("click", function() {
   const emailValue = emailInput.value.trim();
+  const email = document.getElementById('email').value.trim();
 
   if (emailValue === "" || !emailValue.includes("@") || !emailValue.includes(".")) {
-    e.preventDefault();
     emailInput.focus(); 
   } else if (emailValue.length > 4 && emailValue.includes("@") && emailValue.includes(".")) {
-    // Redirect to the login page 
-    window.location.href = "HTML/Login.html";
+
+    window.location.href = `HTML/Signup/linkRegistration.html?email=${encodeURIComponent(email)}`;
   }
 });
 
 document.getElementById("fnl-get-strted-btn").addEventListener("click", function() {
   const emailValueFnl = emailInputFnl.value.trim();
+  const email = document.getElementById('email-fnl').value.trim();
 
   if (emailValueFnl === "" || !emailValueFnl.includes("@") || !emailValueFnl.includes(".")) {
     emailInputFnl.focus();
   } else if (emailValueFnl.length > 4 && emailValueFnl.includes("@") && emailValueFnl.includes(".")) {
-    // Redirect to the login page 
-    window.location.href = "HTML/Login.html";
+
+    window.location.href = `HTML/Signup/linkRegistration.html?email=${encodeURIComponent(email)}`;
   }
 });
+
+function togglePopup(id) {
+  const modal = document.getElementById(id);
+  const backdrop = document.getElementById("modal-overlay");
+  const isActive = modal.classList.contains("active");
+
+  if (isActive) {
+    closeModal(modal, backdrop);
+  } else {
+    document.querySelectorAll(".popup-modal.active").forEach(m => m.classList.remove("active"));
+
+    modal.classList.add("active");
+    backdrop.classList.add("active");
+    document.body.classList.add("modal-open");
+  }
+}
+
+function closeModal(modal, backdrop) {
+  modal.classList.remove("active");
+  backdrop.classList.remove("active");
+  document.body.classList.remove("modal-open");
+}
+
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") {
+    const modal = document.querySelector(".popup-modal.active");
+    const backdrop = document.getElementById("modal-overlay");
+    if (modal) {
+      closeModal(modal, backdrop);
+    }
+  }
+});
+
+document.getElementById("modal-overlay").addEventListener("click", function () {
+  const modal = document.querySelector(".popup-modal.active");
+  if (modal) {
+    closeModal(modal, this);
+  }
+});
+
+window.onload = function () {
+  document.querySelectorAll(".popup-get-strted-btn").forEach(button => {
+    button.addEventListener("click", function () {
+      window.location.href = "HTML/Signup/linkRegistration.html";
+    });
+  });
+};
