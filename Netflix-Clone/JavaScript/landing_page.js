@@ -238,3 +238,8 @@ window.onload = function () {
     });
   });
 };
+
+document.getElementById('learn-more').addEventListener('click', function() {
+    document.getElementById('recaptcha-info').style.display = 'block';
+    document.getElementById('learn-more').style.display = 'none';
+});

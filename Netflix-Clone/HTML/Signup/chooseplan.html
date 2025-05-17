@@ -25,28 +25,53 @@
             </path></g>
         </svg>
         <div class="sign-in-btn">
-            <a href="../../HTML/Login.html">Sign In</a>
+            <a href="../../HTML/Login.html">Sign Out</a>
         </div>
     </header>
     <main>
-        <div class="main-container" id="main-container">
-            <div class="content-container-step1" id="step1Content">
+        <div class="main-container">
+            <div class="content-container-step-3-1">
 
-                <div class="img-wrapper">
-                    <img src="../../Assets/Images/sign-up/Devices.png" alt="Devices" class="devices" />
+                <div class="img-wrapper-step-3-1"> 
+                    <img src="../../Assets/Images/sign-up/Checkmark.png" alt="Checkmark" class="logo-step-3-1"> 
                 </div>
 
-                <p class="steps_remaining">STEP <b>1</b> OF <b>4</b></p>
+                <p class="steps_remaining_step3">STEP <b>1</b> OF <b>4</b></p>
 
-                <h1>Finish setting up your account</h1>
+                <h1>Choose your plan.</h1>
 
-                <p class="send-email-para">We will send a sign-up link to <b class="display-email" id="display-email-step1"></b> so you can use Netflix without a password on any device at any time.</p>
+                <ul>
+                    <li class="step3-1-li">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" role="img" viewBox="0 0 24 24" width="24" height="24" data-icon="CheckmarkStandard" aria-hidden="true" class="step3-1-svg">
+                            <path fill="currentColor" d="M21.2928 4.29285L22.7071 5.70706L8.70706 19.7071C8.51952 19.8946 8.26517 20 7.99995 20C7.73474 20 7.48038 19.8946 7.29285 19.7071L0.292847 12.7071L1.70706 11.2928L7.99995 17.5857L21.2928 4.29285Z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                        </svg>
+                        <div>No commitments, cancel anytime.</div>
+                    </li>
+
+                    <li class="step3-1-li">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" role="img" viewBox="0 0 24 24" width="24" height="24" data-icon="CheckmarkStandard" aria-hidden="true" class="step3-1-svg">">
+                            <path fill="currentColor" d="M21.2928 4.29285L22.7071 5.70706L8.70706 19.7071C8.51952 19.8946 8.26517 20 7.99995 20C7.73474 20 7.48038 19.8946 7.29285 19.7071L0.292847 12.7071L1.70706 11.2928L7.99995 17.5857L21.2928 4.29285Z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                        </svg>
+                        <div>Everything on Netflix for one low price.</div>
+                    </li>
+
+                    <li class="step3-1-li">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" role="img" viewBox="0 0 24 24" width="24" height="24" data-icon="CheckmarkStandard" aria-hidden="true" class="step3-1-svg">">
+                            <path fill="currentColor" d="M21.2928 4.29285L22.7071 5.70706L8.70706 19.7071C8.51952 19.8946 8.26517 20 7.99995 20C7.73474 20 7.48038 19.8946 7.29285 19.7071L0.292847 12.7071L1.70706 11.2928L7.99995 17.5857L21.2928 4.29285Z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                        </svg>
+                        <div>No ads and no extra fees. Ever.</div>
+                    </li>
+
+                </ul>
 
                 <div class="button-container">
-                    <button class="button" id="send-link">Send Link</button>
+                    <button class="button-step3-1" id="Next-btn">Next</button>
                 </div>
-            </div>                
+
+            </div>
+
         </div>
+
     </main>
     <footer class="footer">
         <p><span class="footer-span">Questions? Call 000-800-919-1743</span></p>
@@ -74,5 +99,10 @@
     </footer>
 
     <script src="../../JavaScript/signup.js"></script>
+    <script>
+        document.getElementById("Next-btn").addEventListener("click", function() {
+            window.location.href = "planform.html";
+        });
+    </script>
 </body>
 </html>

@@ -7,7 +7,6 @@ document.getElementById("Forgot-Password").addEventListener("click", function() 
     window.location.href = "forgot_password.html";
 });
 
-
 document.getElementById('learn-more').addEventListener('click', function(e) {
     e.preventDefault();
     document.getElementById('recaptcha-info').style.display = 'block';
@@ -118,4 +117,32 @@ usePasswordBtn.addEventListener('click', () => {
     btnappear.style.display = 'none';
     passwordcont.style.display = 'block';
     btnhide.style.display = 'block';
+});
+
+document.querySelectorAll('.custom-dropdown').forEach(dropdown => {
+  const selectedOption = dropdown.querySelector('.selected-option');
+  const optionsMenu = dropdown.querySelector('.options');
+  const currentLanguage = dropdown.querySelector('#currentLanguage');
+  const allOptions = dropdown.querySelectorAll('.option');
+
+  selectedOption.addEventListener('click', () => {
+    if (optionsMenu.style.maxHeight) {
+      optionsMenu.style.maxHeight = null;
+    } else {
+      optionsMenu.style.maxHeight = optionsMenu.scrollHeight + "px";
+    }
+  });
+
+  allOptions.forEach(option => {
+    option.addEventListener('click', () => {
+      currentLanguage.innerText = option.innerText;
+      optionsMenu.style.maxHeight = null;
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.custom-dropdown')) {
+      optionsMenu.style.maxHeight = null;
+    }
+  });
 });

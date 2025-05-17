@@ -29,24 +29,40 @@
         </div>
     </header>
     <main>
-        <div class="main-container" id="main-container">
-            <div class="content-container-step1" id="step1Content">
+        <div class="main-container">
+            <div class="content-container-step-2-1">
 
-                <div class="img-wrapper">
-                    <img src="../../Assets/Images/sign-up/Devices.png" alt="Devices" class="devices" />
+                <p class="steps_remaining_regform">STEP <b>1</b> OF <b>4</b></p>
+
+                <h1>Create a password to start your membership</h1>
+                <p>Just a few more steps and you're done!</p>
+                <p>We hate paperwork, too.</p>
+                
+                <div class="email-form">
+                    <div class="input-container">
+                        <input type="email" id="email" placeholder=" " required>
+                        <label for="email">Email</label>
+                        <small id="email-error" class="error-message"><i class="fa-regular fa-circle-xmark"></i> Email is required.</small>
+                    </div>
+                    <div class="input-container" id="password-container">
+                        <input type="password" id="password" placeholder=" " required>
+                        <label for="password">Add a password</label>
+                        <small id="password-error" class="error-message"><i class="fa-regular fa-circle-xmark"></i> Password is required.</small>
+                        <small id="password-error2" class="error-message"><i class="fa-regular fa-circle-xmark"></i> Password should be between 6 and 60 characters.</small>
+                        <span class="toggle-password" onclick="togglePassword()">
+                            <i class="fa-regular fa-eye" id="togglePasswordIcon"></i>
+                        </span>
+                    </div>
                 </div>
-
-                <p class="steps_remaining">STEP <b>1</b> OF <b>4</b></p>
-
-                <h1>Finish setting up your account</h1>
-
-                <p class="send-email-para">We will send a sign-up link to <b class="display-email" id="display-email-step1"></b> so you can use Netflix without a password on any device at any time.</p>
 
                 <div class="button-container">
-                    <button class="button" id="send-link">Send Link</button>
+                    <button class="button-regform" id="regform-Btn">Next</button>
                 </div>
-            </div>                
+
+            </div>
+
         </div>
+
     </main>
     <footer class="footer">
         <p><span class="footer-span">Questions? Call 000-800-919-1743</span></p>
