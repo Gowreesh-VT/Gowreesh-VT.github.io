@@ -1,5 +1,5 @@
 document.getElementById("heading_logo").addEventListener("click", function() {
-        window.location.href = "../index.html";
+        window.location.href = "../";
 });
 
 const sideMenu = document.querySelector('aside');

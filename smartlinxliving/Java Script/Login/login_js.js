@@ -83,7 +83,7 @@ function verifyCode() {
     if (enteredCode === registeredCode) {
         // Delay the redirect after 1 second
         setTimeout(() => {
-            window.location.href = '../index.html'; 
+            window.location.href = '../'; 
         }, 1000);
     } else {
         alert('Incorrect code. Please try again.');

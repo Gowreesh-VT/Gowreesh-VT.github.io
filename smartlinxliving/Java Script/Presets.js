@@ -23,5 +23,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 document.getElementById("heading_logo").addEventListener("click", function() {
-        window.location.href = "../index.html";
+        window.location.href = "../";
 });
