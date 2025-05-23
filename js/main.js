@@ -191,40 +191,25 @@
 	------------------------------------------------------ */
 
   /* local validation */
-  $("#contactForm").validate({
-    /* submit via ajax */
-    submitHandler: function (form) {
-      var sLoader = $("#submit-loader");
+  $(document).ready(function () {
+    // Form validation only
+    $("#contactForm").validate({
+      submitHandler: function (form) {
+        $("#submit-loader").fadeIn();
+        form.submit(); // allow default FormSubmit to handle form
+      }
+    });
 
-      $.ajax({
-        type: "POST",
-        url: "inc/sendEmail.php",
-        data: $(form).serialize(),
-        beforeSend: function () {
-          sLoader.fadeIn();
-        },
-        success: function (msg) {
-          // Message was sent
-          if (msg == "OK") {
-            sLoader.fadeOut();
-            $("#message-warning").hide();
-            $("#contactForm").fadeOut();
-            $("#message-success").fadeIn();
-          }
-          // There was an error
-          else {
-            sLoader.fadeOut();
-            $("#message-warning").html(msg);
-            $("#message-warning").fadeIn();
-          }
-        },
-        error: function () {
-          sLoader.fadeOut();
-          $("#message-warning").html("Something went wrong. Please try again.");
-          $("#message-warning").fadeIn();
-        },
-      });
-    },
+    // Show message after redirect
+    const params = new URLSearchParams(window.location.search);
+    const successMsg = document.getElementById("message-success");
+    const errorMsg = document.getElementById("message-warning");
+
+    if (params.get("status") === "success") {
+      successMsg.style.display = "block";
+    } else if (params.has("status")) {
+      errorMsg.style.display = "block";
+    }
   });
 
   /*----------------------------------------------------- */

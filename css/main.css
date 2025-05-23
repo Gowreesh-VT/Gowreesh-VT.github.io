@@ -2537,7 +2537,7 @@ header .logo a {
   color: #fa0003;
 }
 #message-success {
-  color: #ff0077;
+  color: #008000;
 }
 #message-warning i,
 #message-success i {
@@ -2662,6 +2662,10 @@ footer .footer-social li {
 }
 footer .footer-social li a {
   color: #ffffff;
+}
+footer .footer-social li a:hover,
+footer .footer-social li a:focus {
+  color: #cc005f;
 }
 footer .copyright span {
   display: inline-block;
