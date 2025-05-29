@@ -43,32 +43,57 @@ function togglePasswordVisibility(passwordInputId) {
 }
 
 // Function to handle login
-function login() {
+async function login() {
     console.log('Login button clicked');
-    const username = document.getElementById('username').value;
+    const email = document.getElementById('username').value;
     const password = document.getElementById('signInPassword').value;
 
-    // Check if the password meets the criteria
     if (password.length >= 8 && /[0-9]/.test(password) && /[!@#$%^&*(),.?":{}|<>]/.test(password)) {
-        showCodeModal(); // Show the code modal
+        try {
+            const { error } = await supabase.auth.signInWithPassword({ email, password });
+            if (error) throw error;
+
+            showCodeModal(); // Show your code modal on successful login
+        } catch (err) {
+            alert('Login error: ' + err.message);
+        }
     } else {
         alert('Password must be at least 8 characters long and include a number and a symbol.');
     }
 }
 
 // Function to handle sign-up
-function signUp() {
-    console.log('Sign-Up button clicked');
-    const username = document.getElementById('newUsername').value; // Sign-up username input ID
-    const password = document.getElementById('signUpPassword').value; // Sign-up password input ID
+async function signUp() {
+    const email = document.getElementById('newEmail').value;
+    const password = document.getElementById('signUpPassword').value;
+    const name = document.getElementById('userName').value;
 
-    // Check if the password meets the criteria
-    if (password.length >= 8 && /[0-9]/.test(password) && /[!@#$%^&*(),.?":{}|<>]/.test(password)) {
-        showCodeModal(); // Show the code modal
-    } else {
+
+    // Password strength validation
+    if (password.length < 8 || !/\d/.test(password) || !/[!@#$%^&*]/.test(password)) {
         alert('Password must be at least 8 characters long and include a number and a symbol.');
+        return;
     }
+
+    // Call Supabase to sign up
+    const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        name
+    });
+
+
+    if (error) {
+        console.error("Sign-up error:", error.message);
+        alert(`Sign-up error: ${error.message}`);
+        return;
+    }
+
+    // Success: show alert or redirect
+    alert("Sign-up successful! Please check your email for confirmation.");
+    window.location.href = "../index.html"; // change this to your actual page
 }
+
 
 // Function to show the code modal
 function showCodeModal() {
