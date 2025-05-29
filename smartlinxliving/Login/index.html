@@ -30,7 +30,7 @@
                     <span class="eye" onclick="togglePasswordVisibility('signInPassword')">&#128065;</span>
                 </div>
                 <a href="#">Forget Your Password?</a>
-                <button type="button" onclick="login()">Login</button>
+                <button type="button" id="loginButton">Login</button>
             </form>
         </div>
 
@@ -45,13 +45,13 @@
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
                 <span>or use your email for registration</span>
-                <input type="text" placeholder="Name" required>
-                <input type="email" placeholder="Email" required>
+                    <input type="text" placeholder="Name" required id="userName">
+                    <input type="email" placeholder="Email" required id="newEmail">
                 <div class="password-container">
                     <input type="password" placeholder="Password" id="signUpPassword" required>
                     <span class="eye" onclick="togglePasswordVisibility('signUpPassword')">&#128065;</span>
                 </div>
-                <button type="button" id="SignUp-Button" onclick="signUp()">Sign Up</button>
+                <button type="button" id="signUpButton">Sign Up</button>
             </form>
         </div>
 
@@ -75,15 +75,17 @@
     <!-- Verification Code Modal -->
     <div id="codeModal" class="hidden">
         <div class="code-modal-content">
-            <button class="close-button" onclick="closeCodeModal()"><i class="fas fa-times"></i></button>
+            <button class="close-button" id="closeCodeModal"><i class="fas fa-times"></i></button>
             <p>Enter the verification code:</p>
             <input type="text" id="verificationCode" required>
             <br>
-            <button type="button" onclick="verifyCode()" class="button-1">Verify</button>
+            <button type="button" class="button-1" id="verifyCodeButton">Verify</button>
         </div>
     </div>
 
-    <script src="../Java Script/Login/login_js.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../Java Script/supabaseClient.js" defer></script>
+    <script src="../Java Script/login.js"></script>
 </body>
 
 </html>

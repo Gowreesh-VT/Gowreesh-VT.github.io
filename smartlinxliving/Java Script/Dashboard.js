@@ -51,16 +51,12 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to update the date and time
     function updateDateTime() {
         const dateElement = document.getElementById('date');
-        const timeElement = document.getElementById('time');
 
         dateElement.textContent = `Date: ${getCurrentDate()}`;
-        timeElement.textContent = `Time: ${getCurrentTime()}`;
     }
 
     // Update date, time
     updateDateTime();
-    updateWeather();
-
 
     setInterval(updateDateTime, 60000);
 
