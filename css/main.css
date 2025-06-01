@@ -2571,7 +2571,7 @@ body.modal-open {
  *
  * ------------------------------------------------------------------- 
  */
-#cta {
+#cta .cta-content {
   padding-top: 10.2rem;
   padding-bottom: 9rem;
   text-align: center;
