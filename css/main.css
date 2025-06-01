@@ -1050,7 +1050,7 @@ button.stroke:hover,
  * ------------------------------------------------------------------- 
  */
 .grey-section {
-  background: #ebebeb;
+  background: #d8d7d7;
 }
 .grey-section p.lead {
   color: #7d7d7d;
@@ -1311,7 +1311,9 @@ body.modal-open {
 
 .wrapper {
   width: 30%;
-  height: auto;
+  max-height: 95%;
+  overflow-y: auto;
+  overflow-x: hidden;
   background: rgba(113, 113, 113, 0.459);
   border: 2px solid rgba(225, 225, 225, 0.5);
   border-radius: 10px;
@@ -1319,14 +1321,18 @@ body.modal-open {
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
-  align-items: center;
-  overflow: hidden;
+  align-items: flex-start;
   transform: scale(0);
   transition: height 0.4s ease;
   position: fixed;
   left: 35%;
   top: 5%;
   z-index: 1000;
+   scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE 10+ */
+}
+.wrapper::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
 }
 
 .wrapper.active-popup {
@@ -1341,8 +1347,10 @@ body.modal-open {
 
 .form-box {
   width: 100%;
+  height: auto;
   padding: 50px 65px 40px;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .form-box.login {
@@ -1450,13 +1458,19 @@ body.modal-open {
     border: 2px solid white;
 }
 
-.circle-icon {
-  font-size: 12px;
+.cancel-icon {
+  width: 18px;
+  height: 18px;
+  fill: #f4030f;
+  flex-shrink: 0;
+  margin-right: 4px;
 }
 
 .error-message {
+    display: flex;
+    align-items: center;
     color: #f4030f;
-    font-size: 13px;
+    font-size: 13.5px;
     margin-top: -20px;
     margin-bottom: 20px;
     display: none;
@@ -1632,6 +1646,10 @@ body.modal-open {
     margin: 0;
 }
 
+.popup-links {
+  color: aquamarine !important;
+}
+
 .login h2 {
     font-size: 16px;
     padding-top: 17px;
@@ -1770,6 +1788,22 @@ body.modal-open {
     font-size: 14px;
     text-decoration: underline;
     cursor: pointer;
+}
+
+.btn-loader {
+  width: 18px;
+  height: 18px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  margin-left: 10px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .strength-meter {
@@ -2543,7 +2577,7 @@ body.modal-open {
   text-align: center;
 }
 #cta p.lead {
-  color: #6e6e6e;
+  color: #212121;
 }
 .cta-content {
   max-width: 640px;

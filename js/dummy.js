@@ -10,225 +10,215 @@ document.getElementById('signup-learn-more').addEventListener('click', function(
     document.getElementById('signup-learn-more').style.display = 'none';
 });
 
-// Eye toggle functionality
-const passwordInput = document.getElementById("password");
-const togglePasswordIcon = document.getElementById("togglePasswordIcon");
+// Login Inputs
+const loginEmail = document.getElementById('email');
+const loginPassword = document.getElementById('password');
+const loginBtn = document.querySelector('.sgn-in-btn');
+const loginEmailError = document.getElementById('email-error');
+const loginPasswordError = document.getElementById('password-error');
 
-function togglePassword() {
-    if (passwordInput.type === "password") {
-        passwordInput.type = "text";
-        togglePasswordIcon.classList.remove("fa-eye");
-        togglePasswordIcon.classList.add("fa-eye-slash");
-    } else {
-        passwordInput.type = "password";
-        togglePasswordIcon.classList.remove("fa-eye-slash");
-        togglePasswordIcon.classList.add("fa-eye");
-    }
+// Email Validation
+const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+// Show/Hide error
+function showError(input, errorEl, message) {
+  errorEl.textContent = message;
+  errorEl.style.display = 'block';
+  input.classList.add('input-error');
 }
 
-// Show/hide the eye only when typing or focused
-passwordInput.addEventListener("focus", () => {
-    document.querySelector(".toggle-password").style.display = "block";
-});
-
-passwordInput.addEventListener("input", () => {
-    if (passwordInput.value.length > 0) {
-        document.querySelector(".toggle-password").style.display = "block";
-    } else {
-        document.querySelector(".toggle-password").style.display = "none";
-    }
-});
-
-passwordInput.addEventListener("blur", () => {
-    if (passwordInput.value.length === 0) {
-        document.querySelector(".toggle-password").style.display = "none";
-    }
-});
-
-// Validation functionality
-const emailInput = document.getElementById("email");
-const emailError = document.getElementById("email-error");
-const passwordError = document.getElementById("password-error");
-
-function isValidEmail(email) {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
+function clearError(input, errorEl) {
+  errorEl.style.display = 'none';
+  input.classList.remove('input-error');
 }
 
-function validateEmail() {
-  const emailValue = emailInput.value.trim();
-
-  if (!isValidEmail(emailValue)) {
-    emailInput.classList.add("input-error");
-  
-    if (emailValue.includes("@")) {
-      emailError.style.display = "none";
-    } else {
-      emailError.style.display = "block";
-    }
-  } else {
-    emailInput.classList.remove("input-error");
-    emailError.style.display = "none";
-  }  
-}
-
-function validatePassword() {
-    if (passwordInput.value.trim() === ""|| passwordInput.value.length < 4) {
-        passwordInput.classList.add("input-error");
-        passwordError.style.display = "block";
-    } else {
-        passwordInput.classList.remove("input-error");
-        passwordError.style.display = "none";
-    }
-}
-
-const signInBtn = document.querySelector(".sgn-in-btn");
-
-signInBtn.addEventListener("click", function () {
-    validateEmail();
-    validatePassword();
-});
-
-emailInput.addEventListener("blur", validateEmail);
-emailInput.addEventListener("input", validateEmail);
-
-passwordInput.addEventListener("blur", validatePassword);
-passwordInput.addEventListener("input", validatePassword);
-
-// Toggle between using code and password for login
-const useCodeBtn = document.getElementById('use-code-btn');
-const usePasswordBtn = document.getElementById('use-password-btn');
-const usePassInstBtn = document.getElementById('use-password-instead-btn');
-const codeInputBtn = document.getElementById('send-code-btn');
-const nextBtn = document.getElementById('signup-next-btn');
-const signupBtn = document.getElementById('signup-btn');
-
-const passwordcont = document.getElementById('password-container');
-const inputCont = document.getElementById('input-container');
-const codeContainer = document.getElementById('code-container');
-const rememberCont = document.getElementById('remember-container');
-const signupNameContainer = document.getElementById("signup-name-container");
-const signupEmailContainer = document.getElementById("signup-input-container");
-
-const btnhide = document.getElementById('ent-btns-hide');
-const btnappear = document.getElementById('form-show');
-const hideLast = document.getElementById('hide-last');
-const signupPasswordContainer = document.getElementById("signup-password-container");
-const confirmPasswordContainer = document.getElementById("confirm-password-container");
-
-useCodeBtn.addEventListener('click', () => {
-    btnappear.style.display = 'block';
-    passwordcont.style.display = 'none';
-    btnhide.style.display = 'none';
-    codeContainer.style.display = 'none';
-});
-
-usePasswordBtn.addEventListener('click', () => {
-    btnappear.style.display = 'none';
-    passwordcont.style.display = 'block';
-    btnhide.style.display = 'block';
-    codeContainer.style.display = 'none';
-});
-
-codeInputBtn.addEventListener('click', () => {
-    inputCont.style.display = 'none';
-    passwordcont.style.display = 'none';
-    codeContainer.style.display = 'flex';
-    btnhide.style.display = 'none';
-    btnappear.style.display = 'none';
-    rememberCont.style.display = 'none';
-    hideLast.style.display = 'none';
-});
-
-usePassInstBtn.addEventListener('click', () => {
-    btnappear.style.display = 'none';
-    inputCont.style.display = 'block';
-    passwordcont.style.display = 'block';
-    btnhide.style.display = 'block';
-    codeContainer.style.display = 'none';
-    rememberCont.style.display = 'flex';
-    hideLast.style.display = 'block';
-});
-
-const signupNameInput = document.getElementById("signup-name");
-const signupEmailInput = document.getElementById("signup-email");
-
-const signupNameError = document.getElementById("signup-name-error");
-const signupEmailError = document.getElementById("signup-email-error");
-
-function isValidEmail(email) {
-  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return regex.test(email);
-}
-
-document.getElementById("signup-next-btn").addEventListener("click", () => {
-  const name = signupNameInput.value.trim();
-  const email = signupEmailInput.value.trim();
-
+// Login Handler
+loginBtn.addEventListener('click', async (e) => {
+  e.preventDefault();
   let valid = true;
-
-  if (name.length < 5) {
-    signupNameError.style.display = "block";
-    valid = false;
-  } else {
-    signupNameError.style.display = "none";
-  }
+  const email = loginEmail.value.trim();
+  const password = loginPassword.value;
 
   if (!isValidEmail(email)) {
-    signupEmailError.style.display = "block";
+    showError(loginEmail, loginEmailError, "Please enter a valid email.");
     valid = false;
   } else {
-    signupEmailError.style.display = "none";
+    clearError(loginEmail, loginEmailError);
+  }
+
+  if (password.length < 4) {
+    showError(loginPassword, loginPasswordError, "Password must be at least 4 characters.");
+    valid = false;
+  } else {
+    clearError(loginPassword, loginPasswordError);
+  }
+
+  if (!valid) return;
+
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email,
+    password
+  });
+
+  if (error) {
+    alert("Login failed: " + error.message);
+  } else {
+    alert("Login successful!");
+    // redirect or hide modal if needed
+  }
+});
+
+// Signup Step 1 - Name & Email
+const signupName = document.getElementById('signup-name');
+const signupEmail = document.getElementById('signup-email');
+const signupNameError = document.getElementById('signup-name-error');
+const signupEmailError = document.getElementById('signup-email-error');
+
+const signupNextBtn = document.getElementById('signup-next-btn');
+const signupBtn = document.getElementById('signup-btn');
+
+const signupNameCont = document.getElementById('signup-name-container');
+const signupEmailCont = document.getElementById('signup-input-container');
+const signupPassCont = document.getElementById('signup-password-container');
+const signupConfirmCont = document.getElementById('confirm-password-container');
+
+signupNextBtn.addEventListener('click', () => {
+  let valid = true;
+
+  if (signupName.value.trim().length < 5) {
+    showError(signupName, signupNameError, "Name must be at least 5 characters.");
+    valid = false;
+  } else {
+    clearError(signupName, signupNameError);
+  }
+
+  if (!isValidEmail(signupEmail.value.trim())) {
+    showError(signupEmail, signupEmailError, "Invalid email address.");
+    valid = false;
+  } else {
+    clearError(signupEmail, signupEmailError);
   }
 
   if (valid) {
-    signupNameContainer.style.display = "none";
-    signupEmailContainer.style.display = "none";
-    signupPasswordContainer.style.display = "block";
-    confirmPasswordContainer.style.display = "block";
-    nextBtn.style.display = "none";
-    signupBtn.style.display = "block";
+    signupNameCont.style.display = 'none';
+    signupEmailCont.style.display = 'none';
+    signupPassCont.style.display = 'block';
+    signupConfirmCont.style.display = 'block';
+    signupNextBtn.style.display = 'none';
+    signupBtn.style.display = 'block';
   }
 });
 
+const signupPassword = document.getElementById('signup-password');
+const signupConfirm = document.getElementById('signup-confirm-password');
+const signupPassError = document.getElementById('signup-password-error');
+const signupConfirmError = document.getElementById('signup-confirm-password-error');
 
-// OTP input functionality
-const OTPinputs = document.querySelectorAll('.otp-inputarea');
-const button = document.querySelector('.sgn-in-btn');
+signupBtn.addEventListener('click', async () => {
+  let valid = true;
+  const pass = signupPassword.value.trim();
+  const confirm = signupConfirm.value.trim();
+  const email = signupEmail.value.trim();
+  const name = signupName.value.trim();
 
-window.onload = () => OTPinputs[0].focus();
+  if (pass.length < 6) {
+    showError(signupPassword, signupPassError, "Password must be at least 6 characters.");
+    valid = false;
+  } else {
+    clearError(signupPassword, signupPassError);
+  }
 
-OTPinputs.forEach((input, index) => {
-    input.addEventListener('input', () => {
-        if (input.value.length > 1) {
-            input.value = input.value.slice(0, 1);  // allow only one digit
-        }
+  if (pass !== confirm) {
+    showError(signupConfirm, signupConfirmError, "Passwords do not match.");
+    valid = false;
+  } else {
+    clearError(signupConfirm, signupConfirmError);
+  }
 
-        if (input.value && index < OTPinputs.length - 1) {
-            OTPinputs[index + 1].removeAttribute('disabled');
-            OTPinputs[index + 1].focus();
-        }
+  if (!valid) return;
 
-        // Activate button only when all OTP fields are filled
-        const allFilled = [...OTPinputs].every(inp => inp.value);
-        if (allFilled) {
-            button.classList.add("active");
-        } else {
-            button.classList.remove("active");
-        }
-    });
+  const { data, error } = await supabase.auth.signUp({
+    email,
+    password: pass,
+    options: {
+      data: { name },
+      emailRedirectTo: "https://gowreesh.works/thanks" // ✅ customize if needed
+    }
+  });
 
-    input.addEventListener('keyup', (e) => {
-        if (e.key === "Backspace" && index > 0) {
-            input.value = '';
-            OTPinputs[index].setAttribute("disabled", true);
-            OTPinputs[index - 1].focus();
-        }
-    });
+  if (error) {
+    alert("Signup failed: " + error.message);
+  } else {
+    alert("Signup successful! Please check your email to verify your account.");
+    document.querySelector(".login-link")?.click(); // ✅ optional redirect to login
+  }
 });
 
+const strengthBar = document.getElementById("strength-bar");
+const strengthText = document.getElementById("password-strength-text");
 
-// Login and Register functionality
+signupPassword.addEventListener("input", () => {
+  const val = signupPassword.value;
+  let score = 0;
+
+  if (val.length >= 6) score++;
+  if (/[A-Z]/.test(val)) score++;
+  if (/[0-9]/.test(val)) score++;
+  if (/[^A-Za-z0-9]/.test(val)) score++;
+
+  if (score === 0) {
+    strengthBar.style.width = "0%";
+    strengthBar.className = "strength-bar";
+    strengthText.textContent = "Password strength";
+    strengthText.style.color = "#ccc";
+  } else if (score <= 2) {
+    strengthBar.style.width = "33%";
+    strengthBar.className = "strength-bar strength-weak";
+    strengthText.textContent = "Weak";
+    strengthText.style.color = "#e74c3c";
+  } else if (score === 3) {
+    strengthBar.style.width = "66%";
+    strengthBar.className = "strength-bar strength-medium";
+    strengthText.textContent = "Medium";
+    strengthText.style.color = "#f1c40f";
+  } else {
+    strengthBar.style.width = "100%";
+    strengthBar.className = "strength-bar strength-strong";
+    strengthText.textContent = "Strong";
+    strengthText.style.color = "#2ecc71";
+  }
+});
+
+const OTPinputs = document.querySelectorAll(".otp-inputarea");
+const otpSubmitBtn = document.querySelector(".sgn-in-btn");
+
+// Autofocus first input on page load
+window.addEventListener("load", () => OTPinputs[0]?.focus());
+
+OTPinputs.forEach((input, index) => {
+  input.addEventListener("input", () => {
+    input.value = input.value.slice(0, 1); // allow only 1 digit
+
+    if (input.value && index < OTPinputs.length - 1) {
+      OTPinputs[index + 1].removeAttribute("disabled");
+      OTPinputs[index + 1].focus();
+    }
+
+    const allFilled = [...OTPinputs].every(inp => inp.value);
+    otpSubmitBtn.disabled = !allFilled;
+    otpSubmitBtn.classList.toggle("active", allFilled);
+  });
+
+  input.addEventListener("keyup", (e) => {
+    if (e.key === "Backspace" && index > 0) {
+      input.value = "";
+      OTPinputs[index].setAttribute("disabled", true);
+      OTPinputs[index - 1].focus();
+    }
+  });
+});
+
+// Toggle wrapper classes for login/signup
 const wrapper = document.querySelector(".wrapper");
 const loginLink = document.querySelector(".login-link");
 const registerLink = document.querySelector(".register-link1");
@@ -260,43 +250,3 @@ closeIcon.addEventListener("click", () => {
   overlay.classList.remove("active");
   body.classList.remove("modal-open");
 });
-
-// Password strength indicator for signup
-const strengthBar = document.getElementById("strength-bar");
-const strengthText = document.getElementById("password-strength-text");
-const signupPasswordInput = document.getElementById("signup-password");
-
-signupPasswordInput.addEventListener("input", () => {
-  const value = signupPasswordInput.value;
-  let strength = 0;
-
-  // Evaluate strength
-  if (value.length >= 6) strength++;
-  if (/[A-Z]/.test(value)) strength++;
-  if (/[0-9]/.test(value)) strength++;
-  if (/[^A-Za-z0-9]/.test(value)) strength++;
-
-  // Update bar and text
-  if (strength === 0) {
-    strengthBar.style.width = "0%";
-    strengthBar.className = "strength-bar";
-    strengthText.textContent = "Password strength";
-  } else if (strength <= 2) {
-    strengthBar.style.width = "33%";
-    strengthBar.className = "strength-bar strength-weak";
-    strengthText.textContent = "Weak";
-    strengthText.style.color = "#e74c3c";
-  } else if (strength === 3) {
-    strengthBar.style.width = "66%";
-    strengthBar.className = "strength-bar strength-medium";
-    strengthText.textContent = "Medium";
-    strengthText.style.color = "#f1c40f";
-  } else {
-    strengthBar.style.width = "100%";
-    strengthBar.className = "strength-bar strength-strong";
-    strengthText.textContent = "Strong";
-    strengthText.style.color = "#2ecc71";
-  }
-});
-
-

@@ -10,20 +10,59 @@ document.getElementById('signup-learn-more').addEventListener('click', function(
     document.getElementById('signup-learn-more').style.display = 'none';
 });
 
+// Eye toggle functionality
+const passwordInput = document.getElementById("password");
+const togglePasswordIcon = document.getElementById("togglePasswordIcon");
+
+function togglePassword() {
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        togglePasswordIcon.classList.remove("fa-eye");
+        togglePasswordIcon.classList.add("fa-eye-slash");
+    } else {
+        passwordInput.type = "password";
+        togglePasswordIcon.classList.remove("fa-eye-slash");
+        togglePasswordIcon.classList.add("fa-eye");
+    }
+}
+
+// Show/hide the eye only when typing or focused
+passwordInput.addEventListener("focus", () => {
+    document.querySelector(".toggle-password").style.display = "block";
+});
+
+passwordInput.addEventListener("input", () => {
+    if (passwordInput.value.length > 0) {
+        document.querySelector(".toggle-password").style.display = "block";
+    } else {
+        document.querySelector(".toggle-password").style.display = "none";
+    }
+});
+
+passwordInput.addEventListener("blur", () => {
+    if (passwordInput.value.length === 0) {
+        document.querySelector(".toggle-password").style.display = "none";
+    }
+});
+
+function closeAuthPopup() {
+  document.querySelector(".wrapper")?.classList.remove("active-popup");
+  document.querySelector(".popup-overlay")?.classList.remove("active");
+  document.body.classList.remove("modal-open");
+}
+
 // Login Inputs
 const loginEmail = document.getElementById('email');
 const loginPassword = document.getElementById('password');
-const loginBtn = document.querySelector('.sgn-in-btn');
+const loginBtn = document.querySelector('.login-btn');
 const loginEmailError = document.getElementById('email-error');
 const loginPasswordError = document.getElementById('password-error');
 
 // Email Validation
 const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-// Show/Hide error
-function showError(input, errorEl, message) {
-  errorEl.textContent = message;
-  errorEl.style.display = 'block';
+function showError(input, errorEl) {
+  errorEl.style.display = 'flex';
   input.classList.add('input-error');
 }
 
@@ -35,12 +74,15 @@ function clearError(input, errorEl) {
 // Login Handler
 loginBtn.addEventListener('click', async (e) => {
   e.preventDefault();
+  const btnText = loginBtn.querySelector('.btn-text');
+  const loader = loginBtn.querySelector('.btn-loader');
+
   let valid = true;
-  const email = loginEmail.value.trim();
+  const email = loginEmail.value.trim().toLowerCase();
   const password = loginPassword.value;
 
   if (!isValidEmail(email)) {
-    showError(loginEmail, loginEmailError, "Please enter a valid email.");
+    showError(loginEmail, loginEmailError);
     valid = false;
   } else {
     clearError(loginEmail, loginEmailError);
@@ -55,18 +97,27 @@ loginBtn.addEventListener('click', async (e) => {
 
   if (!valid) return;
 
+  // Show loader
+  btnText.textContent = "Signing in...";
+  loader.style.display = "inline-block";
+
   const { data, error } = await supabase.auth.signInWithPassword({
     email,
     password
   });
 
+  // Hide loader
+  btnText.textContent = "Sign In";
+  loader.style.display = "none";
+
   if (error) {
     alert("Login failed: " + error.message);
   } else {
     alert("Login successful!");
-    // redirect or hide modal if needed
+    closeAuthPopup(); // Hide modal if used
   }
 });
+
 
 // Signup Step 1 - Name & Email
 const signupName = document.getElementById('signup-name');
@@ -92,7 +143,7 @@ signupNextBtn.addEventListener('click', () => {
     clearError(signupName, signupNameError);
   }
 
-  if (!isValidEmail(signupEmail.value.trim())) {
+  if (!isValidEmail(signupEmail.value.trim().toLowerCase())) {
     showError(signupEmail, signupEmailError, "Invalid email address.");
     valid = false;
   } else {
@@ -107,18 +158,22 @@ signupNextBtn.addEventListener('click', () => {
     signupNextBtn.style.display = 'none';
     signupBtn.style.display = 'block';
   }
+
+  return valid;
 });
 
 const signupPassword = document.getElementById('signup-password');
 const signupConfirm = document.getElementById('signup-confirm-password');
 const signupPassError = document.getElementById('signup-password-error');
 const signupConfirmError = document.getElementById('signup-confirm-password-error');
+const signupText = signupBtn.querySelector('.btn-text');
+const signupLoader = signupBtn.querySelector('.btn-loader');
 
 signupBtn.addEventListener('click', async () => {
   let valid = true;
   const pass = signupPassword.value.trim();
   const confirm = signupConfirm.value.trim();
-  const email = signupEmail.value.trim();
+  const email = signupEmail.value.trim().toLowerCase();
   const name = signupName.value.trim();
 
   if (pass.length < 6) {
@@ -137,88 +192,178 @@ signupBtn.addEventListener('click', async () => {
 
   if (!valid) return;
 
+  signupText.textContent = "Signing up...";
+  signupLoader.style.display = "inline-block";
+
   const { data, error } = await supabase.auth.signUp({
     email,
     password: pass,
     options: {
       data: { name },
-      emailRedirectTo: "https://gowreesh.works/thanks" // ✅ customize if needed
+      emailRedirectTo: "https://gowreesh.works/thanks"
     }
   });
+
+  signupText.textContent = "Sign Up";
+  signupLoader.style.display = "none";
 
   if (error) {
     alert("Signup failed: " + error.message);
   } else {
-    alert("Signup successful! Please check your email to verify your account.");
-    document.querySelector(".login-link")?.click(); // ✅ optional redirect to login
+    alert("Signup successful! Please check your email.");
+    closeAuthPopup();
   }
 });
 
-const strengthBar = document.getElementById("strength-bar");
-const strengthText = document.getElementById("password-strength-text");
+// Google Auth Button
+const googleAuthBtn = document.getElementById('google-auth-btn');
 
-signupPassword.addEventListener("input", () => {
-  const val = signupPassword.value;
-  let score = 0;
+googleAuthBtn?.addEventListener('click', async () => {
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: 'google',
+    options: {
+      redirectTo: 'https://gowreesh.works/'
+    }
+  });
 
-  if (val.length >= 6) score++;
-  if (/[A-Z]/.test(val)) score++;
-  if (/[0-9]/.test(val)) score++;
-  if (/[^A-Za-z0-9]/.test(val)) score++;
+  if (error) {
+    alert("Google Auth failed: " + error.message);
+  }
+});
 
-  if (score === 0) {
-    strengthBar.style.width = "0%";
-    strengthBar.className = "strength-bar";
-    strengthText.textContent = "Password strength";
-    strengthText.style.color = "#ccc";
-  } else if (score <= 2) {
-    strengthBar.style.width = "33%";
-    strengthBar.className = "strength-bar strength-weak";
-    strengthText.textContent = "Weak";
-    strengthText.style.color = "#e74c3c";
-  } else if (score === 3) {
-    strengthBar.style.width = "66%";
-    strengthBar.className = "strength-bar strength-medium";
-    strengthText.textContent = "Medium";
-    strengthText.style.color = "#f1c40f";
+// Microsoft Auth Button
+const microsoftBtn = document.getElementById('microsoft-auth-btn');
+microsoftBtn?.addEventListener('click', async () => {
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: 'azure',
+    options: {
+      redirectTo: 'https://gowreesh.works/thanks'
+    }
+  });
+
+  if (error) {
+    alert("Microsoft login failed: " + error.message);
+  }
+});
+
+
+const sendCodeBtn = document.getElementById("send-code-btn");
+const otpEmailInput = document.getElementById("email"); // Reuses the same login email input
+const sendCodeText = sendCodeBtn.querySelector('.btn-text');
+const sendCodeLoader = sendCodeBtn.querySelector('.btn-loader');
+
+sendCodeBtn.addEventListener("click", async () => {
+  const email = otpEmailInput.value.trim().toLowerCase();
+
+  if (!isValidEmail(email)) {
+    showError(otpEmailInput, loginEmailError, "Please enter a valid email.");
+    return;
+  }
+
+  // Show loader
+  sendCodeText.textContent = "Sending...";
+  sendCodeLoader.style.display = "inline-block";
+  sendCodeBtn.disabled = true;
+
+  const { error } = await supabase.auth.signInWithOtp({
+    email: email,
+    options: {
+      emailRedirectTo: "https://gowreesh.works/verify" 
+    }
+  });
+
+  // Hide loader
+  sendCodeText.textContent = "Send sign-in code";
+  sendCodeLoader.style.display = "none";
+  sendCodeBtn.disabled = false;
+
+  if (error) {
+    alert("Failed to send code: " + error.message);
   } else {
-    strengthBar.style.width = "100%";
-    strengthBar.className = "strength-bar strength-strong";
-    strengthText.textContent = "Strong";
-    strengthText.style.color = "#2ecc71";
+    alert("Sign-in link sent to your email. Please check your inbox.");
   }
 });
 
-const OTPinputs = document.querySelectorAll(".otp-inputarea");
-const otpSubmitBtn = document.querySelector(".sgn-in-btn");
 
-// Autofocus first input on page load
-window.addEventListener("load", () => OTPinputs[0]?.focus());
+// Toggle between using code and password for login
+const useCodeBtn = document.getElementById('use-code-btn');
+const usePasswordBtn = document.getElementById('use-password-btn');
+// const usePassInstBtn = document.getElementById('use-password-instead-btn');
+// const codeInputBtn = document.getElementById('send-code-btn');
 
-OTPinputs.forEach((input, index) => {
-  input.addEventListener("input", () => {
-    input.value = input.value.slice(0, 1); // allow only 1 digit
+const passwordcont = document.getElementById('password-container');
+// const inputCont = document.getElementById('input-container');
+const codeContainer = document.getElementById('code-container');
+// const rememberCont = document.getElementById('remember-container');
 
-    if (input.value && index < OTPinputs.length - 1) {
-      OTPinputs[index + 1].removeAttribute("disabled");
-      OTPinputs[index + 1].focus();
-    }
+const btnhide = document.getElementById('ent-btns-hide');
+const btnappear = document.getElementById('form-show');
+// const hideLast = document.getElementById('hide-last');
 
-    const allFilled = [...OTPinputs].every(inp => inp.value);
-    otpSubmitBtn.disabled = !allFilled;
-    otpSubmitBtn.classList.toggle("active", allFilled);
-  });
-
-  input.addEventListener("keyup", (e) => {
-    if (e.key === "Backspace" && index > 0) {
-      input.value = "";
-      OTPinputs[index].setAttribute("disabled", true);
-      OTPinputs[index - 1].focus();
-    }
-  });
+useCodeBtn.addEventListener('click', () => {
+    btnappear.style.display = 'block';
+    passwordcont.style.display = 'none';
+    btnhide.style.display = 'none';
+    codeContainer.style.display = 'none';
 });
 
-// Toggle wrapper classes for login/signup
+usePasswordBtn.addEventListener('click', () => {
+    btnappear.style.display = 'none';
+    passwordcont.style.display = 'block';
+    btnhide.style.display = 'block';
+    codeContainer.style.display = 'none';
+});
+
+// codeInputBtn.addEventListener('click', () => {
+//     inputCont.style.display = 'none';
+//     passwordcont.style.display = 'none';
+//     codeContainer.style.display = 'flex';
+//     btnhide.style.display = 'none';
+//     btnappear.style.display = 'none';
+//     rememberCont.style.display = 'none';
+//     hideLast.style.display = 'none';
+// });
+
+// usePassInstBtn.addEventListener('click', () => {
+//     btnappear.style.display = 'none';
+//     inputCont.style.display = 'block';
+//     passwordcont.style.display = 'block';
+//     btnhide.style.display = 'block';
+//     codeContainer.style.display = 'none';
+//     rememberCont.style.display = 'flex';
+//     hideLast.style.display = 'block';
+// });
+
+// OTP input functionality
+// const OTPinputs = document.querySelectorAll('.otp-inputarea');
+// const otpSubmitBtn = document.querySelector(".otp-btn");
+
+// window.onload = () => OTPinputs[0]?.focus();
+
+// OTPinputs.forEach((input, index) => {
+//   input.addEventListener('input', () => {
+//     input.value = input.value.slice(0, 1);
+//     if (input.value && index < OTPinputs.length - 1) {
+//       OTPinputs[index + 1].removeAttribute('disabled');
+//       OTPinputs[index + 1].focus();
+//     }
+
+//     const allFilled = [...OTPinputs].every(inp => inp.value);
+//     otpSubmitBtn.disabled = !allFilled;
+//     otpSubmitBtn.classList.toggle("active", allFilled);
+//   });
+
+//   input.addEventListener('keyup', (e) => {
+//     if (e.key === "Backspace" && index > 0) {
+//       input.value = '';
+//       OTPinputs[index].setAttribute("disabled", true);
+//       OTPinputs[index - 1].focus();
+//     }
+//   });
+// });
+
+
+// Login and Register changing functionality
 const wrapper = document.querySelector(".wrapper");
 const loginLink = document.querySelector(".login-link");
 const registerLink = document.querySelector(".register-link1");
@@ -250,3 +395,43 @@ closeIcon.addEventListener("click", () => {
   overlay.classList.remove("active");
   body.classList.remove("modal-open");
 });
+
+// Password strength indicator for signup
+const strengthBar = document.getElementById("strength-bar");
+const strengthText = document.getElementById("password-strength-text");
+const signupPasswordInput = document.getElementById("signup-password");
+
+signupPasswordInput.addEventListener("input", () => {
+  const value = signupPasswordInput.value;
+  let strength = 0;
+
+  // Evaluate strength
+  if (value.length >= 6) strength++;
+  if (/[A-Z]/.test(value)) strength++;
+  if (/[0-9]/.test(value)) strength++;
+  if (/[^A-Za-z0-9]/.test(value)) strength++;
+
+  // Update bar and text
+  if (strength === 0) {
+    strengthBar.style.width = "0%";
+    strengthBar.className = "strength-bar";
+    strengthText.textContent = "Password strength";
+  } else if (strength <= 2) {
+    strengthBar.style.width = "33%";
+    strengthBar.className = "strength-bar strength-weak";
+    strengthText.textContent = "Weak";
+    strengthText.style.color = "#e74c3c";
+  } else if (strength === 3) {
+    strengthBar.style.width = "66%";
+    strengthBar.className = "strength-bar strength-medium";
+    strengthText.textContent = "Medium";
+    strengthText.style.color = "#f1c40f";
+  } else {
+    strengthBar.style.width = "100%";
+    strengthBar.className = "strength-bar strength-strong";
+    strengthText.textContent = "Strong";
+    strengthText.style.color = "#2ecc71";
+  }
+});
+
+

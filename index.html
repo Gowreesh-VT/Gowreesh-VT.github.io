@@ -35,8 +35,8 @@
 
    	<link rel="stylesheet" href="css/base.css">
    	<link rel="stylesheet" href="css/main.css">
-   	<link rel="stylesheet" href="css/vendor.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>     
+   	<link rel="stylesheet" href="css/vendor.css">  
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=cancel" />  
 	<link rel="icon" type="image/png" href="images/Top_Photo.png">
 
 	<!-- Java Script 
@@ -830,13 +830,23 @@
 					<div class="input-container" id="input-container">
 						<input type="email" id="email" placeholder=" " required>
 						<label for="email">Email</label>
-						<small id="email-error" class="error-message"><i class="fa-regular fa-circle-xmark circle-icon"></i> Please enter a valid email or phone number.</small>
+						<small id="email-error" class="error-message">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
+								<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+							</svg>
+							 Please enter a valid Email.
+						</small>
 					</div>
 
 					<div class="input-container" id="password-container">
 						<input type="password" id="password" placeholder=" " required>
 						<label for="password">Password</label>
-						<small id="password-error" class="error-message"><i class="fa-regular fa-circle-xmark circle-icon"></i> Your password must contain between 4 and 60 characters.</small>
+						<small id="password-error" class="error-message">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
+								<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+							</svg>
+							 Your password must contain between 4 and 60 characters.
+						</small>
 						<span class="toggle-password" onclick="togglePassword()">
 							<i class="fa-regular fa-eye" id="togglePasswordIcon"></i>
 						</span>
@@ -850,9 +860,19 @@
 							<input type="number" class="otp-inputarea" maxlength="1" disabled>
 							<input type="number" class="otp-inputarea" maxlength="1" disabled>
 							<input type="number" class="otp-inputarea" maxlength="1" disabled>
+							<input type="number" class="otp-inputarea" maxlength="1" disabled>
+							<input type="number" class="otp-inputarea" maxlength="1" disabled>
 						</div>
-						<small id="code-error" class="error-message"><i class="fa-regular fa-circle-xmark circle-icon"></i> Incorrect code. Please try again.</small>
-						<button class="sgn-in-btn">Sign In</button>
+						<small id="code-error" class="error-message">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
+								<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+							</svg>
+							 Incorrect code. Please try again.
+						</small>
+						<button class="sgn-in-btn otp-btn">
+							<span class="btn-text">Sign In</span>
+  							<span class="btn-loader" style="display: none;"></span>
+						</button>
 						<p class="code-cont-para">Did not receive a code?</p>
 						<button class="sgn-code-btn" id="use-password-instead-btn">Use Password Instead</button>
 					</div>
@@ -860,18 +880,27 @@
 				</div>
 
 				<div class="ent-btns" id="ent-btns-hide">  
-                        <button class="sgn-in-btn">Sign In</button>
+                        <button class="sgn-in-btn login-btn">
+							<span class="btn-text">Sign In</span>
+  							<span class="btn-loader" style="display: none;"></span>
+						</button>
                         <p class="ent-btns-or">OR</p>
-                        <button class="sgn-code-btn" id="use-code-btn">Use a sign-in code</button>
+                        <button class="sgn-code-btn" id="use-code-btn">
+							<span class="btn-text">Use a sign-in code</span>
+  							<span class="btn-loader" style="display: none;"></span>
+						</button>
                         <p><span id="Forgot-Password">Forgot password?</span></p>
                 </div>
 
 				<div class="email-form-code" id="form-show" style="display: none;">
                         <div class="ent-btns">
                             <p class="ent-btns-or" style="font-size: 14px !important; margin-top: 0px;">Message and data rates may apply</p>
-                            <button class="sgn-in-btn" id="send-code-btn">Send sign-in code</button>
+                            <button class="sgn-in-btn" id="send-code-btn">
+								<span class="btn-text">Send sign-in code</span>
+  								<span class="btn-loader" style="display: none;"></span>
+							</button>
                             <p class="ent-btns-or">OR</p>
-                            <button class="sgn-code-btn" id="use-password-btn">Use password</button>
+                            <button class="sgn-code-btn" id="use-password-btn">Use Password</button>
                             <p><span style="font-size: 14px !important;">Forgot email or phone number?</span></p>
                         </div>
                 </div>
@@ -884,10 +913,10 @@
 				<div id="hide-last">
 					<h2>New to Netflix?<a class="register-link1">Sign up now.</a></h2>
 					<p >This page is protected by Google reCAPTCHA to ensure you're not a bot.</p>
-					<p><a id="learn-more">Learn more.</a></p>
+					<p><a class="popup-links" id="learn-more">Learn more.</a></p>
 					<p id="recaptcha-info" style="display: none;">
 						The information collected by Google reCAPTCHA is subject to the Google
-						<a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank">Terms of Service</a>	
+						<a class="popup-links" href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> and <a class="popup-links" href="https://policies.google.com/terms" target="_blank">Terms of Service</a>	
 					</p> 
 				</div>      
 
@@ -902,13 +931,23 @@
 					<div class="input-container" id="signup-name-container">
 						<input type="name" id="signup-name" placeholder=" " required>
 						<label for="name">Name</label>
-						<small id="signup-name-error" class="error-message"><i class="fa-regular fa-circle-xmark circle-icon"></i> Name must contain atleast 5 characters.</small>
+						<small id="signup-name-error" class="error-message">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
+								<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+							</svg>
+							Name must contain atleast 5 characters.
+						</small>
 					</div>
 
 					<div class="input-container" id="signup-input-container">
 						<input type="email" id="signup-email" placeholder=" " required>
 						<label for="email">Email</label>
-						<small id="signup-email-error" class="error-message"><i class="fa-regular fa-circle-xmark circle-icon"></i> Please enter a valid email or phone number.</small>
+						<small id="signup-email-error" class="error-message">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
+								<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+							</svg>
+							Please enter a valid email or phone number.
+						</small>
 					</div>
 
 					<div class="input-container" id="signup-password-container" style="display: none;">
@@ -918,7 +957,12 @@
 							<div class="strength-bar" id="strength-bar"></div>
 						</div>
 						<small id="password-strength-text" class="strength-text">Password strength</small>
-						<small id="signup-password-error" class="error-message"><i class="fa-regular fa-circle-xmark circle-icon"></i> Your password must contain between 4 and 60 characters.</small>
+						<small id="signup-password-error" class="error-message">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
+								<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+							</svg>
+							Your password must contain between 4 and 60 characters.
+						</small>
 						<span class="toggle-password" onclick="togglePassword()">
 							<i class="fa-regular fa-eye" id="togglePasswordIcon"></i>
 						</span>
@@ -927,7 +971,12 @@
 					<div class="input-container" id="confirm-password-container" style="display: none;">
 						<input type="password" id="signup-confirm-password" placeholder=" " required>
 						<label for="password">Confirm Password</label>
-						<small id="signup-confirm-password-error" class="error-message"><i class="fa-regular fa-circle-xmark circle-icon"></i> Password Does not Match.</small>
+						<small id="signup-confirm-password-error" class="error-message">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
+								<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+							</svg>
+							Password Does not Match.
+						</small>
 					</div>
 
 				</div>
@@ -937,7 +986,10 @@
                 </div>
 
 				<div class="ent-btns" id="signup-btn" style="display: none;">  
-                    <button class="sgn-in-btn">Sign Up</button>
+                    <button class="sgn-in-btn">
+						<span class="btn-text">Sign Up</span>
+  						<span class="btn-loader" style="display: none;"></span>
+					</button>
                 </div>
 
 				<div class="divider">
@@ -945,11 +997,11 @@
 				</div>
 
 				<div class="social-buttons">
-					<button class="social-btn google">
+					<button id="google-auth-btn" class="social-btn google">
 						<img src="images/Google-Symbol.png" alt="Google Symbol" class="logo-icon">
 						<img src="images/Google-Logo.png" alt="Google Text" class="logo-text">
 					</button>
-					<button class="social-btn microsoft">
+					<button id="microsoft-auth-btn" class="social-btn microsoft">
 						<img src="images/Microsoft-Azure-Symbol.png" alt="Microsoft Azure Logo" class="microsoft-logo">
 					</button>
 				</div>
@@ -957,10 +1009,10 @@
 				<div>
 					<h2>Already have an account? <a href="javascript:void(0);" class="login-link">Login</a></h2>
 					<p>This page is protected by Google reCAPTCHA to ensure you're not a bot.</p>
-					<p><a id="signup-learn-more">Learn more.</a></p>
+					<p><a class="popup-links" id="signup-learn-more">Learn more.</a></p>
 					<p id="signup-recaptcha-info" style="display: none;">
 						The information collected by Google reCAPTCHA is subject to the Google
-						<a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank">Terms of Service</a>	
+						<a class="popup-links" href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> and <a class="popup-links" href="https://policies.google.com/terms" target="_blank">Terms of Service</a>	
 					</p> 
 				</div>   
 
@@ -1103,7 +1155,7 @@
 							<i class="icon-pencil-ruler"></i>
 						</div>
 
-						<h3 class="stat-count">5+</h3>
+						<h3 class="stat-count">5</h3>
 
 						<h5 class="stat-title">Projects Completed</h5>
 
@@ -1127,7 +1179,7 @@
 							<i class="icon-badge"></i>
 						</div>
 
-						<h3 class="stat-count">50+</h3>
+						<h3 class="stat-count">50</h3>
 
 						<h5 class="stat-title">Certificates Received</h5>
 

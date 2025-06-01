@@ -536,10 +536,15 @@ body {
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
   z-index: 9999;
-  overflow: hidden;
+  overflow: auto;
   border: 0.8px solid rgba(255, 255, 255, 0.2);
   opacity: 0;
   pointer-events: none;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE 10+ */
+}
+.popup-modal::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
 }
 
 /* MODAL ACTIVE STATE */
@@ -701,7 +706,7 @@ body.modal-open {
   align-items: center;
 }
 
-/* RESPONSIVE */
+
 @media only screen and (max-width: 600px) {
   .popup-modal.slider {
     flex-direction: column;
@@ -1069,7 +1074,8 @@ body.modal-open {
 
   .popup-modal {
     width: 95%;
-    height: 85%;
+    height: auto;
+    max-height: 85%;
   }
 
   .popup-image {
@@ -1130,4 +1136,17 @@ body.modal-open {
     max-width: 100%;
     margin: 0 auto;
   }
+}
+
+@media screen and (max-width: 780px) {
+  .email-form-fnl {
+    max-width: 100%;
+  }
+
+  #fnl-get-strted-btn {
+    max-width: 300px;
+    font-size: 2rem;
+    padding: 1rem 0;
+  }
+  
 }
