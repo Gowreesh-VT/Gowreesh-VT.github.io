@@ -298,7 +298,11 @@ usePasswordBtn.addEventListener('click', () => {
 //     recaptchaCont.style.display = "block";
 //     forgotPasswordContainer.style.display = "none";
 //     forgotRecaptchaCont.style.display = "none";
-//
+//     resetPasswordContainer.style.display = "none";
+//     forgotSuccessContainer.style.display = "none";
+//     resetPasswordContainer.style.display = "none";
+//     forgotRecaptchaCont.style.display = "none";
+//     resetPasswordContainer.style.display = "none";
 // });
 
 usePassInstBtn.addEventListener('click', () => {
@@ -464,7 +468,7 @@ document.getElementById('send-code-btn').addEventListener('click', async () => {
   const { error } = await supabase.auth.signInWithOtp({
     email,
     options: {
-      emailRedirectTo: "https://gowreesh.works/#reset"
+      emailRedirectTo: "https://gowreesh.works/verify"
     }
   });
 
@@ -478,14 +482,32 @@ document.getElementById('send-code-btn').addEventListener('click', async () => {
   } else {
     saveCurrentLoginStep();
     // Show OTP input UI
-    document.getElementById("code-container").style.display = "flex";
-    document.getElementById("input-container").style.display = "none";
-    document.getElementById("otp-email-input-container").style.display = "none";
-    document.getElementById("password-container").style.display = "none";
-    document.getElementById("ent-btns-hide").style.display = "none";
-    document.getElementById("remember-container").style.display = "none";
-    document.getElementById("form-show").style.display = "none";
-    document.getElementById("recaptcha-container").style.display = "none";
+    // document.getElementById("code-container").style.display = "flex";
+    // document.getElementById("input-container").style.display = "none";
+    // document.getElementById("otp-email-input-container").style.display = "none";
+    // document.getElementById("password-container").style.display = "none";
+    // document.getElementById("ent-btns-hide").style.display = "none";
+    // document.getElementById("remember-container").style.display = "none";
+    // document.getElementById("form-show").style.display = "none";
+    // document.getElementById("recaptcha-container").style.display = "none";
+
+    loginText.style.display = 'block';
+    inputCont.style.display = 'none';
+    passwordcont.style.display = 'none';
+    otpEmailInputCont.style.display = 'none';
+    codeContainer.style.display = 'flex';
+    btnhide.style.display = 'none';
+    btnappear.style.display = 'none';
+    rememberCont.style.display = 'none';
+    recaptchaCont.style.display = 'none';
+    recaptchaCont.style.display = "block";
+    forgotPasswordContainer.style.display = "none";
+    forgotRecaptchaCont.style.display = "none";
+    resetPasswordContainer.style.display = "none";
+    forgotSuccessContainer.style.display = "none";
+    resetPasswordContainer.style.display = "none";
+    forgotRecaptchaCont.style.display = "none";
+    resetPasswordContainer.style.display = "none";
 
     alert("✅ OTP sent! Please check your email.");
   }
@@ -511,7 +533,7 @@ resendCodeLink.addEventListener("click", async () => {
   const { error } = await supabase.auth.signInWithOtp({
     email,
     options: {
-      emailRedirectTo: "https://gowreesh.works/#reset"
+      emailRedirectTo: "https://gowreesh.works/verify"
     }
   });
 
@@ -594,6 +616,7 @@ forgotSubmitBtn.addEventListener("click", async () => {
 
   const { error } = await supabase.auth.resetPasswordForEmail(email, {
     redirectTo: "https://gowreesh.works/#reset"
+
   });
 
   btnText.textContent = "Send Reset Link";
