@@ -89,9 +89,9 @@
 						<li><a class="smoothscroll"  href="#about" title="">About</a></li>
 						<li><a class="smoothscroll"  href="#resume" title="">Resume</a></li>
 						<li><a class="smoothscroll"  href="#portfolio" title="">Portfolio</a></li>
+						<li><a class="smoothscroll" href="#login-section" title="">Login</a></li>		
 						<li><a class="smoothscroll"  href="#services" title="">Services</a></li>					
 						<li><a class="smoothscroll"  href="#contact" title="">Contact</a></li>
-						<li><a class="smoothscroll" href="#cta" title="">Login</a></li>		
 					</ul>
 				</nav>  
 
@@ -782,51 +782,26 @@
 		<div  class="More-Project">
 			<a class="button button-primary large" href="AllCertificates/" title="">See All Certificates</a>
 		</div>
-
-		<div class="action">
-			<a class="button button-primary large btnLogin-popup" href="javascript:void(0);">Redirect</a>
-		</div>
 		
 	</section> <!-- /portfolio --> 
 
-	<!-- CTA Section
+	<!-- Login Section
    ================================================== -->
-	<!-- <section id="login" class="grey-section">
 
-		<div class="row cta-content">
+	<section id="login-section">
 
-			<div class="col-twelve section-ads">	
+		<div class="row login-container">
 
-				<h2 class="h01">Try to Login...</h2>
+			<div class="login-content">	
 
-				<p class="lead">
-					"Explore my world of captivating photography. Each image is a story waiting to be discovered in my portfolio."<span>digitaladventures.com</span>.
+				<h2>Access Granted... almost.</h2>
+
+				<p class="login-lead">
+					"Enter your email. Prove you're not a robot. Or a cat walking on your keyboard."<span></span>
 				</p>
 
 				<div class="action">
-					<a class="button button-primary large btnLogin-popup" href="javascript:void(0);">Redirect</a>
-				</div>
-
-			</div>
-
-		</div>
-
-	</section> -->
-
-	<section id="login">
-
-		<div>
-
-			<div>	
-
-				<h2>Try to Login...</h2>
-
-				<p>
-					"Explore my world of captivating photography. Each image is a story waiting to be discovered in my portfolio."<span>digitaladventures.com</span>.
-				</p>
-
-				<div class="action">
-					<a class="button button-primary large btnLogin-popup" href="javascript:void(0);">Redirect</a>
+					<a class="button button-primary large Login-popup-btn" href="javascript:void(0);">Click here to Login</a>
 				</div>
 
 			</div> <!--Col-twelve-->
@@ -847,16 +822,37 @@
 				<i class="fa fa-times" ></i>
 			</span>
 
+
 			<div class="form-box login">
 
-				<h2 class="lgn-txt">Login</h2>
+				<div class="go-back-wrapper">
+					<span id="go-back-link" class="go-back-link">
+						<svg class="go-back-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+							<path d="M15 18l-6-6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>
+						Go Back
+					</span>
+				</div>
 
-				<div class="email-form">
+				<h2 class="popup-heading" id="Login-heading">Login</h2>
+
+				<div class="email-form" id="login-email-form">
 
 					<div class="input-container" id="input-container">
 						<input type="email" id="email" placeholder=" " required>
 						<label for="email">Email</label>
 						<small id="email-error" class="error-message">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
+								<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+							</svg>
+							 Please enter a valid Email.
+						</small>
+					</div>
+
+					<div class="input-container" id="otp-email-input-container" style="display: none;">
+						<input type="email" id="otp-email" placeholder=" " required>
+						<label for="email">Email</label>
+						<small id="otp-email-error" class="error-message">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
 								<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
 							</svg>
@@ -899,44 +895,48 @@
 							<span class="btn-text">Sign In</span>
   							<span class="btn-loader" style="display: none;"></span>
 						</button>
-						<p class="code-cont-para">Did not receive a code?</p>
+						<p class="code-cont-para">Did not receive a code?
+							<span id="resend-code-link"> Resend Code</span>
+						</p>
 						<button class="sgn-code-btn" id="use-password-instead-btn">Use Password Instead</button>
 					</div>
 
 				</div>
 
 				<div class="ent-btns" id="ent-btns-hide">  
-                        <button class="sgn-in-btn login-btn">
-							<span class="btn-text">Sign In</span>
-  							<span class="btn-loader" style="display: none;"></span>
-						</button>
-                        <p class="ent-btns-or">OR</p>
-                        <button class="sgn-code-btn" id="use-code-btn">
-							<span class="btn-text">Use a sign-in code</span>
-  							<span class="btn-loader" style="display: none;"></span>
-						</button>
-                        <p><span id="Forgot-Password">Forgot password?</span></p>
-                </div>
+					<button class="sgn-in-btn login-btn">
+						<span class="btn-text">Sign In</span>
+						<span class="btn-loader" style="display: none;"></span>
+					</button>
+					<p class="ent-btns-or">OR</p>
+					<button class="sgn-code-btn" id="use-code-btn">
+						<span class="btn-text">Use a sign-in code</span>
+						<span class="btn-loader" style="display: none;"></span>
+					</button>
+					<p><span id="forgot-pass">Forgot password?</span></p>
+				</div>
+
 
 				<div class="email-form-code" id="form-show" style="display: none;">
-                        <div class="ent-btns">
-                            <p class="ent-btns-or" style="font-size: 14px !important; margin-top: 0px;">Message and data rates may apply</p>
-                            <button class="sgn-in-btn" id="send-code-btn">
-								<span class="btn-text">Send sign-in code</span>
-  								<span class="btn-loader" style="display: none;"></span>
-							</button>
-                            <p class="ent-btns-or">OR</p>
-                            <button class="sgn-code-btn" id="use-password-btn">Use Password</button>
-                            <p><span style="font-size: 14px !important;">Forgot email or phone number?</span></p>
-                        </div>
+					<div class="ent-btns">
+						<p class="ent-btns-or" style="font-size: 14px !important; margin-top: 0px;">Message and data rates may apply</p>
+						<button class="sgn-in-btn" id="send-code-btn">
+							<span class="btn-text">Send sign-in code</span>
+							<span class="btn-loader" style="display: none;"></span>
+						</button>
+						<p class="ent-btns-or">OR</p>
+						<button class="sgn-code-btn" id="use-password-btn">Use Password</button>
+					</div>
                 </div>
+
 
 				<div class="Remember-container" id="remember-container">
 					<input type="checkbox" id="remember-me" name="remember-me" value="remember-me"/>
 					<label for="remember-me" class="rmbr-me">Remember me</label>
 				</div>
 				
-				<div id="hide-last">
+
+				<div id="recaptcha-container">
 					<h2>New to Netflix?<a class="register-link1">Sign up now.</a></h2>
 					<p >This page is protected by Google reCAPTCHA to ensure you're not a bot.</p>
 					<p><a class="popup-links" id="learn-more">Learn more.</a></p>
@@ -944,15 +944,113 @@
 						The information collected by Google reCAPTCHA is subject to the Google
 						<a class="popup-links" href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> and <a class="popup-links" href="https://policies.google.com/terms" target="_blank">Terms of Service</a>	
 					</p> 
-				</div>      
+				</div>  
+
+				<div id="forgot-password-container">
+
+					<h2 class="forgot-password-heading">Reset Your Password</h2>
+
+					<p>We will send you an email with instructions on how to reset your password.</p>
+
+					<div class="input-container" id="forgot-pass-input-container">
+						<input type="email" id="forgot-password-email" placeholder=" " required>
+						<label for="email" class="input-container-label">Email</label>
+						<small id="forgot-pass-email-error" class="error-message">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
+								<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+							</svg>
+							 Please enter a valid Email address.
+						</small>
+					</div>
+
+					<button class="sgn-in-btn" id="forgot-password-submit-btn">
+						<span class="btn-text">Sign In</span>
+						<span class="btn-loader" style="display: none;"></span>
+					</button>
+
+					<a class="forgot-email-redirect" href="javascript:void(0);">I can't remember my Email address.</a>
+
+				</div>
+
+				<div id="forgot-password-success-container" style="display: none;">
+
+					<h2 class="popup-heading-success">Email Sent</h2>
+
+					<p>An email with instructions on how to reset your password has been sent to your registered email. Check your spam or junk folder if you don’t see the email in your inbox.</p>
+
+					<p>If you no longer have access to this email account, please contact me.</p>
+
+				</div>
+
+
+				<div class="reset-password-container" id="reset-password-container" style="display: none;">
+
+					<h2 class="forgot-password-heading">Change Password</h2>
+
+					<div class="input-container" id="forgot-password-input-container">
+						<input type="password" id="forgot-password" placeholder=" " required>
+						<label for="password">Password</label>
+						<div id="forgot-password-strength" class="strength-meter">
+							<div class="strength-bar" id="forgot-pass-strength-bar"></div>
+						</div>
+						<small id="forgot-password-strength-text" class="strength-text">Password strength</small>
+						<small id="forgot-password-error" class="error-message">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
+								<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+							</svg>
+							Your password must contain between 4 and 60 characters.
+						</small>
+						<span class="toggle-password" onclick="togglePassword()">
+							<i class="fa-regular fa-eye" id="togglePasswordIcon"></i>
+						</span>
+					</div>
+
+					<div class="input-container" id="forgot-confirm-password-container">
+						<input type="password" id="forgot-confirm-password" placeholder=" " required>
+						<label for="password">Confirm Password</label>
+						<small id="forgot-confirm-password-error" class="error-message">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
+								<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+							</svg>
+							Password Does not Match.
+						</small>
+					</div>
+
+					<button class="sgn-in-btn" id="set-password-btn">
+						<span class="btn-text">Set Password</span>
+						<span class="btn-loader" style="display: none;"></span>
+					</button>
+
+					<p id="reset-status" style="margin-top: 10px;"></p>
+
+				</div>
+
+				<div id="forgot-pass-recaptcha-container" style="display: none;">
+					<p>This page is protected by Google reCAPTCHA to ensure you're not a bot.</p>
+					<p><a class="popup-links" id="forgot-learn-more">Learn more.</a></p>
+					<p id="forgot-recaptcha-info" style="display: none;">
+						The information collected by Google reCAPTCHA is subject to the Google
+						<a class="popup-links" href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> and <a class="popup-links" href="https://policies.google.com/terms" target="_blank">Terms of Service</a>	
+					</p> 
+				</div>
+
 
 			</div>
 
 			<div class="form-box register">
 
-				<h2 class="signup-txt">Signup</h2>
+				<div class="go-back-wrapper" id="signup-go-back-wrapper" style="display: none;">
+					<span id="signup-go-back-link" class="go-back-link">
+						<svg class="go-back-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+						<path d="M15 18l-6-6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>
+						Go Back
+					</span>
+				</div>
 
-				<div class="email-form">
+				<h2 class="popup-heading">Signup</h2>
+
+				<div class="email-form" id="signup-email-form">
 
 					<div class="input-container" id="signup-name-container">
 						<input type="name" id="signup-name" placeholder=" " required>

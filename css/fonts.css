@@ -115,3 +115,24 @@
   font-weight: normal;
   font-style: normal;
 }
+
+/*
+ * Custom Font
+================================================================================ */
+@font-face {
+    font-family: 'Netflix Sans';
+    src: url('../fonts/Custom-Font/NetflixSans_W_Rg.woff2') format('woff2');
+    font-style: normal;
+}
+
+@font-face {
+  font-family: 'Netflix-Sans-Medium';
+  src: url('../fonts/Custom-Font/NetflixSans_W_Md.woff2') format('woff2');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Netflix-Sans-Bold';
+  src: url('../fonts/Custom-Font/NetflixSans_W_Bd.woff2') format('woff2');
+  font-style: normal;
+}
