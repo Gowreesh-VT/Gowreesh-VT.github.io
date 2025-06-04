@@ -358,7 +358,7 @@ function saveCurrentLoginStep() {
     btnhide: btnhide.style.display,
     rememberCont: rememberCont.style.display,
     formShow: btnappear.style.display,
-    hideLast: hideLast.style.display,
+    recaptchaCont: recaptchaCont.style.display,
     recaptchaCont: recaptchaCont?.style.display,
     loginText: loginText?.style.display,
     loginEmailForm: loginEmailForm?.style.display,
@@ -481,17 +481,8 @@ document.getElementById('send-code-btn').addEventListener('click', async () => {
     alert("❌ Failed to send code: " + error.message);
   } else {
     saveCurrentLoginStep();
-    // Show OTP input UI
-    // document.getElementById("code-container").style.display = "flex";
-    // document.getElementById("input-container").style.display = "none";
-    // document.getElementById("otp-email-input-container").style.display = "none";
-    // document.getElementById("password-container").style.display = "none";
-    // document.getElementById("ent-btns-hide").style.display = "none";
-    // document.getElementById("remember-container").style.display = "none";
-    // document.getElementById("form-show").style.display = "none";
-    // document.getElementById("recaptcha-container").style.display = "none";
 
-    loginText.style.display = 'block';
+    loginText.style.display = 'none';
     inputCont.style.display = 'none';
     passwordcont.style.display = 'none';
     otpEmailInputCont.style.display = 'none';
@@ -665,30 +656,27 @@ window.addEventListener("load", () => {
 ------------------------------------------------------*/
 
 const forgotEmailRedirectLink = document.querySelector(".forgot-email-redirect");
+const SignupFormBox = document.getElementById("signup-form-box");
 
 forgotEmailRedirectLink?.addEventListener("click", (e) => {
   e.preventDefault();
 
-  alert("No worries! You can create a new account or contact admin at vt.gowreesh43@gmail.com.");
+  // alert("No worries! You can create a new account or contact admin at vt.gowreesh43@gmail.com.");
 
   // Switch to signup mode
+  // wrapper.classList.add("active");
+  // wrapper.classList.remove("active-slide");
+  
   wrapper.classList.add("active");
-  wrapper.classList.remove("active-slide");
-
-  // Hide all login/forgot/reset containers
-  inputCont.style.display = "none";
-  passwordcont.style.display = "none";
-  btnhide.style.display = "none";
-  rememberCont.style.display = "none";
-  forgotPasswordContainer.style.display = "none";
-  forgotRecaptchaCont.style.display = "none";
-  forgotSuccessContainer.style.display = "none";
-  resetPasswordContainer.style.display = "none";
+  wrapper.classList.add("active-popup");
+  overlay.classList.add("active");
+  body.classList.add("modal-open");
+  
 });
 
 
 /*----------------------------------------------------*/
-/*	16. Signup Functionality
+/*	16. Forgot Password Reset Functionality
 ------------------------------------------------------*/
 
 const forgotNewPassword = document.getElementById("forgot-password");

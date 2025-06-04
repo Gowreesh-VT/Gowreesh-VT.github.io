@@ -2123,6 +2123,7 @@ body.modal-open {
 
 .popup-overlay.active {
   display: block;
+  pointer-events: auto;
 }
 
 .wrapper {
@@ -2139,21 +2140,23 @@ body.modal-open {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  transform: scale(0);
-  transition: height 0.4s ease;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.2s ease;
   position: fixed;
-  left: 35%;
-  top: 5%;
+  pointer-events: auto;
+  left: 50%;
+  top: 50%;
   z-index: 1000;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none;  /* IE 10+ */
 }
+
 .wrapper::-webkit-scrollbar {
   display: none; /* Chrome, Safari */
 }
 
 .wrapper.active-popup {
-  transform: scale(1);
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .wrapper.active {
@@ -2173,21 +2176,21 @@ body.modal-open {
 
 .form-box.login {
   transition: transform 0.18s ease-in;
-  transform: translateX(0);
+  transform: translateX(50%);
 }
 
 .wrapper.active .form-box.login {
   transition: none;
-  transform: translateX(-100%);
+  transform: translateX(-50%);
 }
 
 .wrapper .form-box.register {
-  position: absolute;
-  transform: translateX(100%);
+  /* position: absolute; */
+  transform: translateX(50%);
 }
 
 .wrapper.active .form-box.register {
-  transform: translateX(0);
+  transform: translateX(-50%);
   transition: transform 0.25s ease-in;
 }
 
