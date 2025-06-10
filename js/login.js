@@ -211,6 +211,19 @@ loginBtn.addEventListener('click', async (e) => {
   if (error) {
     alert("Login failed: " + error.message);
   } else {
+    const { user } = data;
+    let name = user.user_metadata?.full_name;
+
+    if (!name) {
+      const email = user.email || "";
+      name = email.split('@')[0] || "User";
+    }
+
+    const loginHeading = document.getElementById("login-section-heading");
+    if (loginHeading) {
+      loginHeading.textContent = `Hi! ${name}`;
+    }
+
     alert("Login successful!");
     closeAuthPopup();
   }
@@ -656,22 +669,18 @@ window.addEventListener("load", () => {
 ------------------------------------------------------*/
 
 const forgotEmailRedirectLink = document.querySelector(".forgot-email-redirect");
-const SignupFormBox = document.getElementById("signup-form-box");
 
 forgotEmailRedirectLink?.addEventListener("click", (e) => {
   e.preventDefault();
 
-  // alert("No worries! You can create a new account or contact admin at vt.gowreesh43@gmail.com.");
+  alert("No worries! You can create a new account or contact admin at vt.gowreesh43@gmail.com.");
 
   // Switch to signup mode
-  // wrapper.classList.add("active");
-  // wrapper.classList.remove("active-slide");
-  
   wrapper.classList.add("active");
   wrapper.classList.add("active-popup");
   overlay.classList.add("active");
   body.classList.add("modal-open");
-  
+
 });
 
 
@@ -798,7 +807,7 @@ signupBtn.addEventListener('click', async () => {
   const pass = signupPassword.value.trim();
   const confirm = signupConfirm.value.trim();
   const email = signupEmail.value.trim().toLowerCase();
-  const name = signupName.value.trim();
+  const fullName = signupName?.value.trim();
 
   if (pass.length < 6) {
     showError(signupPassword, signupPassError);
@@ -823,8 +832,9 @@ signupBtn.addEventListener('click', async () => {
     email,
     password: pass,
     options: {
-      data: { name },
-      emailRedirectTo: "https://gowreesh.works/thanks"
+      data: { 
+        full_name: fullName,
+      }
     }
   });
 
@@ -832,8 +842,19 @@ signupBtn.addEventListener('click', async () => {
   signupLoader.style.display = "none";
 
   if (error) {
-    alert("Signup failed: " + error.message);
+    if (error.message.includes("already registered")) {
+      alert("⚠️ This email is already registered. Try logging in instead.");
+    } else {
+      alert("❌ Signup failed: " + error.message);
+    }
   } else {
+    const name = fullName || email.substring(0, email.indexOf('@'));
+
+    const SignupHeading = document.getElementById("login-section-heading");
+    if (SignupHeading) {
+      SignupHeading.textContent = `Hi! ${name}`;
+    }
+
     alert("Signup successful! Please check your email.");
     closeAuthPopup();
   }
