@@ -2327,6 +2327,17 @@ body.modal-open {
     line-height: 1.7rem;
 }
 
+.password-error-message {
+    font-family: 'Netflix Sans', "lora-regular", serif;
+    display: flex;
+    align-items: center;
+    color: #f4030f;
+    font-size: 13.5px;
+    margin-bottom: 5px;
+    display: none;
+    line-height: 1.7rem;
+}
+
 .input-container input.input-error + label {
     bottom: 20px;
     background-color: transparent;

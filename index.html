@@ -990,10 +990,14 @@
 					<div class="input-container" id="forgot-password-input-container">
 						<input type="password" id="forgot-password" placeholder=" " required>
 						<label for="password">Password</label>
-						<div id="forgot-password-strength" class="strength-meter">
-							<div class="strength-bar" id="forgot-pass-strength-bar"></div>
+
+						<div class="strength-meter-container">
+							<div id="forgot-password-strength" class="strength-meter">
+								<div class="strength-bar" id="forgot-pass-strength-bar"></div>
+							</div>
+							<small id="forgot-password-strength-text" class="strength-text">Password strength</small>
 						</div>
-						<small id="forgot-password-strength-text" class="strength-text">Password strength</small>
+
 						<small id="forgot-password-error" class="error-message">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
 								<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
@@ -1084,7 +1088,7 @@
 							<div class="strength-bar" id="strength-bar"></div>
 						</div>
 						<small id="password-strength-text" class="strength-text">Password strength</small>
-						<small id="signup-password-error" class="error-message">
+						<small id="signup-password-error" class="password-error-message">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
 								<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
 							</svg>
@@ -1098,7 +1102,7 @@
 					<div class="input-container" id="confirm-password-container" style="display: none;">
 						<input type="password" id="signup-confirm-password" placeholder=" " required>
 						<label for="password">Confirm Password</label>
-						<small id="signup-confirm-password-error" class="error-message">
+						<small id="signup-confirm-password-error" class="password-error-message">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
 								<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
 							</svg>
