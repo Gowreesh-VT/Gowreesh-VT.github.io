@@ -1120,7 +1120,7 @@ header .row {
 header .top-bar {
   display: block;
   background: #000000;
-  min-width: 220px;
+  width: 220px;
   min-height: 66px;
   position: absolute;
   left: 90px;
@@ -1131,7 +1131,7 @@ header .top-bar {
 header .logo {
   float: left;
   margin-left: 20px;
-  margin-right: 50px;
+  margin-right: 20px;
   margin-top: 25px;
   position: relative;
 }
@@ -1269,6 +1269,11 @@ header .logo a {
 @media only screen and (max-width: 768px) {
   header .top-bar {
     left: 50px;
+    width: 180px;
+  }
+  header .logo {
+    margin-left: 10px;
+    margin-right: 10px;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -1279,6 +1284,18 @@ header .logo a {
 @media only screen and (max-width: 400px) {
   header .top-bar {
     left: 25px;
+    width: 150px;
+  }
+  header .logo a {
+    width: 80px;
+    height: 13px;
+    background-size: 80px 15px;
+  }
+  .menu-toggle {
+  width: 20px;
+  height: 20px;
+  margin-left: 30px;
+  margin-top: 22px;
   }
 }
 
@@ -1299,6 +1316,7 @@ header .logo a {
   position: relative;
   text-align: center;
 }
+
 .intro-overlay {
   position: absolute;
   top: 0;
@@ -1471,6 +1489,62 @@ header .logo a {
     font-size: 2.4rem;
   }
 }
+
+@media only screen and (max-width: 280px) {
+  #intro {
+    display: flex;
+  }
+  .intro-content h1 {
+    font-size: 3.2rem;
+    word-break: break-word;
+  }
+  .intro-content h5 {
+    font-size: 1.3rem;
+  }
+  .intro-social {
+    font-size: 2rem;
+  }
+  .intro-content .row {
+    margin-top: 150px;
+  }
+  
+}
+
+@media only screen and (max-width: 265px) {
+  .intro-content h1 {
+    font-size: 3rem;
+  }
+  .intro-content h5 {
+    font-size: 1.1rem;
+  }
+  .intro-social {
+    font-size: 1.8rem;
+  }
+  .intro-content .button {
+    width: 85%;
+    padding: 0px !important;
+    margin-top: 1.2rem;
+  }
+  .intro-content .row {
+    padding: 10px !important;
+  }
+}
+
+@media only screen and (max-width: 245px) {
+  .intro-content .button {
+    font-size: 1.2rem;
+  }
+  .intro-content .row {
+    padding: 7px !important;
+  }
+}
+
+@media only screen and (max-width: 235px) {
+  .intro-content h1 {
+    font-size: 2.8rem;
+  }
+}
+
 
 /** 
  * ===================================================================
@@ -2085,6 +2159,15 @@ header .logo a {
   color: #3f0d39;
 }
 
+.Login-popup-btn {
+  border-radius: 5px;
+}
+
+/**
+ * Responsive Design
+ * ------------------------------------------------------------------ 
+ */
+
 @media only screen and (max-width: 650px) {
   .login-container {
     max-width: 650px;
@@ -2094,6 +2177,18 @@ header .logo a {
   }
   .login-lead {
     font-size: 1.6rem;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .login-container {
+    max-width: 400px;
+  }
+  .login-container h2 {
+    font-size: 2rem;
+  }
+  .Login-popup-btn {
+    font-size: 1rem !important;
   }
 }
 
@@ -2780,6 +2875,187 @@ body.modal-open {
   margin-bottom: 25px;
 }
 
+/**
+ * Responsive Design
+ * ------------------------------------------------------------------ 
+ */
+
+@media only screen and (max-width: 1300px) {
+  .form-box {
+    padding: 50px 45px 40px;
+  }
+}
+
+@media only screen and (max-width: 1265px) {
+  .login h2 {
+    font-size: 15px;
+  }
+  .login p {
+    font-size: 12px;
+  }
+  .login p a {
+    font-size: 13px;
+  }
+    .register p {
+    font-size: 12px;
+  }
+  .register p a {
+    font-size: 13px;
+  }
+
+}
+
+@media only screen and (max-width: 1205px) {
+  .login h2 {
+    font-size: 14px;
+  }
+  #forgot-password-container p {
+  font-size: 15px;
+  }
+  .register h2 {
+    font-size: 14px;
+  }
+
+}
+
+@media only screen and (max-width: 1150px) {
+  .login h2 {
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .wrapper,
+  .wrapper.active {
+    width: 35%;
+  }
+  .form-box {
+    padding: 50px 45px 40px;
+  }
+  .login h2 {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  .wrapper,
+  .wrapper.active {
+    width: 40%;
+  }
+}
+
+@media only screen and (max-width: 860px) {
+  .wrapper,
+  .wrapper.active {
+    width: 45%;
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .wrapper,
+  .wrapper.active {
+    width: 50%;
+  }
+
+
+}
+
+@media only screen and (max-width: 690px) {
+  .wrapper,
+  .wrapper.active {
+    width: 55%;
+  }
+}
+
+@media only screen and (max-width: 630px) {
+  .wrapper,
+  .wrapper.active {
+    width: 60%;
+  }
+  .form-box {
+    padding: 50px 38px 40px;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .wrapper,
+  .wrapper.active {
+    width: 65%;
+  }
+  .form-box {
+    padding: 50px 37px 40px;
+  }
+}
+
+@media only screen and (max-width: 506px) {
+  .wrapper,
+  .wrapper.active {
+    width: 70%;
+  }
+  .form-box {
+    padding: 50px 35px 40px;
+  }
+}
+
+@media only screen and (max-width: 465px) {
+  .wrapper,
+  .wrapper.active {
+    width: 75%;
+  }
+  .form-box {
+    padding: 50px 30px 40px;
+  }
+  .login h2 {
+    font-size: 13px;
+  }
+  .login p,
+  .register p {
+    font-size: 12px;
+  }
+  .login p a,
+  .register p a {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .wrapper,
+  .wrapper.active {
+    width: 80%;
+  }
+  .form-box {
+    padding: 50px 30px 40px;
+  }
+}
+
+@media only screen and (max-width: 370px) {
+  .wrapper,
+  .wrapper.active {
+    width: 85%;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .wrapper,
+  .wrapper.active {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .wrapper,
+  .wrapper.active {
+    width: 95%;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .wrapper,
+  .wrapper.active {
+    width: 100%;
+  }
+}
+
 /** 
  * ===================================================================
  * 16. services - (_layout.scss)
@@ -3245,4 +3521,25 @@ footer .copyright span:last-child::after {
 }
 #go-top a:hover {
   background: #000000;
+}
+
+@media only screen and (max-width: 768px) {
+  #go-top a {
+    width: 6rem;
+    height: 6rem;
+    line-height: 6rem;
+  }
+  #go-top a i {
+    font-size: 1.8rem;
+  }
+}
+
+@media only screen and (max-width: 280px) {
+  #go-top {
+  position: fixed;
+  bottom: 0;
+  right: 10px;
+  z-index: 600;
+  display: none;
+}
 }
