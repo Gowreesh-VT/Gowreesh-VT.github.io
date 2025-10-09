@@ -230,4 +230,56 @@
       }
     }
   });
+
+  /*----------------------------------------------------- */
+  /* Theme Toggle
+  	------------------------------------------------------- */
+  // Initialize theme from localStorage or default to dark mode
+  const currentTheme = localStorage.getItem('theme') || 'dark';
+  const html = document.documentElement;
+  
+  if (currentTheme === 'light') {
+    html.classList.remove('dark-mode');
+  } else {
+    html.classList.add('dark-mode');
+  }
+
+  // Theme toggle functionality
+  $('#theme-toggle-btn').on('click', function() {
+    const html = document.documentElement;
+    const isDarkMode = html.classList.contains('dark-mode');
+    
+    if (isDarkMode) {
+      html.classList.remove('dark-mode');
+      localStorage.setItem('theme', 'light');
+      console.log('Switched to light mode');
+    } else {
+      html.classList.add('dark-mode');
+      localStorage.setItem('theme', 'dark');
+      console.log('Switched to dark mode');
+    }
+  });
+
+  /*----------------------------------------------------- */
+  /* Mobile Navigation Toggle
+  	------------------------------------------------------- */
+  $('#nav-toggle').on('click', function() {
+    $(this).toggleClass('active');
+    $('#nav-menu').toggleClass('active');
+  });
+
+  // Close mobile menu when clicking on a nav link
+  $('.nav-link').on('click', function() {
+    $('#nav-toggle').removeClass('active');
+    $('#nav-menu').removeClass('active');
+  });
+
+  // Close mobile menu when clicking outside
+  $(document).on('click', function(e) {
+    if (!$(e.target).closest('.nav-container').length) {
+      $('#nav-toggle').removeClass('active');
+      $('#nav-menu').removeClass('active');
+    }
+  });
+
 })(jQuery);

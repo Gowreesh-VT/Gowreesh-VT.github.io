@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html class="no-js dark-mode" lang="en">
 <head>
 
            <!-- Title 
@@ -36,12 +36,31 @@
    	<link rel="stylesheet" href="css/main.css">
    	<link rel="stylesheet" href="css/vendor.css">  
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=cancel" />  
+	<!-- Font Awesome CDN Primary -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- Font Awesome CDN Fallback -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- Font Awesome 5 for brand icons -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 	<link rel="icon" type="image/png" href="images/Top_Photo.png">
 
 	<!-- Java Script 
 	==================================================-->
 
 	<script src="js/pace.min.js"></script>
+	
+	<!-- Theme Initialization (Inline to prevent FOUC) -->
+	<script>
+		// Initialize theme immediately to prevent flash of wrong theme
+		(function() {
+			const savedTheme = localStorage.getItem('theme') || 'dark';
+			if (savedTheme === 'dark') {
+				document.documentElement.classList.add('dark-mode');
+			} else {
+				document.documentElement.classList.remove('dark-mode');
+			}
+		})();
+	</script>
 
    	<!-- Open Graph Meta Tags
 	==================================================-->
@@ -65,38 +84,62 @@
 
 </head>
 
-<body id="top">
+<body id="top">	
 
    <header> 
 	
 	<!-- Navigation Bar
 	================================================== -->
+	<nav class="navbar">
+		<div class="nav-container">
+			
+			<div class="nav-logo">
+				<a href="index.html">PortFolio</a>
+			</div>
 
-		<div class="row">
+			<div class="nav-menu" id="nav-menu">
+				<ul class="nav-list">
+					<li class="nav-item">
+						<a class="nav-link smoothscroll" href="#intro">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link smoothscroll" href="#about">About</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link smoothscroll" href="#resume">Resume</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link smoothscroll" href="#portfolio">Portfolio</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link smoothscroll" href="#login-section">Login</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link smoothscroll" href="#services">Services</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link smoothscroll" href="#contact">Contact</a>
+					</li>
+				</ul>
+			</div>
 
-			<div class="top-bar">
-
-				<a class="menu-toggle" href="#"><span>Menu</span></a>
-
-				<div class="logo">
-					<a href="index.html">Menu</a>
+			<div class="nav-actions">
+				<div class="theme-toggle">
+					<button id="theme-toggle-btn" aria-label="Toggle dark/light mode">
+						<span class="sun-icon"><i class="fa fa-sun-o"></i></span>
+						<span class="moon-icon"><i class="fa fa-moon-o"></i></span>
+					</button>
 				</div>
-							
-				<nav id="main-nav-wrap">
-					<ul class="main-navigation">
-						<li class="current"><a class="smoothscroll"  href="#intro" title="">Home</a></li>
-						<li><a class="smoothscroll"  href="#about" title="">About</a></li>
-						<li><a class="smoothscroll"  href="#resume" title="">Resume</a></li>
-						<li><a class="smoothscroll"  href="#portfolio" title="">Portfolio</a></li>
-						<li><a class="smoothscroll" href="#login-section" title="">Login</a></li>		
-						<li><a class="smoothscroll"  href="#services" title="">Services</a></li>					
-						<li><a class="smoothscroll"  href="#contact" title="">Contact</a></li>
-					</ul>
-				</nav>  
+				
+				<div class="nav-toggle" id="nav-toggle">
+					<span class="bar"></span>
+					<span class="bar"></span>
+					<span class="bar"></span>
+				</div>
+			</div>
 
-			</div> <!-- Top Bar-->
-
-		</div> <!-- row -->
+		</div>
+	</nav>
 	</header>
 
         <!-- Intro 
@@ -159,7 +202,7 @@
 
 		<div class="row about-content">
 
-			<div class="col-six tab-full">
+			<div class="col-twelve tab-full">
 
 				<h3>Profile</h3>
 				<p>Gowreesh V T. is a developer with a passion for coding, automation, and cybersecurity. He loves creating smart solutions and exploring emerging technologies.</p>
@@ -187,39 +230,76 @@
 				</ul>
 			</div>
 
-			<div class="col-six tab-full">
+		</div>
 
-				<h3>Skills</h3>
-				<p>I’m good at front-end development, Python, and a bit of cybersecurity. I love building web apps, automating stuff, and messing around with network security.</p>
-					<ul class="skill-bars">
-					<li>
-							<div class="progress percent85"><span>86%</span></div>
-							<strong>HTML5</strong>
-					</li>
-					<li>
-							<div class="progress percent45"><span>45%</span></div>
-							<strong>Python</strong>
-					</li>
-					<li>
-							<div class="progress percent75"><span>77%</span></div>
-							<strong>CSS3</strong>
-					</li>
-					<li>
-							<div class="progress percent35"><span>35%</span></div>
-							<strong>JavaScript</strong>
-					</li>
-					<li>
-							<div class="progress percent75"><span>75%</span></div>
-							<strong>SQL</strong>
-					</li>
-					</ul>	
+		<!-- Tech Skills Section -->
+		<div class="row tech-skills-section">
+			<div class="col-twelve">
+				<h3 class="skills-title">Tech Skills</h3>
+				<p class="skills-subtitle">Technologies I work with</p>
+				
+				<div class="tech-skills-grid">
+					<div class="tech-card">
+						<i class="fab fa-html5"></i>
+						<span>HTML5</span>
+					</div>
+					<div class="tech-card">
+						<i class="fab fa-css3-alt"></i>
+						<span>CSS3</span>
+					</div>
+					<div class="tech-card">
+						<i class="fab fa-js-square"></i>
+						<span>JavaScript</span>
+					</div>
+					<div class="tech-card">
+						<i class="fab fa-react"></i>
+						<span>React</span>
+					</div>
+					<div class="tech-card">
+						<i class="fab fa-python"></i>
+						<span>Python</span>
+					</div>
+					<div class="tech-card">
+						<i class="fa fa-c"></i>
+						<span>C++</span>
+					</div>
+					<div class="tech-card">
+						<i class="fa fa-database"></i>
+						<span>MySQL</span>
+					</div>
+					<div class="tech-card">
+						<i class="fab fa-googlecloud"></i>
+						<span>Google Cloud</span>
+					</div>
+					<div class="tech-card">
+						<i class="fab fa-supabase"></i>
+						<span>Supabase</span>
+					</div>
+					<div class="tech-card">
+						<i class="devicon-firebase-original"></i>
+						<span>Fire Base</span>
+					</div>
+					<div class="tech-card">
+						<i class="fa fa-code"></i>
+						<span>VS Code</span>
+					</div>
+					<div class="tech-card">
+						<i class="fab fa-git-alt"></i>
+						<span>Git</span>
+					</div>
+					<div class="tech-card">
+						<i class="fab fa-github"></i>
+						<span>GitHub</span>
+					</div>
+					<div class="tech-card">
+						<i class="devicon-meta-original"></i>
+						<span>Meta</span>
+					</div>
+				</div>
 			</div>
-
 		</div>
 
 		<div class="row button-section">
-
-			<div class="col-twelve">
 
 				<a href="#contact" title="Hire Me" class="button stroke smoothscroll">Contact Me</a>
 				<a href="Resume.pdf" title="Download CV" class="button button-primary" download>Download CV</a>
@@ -1157,7 +1237,7 @@
    ================================================== -->
 	<section id="services">
 
-		<div class="background"></div>
+		<div class="overlay"></div>
 
 			<div class="row section-intro">
 				<div class="col-twelve">
@@ -1176,7 +1256,7 @@
 
 					<div class="service">	
 
-						<span class="icon"><i class="icon-earth"></i></span>            
+						<span class="icon"><i class="fa fa-globe"></i></span>            
 
 						<div class="service-content">	
 
@@ -1190,7 +1270,7 @@
 
 					<div class="service">	
 
-							<span class="icon"><i class="icon-window"></i></span>                          
+							<span class="icon"><i class="fa fa-code"></i></span>                          
 
 						<div class="service-content">	
 
@@ -1205,7 +1285,7 @@
 
 					<div class="service">
 
-						<span class="icon"><i class="icon-toggles"></i></span>	              
+						<span class="icon"><i class="fa fa-mobile"></i></span>	              
 
 						<div class="service-content">
 
@@ -1220,7 +1300,7 @@
 
 					<div class="service">
 
-						<span class="icon"><i class="icon-paint-brush"></i></span>		            
+						<span class="icon"><i class="fa fa-paint-brush"></i></span>		            
 
 						<div class="service-content">
 
@@ -1235,7 +1315,7 @@
 
 					<div class="service">
 
-						<span class="icon"><i class="icon-image"></i></span>	            
+						<span class="icon"><i class="fa fa-image"></i></span>	            
 
 						<div class="service-content">
 
@@ -1250,7 +1330,7 @@
 
 					<div class="service">
 
-						<span class="icon"><i class="icon-chat"></i></span>	   	           
+						<span class="icon"><i class="fa fa-comments"></i></span>	   	           
 
 						<div class="service-content">
 
@@ -1282,7 +1362,7 @@
 					<div class="bgrid stat">
 
 						<div class="icon-part">
-							<i class="icon-pencil-ruler"></i>
+							<i class="fa fa-edit"></i>
 						</div>
 
 						<h3 class="stat-count">5</h3>
@@ -1294,7 +1374,7 @@
 					<div class="bgrid stat">
 
 						<div class="icon-part">
-							<i class="icon-users"></i>
+							<i class="fa fa-users"></i>
 						</div>
 
 						<h3 class="stat-count">2</h3>
@@ -1306,7 +1386,7 @@
 					<div class="bgrid stat">
 
 						<div class="icon-part">
-							<i class="icon-badge"></i>
+							<i class="fa fa-trophy"></i>
 						</div>
 
 						<h3 class="stat-count">50</h3>
@@ -1318,7 +1398,7 @@
 					<div class="bgrid stat">
 
 						<div class="icon-part">
-							<i class="icon-light-bulb"></i>
+							<i class="fa fa-lightbulb-o"></i>
 						</div>
 
 						<h3 class="stat-count">100</h3>
@@ -1330,7 +1410,7 @@
 					<div class="bgrid stat">
 
 						<div class="icon-part">
-							<i class="icon-cup"></i>
+							<i class="fa fa-coffee"></i>
 						</div>
 
 						<h3 class="stat-count">700</h3>
@@ -1342,7 +1422,7 @@
 					<div class="bgrid stat">
 
 						<div class="icon-part">
-							<i class="icon-clock"></i>
+							<i class="fa	 fa-clock-o"></i>
 						</div>
 
 						<h3 class="stat-count">1200</h3>
@@ -1496,7 +1576,8 @@
 
 			<div class="col-six tab-full">
 				<div class="copyright">
-					<span>© Copyright Gowreesh V T</span> 
+					<span>© Copyright Gowreesh V T</span>
+					<span>|</span>
 					<span>Design by Gowreesh V T</span>	         	
 				</div>		                  
 			</div>
