@@ -197,8 +197,16 @@
     $("#contactForm").on('submit', function(e) {
       e.preventDefault();
       
-      // Show loading spinner
-      $("#submit-loader").fadeIn();
+      // Validate form before submission
+      if (window.formValidator && !window.formValidator.validateForm(this)) {
+        window.toastManager?.error('Please fill in all required fields correctly.');
+        return;
+      }
+      
+      // Show enhanced loading state
+      const resetLoader = window.loadingManager?.showButtonLoader('#submit-btn', 'Sending Message...');
+      
+      // Hide existing messages
       $("#message-warning").hide();
       $("#message-success").hide();
       
@@ -210,32 +218,32 @@
         message: $("#contactMessage").val().trim()
       };
       
-      // Basic client-side validation
+      // Basic client-side validation (fallback)
       if (!formData.name || !formData.email || !formData.message) {
-        $("#submit-loader").fadeOut();
-        $("#message-warning").text("Please fill in all required fields.").fadeIn();
+        if (resetLoader) resetLoader();
+        window.toastManager?.error("Please fill in all required fields.");
         return;
       }
       
-      // Email validation
+      // Email validation (fallback)
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(formData.email)) {
-        $("#submit-loader").fadeOut();
-        $("#message-warning").text("Please enter a valid email address.").fadeIn();
+        if (resetLoader) resetLoader();
+        window.toastManager?.error("Please enter a valid email address.");
         return;
       }
       
-      // Name validation
+      // Name validation (fallback)
       if (formData.name.length < 2) {
-        $("#submit-loader").fadeOut();
-        $("#message-warning").text("Name must be at least 2 characters long.").fadeIn();
+        if (resetLoader) resetLoader();
+        window.toastManager?.error("Name must be at least 2 characters long.");
         return;
       }
       
-      // Message validation
+      // Message validation (fallback)
       if (formData.message.length < 10) {
-        $("#submit-loader").fadeOut();
-        $("#message-warning").text("Message must be at least 10 characters long.").fadeIn();
+        if (resetLoader) resetLoader();
+        window.toastManager?.error("Message must be at least 10 characters long.");
         return;
       }
       
@@ -248,14 +256,24 @@
       
       })
       .then(function(response) {
-        $("#submit-loader").fadeOut();
-        $("#message-success").text("Thank you! Your message has been sent successfully.").fadeIn();
-        $("#contactForm")[0].reset(); // Clear the form
+        // Reset button state
+        if (resetLoader) resetLoader();
         
-        // Auto-hide success message after 5 seconds
-        setTimeout(function() {
-          $("#message-success").fadeOut();
-        }, 5000);
+        // Show success toast
+        window.toastManager?.success('Thank you! Your message has been sent successfully.');
+        
+        // Clear the form
+        $("#contactForm")[0].reset();
+        
+        // Clear validation states
+        const inputs = document.querySelectorAll('#contactForm input, #contactForm textarea');
+        inputs.forEach(input => {
+          input.classList.remove('valid', 'invalid');
+          const wrapper = input.closest('.input-group') || input.parentElement;
+          wrapper.classList.remove('has-success', 'has-error');
+          const feedback = wrapper.querySelector('.validation-feedback');
+          if (feedback) feedback.textContent = '';
+        });
         
       })
       .catch(function(error) {

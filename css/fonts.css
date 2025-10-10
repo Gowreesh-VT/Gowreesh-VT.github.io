@@ -13,6 +13,8 @@
     url("../fonts/lora/lora-bold-webfont.svg#lorabold") format("svg");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
+  font-display: swap;
 }
 @font-face {
   font-family: "lora-bold-italic";
@@ -25,6 +27,7 @@
       format("svg");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "lora-italic";
@@ -36,6 +39,7 @@
     url("../fonts/lora/lora-italic-webfont.svg#loraitalic") format("svg");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "lora-regular";
@@ -47,6 +51,7 @@
     url("../fonts/lora/lora-regular-webfont.svg#loraregular") format("svg");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 /*
@@ -63,6 +68,7 @@
     url("../fonts/poppins/poppins-bold-webfont.svg#poppinsbold") format("svg");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "poppins-light";
@@ -75,6 +81,7 @@
     url("../fonts/poppins/poppins-light-webfont.svg#poppinslight") format("svg");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "poppins-medium";
@@ -88,6 +95,7 @@
       format("svg");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "poppins-regular";
@@ -101,6 +109,7 @@
       format("svg");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "poppins-semibold";
@@ -114,6 +123,7 @@
       format("svg");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 /*
@@ -123,16 +133,19 @@
     font-family: 'Netflix Sans';
     src: url('../fonts/Custom-Font/NetflixSans_W_Rg.woff2') format('woff2');
     font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Netflix-Sans-Medium';
   src: url('../fonts/Custom-Font/NetflixSans_W_Md.woff2') format('woff2');
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Netflix-Sans-Bold';
   src: url('../fonts/Custom-Font/NetflixSans_W_Bd.woff2') format('woff2');
   font-style: normal;
+  font-display: swap;
 }
