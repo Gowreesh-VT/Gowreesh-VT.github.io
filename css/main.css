@@ -281,7 +281,7 @@ img[data-src].error {
 #portfolio .folio-item img[data-src] {
   width: 100%;
   height: 100%; /* Fill the fixed container height */
-  object-fit: contain; /* Show full image without cropping */
+  object-fit: cover; /* Fill container, crop if needed */
 }
 
 @keyframes loading {
@@ -2758,7 +2758,7 @@ html:not(.dark-mode) #theme-toggle-btn:hover .sun-icon {
   width: 100% !important;
   height: 100% !important; /* Force full container height */
   display: block;
-  object-fit: contain; /* Show full image without cropping */
+  object-fit: cover; /* Fill container, crop if needed */
 }
 
 #portfolio .overlay {

@@ -1,5 +1,5 @@
 // firebase-config.js
-// Firebase configuration using CDN version
+// Firebase configuration using CDN version (Auth only - EmailJS handles contact form)
 
 // Firebase configuration
 const firebaseConfig = {
@@ -12,11 +12,9 @@ const firebaseConfig = {
     measurementId: "G-5YQRSDG91L" 
 };
 
-// Global Firebase variables
+// Global Firebase variables (Auth only)
 let firebaseApp;
 let firebaseAuth;
-let firebaseDb;
-let firebaseFunctions;
 
 // Initialize Firebase when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
@@ -30,20 +28,16 @@ function initializeFirebase() {
             // Initialize Firebase app
             firebaseApp = firebase.initializeApp(firebaseConfig);
             
-            // Initialize services
+            // Initialize Auth only (EmailJS handles contact form)
             firebaseAuth = firebase.auth();
-            firebaseDb = firebase.firestore();
-            firebaseFunctions = firebase.functions();
             
             // Make available globally
             window.firebaseApp = firebaseApp;
             window.firebaseAuth = firebaseAuth;
-            window.firebaseDb = firebaseDb;
-            window.firebaseFunctions = firebaseFunctions;
             
             // Dispatch event to notify other scripts
             window.dispatchEvent(new CustomEvent('firebaseReady', {
-                detail: { app: firebaseApp, auth: firebaseAuth, db: firebaseDb, functions: firebaseFunctions }
+                detail: { app: firebaseApp, auth: firebaseAuth }
             }));
             
             return true;
