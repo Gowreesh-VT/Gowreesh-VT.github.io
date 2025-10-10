@@ -19,6 +19,8 @@
 
 ------------------------------------------------------*/
 
+// Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
 
 /*----------------------------------------------------*/
 /*	01. Login and Register Page Change
@@ -33,29 +35,37 @@ const closeIcon = document.querySelector(".icon-close");
 const overlay = document.querySelector(".popup-overlay");
 const body = document.body;
 
-registerLink.addEventListener("click", () => {
-  wrapper.classList.add("active");
-  wrapper.classList.remove("active-slide");
-});
+if (registerLink) {
+  registerLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    wrapper.classList.add("active");
+    wrapper.classList.remove("active-slide");
+  });
+}
 
-loginLink.addEventListener("click", () => {
-  wrapper.classList.remove("active");
-  wrapper.classList.add("active-slide");
-});
+if (loginLink) {
+  loginLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    wrapper.classList.remove("active");
+    wrapper.classList.add("active-slide");
+  });
+}
 
 btnPopup.forEach(btn => {
   btn.addEventListener("click", () => {
-    wrapper.classList.add("active-popup");
-    overlay.classList.add("active");
-    body.classList.add("modal-open");
+    if (wrapper) wrapper.classList.add("active-popup");
+    if (overlay) overlay.classList.add("active");
+    if (body) body.classList.add("modal-open");
   });
 });
 
-closeIcon.addEventListener("click", () => {
-  wrapper.classList.remove("active-popup");
-  overlay.classList.remove("active");
-  body.classList.remove("modal-open");
-});
+if (closeIcon) {
+  closeIcon.addEventListener("click", () => {
+    if (wrapper) wrapper.classList.remove("active-popup");
+    if (overlay) overlay.classList.remove("active");
+    if (body) body.classList.remove("modal-open");
+  });
+}
 
 // Click outside the modal to close
 overlay.addEventListener("click", (e) => {
@@ -200,20 +210,15 @@ loginBtn.addEventListener('click', async (e) => {
   btnText.textContent = "Signing in...";
   loader.style.display = "inline-block";
 
-  const { data, error } = await supabase.auth.signInWithPassword({
-    email,
-    password
-  });
+  try {
+    // Use Firebase authentication instead of Supabase
+    const userCredential = await window.firebaseAuth.signInWithEmailAndPassword(email, password);
+    const user = userCredential.user;
+    
+    btnText.textContent = "Sign In";
+    loader.style.display = "none";
 
-  btnText.textContent = "Sign In";
-  loader.style.display = "none";
-
-  if (error) {
-    alert("Login failed: " + error.message);
-  } else {
-    const { user } = data;
-    let name = user.user_metadata?.full_name;
-
+    let name = user.displayName;
     if (!name) {
       const email = user.email || "";
       name = email.split('@')[0] || "User";
@@ -226,6 +231,11 @@ loginBtn.addEventListener('click', async (e) => {
 
     alert("Login successful!");
     closeAuthPopup();
+    
+  } catch (error) {
+    btnText.textContent = "Sign In";
+    loader.style.display = "none";
+    alert("Login failed: " + error.message);
   }
 });
 
@@ -590,7 +600,6 @@ otpSubmitBtn.addEventListener("click", async () => {
     document.getElementById("code-error").style.display = "flex";
   } else {
     alert("✅ Logged in successfully!");
-    console.log("User:", data.user);
     closeAuthPopup();
   }
 });
@@ -828,26 +837,19 @@ signupBtn.addEventListener('click', async () => {
   signupText.textContent = "Signing up...";
   signupLoader.style.display = "inline-block";
 
-  const { data, error } = await supabase.auth.signUp({
-    email,
-    password: pass,
-    options: {
-      data: { 
-        full_name: fullName,
-      }
-    }
-  });
+  try {
+    // Use Firebase authentication instead of Supabase
+    const userCredential = await window.firebaseAuth.createUserWithEmailAndPassword(email, pass);
+    const user = userCredential.user;
+    
+    // Update display name
+    await user.updateProfile({
+      displayName: fullName
+    });
 
-  signupText.textContent = "Sign Up";
-  signupLoader.style.display = "none";
+    signupText.textContent = "Sign Up";
+    signupLoader.style.display = "none";
 
-  if (error) {
-    if (error.message.includes("already registered")) {
-      alert("⚠️ This email is already registered. Try logging in instead.");
-    } else {
-      alert("❌ Signup failed: " + error.message);
-    }
-  } else {
     const name = fullName || email.substring(0, email.indexOf('@'));
 
     const SignupHeading = document.getElementById("login-section-heading");
@@ -855,8 +857,18 @@ signupBtn.addEventListener('click', async () => {
       SignupHeading.textContent = `Hi! ${name}`;
     }
 
-    alert("Signup successful! Please check your email.");
+    alert("Signup successful!");
     closeAuthPopup();
+    
+  } catch (error) {
+    signupText.textContent = "Sign Up";
+    signupLoader.style.display = "none";
+    
+    if (error.code === "auth/email-already-in-use") {
+      alert("⚠️ This email is already registered. Try logging in instead.");
+    } else {
+      alert("❌ Signup failed: " + error.message);
+    }
   }
 });
 
@@ -993,3 +1005,5 @@ forgotNewPassword.addEventListener("input", () => {
     forgotStrengthText.style.color = "#2ecc71";
   }
 });
+
+}); // End of DOMContentLoaded event listener

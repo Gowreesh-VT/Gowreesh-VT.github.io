@@ -1,0 +1,34 @@
+{
+  "name": "portfolio-contact-server",
+  "version": "1.0.0",
+  "description": "Node.js backend server for portfolio contact form",
+  "main": "contact-server.js",
+  "scripts": {
+    "start": "node contact-server.js",
+    "dev": "nodemon contact-server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "contact-form",
+    "nodejs",
+    "express",
+    "nodemailer",
+    "portfolio"
+  ],
+  "author": "Gowreesh VT",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemailer": "^6.9.7",
+    "cors": "^2.8.5",
+    "express-rate-limit": "^7.1.5",
+    "helmet": "^7.1.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
