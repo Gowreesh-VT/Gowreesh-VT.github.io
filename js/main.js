@@ -197,16 +197,8 @@
     $("#contactForm").on('submit', function(e) {
       e.preventDefault();
       
-      // Validate form before submission
-      if (window.formValidator && !window.formValidator.validateForm(this)) {
-        window.toastManager?.error('Please fill in all required fields correctly.');
-        return;
-      }
-      
-      // Show enhanced loading state
-      const resetLoader = window.loadingManager?.showButtonLoader('#submit-btn', 'Sending Message...');
-      
-      // Hide existing messages
+      // Show loading spinner
+      $("#submit-loader").fadeIn();
       $("#message-warning").hide();
       $("#message-success").hide();
       
@@ -218,32 +210,32 @@
         message: $("#contactMessage").val().trim()
       };
       
-      // Basic client-side validation (fallback)
+      // Basic client-side validation
       if (!formData.name || !formData.email || !formData.message) {
-        if (resetLoader) resetLoader();
-        window.toastManager?.error("Please fill in all required fields.");
+        $("#submit-loader").fadeOut();
+        $("#message-warning").text("Please fill in all required fields.").fadeIn();
         return;
       }
       
-      // Email validation (fallback)
+      // Email validation
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(formData.email)) {
-        if (resetLoader) resetLoader();
-        window.toastManager?.error("Please enter a valid email address.");
+        $("#submit-loader").fadeOut();
+        $("#message-warning").text("Please enter a valid email address.").fadeIn();
         return;
       }
       
-      // Name validation (fallback)
+      // Name validation
       if (formData.name.length < 2) {
-        if (resetLoader) resetLoader();
-        window.toastManager?.error("Name must be at least 2 characters long.");
+        $("#submit-loader").fadeOut();
+        $("#message-warning").text("Name must be at least 2 characters long.").fadeIn();
         return;
       }
       
-      // Message validation (fallback)
+      // Message validation
       if (formData.message.length < 10) {
-        if (resetLoader) resetLoader();
-        window.toastManager?.error("Message must be at least 10 characters long.");
+        $("#submit-loader").fadeOut();
+        $("#message-warning").text("Message must be at least 10 characters long.").fadeIn();
         return;
       }
       
@@ -256,28 +248,23 @@
       
       })
       .then(function(response) {
-        // Reset button state
-        if (resetLoader) resetLoader();
+        $("#submit-loader").fadeOut();
+        $("#message-success").text("Thank you! Your message has been sent successfully.").fadeIn();
+        $("#contactForm")[0].reset(); // Clear the form
         
-        // Show success toast
-        window.toastManager?.success('Thank you! Your message has been sent successfully.');
+        // Auto-hide success message after 5 seconds
+        setTimeout(function() {
+          $("#message-success").fadeOut();
+        }, 5000);
         
-        // Clear the form
-        $("#contactForm")[0].reset();
-        
-        // Clear validation states
-        const inputs = document.querySelectorAll('#contactForm input, #contactForm textarea');
-        inputs.forEach(input => {
-          input.classList.remove('valid', 'invalid');
-          const wrapper = input.closest('.input-group') || input.parentElement;
-          wrapper.classList.remove('has-success', 'has-error');
-          const feedback = wrapper.querySelector('.validation-feedback');
-          if (feedback) feedback.textContent = '';
-        });
-        
+        console.log('Email sent successfully:', response);
       })
       .catch(function(error) {
         $("#submit-loader").fadeOut();
+        
+        console.error('EmailJS error details:', error);
+        console.error('Error status:', error.status);
+        console.error('Error text:', error.text);
         
         let errorMessage = "Sorry, there was an error sending your message. ";
         
@@ -344,10 +331,15 @@
     if (isDarkMode) {
       html.classList.remove('dark-mode');
       localStorage.setItem('theme', 'light');
+      console.log('Switched to light mode');
     } else {
       html.classList.add('dark-mode');
       localStorage.setItem('theme', 'dark');
+      console.log('Switched to dark mode');
     }
+    
+    // Dispatch custom event for particle system
+    window.dispatchEvent(new Event('themeChanged'));
   });
 
   /*----------------------------------------------------- */

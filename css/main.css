@@ -59,12 +59,12 @@ html.dark-mode {
 
 html:not(.dark-mode) {
   /* Light mode colors */
-  --bg-primary: #ffffff;
+  --bg-primary: #ffffff00;
   --bg-secondary: #f8f9fa;
   --bg-header: #ffffff;
   --text-primary: #313131;
-  --text-secondary: #6e6e6e;
-  --text-muted: #888888;
+  --text-secondary: #232222;
+  --text-muted: #3d3c3c;
   --border-color: #e9ecef;
   --shadow: rgba(0, 0, 0, 0.1);
   --accent-color: #ff0077;
@@ -125,15 +125,6 @@ html:not(.dark-mode) .button.button-primary {
 html:not(.dark-mode) .button.button-primary:hover {
   background: #383134 !important;
   border: 2px solid #cc005f !important;
-}
-
-/* Light mode: All sections use appropriate light colors */
-html:not(.dark-mode) #about,
-html:not(.dark-mode) #resume,
-html:not(.dark-mode) #portfolio,
-html:not(.dark-mode) #services,
-html:not(.dark-mode) #contact {
-  background: #ffffff !important;
 }
 
 html:not(.dark-mode) .grey-section {
@@ -204,19 +195,12 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-primary) !important;
 }
 
-/* Section backgrounds */
-section {
-  background-color: var(--bg-primary) !important;
-}
-
-/* Form and input styling for themes */
 input, textarea, select {
   background-color: var(--bg-secondary);
   color: var(--text-primary);
   border-color: var(--border-color);
 }
 
-/* Card and container styling */
 .container, .row {
   background-color: transparent;
 }
@@ -277,11 +261,20 @@ img[data-src].error {
   background-color: #f8f8f8;
 }
 
-/* Ensure portfolio images maintain aspect ratio */
+#particle-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
 #portfolio .folio-item img[data-src] {
   width: 100%;
-  height: 100%; /* Fill the fixed container height */
-  object-fit: cover; /* Fill container, crop if needed */
+  height: 100%;
 }
 
 @keyframes loading {
@@ -742,6 +735,13 @@ hr {
   clear: both;
   margin: 2.4rem 0 1.5rem;
   height: 0;
+}
+.section-heading {
+  font-family: 'Netflix-Sans-Bold' !important;
+  font-size: 30px !important;
+  color: var(--accent-color) !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
 }
 
 /**
@@ -1656,6 +1656,8 @@ header {
   display: flex;
   align-items: center;
   gap: 1rem;
+  width: auto;
+  height: auto;
 }
 
 .nav-toggle {
@@ -1686,7 +1688,7 @@ header {
 }
 
 /* Mobile Styles */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 960px) {
   .nav-container {
     padding: 0 1rem;
   }
@@ -2251,7 +2253,7 @@ html:not(.dark-mode) #theme-toggle-btn:hover .sun-icon {
  * ------------------------------------------------------------------- 
  */
 #about {
-  background: #ffffff;
+  background: #ffffff00;
   padding-top: 12rem;
   padding-bottom: 3rem;
 }
@@ -2735,264 +2737,189 @@ html:not(.dark-mode) #theme-toggle-btn:hover .sun-icon {
  * ------------------------------------------------------------------- 
  */
 #portfolio {
-  background: #ffffff;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+	background: #FFFFFF;
+	padding-top: 5rem;
+	padding-bottom: 5rem;
 }
 #portfolio .folio-item {
-  padding: 10px;
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 20px; /* Add consistent spacing between items */
-}
-
-#portfolio .item-wrap {
-  position: relative;
-  overflow: hidden;
-  background: var(--bg-secondary);
-  border-radius: 4px; 
-  height: 250px !important; /* Force consistent height */
+	position: relative;
+	overflow: hidden;
+	padding: 10px;
 }
 #portfolio .folio-item img {
-  transition: all 0.5s ease-in-out;
-  width: 100% !important;
-  height: 100% !important; /* Force full container height */
-  display: block;
-  object-fit: cover; /* Fill container, crop if needed */
+	vertical-align: middle;
+	-moz-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	-webkit-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
 }
 
 #portfolio .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  transition: all 0.5s ease-in-out;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: transparent;
+	-moz-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	-webkit-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
 }
 
 #portfolio .folio-item-table {
-  display: table;
-  width: 100%;
-  height: 100%;
-}
-
-@media screen and (max-width: 768px) {
-  #portfolio .item-wrap {
-    height: 200px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  #portfolio .item-wrap {
-    height: 180px;
-  }
+	display: table;
+	width: 100%;
+	height: 100%;
 }
 #portfolio .folio-item-cell {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-  transition: all 0.5s ease-in-out;
-  position: relative;
-  left: -100%;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	-moz-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	-webkit-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+	position: relative;
+	left: -100%;
 }
 
 #portfolio .folio-title {
-  color: #ffffff;
-  font-size: 3.3rem;
-  padding: 0 3rem;
-  margin-bottom: 0;
+	color: #FFFFFF;
+	font-size: 3.3rem;
+	padding: 0 3rem;
+	margin-bottom: 0;
 }
 #portfolio .folio-types {
-  margin: 0;
-  padding: 0;
-  text-transform: uppercase;
-  font-family: 'Netflix Sans', "poppins-regular", sans-serif;
-  font-size: 1.2rem;
-  letter-spacing: 0.1rem;
-  color: rgba(255, 255, 255, 0.6);
+	margin: 0;
+	padding: 0;
+	text-transform: uppercase;
+	font-family: "poppins-regular", sans-serif;
+	font-size: 1.2rem;
+	letter-spacing: .1rem;
+	color: rgba(255, 255, 255, 0.6);
 }
 #portfolio .folio-item:hover .overlay {
-  background: rgba(0, 0, 0, 0.8);
+	background: rgba(0, 0, 0, 0.8);
 }
 #portfolio .folio-item:hover .folio-item-cell {
-  left: 0;
+	left: 0;
 }
 #portfolio .folio-item:hover img {
-  transform: scale(1.05);
+	-webkit-transform: scale(1.05);
+	-ms-transform: scale(1.05);
+	transform: scale(1.05);
 }
 
 .More-Project {
   text-align: center;
-  margin-top: 3rem;
-  padding: 1.5rem;
+  margin-top: 6rem;
+  align-items: center;
+  justify-content: center;
 }
 
-.More-Project a {
-  background-color: gainsboro !important;
-  color: #000000 !important;
-  font-size: 1.8rem;
-  text-decoration: none;
-  border-radius: 5px;
+/**
+ * responsive:
+ * portfolio
+ * ------------------------------------------------------------------- 
+ */
+@media only screen and (max-width:1024px) {
+	#portfolio .folio-title {
+		font-size: 3.1rem;
+	}
+}
+@media only screen and (max-width:768px) {
+	#portfolio .folio-title {
+		font-size: 2.5rem;
+	}
+}
+@media only screen and (max-width:400px) {
+	#portfolio .folio-title {
+		font-size: 2.2rem;
+	}
 }
 
-.More-Project a:hover {
-  background-color: #282626 !important;
-  color: #ffffff !important;
-  font-size: 1.8rem;
-  text-decoration: none;
-  border-radius: 5px;
-}
-
-@media only screen and (max-width: 1024px) {
-  #portfolio .folio-title {
-    font-size: 3.1rem;
-  }
-
-  #portfolio .folio-item {
-    padding: 8px;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  #portfolio .item-wrap {
-    height: 220px !important; /* Slightly smaller for medium screens */
-  }
-}
-@media only screen and (max-width: 768px) {
-  #portfolio .folio-title {
-    font-size: 2.5rem;
-  }
-
-  #portfolio .folio-item {
-    padding: 3px;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  #portfolio .item-wrap {
-    height: 200px !important; /* Smaller for tablets */
-  }
-
-  .More-Project a {
-    font-size: 1.4rem;
-  }
-
-  .More-Project a:hover {
-    font-size: 1.4rem;
-  }
-
-}
-@media only screen and (max-width: 400px) {
-  #portfolio .folio-title {
-    font-size: 2.2rem;
-  }
-
-  #portfolio .folio-item {
-    padding: 3px;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  #portfolio .item-wrap {
-    height: 180px !important; /* Smallest for mobile */
-  }
-
-   .More-Project a {
-    font-size: 1rem;
-  }
-
-  .More-Project a:hover {
-    font-size: 1rem;
-  }
-}
-
-@media only screen and (max-width: 260px) {
-
-   .More-Project a {
-    font-size: 0.75rem;
-  }
-
-  .More-Project a:hover {
-    font-size: 0.75rem;
-  }
-}
-
+ 
 /**
  * Popup Modal - (_layout.scss)
  * ------------------------------------------------------------------
  */
 .popup-modal {
-  max-width: 550px;
-  background: #ffffff;
-  position: relative;
-  margin: 0 auto;
+	max-width: 550px;
+	background: #FFFFFF;
+	position: relative;
+	margin: 0 auto;
 }
 .popup-modal .media {
-  position: relative;
+	position: relative;
 }
 .popup-modal img {
-  vertical-align: bottom;
+	vertical-align: bottom;
 }
 .popup-modal .description-box {
-  padding: 1.8rem 3.6rem 3rem;
+	padding: 1.8rem 3.6rem 3rem;
 }
 .popup-modal .description-box h4 {
-  font-family: 'Netflix-Sans-Bold', "poppins-bold", sans-serif;
-  font-size: 1.5rem;
-  line-height: 2.4rem;
-  margin-bottom: 0.6rem;
+	font-family: "poppins-bold", sans-serif;
+	font-size: 1.5rem;
+	line-height: 2.4rem;
+	margin-bottom: .6rem;
 }
 .popup-modal .description-box p {
-  font-family: 'Netflix Sans', "poppins-regular", sans-serif;
-  font-size: 1.4rem;
-  line-height: 2.4rem;
-  margin-bottom: 12px;
+	font-family: "poppins-regular", sans-serif;
+	font-size: 1.4rem;
+	line-height: 2.4rem;
+	margin-bottom: 12px;
 }
 .popup-modal .categories {
-  font-family: 'Netflix-Sans-Bold', "poppins-bold", sans-serif;
-  font-size: 1.1rem;
-  line-height: 1.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1rem;
-  display: block;
-  text-align: left;
-  color: rgba(0, 0, 0, 0.5);
+	font-family: "poppins-bold", sans-serif;
+	font-size: 1.1rem;
+	line-height: 1.8rem;
+	text-transform: uppercase;
+	letter-spacing: .1rem;
+	display: block;
+	text-align: left;
+	color: rgba(0, 0, 0, 0.5);
 }
 .popup-modal .link-box {
-  width: 100%;
-  overflow: hidden;
-  background: #000000;
+	width: 100%;
+	overflow: hidden;
+	background: #000000;
 }
 .popup-modal .link-box a {
-  font-family: 'Netflix-Sans-Bold', "poppins-bold", sans-serif;
-  font-size: 1.2rem;
-  line-height: 6rem;
-  color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  cursor: pointer;
-  display: block;
-  text-align: center;
-  float: left;
-  width: 50%;
-  transition: all 0.3s ease-in-out;
+	font-family: "poppins-bold", sans-serif;
+	font-size: 1.2rem;
+	line-height: 6rem;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	cursor: pointer;
+	display: block;
+	text-align: center;
+	float: left;
+	width: 50%;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
 }
 .popup-modal .link-box a:first-child {
-  border-right: 1px solid rgba(200, 200, 200, 0.1);
+	border-right: 1px solid rgba(200, 200, 200, 0.1);
 }
 .popup-modal .link-box a:hover {
-  background: #cc005f;
-  border: none;
+	background: #cc005f;
+	border: none;
 }
-
-@media only screen and (max-width: 600px) {
-  .popup-modal {
-    width: auto;
-    margin: 0 20px;
-  }
+@media only screen and (max-width:600px) {
+	.popup-modal {
+		width: auto;
+		margin: 0 20px;
+	}
 }
-
 /**
  * transition effect for modal popup - (_layout.scss)
  * ------------------------------------------------------------------ 
@@ -4770,4 +4697,4 @@ html:not(.dark-mode) .tech-card {
   z-index: 600;
   display: none;
 }
-}/* Portfolio alignment fix v1.1 - Fri Oct 10 16:47:17 IST 2025 */
+}

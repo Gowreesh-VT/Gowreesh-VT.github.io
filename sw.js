@@ -2,7 +2,8 @@
 /*	Service Worker for Portfolio PWA
 ------------------------------------------------------*/
 
-const CACHE_NAME = 'portfolio-cache-v1';
+// Cache version - increment this to force cache refresh
+const CACHE_VERSION = 'v16-portfolio-clean-grid-' + Date.now();
 const urlsToCache = [
   '/',
   '/index.html',
@@ -10,10 +11,12 @@ const urlsToCache = [
   '/css/main.css',
   '/css/vendor.css',
   '/css/fonts.css',
+  '/css/micons/micons.css',
   '/js/main.js',
   '/js/login.js',
   '/js/enhanced-ui.js',
   '/js/lazy-loading.js',
+  '/js/particles-3d.js',
   '/js/firebase-config.js',
   '/js/auth.js',
   '/js/plugins.js',
@@ -25,35 +28,34 @@ const urlsToCache = [
 
 // Install event - cache resources
 self.addEventListener('install', event => {
+  // Force the waiting service worker to become the active service worker
+  self.skipWaiting();
+  
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => {
-        console.log('Service Worker: Caching files');
-        return cache.addAll(urlsToCache);
-      })
-      .catch(err => console.log('Service Worker: Cache failed', err))
+    caches.open(CACHE_VERSION)
+      .then(cache => cache.addAll(urlsToCache))
+      .catch(err => console.error('Service Worker: Cache failed', err))
   );
 });
 
-// Activate event - clean up old caches
 self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.map(cacheName => {
-          if (cacheName !== CACHE_NAME) {
-            console.log('Service Worker: Deleting old cache', cacheName);
-            return caches.delete(cacheName);
-          }
-        })
-      );
+    clients.claim().then(() => {
+      return caches.keys().then(cacheNames => {
+        return Promise.all(
+          cacheNames.map(cacheName => {
+            if (cacheName !== CACHE_VERSION) {
+              return caches.delete(cacheName);
+            }
+          })
+        );
+      });
     })
   );
 });
 
 // Fetch event - serve cached content when offline
 self.addEventListener('fetch', event => {
-  // Skip cross-origin requests
   if (!event.request.url.startsWith(self.location.origin)) {
     return;
   }
@@ -61,21 +63,18 @@ self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request)
       .then(response => {
-        // Return cached version or fetch from network
         if (response) {
           return response;
         }
         
         return fetch(event.request).then(response => {
-          // Don't cache non-successful responses
           if (!response || response.status !== 200 || response.type !== 'basic') {
             return response;
           }
 
-          // Clone the response for caching
           const responseToCache = response.clone();
 
-          caches.open(CACHE_NAME)
+          caches.open(CACHE_VERSION)
             .then(cache => {
               cache.put(event.request, responseToCache);
             });
@@ -84,7 +83,6 @@ self.addEventListener('fetch', event => {
         });
       })
       .catch(() => {
-        // Return offline page for navigation requests
         if (event.request.destination === 'document') {
           return caches.match('/index.html');
         }
@@ -92,7 +90,6 @@ self.addEventListener('fetch', event => {
   );
 });
 
-// Background sync for form submissions
 self.addEventListener('sync', event => {
   if (event.tag === 'contact-form-sync') {
     event.waitUntil(syncContactForm());
@@ -100,7 +97,5 @@ self.addEventListener('sync', event => {
 });
 
 async function syncContactForm() {
-  // Get pending form submissions from IndexedDB
-  // This would integrate with the contact form to retry failed submissions
   console.log('Service Worker: Syncing contact form submissions');
 }
