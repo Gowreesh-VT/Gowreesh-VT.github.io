@@ -1665,6 +1665,13 @@ header {
   flex-direction: column;
   cursor: pointer;
   gap: 4px;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-toggle:hover {
+  background-color: var(--bg-secondary);
 }
 
 .nav-toggle .bar {
@@ -1687,14 +1694,48 @@ header {
   transform: rotate(-45deg) translate(6px, -6px);
 }
 
+/* Theme toggle improvements */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  margin-right: 0.5rem;
+}
+
+#theme-toggle-btn {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+#theme-toggle-btn:hover {
+  background-color: var(--bg-secondary);
+  color: var(--accent-color);
+}
+
 /* Mobile Styles */
 @media screen and (max-width: 960px) {
   .nav-container {
     padding: 0 1rem;
+    justify-content: space-between;
   }
   
   .nav-toggle {
     display: flex;
+    order: 3;
+  }
+  
+  .nav-actions {
+    order: 2;
+    gap: 0.5rem;
+  }
+  
+  .theme-toggle {
+    margin-right: 0;
   }
   
   .nav-menu {
@@ -1708,6 +1749,7 @@ header {
     transition: 0.3s;
     border-top: 1px solid var(--border-color);
     box-shadow: 0 4px 20px var(--shadow);
+    z-index: 999;
   }
   
   .nav-menu.active {
@@ -1743,6 +1785,36 @@ header {
   
   .nav-logo a {
     font-size: 2rem;
+  }
+}
+
+/* Additional mobile improvements */
+@media screen and (max-width: 480px) {
+  .nav-container {
+    height: 60px;
+    padding: 0 1rem;
+  }
+  
+  .nav-logo a {
+    font-size: 1.8rem;
+  }
+  
+  .nav-menu {
+    top: 60px;
+  }
+  
+  .nav-toggle {
+    gap: 3px;
+  }
+  
+  .nav-toggle .bar {
+    width: 22px;
+    height: 2.5px;
+  }
+  
+  #theme-toggle-btn {
+    font-size: 1.6rem;
+    padding: 6px;
   }
 }
 
@@ -2728,6 +2800,43 @@ html:not(.dark-mode) #theme-toggle-btn:hover .sun-icon {
   #resume .timeline-header,
   #resume .timeline-content {
     padding-left: 6rem;
+  }
+}
+
+/* Extra small screens - Resume improvements */
+@media only screen and (max-width: 375px) {
+  #resume .timeline-wrap::before {
+    left: 1.5rem;
+  }
+  #resume .timeline-ico {
+    height: 4rem;
+    width: 4rem;
+    line-height: 4rem;
+    left: 1.5rem;
+    margin-left: -2rem;
+    border: 2px solid var(--bg-primary);
+  }
+  #resume .timeline-ico i {
+    font-size: 1.8rem;
+  }
+  #resume .timeline-header,
+  #resume .timeline-content {
+    padding-left: 5rem;
+  }
+  #resume .timeline-header h3 {
+    font-size: 1.8rem;
+  }
+  #resume .timeline-header p {
+    font-size: 1.4rem;
+  }
+  #resume .timeline-content {
+    padding: 1.5rem;
+  }
+  #resume .timeline-content h4 {
+    font-size: 1.6rem;
+  }
+  #resume .timeline-content p {
+    font-size: 1.4rem;
   }
 }
 
@@ -4697,4 +4806,558 @@ html:not(.dark-mode) .tech-card {
   z-index: 600;
   display: none;
 }
+}
+
+/* ===================================================================
+ * ENHANCED MOBILE RESPONSIVENESS
+ * =================================================================== */
+
+/* Extra Small Devices (phones, 480px and down) */
+@media only screen and (max-width: 480px) {
+  
+  /* General layout improvements */
+  body {
+    font-size: 1.4rem;
+    line-height: 1.6;
+  }
+  
+  /* Container adjustments */
+  .row {
+    margin: 0 -1rem;
+  }
+  
+  .row [class*="col-"] {
+    padding: 0 1rem;
+  }
+  
+  /* Typography adjustments */
+  h1, .h01 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+  
+  h2, .h02 {
+    font-size: 2rem;
+    line-height: 1.3;
+    margin-bottom: 1.2rem;
+  }
+  
+  h3, .h03 {
+    font-size: 1.8rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+  }
+  
+  h4, .h04 {
+    font-size: 1.6rem;
+    line-height: 1.5;
+  }
+  
+  h5, .h05 {
+    font-size: 1.3rem;
+    letter-spacing: 0.1rem;
+  }
+  
+  p {
+    font-size: 1.4rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Header mobile improvements */
+  .nav-container {
+    height: 60px;
+    padding: 0 1.5rem;
+  }
+  
+  .nav-logo a {
+    font-size: 1.8rem;
+  }
+  
+  .nav-menu {
+    top: 60px;
+  }
+  
+  .nav-link {
+    font-size: 1.6rem;
+    padding: 1.5rem;
+  }
+  
+  /* Intro section mobile */
+  #intro {
+    padding: 0 1.5rem;
+    min-height: 100vh;
+    background-attachment: scroll !important;
+  }
+  
+  .intro-content {
+    text-align: center;
+    padding: 8rem 0 6rem;
+  }
+  
+  #intro h1 {
+    font-size: 2.8rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+  
+  #intro h5 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+  
+  #intro p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    max-width: 100%;
+  }
+  
+  .intro-social {
+    margin-top: 2rem;
+  }
+  
+  .intro-social li {
+    display: inline-block;
+    margin: 0 0.5rem;
+  }
+  
+  .intro-social li a {
+    font-size: 2rem;
+    padding: 1rem;
+  }
+  
+  /* Button improvements */
+  .btn {
+    padding: 1.2rem 2rem;
+    font-size: 1.4rem;
+    margin: 0.5rem;
+    display: inline-block;
+    width: auto;
+  }
+  
+  .btn.full-width {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+  
+  /* About section mobile */
+  #about {
+    padding: 4rem 1.5rem;
+  }
+  
+  .about-content {
+    text-align: center;
+  }
+  
+  .about-info {
+    margin-bottom: 3rem;
+  }
+  
+  /* Resume section mobile */
+  #resume {
+    padding: 4rem 1.5rem;
+  }
+  
+  .timeline {
+    margin-left: 0;
+    padding-left: 2rem;
+  }
+  
+  .timeline-content h3 {
+    font-size: 1.6rem;
+  }
+  
+  .timeline-content h4 {
+    font-size: 1.4rem;
+  }
+  
+  .timeline-content p {
+    font-size: 1.3rem;
+  }
+  
+  /* Portfolio section mobile */
+  #portfolio {
+    padding: 4rem 1.5rem;
+  }
+  
+  .folio-item {
+    margin-bottom: 2rem;
+    padding: 5px;
+  }
+  
+  .folio-item img {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Contact section mobile */
+  #contact {
+    padding: 4rem 1.5rem;
+  }
+  
+  .contact-form {
+    margin-bottom: 3rem;
+  }
+  
+  .form-field {
+    margin-bottom: 2rem;
+  }
+  
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 1.2rem;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+  
+  textarea {
+    min-height: 120px;
+  }
+  
+  /* Stats section mobile */
+  .stats {
+    padding: 3rem 1.5rem;
+  }
+  
+  .stat {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .stat-count {
+    font-size: 3rem;
+  }
+  
+  /* Footer mobile */
+  footer {
+    padding: 3rem 1.5rem 2rem;
+    text-align: center;
+  }
+  
+  .footer-social {
+    margin-bottom: 2rem;
+  }
+  
+  .footer-social li {
+    margin: 0 0.5rem;
+  }
+  
+  /* Go to top button mobile */
+  #go-top {
+    right: 1.5rem;
+    bottom: 1.5rem;
+    width: 50px;
+    height: 50px;
+  }
+  
+  #go-top a {
+    font-size: 1.8rem;
+    line-height: 50px;
+  }
+}
+
+/* Small Devices (tablets, 768px and down) */
+@media only screen and (max-width: 768px) {
+  
+  /* Section padding adjustments */
+  section {
+    padding: 5rem 2rem;
+  }
+  
+  /* Container max-width */
+  .container,
+  .narrow {
+    max-width: 100%;
+    padding: 0 2rem;
+  }
+  
+  /* Grid adjustments */
+  .grid-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  /* Flexbox adjustments */
+  .flex-container {
+    flex-direction: column;
+  }
+  
+  .flex-container > * {
+    margin-bottom: 2rem;
+  }
+  
+  /* Image responsiveness */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Table responsiveness */
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+  /* Modal adjustments */
+  .modal-content {
+    margin: 10% auto;
+    width: 95%;
+    max-width: 500px;
+  }
+  
+  /* Timeline mobile improvements */
+  .timeline::before {
+    left: 1rem;
+  }
+  
+  .timeline-block {
+    margin-left: 3rem;
+  }
+  
+  .timeline-img {
+    left: 0;
+  }
+  
+  .timeline-content {
+    margin-left: 0;
+    padding: 1.5rem;
+  }
+}
+
+/* Medium Devices (tablets, 992px and down) */
+@media only screen and (max-width: 992px) {
+  
+  /* Header adjustments */
+  .nav-container {
+    padding: 0 2rem;
+  }
+  
+  /* Content adjustments */
+  .row {
+    margin: 0 -1.5rem;
+  }
+  
+  .row [class*="col-"] {
+    padding: 0 1.5rem;
+  }
+  
+  /* Typography adjustments */
+  h1, .h01 {
+    font-size: 3rem;
+  }
+  
+  h2, .h02 {
+    font-size: 2.6rem;
+  }
+  
+  /* Section padding */
+  section {
+    padding: 6rem 2rem;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  
+  /* Increase touch targets */
+  .nav-link,
+  .btn,
+  .social-link,
+  .portfolio-item,
+  .timeline-block {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Remove hover effects */
+  .nav-link:hover,
+  .btn:hover,
+  .social-link:hover {
+    transform: none;
+    transition: none;
+  }
+  
+  /* Improve button spacing */
+  .btn {
+    margin: 0.5rem;
+    padding: 1.2rem 2rem;
+  }
+}
+
+/* Landscape phone orientation */
+@media only screen and (max-height: 500px) and (orientation: landscape) {
+  
+  #intro {
+    min-height: 500px;
+  }
+  
+  .intro-content {
+    padding: 4rem 0 2rem;
+  }
+  
+  #intro h1 {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+  }
+  
+  #intro p {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .intro-social {
+    margin-top: 1rem;
+  }
+}
+
+/* Very small screens optimization */
+@media only screen and (max-width: 320px) {
+  
+  body {
+    font-size: 1.3rem;
+  }
+  
+  .nav-container {
+    padding: 0 1rem;
+  }
+  
+  .nav-logo a {
+    font-size: 1.6rem;
+  }
+  
+  section {
+    padding: 3rem 1rem;
+  }
+  
+  h1, .h01 {
+    font-size: 2rem;
+  }
+  
+  h2, .h02 {
+    font-size: 1.8rem;
+  }
+  
+  .btn {
+    padding: 1rem 1.5rem;
+    font-size: 1.3rem;
+  }
+  
+  .tech-skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+  
+  .tech-card {
+    padding: 0.5rem 0.3rem;
+    min-height: 65px;
+    width: 60px;
+  }
+  
+  .tech-card i {
+    font-size: 1.2rem;
+  }
+  
+  .tech-card span {
+    font-size: 0.7rem;
+  }
+}
+
+/* ===================================================================
+ * ACCESSIBILITY & PERFORMANCE IMPROVEMENTS
+ * =================================================================== */
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --shadow: rgba(0, 0, 0, 0.5);
+    --border-color: #000000;
+  }
+  
+  html.dark-mode {
+    --shadow: rgba(255, 255, 255, 0.5);
+    --border-color: #ffffff;
+  }
+}
+
+/* Focus improvements for keyboard navigation */
+*:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.nav-link:focus,
+.btn:focus,
+input:focus,
+textarea:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* Better text selection */
+::selection {
+  background: var(--accent-color);
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background: var(--accent-color);
+  color: #ffffff;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Print styles */
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  header,
+  .nav-toggle,
+  .intro-social,
+  #go-top {
+    display: none !important;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+  
+  p, li {
+    orphans: 3;
+    widows: 3;
+  }
+  
+  section {
+    page-break-inside: avoid;
+    padding: 1rem 0;
+  }
 }
