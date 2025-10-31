@@ -1,0 +1,77 @@
+.text-type {
+  display: inline-block;
+  white-space: pre-wrap;
+}
+
+.text-type__content {
+  display: inline-block;
+}
+
+.text-type__cursor {
+  margin-left: 0.25rem;
+  display: inline-block;
+  opacity: 1;
+  transition: opacity 0.1s ease;
+}
+
+.text-type__cursor--hidden {
+  display: none;
+}
+
+.intro-position {
+  display: block;
+  min-height: 2em;
+  font-size: 2rem !important;
+}
+
+.intro-position::before,
+.intro-position::after,
+.intro-position span::before,
+.intro-position span::after {
+  content: none !important;
+  display: none !important;
+}
+
+.intro-position .text-type__content {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+.intro-position .text-type__cursor {
+  color: #ff0077;
+  font-weight: bold;
+  font-size: inherit;
+}
+
+/* Mobile Responsive - Override main.css breakpoints */
+@media only screen and (max-width: 768px) {
+  .intro-position {
+    font-size: 1.8rem !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .intro-position {
+    font-size: 1.5rem !important;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .intro-position {
+    font-size: 1.3rem !important;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .intro-position {
+    font-size: 1.1rem !important;
+  }
+}
+
+@media only screen and (max-width: 280px) {
+  .intro-position {
+    font-size: 1rem !important;
+    word-break: break-word;
+  }
+}

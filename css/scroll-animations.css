@@ -1,0 +1,230 @@
+/* ===================================================================
+ * Minimal Scroll Animations CSS
+ * Clean, subtle sliding with fading effects
+ * ================================================================ */
+
+/* Base state - elements are hidden before animation */
+.animate-slide-left,
+.animate-slide-right,
+.animate-fade-up,
+.animate-fade-in {
+  opacity: 0;
+  transition: none;
+}
+
+/* Slide from Left with Fade */
+.animate-slide-left {
+  transform: translateX(-60px);
+}
+
+.animate-slide-left.animated {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide from Right with Fade */
+.animate-slide-right {
+  transform: translateX(60px);
+}
+
+.animate-slide-right.animated {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fade Up - slide from bottom with fade */
+.animate-fade-up {
+  transform: translateY(40px);
+}
+
+.animate-fade-up.animated {
+  animation: fadeInUp 0.7s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Simple Fade In */
+.animate-fade-in {
+  transform: none;
+}
+
+.animate-fade-in.animated {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Animated class - keeps element visible after animation */
+.animated {
+  opacity: 1 !important;
+}
+
+/* Subtle hover effects */
+.folio-item.animated {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.folio-item.animated:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.tech-card.animated {
+  transition: transform 0.3s ease;
+}
+
+.tech-card.animated:hover {
+  transform: translateY(-5px);
+}
+
+.stat.animated {
+  transition: transform 0.3s ease;
+}
+
+.stat.animated:hover {
+  transform: scale(1.05);
+}
+
+.timeline-block.animated {
+  transition: transform 0.3s ease;
+}
+
+.timeline-block.animated:hover {
+  transform: translateX(5px);
+}
+
+.service.animated {
+  transition: transform 0.3s ease;
+}
+
+.service.animated:hover {
+  transform: translateY(-5px);
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .animate-slide-left,
+  .animate-slide-right,
+  .animate-fade-up,
+  .animate-fade-in {
+    animation: none !important;
+    transition: opacity 0.3s ease !important;
+    transform: none !important;
+  }
+  
+  .animate-slide-left.animated,
+  .animate-slide-right.animated,
+  .animate-fade-up.animated,
+  .animate-fade-in.animated {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Mobile optimizations - faster, shorter distances */
+@media only screen and (max-width: 768px) {
+  .animate-slide-left {
+    transform: translateX(-40px);
+  }
+  
+  .animate-slide-right {
+    transform: translateX(40px);
+  }
+  
+  .animate-fade-up {
+    transform: translateY(30px);
+  }
+  
+  .animate-slide-left.animated,
+  .animate-slide-right.animated,
+  .animate-fade-up.animated {
+    animation-duration: 0.6s;
+  }
+  
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Performance optimization - GPU acceleration */
+.animate-slide-left,
+.animate-slide-right,
+.animate-fade-up,
+.animate-fade-in {
+  will-change: transform, opacity;
+}
+
+.animated {
+  will-change: auto;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+

@@ -152,6 +152,63 @@ function setupExistingLoginForm() {
     const loginBtn = document.querySelector('.login-btn');
     const registerLink = document.querySelector('.register-link1');
     
+    // Setup Google Sign-In Button
+    const googleAuthBtn = document.getElementById('google-auth-btn');
+    if (googleAuthBtn) {
+        googleAuthBtn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            console.log('Google sign-in button clicked');
+            
+            try {
+                // Create Google Auth Provider
+                const provider = new firebase.auth.GoogleAuthProvider();
+                
+                // Optional: Add custom parameters
+                provider.addScope('profile');
+                provider.addScope('email');
+                
+                // Show loading state
+                googleAuthBtn.disabled = true;
+                googleAuthBtn.innerHTML = '<i class="fab fa-google"></i> Signing in...';
+                
+                // Sign in with popup
+                const result = await window.firebaseAuth.signInWithPopup(provider);
+                
+                // User signed in successfully
+                const user = result.user;
+                console.log('Google sign-in successful:', user.email);
+                
+                // Close popup on success
+                const authModal = document.getElementById('login-popup');
+                const overlay = document.querySelector('.popup-overlay');
+                if (authModal && overlay) {
+                    authModal.classList.remove('active-popup');
+                    overlay.classList.remove('active');
+                    document.body.classList.remove('modal-open');
+                }
+                
+                showMessage(`Welcome, ${user.displayName || user.email}!`, 'success');
+                
+            } catch (error) {
+                console.error('Google sign-in error:', error);
+                
+                // Handle specific errors
+                if (error.code === 'auth/popup-closed-by-user') {
+                    showMessage('Sign-in cancelled', 'info');
+                } else if (error.code === 'auth/popup-blocked') {
+                    showMessage('Please allow popups for this site', 'error');
+                } else {
+                    showMessage(getErrorMessage(error), 'error');
+                }
+            } finally {
+                // Reset button state
+                googleAuthBtn.disabled = false;
+                googleAuthBtn.innerHTML = '<i class="fab fa-google"></i> Continue with Google';
+            }
+        });
+        console.log('Google sign-in button configured');
+    }
+    
     // Setup sign in with your existing login button
     if (loginBtn && emailInput && passwordInput) {
         loginBtn.addEventListener('click', async (e) => {

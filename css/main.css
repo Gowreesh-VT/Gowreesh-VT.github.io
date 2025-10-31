@@ -3078,7 +3078,7 @@ html:not(.dark-mode) #theme-toggle-btn:hover .sun-icon {
 
 #login-section {
   font-family: 'Netflix Sans', "lora-regular", serif !important;
-  background: #e8e8e8;
+  background: #131313;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3091,7 +3091,7 @@ html:not(.dark-mode) #theme-toggle-btn:hover .sun-icon {
   max-width: 640px;
 }
 .login-lead {
-  color: #212121;
+  color: rgba(255, 255, 255, 0.8);
   font-size: 1.8rem;
 }
 
@@ -3099,6 +3099,7 @@ html:not(.dark-mode) #theme-toggle-btn:hover .sun-icon {
   position: relative;
   font-size: 3rem;
   padding-bottom: 2.1rem;
+  color: #ffffff;
 }
 
 .login-content h2::after {
@@ -3106,7 +3107,7 @@ html:not(.dark-mode) #theme-toggle-btn:hover .sun-icon {
   display: block;
   height: 3px;
   width: 100px;
-  background: rgba(0, 0, 0, 0.2);
+  background: #ff0077;
   position: absolute;
   left: 50%;
   bottom: 0;
@@ -3115,15 +3116,41 @@ html:not(.dark-mode) #theme-toggle-btn:hover .sun-icon {
 
 .login-content h2 a,
 .login-content h2 a:visited {
-  color: #313131;
+  color: #ffffff;
 }
 
 .login-content span {
-  color: #3f0d39;
+  color: #ff0077;
 }
 
 .Login-popup-btn {
   border-radius: 5px;
+}
+
+/* Light mode overrides for login section */
+html:not(.dark-mode) #login-section {
+  background: #e8e8e8;
+}
+
+html:not(.dark-mode) .login-lead {
+  color: #212121;
+}
+
+html:not(.dark-mode) .login-content h2 {
+  color: #313131;
+}
+
+html:not(.dark-mode) .login-content h2::after {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+html:not(.dark-mode) .login-content h2 a,
+html:not(.dark-mode) .login-content h2 a:visited {
+  color: #313131;
+}
+
+html:not(.dark-mode) .login-content span {
+  color: #3f0d39;
 }
 
 /**
@@ -4152,7 +4179,7 @@ html:not(.dark-mode) .services-list .desc {
  * ------------------------------------------------------------------- 
  */
 #stats {
-  background: #e0dedf !important;
+  background: #0f0f0f !important;
   padding-top: 7.2rem;
   padding-bottom: 3rem;
   text-align: center;
@@ -4177,7 +4204,6 @@ html:not(.dark-mode) .services-list .desc {
   margin-top: 1.2rem;
   margin-bottom: 0;
   font-family: 'Netflix-Sans-Medium', "poppins-medium", sans-serif;
-  color: white;
 }
 #stats .stat-title {
   color: #ff0077;
@@ -4187,7 +4213,7 @@ html:not(.dark-mode) .services-list .desc {
 
 /* Light mode specific overrides for stats */
 html:not(.dark-mode) #stats {
-  background: #f8f9fa;
+  background: #f8f9fa !important;
 }
 
 html:not(.dark-mode) #stats .stat {

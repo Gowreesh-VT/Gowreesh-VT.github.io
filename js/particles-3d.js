@@ -1,15 +1,10 @@
-// 3D Particle Background with Three.js
-// Optimized production version
-
 (function() {
     'use strict';
     
-    // Prevent multiple initializations
     if (window.particlesInitialized) {
         return;
     }
     
-    // Check if user prefers reduced motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) {
         return;
@@ -19,9 +14,7 @@
     const maxRetries = 50;
     let initializationStarted = false;
     
-    // Initialize particles
     function initParticles() {
-        // Prevent duplicate initialization attempts
         if (initializationStarted) {
             return;
         }
@@ -36,27 +29,22 @@
         
         initializationStarted = true;
         
-        // Get canvas
         const canvas = document.getElementById('particle-canvas');
         if (!canvas) return;
         
-        // Variables
         let scene, camera, renderer, particles;
         let mouseX = 0, mouseY = 0;
         const windowHalfX = window.innerWidth / 2;
         const windowHalfY = window.innerHeight / 2;
         
-        // Create scene
         scene = new THREE.Scene();
         const isDarkMode = document.documentElement.classList.contains('dark-mode');
         const fogColor = isDarkMode ? 0x0a0a0a : 0xf5f5f5;
         scene.fog = new THREE.Fog(fogColor, 1, 2000);
         
-        // Create camera
         camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 2000);
         camera.position.z = 1000;
         
-        // Create particles
         const geometry = new THREE.BufferGeometry();
         const positions = [];
         const colors = [];
@@ -71,10 +59,8 @@
             positions.push(x, y, z);
             
             if (isDarkMode) {
-                // Dark mode: bright colorful particles for screen blend mode
                 color.setHSL(0.55 + Math.random() * 0.2, 0.7, 0.6 + Math.random() * 0.2);
             } else {
-                // Light mode: darker particles for multiply blend mode
                 color.setHSL(0.6 + Math.random() * 0.2, 0.8, 0.3 + Math.random() * 0.2);
             }
             
@@ -96,7 +82,6 @@
         particles = new THREE.Points(geometry, material);
         scene.add(particles);
         
-        // Create renderer
         renderer = new THREE.WebGLRenderer({ 
             canvas: canvas,
             alpha: true, 
@@ -105,26 +90,22 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.setPixelRatio(window.devicePixelRatio);
         
-        // Mouse move
         document.addEventListener('mousemove', (e) => {
             mouseX = (e.clientX - windowHalfX) * 0.5;
             mouseY = (e.clientY - windowHalfY) * 0.5;
         });
         
-        // Resize
         window.addEventListener('resize', () => {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(window.innerWidth, window.innerHeight);
         });
         
-        // Theme change
         window.addEventListener('themeChanged', () => {
             const newIsDarkMode = document.documentElement.classList.contains('dark-mode');
             const newFogColor = newIsDarkMode ? 0x0a0a0a : 0xf5f5f5;
             scene.fog.color.setHex(newFogColor);
             
-            // Update particle colors
             const newColors = [];
             for (let i = 0; i < particleCount; i++) {
                 if (newIsDarkMode) {
@@ -137,7 +118,6 @@
             geometry.setAttribute('color', new THREE.Float32BufferAttribute(newColors, 3));
         });
         
-        // Animation loop
         function animate() {
             requestAnimationFrame(animate);
             
@@ -155,15 +135,12 @@
         window.particlesInitialized = true;
     }
     
-    // Start initialization with multiple triggers for reliability
     function startInit() {
-        // Small delay to ensure everything is loaded
         if (!initializationStarted && !window.particlesInitialized) {
             setTimeout(initParticles, 50);
         }
     }
     
-    // Try multiple load events to ensure it works
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', startInit);
         window.addEventListener('load', startInit);

@@ -890,21 +890,66 @@ document.getElementById('signup-go-back-link').addEventListener('click', () => {
 
 /*----------------------------------------------------*/
 /*	20. Authentication with Google and Microsoft
-------------------------------------------------------*/
 
-// Google Auth Button
+// Google Auth Button (Firebase version)
+googleAuthBtn?.addEventListener('click', async (e) => {
 const googleAuthBtn = document.getElementById('google-auth-btn');
+let googleSignInInProgress = false;
 
-googleAuthBtn?.addEventListener('click', async () => {
-  const { data, error } = await supabase.auth.signInWithOAuth({
-    provider: 'google',
-    options: {
-      redirectTo: 'https://gowreesh.works/'
+googleAuthBtn?.addEventListener('click', async (e) => {
+  e.preventDefault();
+  if (googleSignInInProgress) {
+    // Prevent multiple popups
+    return;
+  }
+  googleSignInInProgress = true;
+  try {
+    if (!window.firebaseAuth) {
+      alert("Firebase not initialized. Please refresh the page.");
+      googleSignInInProgress = false;
+      return;
     }
-  });
-
-  if (error) {
-    alert("Google Auth failed: " + error.message);
+    // Create Google Auth Provider
+    const provider = new firebase.auth.GoogleAuthProvider();
+    provider.addScope('profile');
+    provider.addScope('email');
+    // Show loading state
+    googleAuthBtn.disabled = true;
+    const originalHTML = googleAuthBtn.innerHTML;
+    googleAuthBtn.innerHTML = '<i class="fab fa-google"></i> Signing in...';
+    // Sign in with popup
+    const result = await window.firebaseAuth.signInWithPopup(provider);
+    const user = result.user;
+    // Close login popup if it exists
+    const authModal = document.getElementById('login-popup');
+    const overlay = document.querySelector('.popup-overlay');
+    if (authModal && overlay) {
+      authModal.classList.remove('active-popup');
+      overlay.classList.remove('active');
+      document.body.classList.remove('modal-open');
+    }
+    alert(`Welcome, ${user.displayName || user.email}!`);
+    googleAuthBtn.innerHTML = originalHTML;
+    googleAuthBtn.disabled = false;
+    googleSignInInProgress = false;
+  } catch (error) {
+    console.error('Google Auth error:', error);
+    let errorMessage = "Google sign-in failed: ";
+    if (error.code === 'auth/popup-closed-by-user') {
+      errorMessage = "Sign-in cancelled";
+    } else if (error.code === 'auth/popup-blocked') {
+      errorMessage = "Please allow popups for this site";
+    } else if (error.code === 'auth/cancelled-popup-request') {
+      errorMessage = "Another sign-in popup is already open. Please close it and try again.";
+    } else {
+      errorMessage += error.message;
+    }
+    alert(errorMessage);
+    googleAuthBtn.disabled = false;
+    if (googleAuthBtn.innerHTML.includes('Signing in')) {
+      googleAuthBtn.innerHTML = '<i class="fab fa-google"></i> Continue with Google';
+    }
+    googleSignInInProgress = false;
   }
 });
 

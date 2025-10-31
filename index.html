@@ -18,6 +18,14 @@
 	<meta name="format-detection" content="telephone=no">
 	<meta name="mobile-web-app-capable" content="yes">
 
+	<!-- Performance Optimization: DNS Prefetch & Preconnect -->
+	<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+	<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+	<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+	<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+	<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
 	<!-- PWA Manifest -->
 	<link rel="manifest" href="manifest.json">
 	<meta name="theme-color" content="#ff0077">
@@ -45,15 +53,24 @@
    	<link rel="stylesheet" href="css/main.css">
    	<link rel="stylesheet" href="css/vendor.css">
 		<link rel="stylesheet" href="css/auth.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=cancel" />  
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+		<link rel="stylesheet" href="css/typing-animation.css">
+		<link rel="stylesheet" href="css/scroll-animations.css">
+	
+	<!-- Font Awesome 6 - Load immediately for icons (using correct version for fa-solid, fa-regular, fa-brands) -->
+	<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+	
+	<!-- Material Symbols - Defer non-critical fonts -->
+	<link rel="preload" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=cancel&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=cancel&display=swap"></noscript>
+	
 	<link rel="icon" type="image/png" href="images/Top_Photo.png">	
 
 	<!-- Java Script 
 	==================================================-->
+	<!-- Critical: Load pace.min.js immediately for loading indicator -->
 	<script src="js/pace.min.js"></script>
+	
 	<script>
 		(function() {
 			const savedTheme = localStorage.getItem('theme') || 'dark';
@@ -145,8 +162,8 @@
 				
 				<div class="theme-toggle">
 					<button id="theme-toggle-btn" aria-label="Toggle dark/light mode">
-						<span class="sun-icon"><i class="fa fa-sun-o"></i></span>
-						<span class="moon-icon"><i class="fa fa-moon-o"></i></span>
+						<span class="sun-icon"><i class="fa-solid fa-sun"></i></span>
+						<span class="moon-icon"><i class="fa-solid fa-moon"></i></span>
 					</button>
 				</div>
 				
@@ -175,10 +192,8 @@
 
 					<h5>Hello, World.</h5>
 					<h1>I'm Gowreesh</h1>
-					<p class="intro-position">
-						<span>Student At VIT Chennai</span>
-						<span>Front-end Developer</span>
-						<span>Footballer</span>
+					<p class="intro-position" id="typing-text">
+						<!-- Typing animation will be injected here -->
 					</p>
 					<a class="button stroke smoothscroll" href="#about" title="">More About Me</a>
 				</div> <!--Col-twelve-->
@@ -187,11 +202,11 @@
 
 		</div> <!--intro content-->
 		<ul class="intro-social">
-			<li><a href="https://www.linkedin.com/in/gowreesh/"><i class="fa fa-linkedin"></i></a></li>
-			<li><a href="https://twitter.com/gowreesh_vt"><i class="fa fa-twitter"></i></a></li>
-			<li><a href="https://github.com/Gowreesh-VT"><i class="fa fa-github"></i></a></li>
-			<li><a href="https://instagram.com/gowreesh_2007?igshid=OGQ5ZDc2ODk2ZA=="><i class="fa fa-instagram"></i></a></li>
-			<li><a href="https://www.youtube.com/@gowreesh"><i class="fa fa-youtube"></i></a></li>
+			<li><a href="https://www.linkedin.com/in/gowreesh/"><i class="fa-brands fa-linkedin"></i></a></li>
+			<li><a href="https://twitter.com/gowreesh_vt"><i class="fa-brands fa-twitter"></i></a></li>
+			<li><a href="https://github.com/Gowreesh-VT"><i class="fa-brands fa-github"></i></a></li>
+			<li><a href="https://instagram.com/gowreesh_2007?igshid=OGQ5ZDc2ODk2ZA=="><i class="fa-brands fa-instagram"></i></a></li>
+			<li><a href="https://www.youtube.com/@gowreesh"><i class="fa-brands fa-youtube"></i></a></li>
 		</ul>    	
 
 	</section>
@@ -210,7 +225,7 @@
 				<h1>Let me introduce myself.</h1>
 				<div class="intro-info">
 
-					<img src="images/WhatsApp Image 2025-03-17 at 19.20.03_6eb547.jpg" alt="Profile Picture">
+					<img src="images/WhatsApp Image 2025-03-17 at 19.20.03_6eb547.jpg" alt="Profile Picture" loading="lazy" width="200" height="200">
 					<p class="lead">Gowreesh V T. is a passionate programmer and tech enthusiast with a keen interest in cybersecurity and app development. He enjoys building innovative projects and exploring new technologies.</p>
 
 				</div> 
@@ -513,7 +528,7 @@
 
 						<div class="item-wrap">
 
-							<img src="images/portfolio/Netflix-Clone.png" alt="Netflix-Clone">
+							<img src="images/portfolio/Netflix-Clone.png" alt="Netflix Clone Website Design" loading="lazy" width="600" height="400">
 							<a href="#modal-08" class="overlay">
 
 								<div class="folio-item-table">
@@ -538,7 +553,7 @@
 
 						<div class="item-wrap">
 
-							<img src="images/portfolio/SmartLinx_Living HomePage.png" alt="SLL Home">
+							<img src="images/portfolio/SmartLinx_Living HomePage.png" alt="SmartLinx Living Dashboard" loading="lazy" width="600" height="400">
 							<a href="#modal-02" class="overlay">  
 
 								<div class="folio-item-table">
@@ -563,7 +578,7 @@
 						
 						<div class="item-wrap">
 
-							<img src="images/BB84.jpg" alt="BB84">
+							<img src="images/BB84.png" alt="BB84 Quantum Cryptography Simulation" loading="lazy" width="600" height="400">
 							<a href="#modal-01" class="overlay">
 
 								<div class="folio-item-table">
@@ -589,7 +604,7 @@
 
 						<div class="item-wrap">
 
-							<img src="images/Top-Left.jpg" alt="Image">
+							<img src="images/Top-Left.jpg" alt="Meta Front-End Developer Certificate" loading="lazy" width="600" height="400">
 							<a href="#modal-03" class="overlay"> 
 
 								<div class="folio-item-table">
@@ -614,7 +629,7 @@
 
 						<div class="item-wrap">
 
-							<img src="images/Top-Right.jpg" alt="Image">
+							<img src="images/Top-Right.jpg" alt="Google Certificate" loading="lazy" width="600" height="400">
 							<a href="#modal-04" class="overlay">  
 
 								<div class="folio-item-table">
@@ -638,7 +653,7 @@
 
 						<div class="item-wrap">
 
-							<img src="images/Middle-Left.jpg" alt="Image">
+							<img src="images/Middle-Left.jpg" alt="DataCamp Certificate" loading="lazy" width="600" height="400">
 							<a href="#modal-06" class="overlay">
 
 								<div class="folio-item-table">
@@ -663,7 +678,7 @@
 
 						<div class="item-wrap">
 
-							<img src="images/Middle-Right.png" alt="Image">
+							<img src="images/Middle-Right.png" alt="Harvard University Certificate - In Progress" loading="lazy" width="600" height="400">
 							<a href="#modal-05" class="overlay">
 
 								<div class="folio-item-table">
@@ -688,7 +703,7 @@
 
 						<div class="item-wrap">
 
-							<img src="images/Bottom-Left.jpg" alt="Image">
+							<img src="images/Bottom-Left.jpg" alt="GitHub Certificate" loading="lazy" width="600" height="400">
 							<a href="#modal-07" class="overlay">
 
 								<div class="folio-item-table">
@@ -715,7 +730,7 @@
 					<div id="modal-01" class="popup-modal slider mfp-hide">	
 
 						<div class="media">
-								<img src="images/portfolio/BB84.jpg" alt="BB84" />
+								<img src="images/portfolio/BB84 Simulation.png" alt="BB84" />
 						</div>
 
 						<div class="description-box">
@@ -1381,7 +1396,7 @@
 					<div class="bgrid stat">
 
 						<div class="icon-part">
-							<i class="fa fa-edit"></i>
+							<i class="fa-solid fa-pen-to-square"></i>
 						</div>
 
 						<h3 class="stat-count">5</h3>
@@ -1393,7 +1408,7 @@
 					<div class="bgrid stat">
 
 						<div class="icon-part">
-							<i class="fa fa-users"></i>
+							<i class="fa-solid fa-users"></i>
 						</div>
 
 						<h3 class="stat-count">2</h3>
@@ -1405,7 +1420,7 @@
 					<div class="bgrid stat">
 
 						<div class="icon-part">
-							<i class="fa fa-trophy"></i>
+							<i class="fa-solid fa-trophy"></i>
 						</div>
 
 						<h3 class="stat-count">50</h3>
@@ -1417,7 +1432,7 @@
 					<div class="bgrid stat">
 
 						<div class="icon-part">
-							<i class="fa fa-lightbulb-o"></i>
+							<i class="fa-solid fa-lightbulb"></i>
 						</div>
 
 						<h3 class="stat-count">100</h3>
@@ -1429,7 +1444,7 @@
 					<div class="bgrid stat">
 
 						<div class="icon-part">
-							<i class="fa fa-coffee"></i>
+							<i class="fa-solid fa-mug-hot"></i>
 						</div>
 
 						<h3 class="stat-count">700</h3>
@@ -1441,7 +1456,7 @@
 					<div class="bgrid stat">
 
 						<div class="icon-part">
-							<i class="fa	 fa-clock-o"></i>
+							<i class="fa-solid fa-clock"></i>
 						</div>
 
 						<h3 class="stat-count">1200</h3>
@@ -1577,11 +1592,11 @@
 			<div class="col-six tab-full pull-right social">
 
 				<ul class="footer-social">
-					<li><a href="https://www.linkedin.com/in/gowreesh/"><i class="fa fa-linkedin"></i></a></li>
-					<li><a href="https://twitter.com/gowreesh_vt"><i class="fa fa-twitter"></i></a></li>
-					<li><a href="https://github.com/Gowreesh-VT"><i class="fa fa-github"></i></a></li>
-					<li><a href="https://instagram.com/gowreesh_2007?igshid=OGQ5ZDc2ODk2ZA=="><i class="fa fa-instagram"></i></a></li>
-					<li><a href="https://www.youtube.com/@gowreesh"><i class="fa fa-youtube"></i></a></li>
+					<li><a href="https://www.linkedin.com/in/gowreesh/"><i class="fa-brands fa-linkedin"></i></a></li>
+					<li><a href="https://twitter.com/gowreesh_vt"><i class="fa-brands fa-twitter"></i></a></li>
+					<li><a href="https://github.com/Gowreesh-VT"><i class="fa-brands fa-github"></i></a></li>
+					<li><a href="https://instagram.com/gowreesh_2007?igshid=OGQ5ZDc2ODk2ZA=="><i class="fa-brands fa-instagram"></i></a></li>
+					<li><a href="https://www.youtube.com/@gowreesh"><i class="fa-brands fa-youtube"></i></a></li>
 				</ul> 
 					
 			</div>
@@ -1595,7 +1610,7 @@
 			</div>
 
 			<div id="go-top">
-				<a class="smoothscroll" title="Back to Top" href="#top"><i class="fa fa-long-arrow-up"></i></a>
+				<a class="smoothscroll" title="Back to Top" href="#top"><i class="fa-solid fa-arrow-up"></i></a>
 			</div>
 
       	</div> <!-- /row -->     	
@@ -1608,29 +1623,57 @@
 	<!-- Java Script
 	================================================== -->
 	<!-- Firebase CDN scripts -->
-	<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-functions-compat.js"></script>
-	<script src="js/firebase-config.js"></script>
-	<script src="js/auth.js"></script>
+	<script defer src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+	<script defer src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+	<script defer src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+	<script defer src="https://www.gstatic.com/firebasejs/9.23.0/firebase-functions-compat.js"></script>
+	<script defer src="js/firebase-config.js"></script>
+	<script defer src="js/auth.js"></script>
    
    	<!-- EmailJS for contact form -->
-   	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+   	<script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
    
-   <!-- Three.js for particle background -->
-   <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
+   <!-- Three.js for particle background - Load with lower priority -->
+   <script defer src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
    
    <!-- Existing scripts -->
-	<script src="js/jquery-2.1.3.min.js"></script>
-	<script src="js/jquery.validate.min.js"></script>
-	<script src="js/plugins.js"></script>
-	<script src="js/enhanced-ui.js"></script>
-	<script src="js/main.js"></script>
-	<script src="js/login.js"></script>
-	<script src="js/lazy-loading.js"></script>
+	<script defer src="js/jquery-2.1.3.min.js"></script>
+	<script defer src="js/jquery.validate.min.js"></script>
+	<script defer src="js/plugins.js"></script>
+	<script defer src="js/enhanced-ui.js"></script>
+	<script defer src="js/main.js"></script>
+	<script defer src="js/login.js"></script>
+	<script defer src="js/lazy-loading.js"></script>
+	<script defer src="js/typing-animation.js"></script>
+	<script defer src="js/scroll-animations.js"></script>
 
-	<script src="js/particles-3d.js"></script>	
+	<script defer src="js/particles-3d.js"></script>	
+
+	<!-- Performance Monitoring -->
+	<script defer src="js/performance-monitor.js"></script>
+
+	<!-- Initialize Typing Animation -->
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			const typingElement = document.getElementById('typing-text');
+			if (typingElement) {
+				new TextType(typingElement, {
+					text: [
+						'Student At VIT Chennai and IITM',
+						'Full Stack Developer',
+						'Cybersecurity Enthusiast',
+					],
+					typingSpeed: 75,
+					pauseDuration: 1000,
+					deletingSpeed: 50,
+					showCursor: true,
+					cursorCharacter: '|',
+					loop: true,
+					initialDelay: 500
+				});
+			}
+		});
+	</script>	
 
 	<!-- PWA Service Worker Registration -->
 	<script>
