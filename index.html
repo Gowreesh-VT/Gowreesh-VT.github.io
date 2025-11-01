@@ -11,25 +11,23 @@
    ================================================== -->
 
    	<meta charset="utf-8">
-	<meta name="description" content="I'm Gowreesh V.T, a passionate developer specializing in front-end development. Explore my projects, skills, and achievements."">  
+	<meta name="description" content="I'm Gowreesh VT, a passionate developer specializing in front-end development. Explore my projects, skills, and achievements."">  
 	<meta name="author" content="Gowreesh VT">
-	<meta name="keywords" content="Gowreesh V.T, Gowreesh Profile, Gowreesh Portfolio, Gowreesh V.T Portfolio, Gowreesh V.T Profile" >
+	<meta name="keywords" content="Gowreesh VT, Gowreesh Profile, Gowreesh Portfolio, Gowreesh V T Portfolio, Gowreesh V T Profile" >
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
 	<meta name="format-detection" content="telephone=no">
 	<meta name="mobile-web-app-capable" content="yes">
-
-	<!-- Performance Optimization: DNS Prefetch & Preconnect -->
-	<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+	<!-- Disable caching for development -->
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Expires" content="0">
 	<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 	<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
 	<link rel="dns-prefetch" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
 	<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-	
-	<!-- Preload LCP image for faster loading -->
 	<link rel="preload" as="image" href="images/intro-bg.webp" fetchpriority="high">
 
-	<!-- PWA Manifest -->
 	<link rel="manifest" href="manifest.json">
 	<meta name="theme-color" content="#ff0077">
 	<meta name="apple-mobile-web-app-capable" content="yes">
@@ -52,34 +50,29 @@
 		<!-- Links
    ================================================== -->
 
-		<!-- Critical CSS - Inline for faster First Paint -->
-		<link rel="preload" href="css/base.css" as="style">
-		<link rel="preload" href="css/main.css" as="style">
-		<link rel="stylesheet" href="css/base.css">
-   	<link rel="stylesheet" href="css/main.css">
-   	
-		<!-- Non-critical CSS - Defer loading -->
-		<link rel="preload" href="css/vendor.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-		<noscript><link rel="stylesheet" href="css/vendor.css"></noscript>
-		<!-- <link rel="stylesheet" href="css/auth.css"> -->
-		<link rel="preload" href="css/typing-animation.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-		<noscript><link rel="stylesheet" href="css/typing-animation.css"></noscript>
-		<link rel="preload" href="css/scroll-animations.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-		<noscript><link rel="stylesheet" href="css/scroll-animations.css"></noscript>
+	<link rel="preload" href="css/base.min.css?v=1.0.0" as="style">
+	<link rel="stylesheet" href="css/base.min.css?v=1.0.0">
+	<link rel="stylesheet" href="css/main.css?v=1.0.1">
+	<link rel="stylesheet" href="css/blog.css?v=1.0.0">
+	<link rel="stylesheet" href="css/skills-visualization.css?v=1.0.4">
+	<link rel="preload" href="css/vendor.min.css?v=1.0.0" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript><link rel="stylesheet" href="css/vendor.min.css?v=1.0.0"></noscript>
+	<link rel="preload" href="css/typing-animation.css?v=1.0.0" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript><link rel="stylesheet" href="css/typing-animation.css?v=1.0.0"></noscript>
+	<link rel="preload" href="css/scroll-animations.css?v=1.0.0" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript><link rel="stylesheet" href="css/scroll-animations.css?v=1.0.0"></noscript>
 	
-	<!-- Font Awesome 6 - Load immediately for icons (using correct version for fa-solid, fa-regular, fa-brands) -->
 	<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 	<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 	
-	<!-- Material Symbols - Defer non-critical fonts -->
 	<link rel="preload" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=cancel&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 	<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=cancel&display=swap"></noscript>
 	
 	<link rel="icon" type="image/png" href="images/Top_Photo.webp">	
 
+
 	<!-- Java Script 
 	==================================================-->
-	<!-- Critical: Load pace.min.js immediately for loading indicator -->
 	<script src="js/pace.min.js"></script>
 	
 	<script>
@@ -96,26 +89,131 @@
    	<!-- Open Graph Meta Tags
 	==================================================-->
 
-	<meta property="og:title" content="Gowreesh V.T | Developer & Cybersecurity Enthusiast">
+	<meta property="og:title" content="Gowreesh V T | Developer & Cybersecurity Enthusiast">
 	<meta property="og:description" content="Explore my projects, skills, and achievements in front-end development, JavaScript">
 	<meta property="og:image" content="https://gowreesh.works/images/Preview-Image.webp">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta property="og:image:alt" content="Gowreesh V T - Developer Portfolio">
 	<meta property="og:url" content="https://gowreesh.works">
 	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="Gowreesh V T Portfolio">
+	<meta property="og:locale" content="en_US">
 	
 
    <!-- Open Graph Twitter Tags
 	==================================================-->
 	
 	<meta name="twitter:card" content="summary_large_image">
-	<meta name="twitter:title" content="Gowreesh V.T | Developer Portfolio">
+	<meta name="twitter:site" content="@GowreeshVT">
+	<meta name="twitter:creator" content="@GowreeshVT">
+	<meta name="twitter:title" content="Gowreesh V T | Developer Portfolio">
 	<meta name="twitter:description" content="Explore my projects, skills, and achievements in front-end development and cybersecurity.">
 	<meta name="twitter:image" content="https://gowreesh.works/images/Preview-Image.webp">
+	<meta name="twitter:image:alt" content="Gowreesh V T - Developer Portfolio">
 
+	<!-- Structured Data (JSON-LD) for SEO -->
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Person",
+		"name": "Gowreesh V T",
+		"url": "https://gowreesh.works",
+		"image": "https://gowreesh.works/images/profile-photo.webp",
+		"sameAs": [
+			"https://github.com/Gowreesh-VT",
+			"https://linkedin.com/in/gowreesh-vt"
+		],
+		"jobTitle": "Front-End Developer",
+		"worksFor": {
+			"@type": "Organization",
+			"name": "Freelance"
+		},
+		"alumniOf": {
+			"@type": "EducationalOrganization",
+			"name": "Various Online Platforms"
+		},
+		"knowsAbout": [
+			"Front-End Development",
+			"JavaScript",
+			"React",
+			"TypeScript",
+			"Web Development",
+			"UI/UX Design",
+			"Quantum Cryptography",
+			"Python",
+			"Django"
+		],
+		"hasCredential": [
+			{
+				"@type": "EducationalOccupationalCredential",
+				"name": "Meta Front-End Developer Professional Certificate",
+				"credentialCategory": "certificate",
+				"recognizedBy": {
+					"@type": "Organization",
+					"name": "Meta"
+				}
+			},
+			{
+				"@type": "EducationalOccupationalCredential",
+				"name": "Google UX Design Certificate",
+				"credentialCategory": "certificate",
+				"recognizedBy": {
+					"@type": "Organization",
+					"name": "Google"
+				}
+			},
+			{
+				"@type": "EducationalOccupationalCredential",
+				"name": "GitHub Foundations Certificate",
+				"credentialCategory": "certificate",
+				"recognizedBy": {
+					"@type": "Organization",
+					"name": "GitHub"
+				}
+			}
+		],
+		"makesOffer": [
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Service",
+					"name": "Front-End Development",
+					"description": "Building responsive, modern web applications"
+				}
+			},
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Service",
+					"name": "UI/UX Design",
+					"description": "Creating user-friendly interfaces and experiences"
+				}
+			}
+		]
+	}
+	</script>
+
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "WebSite",
+		"name": "Gowreesh V T Portfolio",
+		"url": "https://gowreesh.works",
+		"description": "Personal portfolio showcasing web development projects, skills, and achievements",
+		"author": {
+			"@type": "Person",
+			"name": "Gowreesh V T"
+		},
+		"inLanguage": "en-US"
+	}
+	</script>
 
 
 </head>
 
 <body id="top">	
+	<a href="#intro" class="skip-to-content">Skip to main content</a>
 
 	<canvas id="particle-canvas"></canvas>
 	<header>
@@ -126,31 +224,34 @@
 		<div class="nav-container">
 			
 			<div class="nav-logo">
-				<a href="index.html">PortFolio</a>
+				<a href="index.html" aria-label="Portfolio home page">PortFolio</a>
 			</div>
 
 			<div class="nav-menu" id="nav-menu">
-				<ul class="nav-list">
-					<li class="nav-item">
-						<a class="nav-link smoothscroll" href="#intro">Home</a>
+				<ul class="nav-list" role="menubar">
+					<li class="nav-item" role="none">
+						<a class="nav-link smoothscroll" href="#intro" role="menuitem">Home</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link smoothscroll" href="#about">About</a>
+					<li class="nav-item" role="none">
+						<a class="nav-link smoothscroll" href="#about" role="menuitem">About</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link smoothscroll" href="#resume">Resume</a>
+					<li class="nav-item" role="none">
+						<a class="nav-link smoothscroll" href="#resume" role="menuitem">Resume</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link smoothscroll" href="#portfolio">Portfolio</a>
+					<li class="nav-item" role="none">
+						<a class="nav-link smoothscroll" href="#portfolio" role="menuitem">Portfolio</a>
 					</li>
 					<!-- <li class="nav-item">
 						<a class="nav-link smoothscroll" href="#login-section">Login</a>
 					</li> -->
-					<li class="nav-item">
-						<a class="nav-link smoothscroll" href="#services">Services</a>
+					<li class="nav-item" role="none">
+						<a class="nav-link smoothscroll" href="#services" role="menuitem">Services</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link smoothscroll" href="#contact">Contact</a>
+					<li class="nav-item" role="none">
+						<a class="nav-link smoothscroll" href="#blog" role="menuitem">Blog</a>
+					</li>
+					<li class="nav-item" role="none">
+						<a class="nav-link smoothscroll" href="#contact" role="menuitem">Contact</a>
 					</li>
 				</ul>
 			</div>
@@ -206,11 +307,11 @@
 					<h1>I'm Gowreesh</h1>
 					<p class="intro-position" id="typing-text"></p>
 					<a class="button stroke smoothscroll" href="#about" title="">More About Me</a>
-				</div> <!--Col-twelve-->
+				</div>
 
-			</div> <!-- row -->
+			</div>
 
-		</div> <!--intro content-->
+		</div>
 		<ul class="intro-social">
 			<li><a href="https://www.linkedin.com/in/gowreesh/"><i class="fa-brands fa-linkedin"></i></a></li>
 			<li><a href="https://twitter.com/gowreesh_vt"><i class="fa-brands fa-twitter"></i></a></li>
@@ -276,70 +377,287 @@
 
 		</div>
 
-		<!-- Tech Skills Section -->
-		<div class="row tech-skills-section">
+		<!-- Skills Visualization Section - NEW INTERACTIVE VERSION -->
+		<div class="row skills-visualization-section">
 			<div class="col-twelve">
-				<h3 class="skills-title section-heading">Tech Skills</h3>
-				<p class="skills-subtitle">Technologies I work with</p>
 				
-				<div class="tech-skills-grid">
-					<div class="tech-card">
-						<i class="fab fa-html5"></i>
-						<span>HTML5</span>
-					</div>
-					<div class="tech-card">
-						<i class="fab fa-css3-alt"></i>
-						<span>CSS3</span>
-					</div>
-					<div class="tech-card">
-						<i class="fab fa-js-square"></i>
-						<span>JavaScript</span>
-					</div>
-					<div class="tech-card">
-						<i class="fab fa-react"></i>
-						<span>React</span>
-					</div>
-					<div class="tech-card">
-						<i class="fab fa-python"></i>
-						<span>Python</span>
-					</div>
-					<div class="tech-card">
-						<i class="fa fa-c"></i>
-						<span>C++</span>
-					</div>
-					<div class="tech-card">
-						<i class="fa fa-database"></i>
-						<span>MySQL</span>
-					</div>
-					<div class="tech-card">
-						<i class="fab fa-googlecloud"></i>
-						<span>Google Cloud</span>
-					</div>
-					<div class="tech-card">
-						<i class="fab fa-supabase"></i>
-						<span>Supabase</span>
-					</div>
-					<div class="tech-card">
-						<i class="devicon-firebase-original"></i>
-						<span>Fire Base</span>
-					</div>
-					<div class="tech-card">
-						<i class="fa fa-code"></i>
-						<span>VS Code</span>
-					</div>
-					<div class="tech-card">
-						<i class="fab fa-git-alt"></i>
-						<span>Git</span>
-					</div>
-					<div class="tech-card">
-						<i class="fab fa-github"></i>
-						<span>GitHub</span>
-					</div>
-					<div class="tech-card">
-						<i class="devicon-meta-original"></i>
-						<span>Meta</span>
-					</div>
+				<div class="skills-viz-header">
+					<h3>Skills & Expertise</h3>
+					<h2>My Technical Arsenal</h2>
+					<p>Comprehensive visualization of my skills, proficiency levels, and learning journey over the years</p>
 				</div>
+
+				<!-- Skill Bars & Radar Chart Grid -->
+				<div class="skills-viz-grid">
+					
+					<!-- Animated Skill Bars -->
+					<div class="skill-bars-container">
+						<h3><i class="fas fa-code"></i> Frontend Development</h3>
+						
+						<div class="skill-bar" style="--skill-width: 95%">
+							<div class="skill-bar-header">
+								<span class="skill-name">
+									<i class="fab fa-html5"></i> HTML5
+								</span>
+								<span class="skill-percentage">95%</span>
+							</div>
+							<div class="skill-bar-bg">
+								<div class="skill-bar-fill"></div>
+							</div>
+						</div>
+
+						<div class="skill-bar" style="--skill-width: 92%">
+							<div class="skill-bar-header">
+								<span class="skill-name">
+									<i class="fab fa-css3-alt"></i> CSS3
+								</span>
+								<span class="skill-percentage">92%</span>
+							</div>
+							<div class="skill-bar-bg">
+								<div class="skill-bar-fill"></div>
+							</div>
+						</div>
+
+						<div class="skill-bar" style="--skill-width: 88%">
+							<div class="skill-bar-header">
+								<span class="skill-name">
+									<i class="fab fa-js-square"></i> JavaScript
+								</span>
+								<span class="skill-percentage">88%</span>
+							</div>
+							<div class="skill-bar-bg">
+								<div class="skill-bar-fill"></div>
+							</div>
+						</div>
+
+						<div class="skill-bar" style="--skill-width: 85%">
+							<div class="skill-bar-header">
+								<span class="skill-name">
+									<i class="fab fa-react"></i> React
+								</span>
+								<span class="skill-percentage">85%</span>
+							</div>
+							<div class="skill-bar-bg">
+								<div class="skill-bar-fill"></div>
+							</div>
+						</div>
+
+						<div class="skill-bar" style="--skill-width: 78%">
+							<div class="skill-bar-header">
+								<span class="skill-name">
+									<i class="fas fa-cube"></i> Three.js
+								</span>
+								<span class="skill-percentage">78%</span>
+							</div>
+							<div class="skill-bar-bg">
+								<div class="skill-bar-fill"></div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Radar Chart -->
+					<div class="radar-chart-container">
+						<h3><i class="fas fa-chart-line"></i> Tech Stack Overview</h3>
+						<div id="radarChart"></div>
+					</div>
+
+				</div>
+
+				<!-- Backend & Database Skills -->
+				<div class="skills-viz-grid">
+					
+					<div class="skill-bars-container">
+						<h3><i class="fas fa-server"></i> Backend & Database</h3>
+						
+						<div class="skill-bar" style="--skill-width: 82%">
+							<div class="skill-bar-header">
+								<span class="skill-name">
+									<i class="fab fa-python"></i> Python
+								</span>
+								<span class="skill-percentage">82%</span>
+							</div>
+							<div class="skill-bar-bg">
+								<div class="skill-bar-fill"></div>
+							</div>
+						</div>
+
+						<div class="skill-bar" style="--skill-width: 80%">
+							<div class="skill-bar-header">
+								<span class="skill-name">
+									<i class="fas fa-database"></i> MySQL
+								</span>
+								<span class="skill-percentage">80%</span>
+							</div>
+							<div class="skill-bar-bg">
+								<div class="skill-bar-fill"></div>
+							</div>
+						</div>
+
+						<div class="skill-bar" style="--skill-width: 76%">
+							<div class="skill-bar-header">
+								<span class="skill-name">
+									<i class="fas fa-leaf"></i> MongoDB
+								</span>
+								<span class="skill-percentage">76%</span>
+							</div>
+							<div class="skill-bar-bg">
+								<div class="skill-bar-fill"></div>
+							</div>
+						</div>
+
+						<div class="skill-bar" style="--skill-width: 75%">
+							<div class="skill-bar-header">
+								<span class="skill-name">
+									<i class="fab fa-node-js"></i> Node.js
+								</span>
+								<span class="skill-percentage">75%</span>
+							</div>
+							<div class="skill-bar-bg">
+								<div class="skill-bar-fill"></div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Serverside & Cloud -->
+					<div class="skill-bars-container">
+						<h3><i class="fas fa-cloud"></i> Serverside & Cloud</h3>
+						
+						<div class="skill-bar" style="--skill-width: 88%">
+							<div class="skill-bar-header">
+								<span class="skill-name">
+									<i class="fas fa-fire"></i> Firebase
+								</span>
+								<span class="skill-percentage">88%</span>
+							</div>
+							<div class="skill-bar-bg">
+								<div class="skill-bar-fill"></div>
+							</div>
+						</div>
+
+						<div class="skill-bar" style="--skill-width: 72%">
+							<div class="skill-bar-header">
+								<span class="skill-name">
+									<i class="fab fa-google"></i> Google Cloud
+								</span>
+								<span class="skill-percentage">72%</span>
+							</div>
+							<div class="skill-bar-bg">
+								<div class="skill-bar-fill"></div>
+							</div>
+						</div>
+
+						<div class="skill-bar" style="--skill-width: 70%">
+							<div class="skill-bar-header">
+								<span class="skill-name">
+									<i class="fab fa-aws"></i> AWS
+								</span>
+								<span class="skill-percentage">70%</span>
+							</div>
+							<div class="skill-bar-bg">
+								<div class="skill-bar-fill"></div>
+							</div>
+						</div>
+
+						<div class="skill-bar" style="--skill-width: 68%">
+							<div class="skill-bar-header">
+								<span class="skill-name">
+									<i class="fas fa-server"></i> Supabase
+								</span>
+								<span class="skill-percentage">68%</span>
+							</div>
+							<div class="skill-bar-bg">
+								<div class="skill-bar-fill"></div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<!-- Learning Timeline - Full Width -->
+				<div class="skills-viz-grid" style="grid-template-columns: 1fr;">
+					
+					<!-- Learning Timeline -->
+					<div class="learning-timeline-container">
+						<h3><i class="fas fa-rocket"></i> Learning Journey</h3>
+						
+						<div class="timeline-wrapper">
+							<div class="timeline-line"></div>
+
+							<div class="timeline-item">
+								<div class="timeline-dot"></div>
+								<div class="timeline-content">
+									<div class="timeline-year">2021</div>
+									<div class="timeline-title">Started Web Development Journey</div>
+									<div class="timeline-desc">Began learning HTML, CSS, and JavaScript fundamentals. Created first portfolio website.</div>
+									<div class="timeline-skills">
+										<span class="timeline-skill-tag">HTML</span>
+										<span class="timeline-skill-tag">CSS</span>
+										<span class="timeline-skill-tag">JavaScript</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="timeline-item">
+								<div class="timeline-dot"></div>
+								<div class="timeline-content">
+									<div class="timeline-year">2022</div>
+									<div class="timeline-title">Frontend Frameworks & React</div>
+									<div class="timeline-desc">Mastered React and modern frontend development. Built multiple SPA applications.</div>
+									<div class="timeline-skills">
+										<span class="timeline-skill-tag">React</span>
+										<span class="timeline-skill-tag">Redux</span>
+										<span class="timeline-skill-tag">Webpack</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="timeline-item">
+								<div class="timeline-dot"></div>
+								<div class="timeline-content">
+									<div class="timeline-year">2023</div>
+									<div class="timeline-title">Full Stack & Cloud Services</div>
+									<div class="timeline-desc">Expanded to backend development with Node.js and Firebase. Deployed production apps.</div>
+									<div class="timeline-skills">
+										<span class="timeline-skill-tag">Node.js</span>
+										<span class="timeline-skill-tag">Firebase</span>
+										<span class="timeline-skill-tag">MongoDB</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="timeline-item">
+								<div class="timeline-dot"></div>
+								<div class="timeline-content">
+									<div class="timeline-year">2024</div>
+									<div class="timeline-title">Cybersecurity & Advanced Topics</div>
+									<div class="timeline-desc">Studied quantum cryptography (BB84), implemented secure authentication systems.</div>
+									<div class="timeline-skills">
+										<span class="timeline-skill-tag">Cybersecurity</span>
+										<span class="timeline-skill-tag">Quantum</span>
+										<span class="timeline-skill-tag">Auth Systems</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="timeline-item">
+								<div class="timeline-dot"></div>
+								<div class="timeline-content">
+									<div class="timeline-year">2025</div>
+									<div class="timeline-title">Meta Certifications & Mastery</div>
+									<div class="timeline-desc">Completed Meta Front-End Developer certification. Mastering Three.js and WebGL.</div>
+									<div class="timeline-skills">
+										<span class="timeline-skill-tag">Three.js</span>
+										<span class="timeline-skill-tag">WebGL</span>
+										<span class="timeline-skill-tag">PWA</span>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+
 			</div>
 		</div>
 
@@ -364,9 +682,9 @@
 				<h5 class="section-heading">Resume</h5>
 				<h1>More of my credentials.</h1>
 				<p class="lead">I’ve got Meta certificates in Front-End Development and Python from Coursera. I’ve built web apps, worked on automation projects, and explored cybersecurity. Also, I’m into smart home automation and network security.</p>
-			</div> <!--Col-twelve--> 
+			</div>
 
-		</div> <!--section intro-->
+		</div>
 
 		<div class="row resume-timeline">
 
@@ -394,7 +712,7 @@
 							<p>I’ve led school projects, managing teams, delegating tasks, and ensuring smooth execution. I focus on teamwork, problem-solving, and delivering quality results.</p>
 						</div>
 
-					</div> <!--timeline-block-->
+					</div>
 
 					<div class="timeline-block">
 
@@ -412,7 +730,7 @@
 							<p>I design intuitive and engaging interfaces with the end user in mind, ensuring a seamless experience. My focus is on usability, accessibility, and creating visually appealing designs that enhance interaction.</p>
 						</div>
 
-					</div> <!--timeline-block-->
+					</div>
 
 					<div class="timeline-block">
 
@@ -430,13 +748,14 @@
 							<p>I love turning ideas into visually appealing and functional designs, bringing creativity into every project. Thinking outside the box helps me craft unique user experiences that stand out.</p>
 						</div>
 
-					</div> <!-- /timeline-block --> 
+					</div>
 
-				</div> <!-- /timeline wrap-->
+				</div>
 
-			</div> <!-- /col-twelve -->
+			</div>
 
-		</div>	<!--/row-timeline-->
+		</div>
+
 		<div class="row resume-timeline">
 
 			<div class="col-twelve resume-header">
@@ -463,7 +782,7 @@
 							<p>The University of Freiburg, located in Germany, is a world-renowned public research university founded in 1457. It offers a wide range of academic disciplines and emphasizes interdisciplinary learning, innovation, and global collaboration. Ranked among Europe’s top institutions, it is known for academic excellence, cutting-edge research, and a rich tradition of education spanning over 560 years.</p>
 						</div>
 
-					</div> <!-- /timeline-block -->
+					</div>
 
 					<div class="timeline-block">
 
@@ -482,7 +801,7 @@
 							<p>"VIT Chennai is a premier institution recognized for its academic excellence, pioneering research, and dynamic campus environment. With a strong emphasis on innovation and industry collaboration, it equips students with the knowledge, skills, and opportunities to become future-ready professionals."</p>
 						</div>
 
-					</div> <!-- /timeline-block -->
+					</div>
 
 					<div class="timeline-block">
 
@@ -500,15 +819,15 @@
 							<p>​CS Academy in Erode is a premier K-12 co-educational day and boarding school offering both CBSE and Cambridge curriculam. The school emphasizes holistic education, integrating high academic standards with a wide range of sports and co-curricular activities to nurture well-rounded development. Recently, CS Academy, Erode, was ranked No.15 in India, No.4 in Tamil Nadu, and No.1 in Erode by Education Today, highlighting its commitment to excellence.</p>
 						</div>
 
-					</div> <!-- /timeline-block -->
+					</div>
 
-				</div> <!-- /timeline-wrap -->  
+				</div> 
 
-			</div> <!-- /col-twelve -->
+			</div>
 
-		</div> <!-- /resume-timeline -->
+		</div>
 
-	</section> <!-- /features -->
+	</section>
 
 
 	<!-- Portfolio Section
@@ -526,7 +845,7 @@
 					Check them out and let me know what you think!</p>
 
 			</div>   		
-		</div> <!-- /section-intro--> 
+		</div>
 
 		<div class="row portfolio-content">
 
@@ -549,15 +868,15 @@
 											<span class="folio-types">
 												Web Design
 											</span>		     		
-									</div>	<!--folio-cell-->
+									</div>
 
-								</div>  <!--Folio-table-->
+								</div>
 
 							</a>
 
-						</div> <!--item wrap-->
+						</div>
 
-					</div> <!-- /folio-item --> 
+					</div>
 
 					<div class="bgrid folio-item">
 
@@ -574,15 +893,15 @@
 											<span class="folio-types">
 												Web Development
 											</span>		     		
-									</div> <!--folio-cell-->
+									</div>
 
-								</div> <!--Folio-table-->
+								</div>
 
 							</a>
 
-						</div> <!--item wrap-->
+						</div>
 
-					</div> <!-- /folio-item -->
+					</div>
 
 					<div class="bgrid folio-item">
 						
@@ -600,15 +919,15 @@
 											<span class="folio-types">
 												Web Simulation
 											</span>
-									</div> <!--folio-cell-->
+									</div>
 
-								</div> <!--Folio-table-->
+								</div>
 
 							</a>
 							
-						</div> <!--item wrap-->
+						</div>
 
-					</div>  <!--Folio-item-->
+					</div>
 
 					<div class="bgrid folio-item">
 
@@ -633,7 +952,7 @@
 
 						</div>
 
-					</div> <!-- /folio-item -->
+					</div>
 
 					<div class="bgrid folio-item">
 
@@ -650,14 +969,14 @@
 											<span class="folio-types">
 												From Google
 											</span>		     		
-									</div> <!--folio-cell-->
+									</div>
 
-								</div> <!--Folio-table-->
+								</div>
 
 							</a>
-						</div> <!--item wrap-->
+						</div>
 						
-					</div> <!-- /folio-item -->     
+					</div>     
 
 					<div class="bgrid folio-item">
 
@@ -674,15 +993,15 @@
 											<span class="folio-types">
 												From DataCamp
 											</span>		     		
-									</div>	<!--folio-cell-->
+									</div>
 
-								</div>  <!--Folio-table-->
+								</div> 
 
 							</a>
 
-						</div> <!--item wrap-->
+						</div>
 
-					</div> <!-- /folio-item --> 
+					</div> 
 					
 					<div class="bgrid folio-item">
 
@@ -699,15 +1018,15 @@
 											<span class="folio-types">
 											From Harvard University
 											</span>		     		
-									</div> <!--folio-cell-->
+									</div>
 
-								</div> <!--Folio-table-->
+								</div>
 
 							</a>
 							
-						</div><!--item wrap-->
+						</div>
 
-					</div> <!-- /folio-item -->
+					</div>
 
 					<div class="bgrid folio-item">
 
@@ -724,15 +1043,15 @@
 											<span class="folio-types">
 											From GitHub
 											</span>		     		
-									</div> <!--folio-cell-->
+									</div>
 
-								</div> <!--Folio-table-->
+								</div>
 
 							</a>
 							
-						</div><!--item wrap-->
+						</div>
 
-					</div> <!-- /folio-item -->
+					</div>
 
 
 					<!-- modal popups - begin
@@ -896,11 +1215,11 @@
 
 					</div> <!-- /modal-08 -->
 
-				</div> <!-- /portfolio-wrapper --> 
+				</div>
 
-			</div>  <!-- /twelve -->   
+			</div>
 
-		</div> <!-- /portfolio-content --> 
+		</div>
 
 		<div  class="More-Project">
 			<a class="button button-primary large" href="AllCertificates/" title="">See All Certificates</a>
@@ -908,7 +1227,180 @@
 		
 	</section> <!-- /portfolio --> 
 
-	<!-- Login Section
+	<!-- Blog/Articles Section
+   ================================================== -->
+
+	<section id="blog">
+		<div class="overlay"></div>
+		
+		<div class="row section-intro">
+			<div class="col-twelve">
+				<h5>Blog</h5>
+				<h1>Latest Articles & Insights</h1>
+				<p class="lead">Sharing knowledge about web development, cybersecurity, and technology trends. Explore my thoughts, tutorials, and experiences in the world of code.</p>
+			</div>
+		</div>
+
+		<div class="row blog-content">
+			<div class="col-twelve">
+				<div class="blog-grid">
+
+					<!-- Article 1: Project Case Study -->
+					<article class="blog-card">
+						<div class="blog-image">
+							<img src="images/portfolio/netflix.webp" alt="Netflix Clone Case Study" loading="lazy">
+							<span class="blog-category">Case Study</span>
+						</div>
+						<div class="blog-content-text">
+							<div class="blog-meta">
+								<span class="blog-date"><i class="fa fa-calendar"></i> October 2024</span>
+								<span class="blog-read-time"><i class="fa fa-clock-o"></i> 8 min read</span>
+							</div>
+							<h3>Building a Netflix Clone: Full-Stack Journey</h3>
+							<p>Deep dive into recreating Netflix's UI/UX with modern web technologies. From responsive design to authentication systems, explore the challenges and solutions.</p>
+							<div class="blog-tags">
+								<span class="tag">React</span>
+								<span class="tag">Firebase</span>
+								<span class="tag">CSS3</span>
+							</div>
+							<a href="#blog-article-1" class="blog-read-more">
+								Read Full Article <i class="fa fa-arrow-right"></i>
+							</a>
+						</div>
+					</article>
+
+					<!-- Article 2: Technical Tutorial -->
+					<article class="blog-card">
+						<div class="blog-image">
+							<img src="images/portfolio/bb84.webp" alt="BB84 Protocol" loading="lazy">
+							<span class="blog-category">Tutorial</span>
+						</div>
+						<div class="blog-content-text">
+							<div class="blog-meta">
+								<span class="blog-date"><i class="fa fa-calendar"></i> September 2024</span>
+								<span class="blog-read-time"><i class="fa fa-clock-o"></i> 12 min read</span>
+							</div>
+							<h3>Quantum Cryptography: Implementing BB84 Protocol</h3>
+							<p>Understanding and implementing the BB84 quantum key distribution protocol. A step-by-step guide to quantum-safe cryptography with practical examples.</p>
+							<div class="blog-tags">
+								<span class="tag">Cybersecurity</span>
+								<span class="tag">Python</span>
+								<span class="tag">Quantum</span>
+							</div>
+							<a href="#blog-article-2" class="blog-read-more">
+								Read Full Article <i class="fa fa-arrow-right"></i>
+							</a>
+						</div>
+					</article>
+
+					<!-- Article 3: Best Practices -->
+					<article class="blog-card">
+						<div class="blog-image">
+							<img src="images/portfolio/smartlinx.webp" alt="Smart Home Dashboard" loading="lazy">
+							<span class="blog-category">Best Practices</span>
+						</div>
+						<div class="blog-content-text">
+							<div class="blog-meta">
+								<span class="blog-date"><i class="fa fa-calendar"></i> August 2024</span>
+								<span class="blog-read-time"><i class="fa fa-clock-o"></i> 10 min read</span>
+							</div>
+							<h3>Building Accessible Web Applications</h3>
+							<p>Essential accessibility practices for modern web development. Learn how ARIA labels, semantic HTML, and keyboard navigation improve user experience.</p>
+							<div class="blog-tags">
+								<span class="tag">Accessibility</span>
+								<span class="tag">UX</span>
+								<span class="tag">WCAG</span>
+							</div>
+							<a href="#blog-article-3" class="blog-read-more">
+								Read Full Article <i class="fa fa-arrow-right"></i>
+							</a>
+						</div>
+					</article>
+
+					<!-- Article 4: Performance -->
+					<article class="blog-card">
+						<div class="blog-image">
+							<img src="images/intro-bg.webp" alt="Web Performance" loading="lazy">
+							<span class="blog-category">Performance</span>
+						</div>
+						<div class="blog-content-text">
+							<div class="blog-meta">
+								<span class="blog-date"><i class="fa fa-calendar"></i> July 2024</span>
+								<span class="blog-read-time"><i class="fa fa-clock-o"></i> 6 min read</span>
+							</div>
+							<h3>Optimizing Web Performance: From 70 to 99 in Lighthouse</h3>
+							<p>Comprehensive guide to web performance optimization. Image formats, lazy loading, code splitting, and caching strategies that matter.</p>
+							<div class="blog-tags">
+								<span class="tag">Performance</span>
+								<span class="tag">Optimization</span>
+								<span class="tag">SEO</span>
+							</div>
+							<a href="#blog-article-4" class="blog-read-more">
+								Read Full Article <i class="fa fa-arrow-right"></i>
+							</a>
+						</div>
+					</article>
+
+					<!-- Article 5: Security -->
+					<article class="blog-card">
+						<div class="blog-image">
+							<img src="images/logo.webp" alt="Web Security" loading="lazy">
+							<span class="blog-category">Security</span>
+						</div>
+						<div class="blog-content-text">
+							<div class="blog-meta">
+								<span class="blog-date"><i class="fa fa-calendar"></i> June 2024</span>
+								<span class="blog-read-time"><i class="fa fa-clock-o"></i> 9 min read</span>
+							</div>
+							<h3>Web Security Best Practices for 2024</h3>
+							<p>Essential security headers, CSP implementation, and protection against common vulnerabilities. Build secure web applications from the ground up.</p>
+							<div class="blog-tags">
+								<span class="tag">Security</span>
+								<span class="tag">CSP</span>
+								<span class="tag">Headers</span>
+							</div>
+							<a href="#blog-article-5" class="blog-read-more">
+								Read Full Article <i class="fa fa-arrow-right"></i>
+							</a>
+						</div>
+					</article>
+
+					<!-- Article 6: Three.js -->
+					<article class="blog-card">
+						<div class="blog-image">
+							<img src="images/portfolio/modals/m-netflix.webp" alt="Three.js Graphics" loading="lazy">
+							<span class="blog-category">Graphics</span>
+						</div>
+						<div class="blog-content-text">
+							<div class="blog-meta">
+								<span class="blog-date"><i class="fa fa-calendar"></i> May 2024</span>
+								<span class="blog-read-time"><i class="fa fa-clock-o"></i> 15 min read</span>
+							</div>
+							<h3>Creating Interactive 3D Experiences with Three.js</h3>
+							<p>Master Three.js for creating stunning 3D graphics on the web. From basic scenes to particle systems and interactive animations.</p>
+							<div class="blog-tags">
+								<span class="tag">Three.js</span>
+								<span class="tag">WebGL</span>
+								<span class="tag">3D</span>
+							</div>
+							<a href="#blog-article-6" class="blog-read-more">
+								Read Full Article <i class="fa fa-arrow-right"></i>
+							</a>
+						</div>
+					</article>
+
+				</div>
+
+				<div class="blog-cta">
+					<p class="blog-cta-text">Want to read more? Subscribe to my newsletter for weekly insights!</p>
+					<a href="#contact" class="button button-primary smoothscroll">Get In Touch</a>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- Login Section - COMMENTED OUT (kept for reference)
    ================================================== -->
 
 	<!-- <section id="login-section">
@@ -933,7 +1425,7 @@
 
 	</section> -->
 
-   <!-- Login Popup
+   <!-- Login Popup - COMMENTED OUT (kept for reference)
 	====================================================-->
 	<!-- <section id="login-popup">
 
@@ -1293,7 +1785,7 @@
 					<p class="lead">In a world of digital possibilities, I'm here to transform your concepts into captivating realities. From design to development, I'm your partner in crafting exceptional online experiences that resonate.</p>
 
 				</div>   		
-			</div> <!-- /section-intro -->
+			</div>
 
 			<div class="row services-content">
 
@@ -1311,7 +1803,7 @@
 						
 						</div> 	         	 
 
-					</div> <!-- /service -->
+					</div>
 
 					<div class="service">	
 
@@ -1326,7 +1818,7 @@
 
 						</div>	                          
 
-				</div> <!-- /service -->
+				</div>
 
 					<div class="service">
 
@@ -1341,7 +1833,7 @@
 							
 						</div>                
 
-					</div> <!-- /service -->
+					</div>
 
 					<div class="service">
 
@@ -1356,7 +1848,7 @@
 
 						</div> 	            	               
 
-				</div> <!-- /service -->
+				</div>
 
 					<div class="service">
 
@@ -1371,7 +1863,7 @@
 
 						</div>	               
 
-					</div> <!-- /service -->
+					</div>
 
 					<div class="service">
 
@@ -1386,13 +1878,13 @@
 								
 						</div>	               
 
-					</div> <!-- /service -->
+					</div>
 
-			</div> <!-- /services-list -->
+			</div>
 			
-   		</div> <!-- /services-content -->
+   		</div>
 		
-	</section> <!-- /services -->	
+	</section>
 
 
 	<!-- stats Section
@@ -1414,7 +1906,7 @@
 
 						<h5 class="stat-title">Projects Completed</h5>
 
-					</div> <!-- /stat -->					
+					</div>				
 
 					<div class="bgrid stat">
 
@@ -1426,7 +1918,7 @@
 
 						<h5 class="stat-title">Happy Clients</h5>
 
-					</div> <!-- /stat -->
+					</div>
 
 					<div class="bgrid stat">
 
@@ -1438,7 +1930,7 @@
 
 						<h5 class="stat-title">Certificates Received</h5>
 
-					</div> <!-- /stat -->									
+					</div>								
 
 					<div class="bgrid stat">
 
@@ -1450,7 +1942,7 @@
 
 						<h5 class="stat-title">Crazy Ideas</h5>
 
-					</div> <!-- /stat -->
+					</div>
 
 					<div class="bgrid stat">
 
@@ -1462,7 +1954,7 @@
 
 						<h5 class="stat-title">Coffee Cups</h5>
 
-					</div> <!-- /stat -->
+					</div>
 
 					<div class="bgrid stat">
 
@@ -1474,14 +1966,14 @@
 
 						<h5 class="stat-title">Hours</h5>
 
-					</div> <!-- /stat -->
+					</div>
 
-				</div> <!-- /stats-list -->
+				</div>
 
-			</div> <!-- /twelve -->
-		</div> <!-- /row -->
+			</div>
+		</div>
 
-	</section> <!-- /stats -->
+	</section>
 
 	
    <!-- contact
@@ -1497,30 +1989,79 @@
 				<p class="lead">"Your questions and ideas matter. Whether you need assistance, have inquiries, Please reach out through the contact form below, and I'll respond promptly, eager to assist you."</p>
 
 			</div> 
-   		</div> <!-- /section-intro -->
+   		</div>
 
-		<!-- Contact Section -->
 		<div class="row contact-form">
 			<div class="col-twelve">
 
-			<form id="contactForm">
+			<form id="contactForm" role="form" aria-labelledby="contact-section-heading">
 				<fieldset>
+					<legend class="sr-only">Contact Information</legend>
+					
 					<div class="form-field">
-						<input name="name" type="text" id="contactName" placeholder="Name" minlength="2" required>
+						<label for="contactName" class="sr-only">Your Name (required)</label>
+						<input 
+							name="name" 
+							type="text" 
+							id="contactName" 
+							placeholder="Name" 
+							minlength="2" 
+							required 
+							aria-required="true"
+							aria-describedby="name-help"
+							autocomplete="name">
+						<span id="name-help" class="sr-only">Enter your full name</span>
 					</div>
+					
 					<div class="form-field">
-						<input name="email" type="email" id="contactEmail" placeholder="Email" required>
+						<label for="contactEmail" class="sr-only">Your Email (required)</label>
+						<input 
+							name="email" 
+							type="email" 
+							id="contactEmail" 
+							placeholder="Email" 
+							required 
+							aria-required="true"
+							aria-describedby="email-help"
+							autocomplete="email">
+						<span id="email-help" class="sr-only">Enter a valid email address</span>
 					</div>
+					
 					<div class="form-field">
-						<input name="subject" type="text" id="contactSubject" placeholder="Subject" required>
+						<label for="contactSubject" class="sr-only">Subject (required)</label>
+						<input 
+							name="subject" 
+							type="text" 
+							id="contactSubject" 
+							placeholder="Subject" 
+							required 
+							aria-required="true"
+							aria-describedby="subject-help"
+							autocomplete="off">
+						<span id="subject-help" class="sr-only">Brief subject of your message</span>
 					</div>
+					
 					<div class="form-field">
-						<textarea name="message" id="contactMessage" placeholder="Message" rows="10" required></textarea>
+						<label for="contactMessage" class="sr-only">Your Message (required)</label>
+						<textarea 
+							name="message" 
+							id="contactMessage" 
+							placeholder="Message" 
+							rows="10" 
+							required 
+							aria-required="true"
+							aria-describedby="message-help"></textarea>
+						<span id="message-help" class="sr-only">Enter your detailed message</span>
 					</div>
 
 					<div class="form-field">
-						<button type="submit" class="submitform">Submit</button>
-						<div id="submit-loader" style="display:none;">
+						<button 
+							type="submit" 
+							class="submitform"
+							aria-label="Submit contact form">
+							Submit
+						</button>
+						<div id="submit-loader" style="display:none;" role="status" aria-live="polite">
 						<div class="text-loader">Sending...</div>
 						<div class="s-loader">
 							<div class="bounce1"></div>
@@ -1532,16 +2073,16 @@
 				</fieldset>
 			</form>
 
-			<div id="message-warning" style="display:none; color:red;">
-				<i class="fa fa-times"></i> Something went wrong. Please try again.<br>
+			<div id="message-warning" style="display:none; color:red;" role="alert" aria-live="assertive">
+				<i class="fa fa-times" aria-hidden="true"></i> Something went wrong. Please try again.<br>
 			</div>
 
-			<div id="message-success" style="display:none; color:green;">
-				<i class="fa fa-check"></i> Your message was sent, thank you!<br>
+			<div id="message-success" style="display:none; color:green;" role="alert" aria-live="polite">
+				<i class="fa fa-check" aria-hidden="true"></i> Your message was sent, thank you!<br>
 			</div>
 
 			</div>
-		</div> <!-- /contact-form -->
+		</div>
 
 
 		<div class="row contact-info">
@@ -1589,9 +2130,9 @@
 
 			</div>
 			
-		</div> <!-- /row contact-info -->
+		</div>
 		
-	</section> <!-- /contact -->
+	</section>
 
 
    <!-- footer
@@ -1624,7 +2165,7 @@
 				<a class="smoothscroll" title="Back to Top" href="#top"><i class="fa-solid fa-arrow-up"></i></a>
 			</div>
 
-      	</div> <!-- /row -->     	
+      	</div>  	
    	</footer>  
 
    	<div id="preloader"> 
@@ -1641,29 +2182,23 @@
 	<script defer src="js/firebase-config.js"></script>
 	<script defer src="js/auth.js"></script> -->
    
-   	<!-- EmailJS for contact form -->
+
    	<script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-   
-   <!-- Three.js for particle background - Load with lower priority -->
-   <script defer src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
-   
-   <!-- Existing scripts -->
+   	<script defer src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
 	<script defer src="js/jquery-2.1.3.min.js"></script>
 	<script defer src="js/jquery.validate.min.js"></script>
-	<script defer src="js/plugins.js"></script>
-	<script defer src="js/enhanced-ui.js"></script>
-	<script defer src="js/main.js"></script>
-	<!-- <script defer src="js/login.js"></script> -->
-	<script defer src="js/lazy-loading.js"></script>
-	<script defer src="js/typing-animation.js"></script>
+	<script defer src="js/plugins.min.js"></script>
+	<script defer src="js/enhanced-ui.min.js"></script>
+	<script defer src="js/main.min.js"></script>
+
+	<script defer src="js/lazy-loading.min.js"></script>
+	<script defer src="js/typing-animation.min.js"></script>
 	<script defer src="js/scroll-animations.js"></script>
+	<script defer src="js/particles-3d.js"></script>
+	<script defer src="js/structured-data.js"></script>
+	<script defer src="js/breadcrumb-schema.js"></script>
+	<script defer src="js/skills-visualization.js"></script>	
 
-	<script defer src="js/particles-3d.js"></script>	
-
-	<!-- Performance Monitoring -->
-	<script defer src="js/performance-monitor.js"></script>
-
-	<!-- Initialize Typing Animation -->
 	<script>
 		document.addEventListener('DOMContentLoaded', function() {
 			const typingElement = document.getElementById('typing-text');
@@ -1686,28 +2221,28 @@
 		});
 	</script>	
 
-	<!-- PWA Service Worker Registration -->
 	<script>
-		if ('serviceWorker' in navigator) {
+		// Skip Service Worker during local development
+		const isLocalDevelopment = location.hostname === 'localhost' || 
+		                           location.hostname === '127.0.0.1' ||
+		                           location.port === '5500';
+		
+		if ('serviceWorker' in navigator && !isLocalDevelopment) {
 			window.addEventListener('load', () => {
-				navigator.serviceWorker.getRegistrations().then(registrations => {
-					for(let registration of registrations) {
-						registration.unregister();
-					}
-				});
-				
 				navigator.serviceWorker.register('/sw.js')
 					.then(registration => {
 						console.log('SW registered: ', registration);
 						
-						registration.update();
+						// Check for updates periodically
+						setInterval(() => {
+							registration.update();
+						}, 60000); // Check every minute
 						
 						registration.addEventListener('updatefound', () => {
 							const newWorker = registration.installing;
 							newWorker.addEventListener('statechange', () => {
-								if (newWorker.state === 'activated') {
-									console.log('New service worker activated, reloading...');
-									window.location.reload();
+								if (newWorker.state === 'activated' && !navigator.serviceWorker.controller) {
+									console.log('New service worker activated');
 								}
 							});
 						});

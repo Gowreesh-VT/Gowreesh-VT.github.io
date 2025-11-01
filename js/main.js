@@ -250,9 +250,8 @@
       .then(function(response) {
         $("#submit-loader").fadeOut();
         $("#message-success").text("Thank you! Your message has been sent successfully.").fadeIn();
-        $("#contactForm")[0].reset(); // Clear the form
+        $("#contactForm")[0].reset();
         
-        // Auto-hide success message after 5 seconds
         setTimeout(function() {
           $("#message-success").fadeOut();
         }, 5000);
@@ -299,7 +298,6 @@
   var fadeOutTime = 400;
   var scrollSpeed = 300;
 
-  // Show or hide the sticky footer button
   jQuery(window).scroll(function () {
     if (!$("#header-search").hasClass("is-visible")) {
       if (jQuery(window).scrollTop() >= pxShow) {
@@ -313,7 +311,6 @@
   /*----------------------------------------------------- */
   /* Theme Toggle
   	------------------------------------------------------- */
-  // Initialize theme from localStorage or default to dark mode
   const currentTheme = localStorage.getItem('theme') || 'dark';
   const html = document.documentElement;
   
@@ -323,7 +320,6 @@
     html.classList.add('dark-mode');
   }
 
-  // Theme toggle functionality
   $('#theme-toggle-btn').on('click', function() {
     const html = document.documentElement;
     const isDarkMode = html.classList.contains('dark-mode');
@@ -338,7 +334,6 @@
       console.log('Switched to dark mode');
     }
     
-    // Dispatch custom event for particle system
     window.dispatchEvent(new Event('themeChanged'));
   });
 
@@ -350,13 +345,11 @@
     $('#nav-menu').toggleClass('active');
   });
 
-  // Close mobile menu when clicking on a nav link
   $('.nav-link').on('click', function() {
     $('#nav-toggle').removeClass('active');
     $('#nav-menu').removeClass('active');
   });
 
-  // Close mobile menu when clicking outside
   $(document).on('click', function(e) {
     if (!$(e.target).closest('.nav-container').length) {
       $('#nav-toggle').removeClass('active');

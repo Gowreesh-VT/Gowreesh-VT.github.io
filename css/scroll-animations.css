@@ -3,7 +3,6 @@
  * Clean, subtle sliding with fading effects
  * ================================================================ */
 
-/* Base state - elements are hidden before animation */
 .animate-slide-left,
 .animate-slide-right,
 .animate-fade-up,
@@ -12,7 +11,6 @@
   transition: none;
 }
 
-/* Slide from Left with Fade */
 .animate-slide-left {
   transform: translateX(-60px);
 }
@@ -32,7 +30,6 @@
   }
 }
 
-/* Slide from Right with Fade */
 .animate-slide-right {
   transform: translateX(60px);
 }
@@ -52,7 +49,6 @@
   }
 }
 
-/* Fade Up - slide from bottom with fade */
 .animate-fade-up {
   transform: translateY(40px);
 }
@@ -72,7 +68,6 @@
   }
 }
 
-/* Simple Fade In */
 .animate-fade-in {
   transform: none;
 }
@@ -90,12 +85,10 @@
   }
 }
 
-/* Animated class - keeps element visible after animation */
 .animated {
   opacity: 1 !important;
 }
 
-/* Subtle hover effects */
 .folio-item.animated {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -137,7 +130,6 @@
   transform: translateY(-5px);
 }
 
-/* Reduce motion for users who prefer it */
 @media (prefers-reduced-motion: reduce) {
   .animate-slide-left,
   .animate-slide-right,
@@ -157,7 +149,6 @@
   }
 }
 
-/* Mobile optimizations - faster, shorter distances */
 @media only screen and (max-width: 768px) {
   .animate-slide-left {
     transform: translateX(-40px);
@@ -211,7 +202,6 @@
   }
 }
 
-/* Performance optimization - GPU acceleration */
 .animate-slide-left,
 .animate-slide-right,
 .animate-fade-up,
@@ -223,7 +213,6 @@
   will-change: auto;
 }
 
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }

@@ -2,7 +2,6 @@
 /*	Enhanced Form Validation & Loading States
 ------------------------------------------------------*/
 
-// Real-time form validation
 class FormValidator {
   constructor() {
     this.validators = {
@@ -16,13 +15,11 @@ class FormValidator {
   }
   
   init() {
-    // Add real-time validation to contact form
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
       this.setupContactFormValidation(contactForm);
     }
     
-    // Add real-time validation to auth forms
     const authInputs = document.querySelectorAll('#login-form input, #signup-form input');
     authInputs.forEach(input => {
       this.setupInputValidation(input);
@@ -33,12 +30,10 @@ class FormValidator {
     const inputs = form.querySelectorAll('input, textarea');
     
     inputs.forEach(input => {
-      // Real-time validation on input
       input.addEventListener('input', (e) => {
         this.validateField(e.target);
       });
       
-      // Validation on blur
       input.addEventListener('blur', (e) => {
         this.validateField(e.target);
       });
@@ -48,14 +43,12 @@ class FormValidator {
   setupInputValidation(input) {
     const wrapper = input.closest('.input-group') || input.parentElement;
     
-    // Create validation feedback element
     if (!wrapper.querySelector('.validation-feedback')) {
       const feedback = document.createElement('div');
       feedback.className = 'validation-feedback';
       wrapper.appendChild(feedback);
     }
     
-    // Real-time validation
     input.addEventListener('input', (e) => {
       this.validateField(e.target);
     });
@@ -71,7 +64,6 @@ class FormValidator {
     const wrapper = field.closest('.input-group') || field.parentElement;
     const feedback = wrapper.querySelector('.validation-feedback');
     
-    // Remove existing classes
     field.classList.remove('valid', 'invalid');
     wrapper.classList.remove('has-success', 'has-error');
     
@@ -119,7 +111,6 @@ class FormValidator {
         message = isValid ? '✓ Valid' : '✗ This field is required';
     }
     
-    // Apply validation styles
     if (isValid) {
       field.classList.add('valid');
       wrapper.classList.add('has-success');
@@ -128,7 +119,6 @@ class FormValidator {
       wrapper.classList.add('has-error');
     }
     
-    // Update feedback message
     if (feedback) {
       feedback.textContent = message;
       feedback.className = `validation-feedback ${isValid ? 'success' : 'error'}`;
@@ -172,7 +162,6 @@ class FormValidator {
   }
 }
 
-// Enhanced loading states
 class LoadingManager {
   constructor() {
     this.activeLoaders = new Set();
@@ -184,11 +173,9 @@ class LoadingManager {
     
     if (!targetElement) return null;
     
-    // Store original content
     loader.originalContent = targetElement.innerHTML;
     loader.targetElement = targetElement;
     
-    // Add loading state
     targetElement.classList.add('loading-state');
     targetElement.appendChild(loader);
     
@@ -221,11 +208,9 @@ class LoadingManager {
     const btn = typeof button === 'string' ? document.querySelector(button) : button;
     if (!btn) return null;
     
-    // Store original state
     const originalText = btn.textContent;
     const originalDisabled = btn.disabled;
     
-    // Set loading state
     btn.disabled = true;
     btn.classList.add('btn-loading');
     btn.innerHTML = `
@@ -233,7 +218,6 @@ class LoadingManager {
       <span class="btn-text">${message}</span>
     `;
     
-    // Return reset function
     return () => {
       btn.disabled = originalDisabled;
       btn.classList.remove('btn-loading');
@@ -242,7 +226,6 @@ class LoadingManager {
   }
 }
 
-// Enhanced toast notifications
 class ToastManager {
   constructor() {
     this.container = this.createContainer();
@@ -271,16 +254,12 @@ class ToastManager {
       <button class="toast-close">&times;</button>
     `;
     
-    // Add to container
     this.container.appendChild(toast);
     
-    // Animate in
     setTimeout(() => toast.classList.add('show'), 100);
     
-    // Auto remove
     const autoRemove = setTimeout(() => this.remove(toast), duration);
     
-    // Manual close
     toast.querySelector('.toast-close').addEventListener('click', () => {
       clearTimeout(autoRemove);
       this.remove(toast);
@@ -325,12 +304,10 @@ class ToastManager {
   }
 }
 
-// Initialize enhanced functionality
 const formValidator = new FormValidator();
 const loadingManager = new LoadingManager();
 const toastManager = new ToastManager();
 
-// Make available globally
 window.formValidator = formValidator;
 window.loadingManager = loadingManager;
 window.toastManager = toastManager;

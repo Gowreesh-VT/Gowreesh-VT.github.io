@@ -1,21 +1,7 @@
 /*----------------------------------------------------*/
 /*	Service Worker for Portfolio PWA
 ------------------------------------------------------*/
-/*  AUTH SYSTEM: Currently commented out in index.html
-    If you uncomment auth system, also uncomment:
-    - Firebase scripts in index.html
-    - js/auth.js and js/login.js
-    - css/auth.css
-    - Login section and popup HTML
-------------------------------------------------------*/
-/*  OPTIMIZATIONS (Nov 1, 2025):
-    - Removed auth system files from cache
-    - Fonts: Using only Netflix Sans (removed Lora/Poppins)
-    - Images: Will be converted to WebP for 70% size reduction
-------------------------------------------------------*/
-
-// Cache version - increment this to force cache refresh
-const CACHE_VERSION = 'v18-optimized-nov2025';
+const CACHE_VERSION = 'v20-minified-nov2025';
 const STATIC_CACHE = CACHE_VERSION + '-static';
 const DYNAMIC_CACHE = CACHE_VERSION + '-dynamic';
 const IMAGE_CACHE = CACHE_VERSION + '-images';
@@ -23,29 +9,22 @@ const IMAGE_CACHE = CACHE_VERSION + '-images';
 const urlsToCache = [
   '/',
   '/index.html',
-  '/css/base.css',
-  '/css/main.css',
-  '/css/vendor.css',
+  '/css/base.min.css',
+  '/css/main.min.css',
+  '/css/vendor.min.css',
   '/css/fonts.css',
   '/css/typing-animation.css',
-  // AUTH SYSTEM COMMENTED OUT - Uncomment if needed
-  // '/css/auth.css',
   '/css/micons/micons.css',
-  '/js/main.js',
-  // AUTH SYSTEM COMMENTED OUT - Uncomment if needed
-  // '/js/login.js',
-  // '/js/firebase-config.js',
-  // '/js/auth.js',
-  '/js/enhanced-ui.js',
-  '/js/lazy-loading.js',
+  '/js/main.min.js',
+  '/js/enhanced-ui.min.js',
+  '/js/lazy-loading.min.js',
   '/js/particles-3d.js',
-  '/js/typing-animation.js',
-  '/js/plugins.js',
+  '/js/typing-animation.min.js',
+  '/js/plugins.min.js',
   '/js/jquery-2.1.3.min.js',
   '/images/logo.png'
 ];
 
-// Install event - cache static assets
 self.addEventListener('install', event => {
   self.skipWaiting();
   
@@ -59,7 +38,6 @@ self.addEventListener('install', event => {
   );
 });
 
-// Activate event - clean up old caches
 self.addEventListener('activate', event => {
   event.waitUntil(
     clients.claim().then(() => {
@@ -79,30 +57,26 @@ self.addEventListener('activate', event => {
   );
 });
 
-// Fetch event - network first for HTML, cache first for assets
 self.addEventListener('fetch', event => {
   const { request } = event;
   const url = new URL(request.url);
 
-  // Skip cross-origin requests
   if (!request.url.startsWith(self.location.origin)) {
     return;
   }
 
-  // Handle different request types with different strategies
   if (request.destination === 'document') {
-    // Network first for HTML
+
     event.respondWith(networkFirst(request, DYNAMIC_CACHE));
   } else if (request.destination === 'image') {
-    // Cache first for images with size limit
+
     event.respondWith(cacheFirstWithLimit(request, IMAGE_CACHE, 50));
   } else {
-    // Cache first for CSS, JS, fonts
+
     event.respondWith(cacheFirst(request, STATIC_CACHE));
   }
 });
 
-// Network first strategy
 async function networkFirst(request, cacheName) {
   try {
     const response = await fetch(request);
@@ -115,7 +89,6 @@ async function networkFirst(request, cacheName) {
   }
 }
 
-// Cache first strategy
 async function cacheFirst(request, cacheName) {
   const cached = await caches.match(request);
   if (cached) {
@@ -135,7 +108,6 @@ async function cacheFirst(request, cacheName) {
   }
 }
 
-// Cache first with size limit
 async function cacheFirstWithLimit(request, cacheName, maxItems) {
   const cached = await caches.match(request);
   if (cached) {
@@ -148,7 +120,6 @@ async function cacheFirstWithLimit(request, cacheName, maxItems) {
       const cache = await caches.open(cacheName);
       const keys = await cache.keys();
       
-      // Remove oldest if exceeding limit
       if (keys.length >= maxItems) {
         await cache.delete(keys[0]);
       }
