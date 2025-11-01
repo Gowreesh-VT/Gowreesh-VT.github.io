@@ -72,7 +72,7 @@ html:not(.dark-mode) {
 
 /* Light mode: Normal website styling */
 html:not(.dark-mode) #intro {
-  background:url(../images/intro-bg.jpg) no-repeat center bottom !important;
+  background:url(../images/intro-bg.webp) no-repeat center bottom !important;
   background-size: cover !important;
   background-attachment: fixed !important;
 }
@@ -221,7 +221,7 @@ nav a:hover, .main-navigation a:hover {
 
 /* Intro section special handling with background image */
 #intro {
-  background-image: url(../images/intro-bg.jpg) !important;
+  background-image: url(../images/intro-bg.webp) !important;
   background-size: cover !important;
   background-attachment: fixed !important;
   background-position: center bottom !important;
@@ -2078,7 +2078,7 @@ html:not(.dark-mode) #theme-toggle-btn:hover .sun-icon {
  * ------------------------------------------------------------------- 
  */
 #intro {
-  background: var(--bg-primary) url(../images/intro-bg.jpg) no-repeat center bottom;
+  background: var(--bg-primary) url(../images/intro-bg.webp) no-repeat center bottom;
   background-size: cover;
   background-attachment: fixed;
   width: 100%;

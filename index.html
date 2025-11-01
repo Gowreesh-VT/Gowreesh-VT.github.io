@@ -25,6 +25,9 @@
 	<link rel="dns-prefetch" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
 	<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+	
+	<!-- Preload LCP image for faster loading -->
+	<link rel="preload" as="image" href="images/intro-bg.webp" fetchpriority="high">
 
 	<!-- PWA Manifest -->
 	<link rel="manifest" href="manifest.json">
@@ -32,7 +35,7 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<meta name="apple-mobile-web-app-title" content="Gowreesh Portfolio">
-	<link rel="apple-touch-icon" href="images/logo.png">
+	<link rel="apple-touch-icon" href="images/logo.webp">
 
 		<!-- Google tag (gtag.js)
    ================================================== -->
@@ -49,12 +52,20 @@
 		<!-- Links
    ================================================== -->
 
+		<!-- Critical CSS - Inline for faster First Paint -->
+		<link rel="preload" href="css/base.css" as="style">
+		<link rel="preload" href="css/main.css" as="style">
 		<link rel="stylesheet" href="css/base.css">
    	<link rel="stylesheet" href="css/main.css">
-   	<link rel="stylesheet" href="css/vendor.css">
-		<link rel="stylesheet" href="css/auth.css">
-		<link rel="stylesheet" href="css/typing-animation.css">
-		<link rel="stylesheet" href="css/scroll-animations.css">
+   	
+		<!-- Non-critical CSS - Defer loading -->
+		<link rel="preload" href="css/vendor.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+		<noscript><link rel="stylesheet" href="css/vendor.css"></noscript>
+		<!-- <link rel="stylesheet" href="css/auth.css"> -->
+		<link rel="preload" href="css/typing-animation.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+		<noscript><link rel="stylesheet" href="css/typing-animation.css"></noscript>
+		<link rel="preload" href="css/scroll-animations.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+		<noscript><link rel="stylesheet" href="css/scroll-animations.css"></noscript>
 	
 	<!-- Font Awesome 6 - Load immediately for icons (using correct version for fa-solid, fa-regular, fa-brands) -->
 	<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -64,7 +75,7 @@
 	<link rel="preload" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=cancel&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 	<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=cancel&display=swap"></noscript>
 	
-	<link rel="icon" type="image/png" href="images/Top_Photo.png">	
+	<link rel="icon" type="image/png" href="images/Top_Photo.webp">	
 
 	<!-- Java Script 
 	==================================================-->
@@ -87,7 +98,7 @@
 
 	<meta property="og:title" content="Gowreesh V.T | Developer & Cybersecurity Enthusiast">
 	<meta property="og:description" content="Explore my projects, skills, and achievements in front-end development, JavaScript">
-	<meta property="og:image" content="https://gowreesh.works/images/Preview-Image.png">
+	<meta property="og:image" content="https://gowreesh.works/images/Preview-Image.webp">
 	<meta property="og:url" content="https://gowreesh.works">
 	<meta property="og:type" content="website">
 	
@@ -98,7 +109,7 @@
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:title" content="Gowreesh V.T | Developer Portfolio">
 	<meta name="twitter:description" content="Explore my projects, skills, and achievements in front-end development and cybersecurity.">
-	<meta name="twitter:image" content="https://gowreesh.works/images/Preview-Image.png">
+	<meta name="twitter:image" content="https://gowreesh.works/images/Preview-Image.webp">
 
 
 
@@ -132,9 +143,9 @@
 					<li class="nav-item">
 						<a class="nav-link smoothscroll" href="#portfolio">Portfolio</a>
 					</li>
-					<li class="nav-item">
+					<!-- <li class="nav-item">
 						<a class="nav-link smoothscroll" href="#login-section">Login</a>
-					</li>
+					</li> -->
 					<li class="nav-item">
 						<a class="nav-link smoothscroll" href="#services">Services</a>
 					</li>
@@ -145,6 +156,7 @@
 			</div>
 
 			<div class="nav-actions">
+				<!-- AUTH SYSTEM -->
 				<!-- Authentication buttons -->
 				<!-- <div class="auth-nav">
 					<button id="login-btn" class="login-trigger nav-auth-btn">
@@ -192,9 +204,7 @@
 
 					<h5>Hello, World.</h5>
 					<h1>I'm Gowreesh</h1>
-					<p class="intro-position" id="typing-text">
-						<!-- Typing animation will be injected here -->
-					</p>
+					<p class="intro-position" id="typing-text"></p>
 					<a class="button stroke smoothscroll" href="#about" title="">More About Me</a>
 				</div> <!--Col-twelve-->
 
@@ -225,7 +235,7 @@
 				<h1>Let me introduce myself.</h1>
 				<div class="intro-info">
 
-					<img src="images/WhatsApp Image 2025-03-17 at 19.20.03_6eb547.jpg" alt="Profile Picture" loading="lazy" width="200" height="200">
+					<img src="images/profile-photo.webp" alt="Gowreesh V T - Profile Picture" loading="lazy" width="200" height="200">
 					<p class="lead">Gowreesh V T. is a passionate programmer and tech enthusiast with a keen interest in cybersecurity and app development. He enjoys building innovative projects and exploring new technologies.</p>
 
 				</div> 
@@ -528,7 +538,7 @@
 
 						<div class="item-wrap">
 
-							<img src="images/portfolio/Netflix-Clone.png" alt="Netflix Clone Website Design" loading="lazy" width="600" height="400">
+							<img src="images/portfolio/Netflix-Clone.webp" alt="Netflix Clone Website Design" loading="lazy" width="600" height="400">
 							<a href="#modal-08" class="overlay">
 
 								<div class="folio-item-table">
@@ -553,7 +563,7 @@
 
 						<div class="item-wrap">
 
-							<img src="images/portfolio/SmartLinx_Living HomePage.png" alt="SmartLinx Living Dashboard" loading="lazy" width="600" height="400">
+							<img src="images/portfolio/SmartLinx_Living HomePage.webp" alt="SmartLinx Living Dashboard" loading="lazy" width="600" height="400">
 							<a href="#modal-02" class="overlay">  
 
 								<div class="folio-item-table">
@@ -578,7 +588,7 @@
 						
 						<div class="item-wrap">
 
-							<img src="images/BB84.png" alt="BB84 Quantum Cryptography Simulation" loading="lazy" width="600" height="400">
+							<img src="images/BB84.webp" alt="BB84 Quantum Cryptography Simulation" loading="lazy" width="600" height="400">
 							<a href="#modal-01" class="overlay">
 
 								<div class="folio-item-table">
@@ -604,7 +614,7 @@
 
 						<div class="item-wrap">
 
-							<img src="images/Top-Left.jpg" alt="Meta Front-End Developer Certificate" loading="lazy" width="600" height="400">
+							<img src="images/Top-Left.webp" alt="Meta Front-End Developer Certificate" loading="lazy" width="600" height="400">
 							<a href="#modal-03" class="overlay"> 
 
 								<div class="folio-item-table">
@@ -629,7 +639,7 @@
 
 						<div class="item-wrap">
 
-							<img src="images/Top-Right.jpg" alt="Google Certificate" loading="lazy" width="600" height="400">
+							<img src="images/Top-Right.webp" alt="Google Certificate" loading="lazy" width="600" height="400">
 							<a href="#modal-04" class="overlay">  
 
 								<div class="folio-item-table">
@@ -653,7 +663,7 @@
 
 						<div class="item-wrap">
 
-							<img src="images/Middle-Left.jpg" alt="DataCamp Certificate" loading="lazy" width="600" height="400">
+							<img src="images/Middle-Left.webp" alt="DataCamp Certificate" loading="lazy" width="600" height="400">
 							<a href="#modal-06" class="overlay">
 
 								<div class="folio-item-table">
@@ -678,7 +688,7 @@
 
 						<div class="item-wrap">
 
-							<img src="images/Middle-Right.png" alt="Harvard University Certificate - In Progress" loading="lazy" width="600" height="400">
+							<img src="images/Middle-Right.webp" alt="Harvard University Certificate - In Progress" loading="lazy" width="600" height="400">
 							<a href="#modal-05" class="overlay">
 
 								<div class="folio-item-table">
@@ -703,7 +713,7 @@
 
 						<div class="item-wrap">
 
-							<img src="images/Bottom-Left.jpg" alt="GitHub Certificate" loading="lazy" width="600" height="400">
+							<img src="images/Bottom-Left.webp" alt="GitHub Certificate" loading="lazy" width="600" height="400">
 							<a href="#modal-07" class="overlay">
 
 								<div class="folio-item-table">
@@ -730,7 +740,7 @@
 					<div id="modal-01" class="popup-modal slider mfp-hide">	
 
 						<div class="media">
-								<img src="images/portfolio/BB84 Simulation.png" alt="BB84" />
+								<img src="images/portfolio/BB84 Simulation.webp" alt="BB84" width="1200" height="800" />
 						</div>
 
 						<div class="description-box">
@@ -750,7 +760,7 @@
 					<div id="modal-02" class="popup-modal slider mfp-hide">	
 
 						<div class="media">
-							<img src="images/portfolio/SmartLinx_Living HomePage.png" alt="" />
+							<img src="images/portfolio/SmartLinx_Living HomePage.webp" alt="SmartLinx Living" width="1200" height="800" />
 						</div>      	
 
 						<div class="description-box">
@@ -769,7 +779,7 @@
 					<div id="modal-03" class="popup-modal slider mfp-hide">	
 
 						<div class="media">
-							<img src="images/Top-Left.jpg" alt="" />
+							<img src="images/Top-Left.webp" alt="Meta Certificate" width="1200" height="800" />
 						</div>      	
 
 						<div class="description-box">
@@ -789,7 +799,7 @@
 					<div id="modal-04" class="popup-modal slider mfp-hide">	
 
 						<div class="media">
-							<img src="images/Top-Right.jpg" alt="" />
+							<img src="images/Top-Right.webp" alt="Google Certificate" width="1200" height="800" />
 						</div>      	
 
 						<div class="description-box">
@@ -809,7 +819,7 @@
 					<div id="modal-05" class="popup-modal slider mfp-hide">	
 
 						<div class="media">
-							<img src="images/Middle-Right.png" alt="" />
+							<img src="images/Middle-Right.webp" alt="Harvard Certificate" width="1200" height="800" />
 						</div>      	
 
 						<div class="description-box">
@@ -829,7 +839,7 @@
 					<div id="modal-06" class="popup-modal slider mfp-hide">	
 
 						<div class="media">
-							<img src="images/Middle-Left.jpg" alt="" />
+							<img src="images/Middle-Left.webp" alt="DataCamp Certificate" width="1200" height="800" />
 						</div>      	
 
 						<div class="description-box">
@@ -850,7 +860,7 @@
 					<div id="modal-07" class="popup-modal slider mfp-hide">	
 
 						<div class="media">
-							<img src="images/Bottom-Left.jpg" alt="" />
+							<img src="images/Bottom-Left.webp" alt="GitHub Certificate" width="1200" height="800" />
 						</div>      	
 
 						<div class="description-box">
@@ -870,7 +880,7 @@
 					<div id="modal-08" class="popup-modal slider mfp-hide">	
 
 						<div class="media">
-							<img src="images/portfolio/Netflix-Clone.png" alt="Netflix-Clone" />
+							<img src="images/portfolio/Netflix-Clone.webp" alt="Netflix-Clone" width="1200" height="800" />
 						</div>      	
 
 						<div class="description-box">
@@ -901,7 +911,7 @@
 	<!-- Login Section
    ================================================== -->
 
-	<section id="login-section">
+	<!-- <section id="login-section">
 
 		<div class="row login-container">
 
@@ -917,15 +927,15 @@
 					<a class="button button-primary large Login-popup-btn" href="javascript:void(0);">Click here to Login</a>
 				</div>
 
-			</div> <!--Col-twelve-->
+			</div>
 
-		</div> <!-- /cta-content -->
+		</div>
 
-	</section>
+	</section> -->
 
-   <!--Login Popup
+   <!-- Login Popup
 	====================================================-->
-	<section id="login-popup">
+	<!-- <section id="login-popup">
 
 		<div class="popup-overlay"></div>
 		
@@ -1152,12 +1162,12 @@
 				</div>
 
 
-			</div>
+			</div> -->
 
 			<!-- Signup Section
    			================================================== -->
 
-			<div class="form-box register" id="signup-form-box">
+			<!-- <div class="form-box register" id="signup-form-box">
 
 				<div class="go-back-wrapper" id="signup-go-back-wrapper" style="display: none;">
 					<span id="signup-go-back-link" class="go-back-link">
@@ -1242,11 +1252,11 @@
 
 				<div class="social-buttons">
 					<button id="google-auth-btn" class="social-btn google">
-						<img src="images/Google-Symbol.png" alt="Google Symbol" class="logo-icon">
-						<img src="images/Google-Logo.png" alt="Google Text" class="logo-text">
+						<img src="images/Google-Symbol.webp" alt="Google Symbol" class="logo-icon">
+						<img src="images/Google-Logo.webp" alt="Google Text" class="logo-text">
 					</button>
 					<button id="microsoft-auth-btn" class="social-btn microsoft">
-						<img src="images/Microsoft-Azure-Symbol.png" alt="Microsoft Azure Logo" class="microsoft-logo">
+						<img src="images/Microsoft-Azure-Symbol.webp" alt="Microsoft Azure Logo" class="microsoft-logo">
 					</button>
 				</div>
 				
@@ -1264,7 +1274,8 @@
 
 		</div>
 
-	</section>
+	</section> -->
+	<!-- END OF AUTH SYSTEM - All login/auth functionality above this line -->
 
 	
 	<!-- services Section
@@ -1623,12 +1634,12 @@
 	<!-- Java Script
 	================================================== -->
 	<!-- Firebase CDN scripts -->
-	<script defer src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+	<!-- <script defer src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 	<script defer src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
 	<script defer src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 	<script defer src="https://www.gstatic.com/firebasejs/9.23.0/firebase-functions-compat.js"></script>
 	<script defer src="js/firebase-config.js"></script>
-	<script defer src="js/auth.js"></script>
+	<script defer src="js/auth.js"></script> -->
    
    	<!-- EmailJS for contact form -->
    	<script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -1642,7 +1653,7 @@
 	<script defer src="js/plugins.js"></script>
 	<script defer src="js/enhanced-ui.js"></script>
 	<script defer src="js/main.js"></script>
-	<script defer src="js/login.js"></script>
+	<!-- <script defer src="js/login.js"></script> -->
 	<script defer src="js/lazy-loading.js"></script>
 	<script defer src="js/typing-animation.js"></script>
 	<script defer src="js/scroll-animations.js"></script>

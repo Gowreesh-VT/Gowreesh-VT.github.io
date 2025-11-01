@@ -1,9 +1,21 @@
 /*----------------------------------------------------*/
 /*	Service Worker for Portfolio PWA
 ------------------------------------------------------*/
+/*  AUTH SYSTEM: Currently commented out in index.html
+    If you uncomment auth system, also uncomment:
+    - Firebase scripts in index.html
+    - js/auth.js and js/login.js
+    - css/auth.css
+    - Login section and popup HTML
+------------------------------------------------------*/
+/*  OPTIMIZATIONS (Nov 1, 2025):
+    - Removed auth system files from cache
+    - Fonts: Using only Netflix Sans (removed Lora/Poppins)
+    - Images: Will be converted to WebP for 70% size reduction
+------------------------------------------------------*/
 
 // Cache version - increment this to force cache refresh
-const CACHE_VERSION = 'v17-portfolio-optimized-' + Date.now();
+const CACHE_VERSION = 'v18-optimized-nov2025';
 const STATIC_CACHE = CACHE_VERSION + '-static';
 const DYNAMIC_CACHE = CACHE_VERSION + '-dynamic';
 const IMAGE_CACHE = CACHE_VERSION + '-images';
@@ -16,16 +28,18 @@ const urlsToCache = [
   '/css/vendor.css',
   '/css/fonts.css',
   '/css/typing-animation.css',
-  '/css/auth.css',
+  // AUTH SYSTEM COMMENTED OUT - Uncomment if needed
+  // '/css/auth.css',
   '/css/micons/micons.css',
   '/js/main.js',
-  '/js/login.js',
+  // AUTH SYSTEM COMMENTED OUT - Uncomment if needed
+  // '/js/login.js',
+  // '/js/firebase-config.js',
+  // '/js/auth.js',
   '/js/enhanced-ui.js',
   '/js/lazy-loading.js',
   '/js/particles-3d.js',
   '/js/typing-animation.js',
-  '/js/firebase-config.js',
-  '/js/auth.js',
   '/js/plugins.js',
   '/js/jquery-2.1.3.min.js',
   '/images/logo.png'

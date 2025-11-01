@@ -1,8 +1,3 @@
-/**
- * TextType - Vanilla JavaScript Typing Animation
- * Converts React-based typing effect to pure JavaScript
- */
-
 class TextType {
   constructor(element, options = {}) {
     this.element = element;
