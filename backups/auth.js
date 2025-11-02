@@ -1,15 +1,10 @@
-// auth-simple.js
-// Simple Firebase Authentication using CDN
-
 let currentUser = null;
 
-// Wait for Firebase to be ready
 window.addEventListener('firebaseReady', function(event) {
     const { auth } = event.detail;
     setupAuthenticationListeners(auth);
 });
 
-// Fallback if firebaseReady event doesn't fire
 document.addEventListener('DOMContentLoaded', function() {
     setTimeout(() => {
         if (window.firebaseAuth) {
@@ -19,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function setupAuthenticationListeners(auth) {
-    // Auth state listener
     auth.onAuthStateChanged((user) => {
         currentUser = user;
         updateAuthUI(user);
@@ -31,7 +25,6 @@ function setupAuthenticationListeners(auth) {
         }
     });
     
-    // Setup auth modal functionality
     setupAuthModal();
 }
 
@@ -40,7 +33,6 @@ function updateAuthUI(user) {
     const logoutBtn = document.getElementById('logout-btn');
     
     if (user) {
-        // User is signed in
         if (loginBtn) {
             loginBtn.style.display = 'none';
             loginBtn.textContent = `Welcome, ${user.displayName || user.email.split('@')[0]}`;
@@ -49,7 +41,6 @@ function updateAuthUI(user) {
             logoutBtn.style.display = 'inline-block';
         }
     } else {
-        // User is signed out
         if (loginBtn) {
             loginBtn.style.display = 'inline-block';
             loginBtn.textContent = 'Login';
@@ -63,7 +54,6 @@ function updateAuthUI(user) {
 function setupAuthModal() {
     console.log('Setting up auth modal...');
     
-    // Use the existing login popup instead of creating a new one
     const authModal = document.getElementById('login-popup');
     const loginBtn = document.getElementById('login-btn');
     const loginPopupBtns = document.querySelectorAll('.Login-popup-btn');
@@ -78,7 +68,6 @@ function setupAuthModal() {
         overlay: !!overlay
     });
     
-    // Open modal function
     function openAuthModal(e) {
         e.preventDefault();
         console.log('Login button clicked, opening existing login popup');
@@ -87,7 +76,6 @@ function setupAuthModal() {
         
         if (!currentUser) {
             if (authModal && overlay) {
-                // Show the existing login popup
                 authModal.classList.add('active-popup');
                 overlay.classList.add('active');
                 document.body.classList.add('modal-open');
@@ -100,13 +88,11 @@ function setupAuthModal() {
         }
     }
     
-    // Open modal from navigation login button
     if (loginBtn) {
         loginBtn.addEventListener('click', openAuthModal);
         console.log('Added click listener to navigation login button');
     }
     
-    // Open modal from "Click here to Login" buttons
     loginPopupBtns.forEach((btn, index) => {
         btn.addEventListener('click', openAuthModal);
         console.log(`Added click listener to Login-popup-btn ${index + 1}`);
@@ -114,7 +100,6 @@ function setupAuthModal() {
     
     console.log(`Found ${loginPopupBtns.length} Login-popup-btn elements`);
     
-    // Close modal function
     function closeModal() {
         if (authModal && overlay) {
             authModal.classList.remove('active-popup');
@@ -124,7 +109,6 @@ function setupAuthModal() {
         }
     }
     
-    // Close modal event listeners
     if (closeBtn) {
         closeBtn.addEventListener('click', closeModal);
         console.log('Added click listener to close button');
@@ -134,10 +118,8 @@ function setupAuthModal() {
         console.log('Added click listener to overlay');
     }
     
-    // Setup Firebase authentication for your existing form
     setupExistingLoginForm();
     
-    // Setup logout
     const logoutBtn = document.getElementById('logout-btn');
     if (logoutBtn) {
         logoutBtn.addEventListener('click', signOut);
@@ -146,13 +128,11 @@ function setupAuthModal() {
 }
 
 function setupExistingLoginForm() {
-    // Get your existing login form elements
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
     const loginBtn = document.querySelector('.login-btn');
     const registerLink = document.querySelector('.register-link1');
     
-    // Setup Google Sign-In Button
     const googleAuthBtn = document.getElementById('google-auth-btn');
     if (googleAuthBtn) {
         googleAuthBtn.addEventListener('click', async (e) => {
@@ -160,25 +140,19 @@ function setupExistingLoginForm() {
             console.log('Google sign-in button clicked');
             
             try {
-                // Create Google Auth Provider
                 const provider = new firebase.auth.GoogleAuthProvider();
                 
-                // Optional: Add custom parameters
                 provider.addScope('profile');
                 provider.addScope('email');
                 
-                // Show loading state
                 googleAuthBtn.disabled = true;
                 googleAuthBtn.innerHTML = '<i class="fab fa-google"></i> Signing in...';
                 
-                // Sign in with popup
                 const result = await window.firebaseAuth.signInWithPopup(provider);
                 
-                // User signed in successfully
                 const user = result.user;
                 console.log('Google sign-in successful:', user.email);
                 
-                // Close popup on success
                 const authModal = document.getElementById('login-popup');
                 const overlay = document.querySelector('.popup-overlay');
                 if (authModal && overlay) {
@@ -192,7 +166,6 @@ function setupExistingLoginForm() {
             } catch (error) {
                 console.error('Google sign-in error:', error);
                 
-                // Handle specific errors
                 if (error.code === 'auth/popup-closed-by-user') {
                     showMessage('Sign-in cancelled', 'info');
                 } else if (error.code === 'auth/popup-blocked') {
@@ -201,7 +174,6 @@ function setupExistingLoginForm() {
                     showMessage(getErrorMessage(error), 'error');
                 }
             } finally {
-                // Reset button state
                 googleAuthBtn.disabled = false;
                 googleAuthBtn.innerHTML = '<i class="fab fa-google"></i> Continue with Google';
             }
@@ -209,7 +181,6 @@ function setupExistingLoginForm() {
         console.log('Google sign-in button configured');
     }
     
-    // Setup sign in with your existing login button
     if (loginBtn && emailInput && passwordInput) {
         loginBtn.addEventListener('click', async (e) => {
             e.preventDefault();
@@ -222,7 +193,6 @@ function setupExistingLoginForm() {
                 return;
             }
             
-            // Show loading state
             const btnText = loginBtn.querySelector('.btn-text');
             const btnLoader = loginBtn.querySelector('.btn-loader');
             
@@ -233,7 +203,6 @@ function setupExistingLoginForm() {
             try {
                 await window.firebaseAuth.signInWithEmailAndPassword(email, password);
                 
-                // Close popup on success
                 const authModal = document.getElementById('login-popup');
                 const overlay = document.querySelector('.popup-overlay');
                 authModal.classList.remove('active-popup');
@@ -242,7 +211,6 @@ function setupExistingLoginForm() {
                 
                 showMessage('Welcome back!', 'success');
                 
-                // Clear form
                 emailInput.value = '';
                 passwordInput.value = '';
                 
@@ -250,7 +218,6 @@ function setupExistingLoginForm() {
                 console.error('Sign in error:', error);
                 showMessage(getErrorMessage(error), 'error');
             } finally {
-                // Reset button state
                 if (btnText) btnText.textContent = 'Sign In';
                 if (btnLoader) btnLoader.style.display = 'none';
                 loginBtn.disabled = false;
@@ -258,7 +225,6 @@ function setupExistingLoginForm() {
         });
     }
     
-    // Setup sign up functionality when user clicks "Sign up now"
     if (registerLink) {
         registerLink.addEventListener('click', async (e) => {
             e.preventDefault();
@@ -274,7 +240,6 @@ function setupExistingLoginForm() {
             try {
                 await window.firebaseAuth.createUserWithEmailAndPassword(email, password);
                 
-                // Close popup on success
                 const authModal = document.getElementById('login-popup');
                 const overlay = document.querySelector('.popup-overlay');
                 authModal.classList.remove('active-popup');
@@ -283,7 +248,6 @@ function setupExistingLoginForm() {
                 
                 showMessage('Account created successfully!', 'success');
                 
-                // Clear form
                 emailInput.value = '';
                 passwordInput.value = '';
                 
@@ -294,7 +258,6 @@ function setupExistingLoginForm() {
         });
     }
     
-    // Setup forgot password functionality
     const forgotPassBtn = document.getElementById('forgot-pass');
     if (forgotPassBtn) {
         forgotPassBtn.addEventListener('click', async (e) => {
@@ -328,7 +291,6 @@ async function signOut() {
 }
 
 function showMessage(message, type = 'info') {
-    // Create toast notification
     const toast = document.createElement('div');
     toast.className = `auth-toast ${type}`;
     toast.textContent = message;
@@ -347,7 +309,6 @@ function showMessage(message, type = 'info') {
     
     document.body.appendChild(toast);
     
-    // Remove after 3 seconds
     setTimeout(() => {
         toast.remove();
     }, 3000);
