@@ -49,9 +49,10 @@
 
 	<link rel="preload" href="css/base.min.css?v=1.0.0" as="style">
 	<link rel="stylesheet" href="css/base.min.css?v=1.0.0">
-	<link rel="stylesheet" href="css/main.min.css?v=1.0.5">
+	<link rel="stylesheet" href="css/main.css?v=1.0.5">
 	<link rel="stylesheet" href="css/blog.css?v=1.0.0">
-	<link rel="stylesheet" href="css/skills-visualization.css?v=1.0.4">
+	<link rel="stylesheet" href="css/skills-visualization.css?v=1.0.5">
+	<link rel="stylesheet" href="css/about-modal.css?v=1.0.3">
 	<link rel="preload" href="css/vendor.min.css?v=1.0.0" as="style" onload="this.onload=null;this.rel='stylesheet'">
 	<noscript><link rel="stylesheet" href="css/vendor.min.css?v=1.0.0"></noscript>
 	<link rel="preload" href="css/typing-animation.css?v=1.0.0" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -109,102 +110,7 @@
 	<meta name="twitter:image" content="https://gowreesh.works/images/Preview-Image.webp">
 	<meta name="twitter:image:alt" content="Gowreesh V T - Developer Portfolio">
 
-	<!-- Structured Data (JSON-LD) for SEO -->
-	<script type="application/ld+json">
-	{
-		"@context": "https://schema.org",
-		"@type": "Person",
-		"name": "Gowreesh V T",
-		"url": "https://gowreesh.works",
-		"image": "https://gowreesh.works/images/profile-photo.webp",
-		"sameAs": [
-			"https://github.com/Gowreesh-VT",
-			"https://linkedin.com/in/gowreesh-vt"
-		],
-		"jobTitle": "Front-End Developer",
-		"worksFor": {
-			"@type": "Organization",
-			"name": "Freelance"
-		},
-		"alumniOf": {
-			"@type": "EducationalOrganization",
-			"name": "Various Online Platforms"
-		},
-		"knowsAbout": [
-			"Front-End Development",
-			"JavaScript",
-			"React",
-			"TypeScript",
-			"Web Development",
-			"UI/UX Design",
-			"Quantum Cryptography",
-			"Python",
-			"Django"
-		],
-		"hasCredential": [
-			{
-				"@type": "EducationalOccupationalCredential",
-				"name": "Meta Front-End Developer Professional Certificate",
-				"credentialCategory": "certificate",
-				"recognizedBy": {
-					"@type": "Organization",
-					"name": "Meta"
-				}
-			},
-			{
-				"@type": "EducationalOccupationalCredential",
-				"name": "Google UX Design Certificate",
-				"credentialCategory": "certificate",
-				"recognizedBy": {
-					"@type": "Organization",
-					"name": "Google"
-				}
-			},
-			{
-				"@type": "EducationalOccupationalCredential",
-				"name": "GitHub Foundations Certificate",
-				"credentialCategory": "certificate",
-				"recognizedBy": {
-					"@type": "Organization",
-					"name": "GitHub"
-				}
-			}
-		],
-		"makesOffer": [
-			{
-				"@type": "Offer",
-				"itemOffered": {
-					"@type": "Service",
-					"name": "Front-End Development",
-					"description": "Building responsive, modern web applications"
-				}
-			},
-			{
-				"@type": "Offer",
-				"itemOffered": {
-					"@type": "Service",
-					"name": "UI/UX Design",
-					"description": "Creating user-friendly interfaces and experiences"
-				}
-			}
-		]
-	}
-	</script>
-
-	<script type="application/ld+json">
-	{
-		"@context": "https://schema.org",
-		"@type": "WebSite",
-		"name": "Gowreesh V T Portfolio",
-		"url": "https://gowreesh.works",
-		"description": "Personal portfolio showcasing web development projects, skills, and achievements",
-		"author": {
-			"@type": "Person",
-			"name": "Gowreesh V T"
-		},
-		"inLanguage": "en-US"
-	}
-	</script>
+	<!-- Structured Data (JSON-LD) loaded from js/structured-data.js -->
 
 
 </head>
@@ -232,9 +138,12 @@
 					<li class="nav-item" role="none">
 						<a class="nav-link smoothscroll" href="#about" role="menuitem">About</a>
 					</li>
-					<li class="nav-item" role="none">
-						<a class="nav-link smoothscroll" href="#resume" role="menuitem">Resume</a>
+					<li>
+						<a class="nav-link smoothscroll" href="#skills-visualization" role="menuitem">Resume</a>
 					</li>
+					<!-- <li class="nav-item" role="none">
+						<a class="nav-link smoothscroll" href="#resume" role="menuitem">Resume</a>
+					</li> -->
 					<li class="nav-item" role="none">
 						<a class="nav-link smoothscroll" href="#portfolio" role="menuitem">Portfolio</a>
 					</li>
@@ -242,10 +151,10 @@
 						<a class="nav-link smoothscroll" href="#login-section">Login</a>
 					</li> -->
 					<li class="nav-item" role="none">
-						<a class="nav-link smoothscroll" href="#services" role="menuitem">Services</a>
+						<a class="nav-link smoothscroll" href="#blog" role="menuitem">Blog</a>
 					</li>
 					<li class="nav-item" role="none">
-						<a class="nav-link smoothscroll" href="#blog" role="menuitem">Blog</a>
+						<a class="nav-link smoothscroll" href="#services" role="menuitem">Services</a>
 					</li>
 					<li class="nav-item" role="none">
 						<a class="nav-link smoothscroll" href="#contact" role="menuitem">Contact</a>
@@ -354,16 +263,20 @@
 						<span>Gowreesh V T</span>
 					</li>
 					<li>
-						<strong>Birth Date:</strong>
+						<strong>Birth Of Date:</strong>
 						<span>September 24, 2007</span>
 					</li>
 					<li>
 						<strong>Education:</strong>
-						<span>VIT, Chennai</span>
+						<span>VIT Chennai & IIT Madras</span>
 					</li>
 					<li>
-						<strong>Website:</strong>
-						<span>www.gowreesh.works</span>
+						<strong>Major:</strong>
+						<span>Computer Science Engineering</span>
+					</li>
+					<li>
+						<strong>Minor:</strong>
+						<span>Semi-Conductors</span>
 					</li>
 					<li>
 						<strong>Email:</strong>
@@ -374,20 +287,92 @@
 
 		</div>
 
-		<!-- Skills Visualization Section - NEW INTERACTIVE VERSION -->
+	<div class="row button-section">
+
+			<a href="#" id="moreAboutBtn" title="More About Me" class="button stroke">More About Me</a>
+			<a href="Resume.pdf" title="Download CV" class="button button-primary" download>Download CV</a>
+		</div> 
+
+	</div>
+	
+</section>
+
+<!-- More About Me Modal -->
+<div id="aboutModal" class="about-modal">
+	<div class="about-modal-content">
+		<span class="about-modal-close">&times;</span>
+		
+		<div class="about-modal-header">
+			<h2>About Me</h2>
+		</div>
+		
+		<div class="about-modal-body">
+			<div class="about-modal-photo">
+				<img src="images/profile-photo.webp" alt="Gowreesh V T" loading="lazy">
+				
+				<!-- Info Grid -->
+				<div class="about-info-grid">
+					<div class="info-item">
+						<span class="info-label">Name:</span>
+						<span class="info-value">Gowreesh V T</span>
+					</div>
+					<div class="info-item">
+						<span class="info-label">Major:</span>
+						<span class="info-value">Computer Science Engineering</span>
+					</div>
+					<div class="info-item">
+						<span class="info-label">Location:</span>
+						<span class="info-value">Chennai, India</span>
+					</div>
+					<div class="info-item">
+						<span class="info-label">Institute:</span>
+						<span class="info-value">VIT Chennai & IIT Madras</span>
+					</div>
+				</div>
+			</div>
+			
+			<div class="about-modal-text">
+				<h3>Who am I?</h3>
+				<p class="about-modal-tagline">Developer | Tech Enthusiast | Cybersecurity Explorer</p>
+				
+				<div class="about-modal-section">
+					<h4><i class="fas fa-user"></i> Background</h4>
+					<p>I'm Gowreesh V T, a passionate developer and tech enthusiast currently pursuing my education at VIT, Chennai. Born on September 24, 2007, I've been fascinated by technology from a young age and have dedicated myself to mastering the art of programming and software development.</p>
+				</div>
+				
+				<div class="about-modal-section">
+					<h4><i class="fas fa-code"></i> Expertise</h4>
+					<p>I specialize in full-stack web development, with expertise in HTML5, CSS3, JavaScript, React, and Three.js for creating immersive frontend experiences. On the backend, I work with Python, Node.js, and various databases including MySQL, MongoDB, and Supabase. I'm also passionate about cybersecurity, having studied quantum cryptography (BB84) and implemented secure authentication systems.</p>
+				</div>
+				
+				<div class="about-modal-section">
+					<h4><i class="fas fa-heart"></i> Interests</h4>
+					<p>Beyond coding, I'm deeply interested in emerging technologies, automation, and building smart solutions that make a difference. I enjoy exploring new frameworks, contributing to open-source projects, and continuously learning about the latest developments in tech.</p>
+				</div>
+				
+				<div class="about-modal-cta">
+					<a href="#contact" class="button button-primary smoothscroll">Get In Touch</a>
+					<a href="Resume.pdf" class="button stroke" download>Download CV</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<!-- Skills Visualization Section - NEW INTERACTIVE VERSION 
+   ==================================================-->
+	<section id="skills-visualization">
+		
 		<div class="row skills-visualization-section">
 			<div class="col-twelve">
 				
 				<div class="skills-viz-header">
-					<h3>Skills & Expertise</h3>
-					<h2>My Technical Arsenal</h2>
-					<p>Comprehensive visualization of my skills, proficiency levels, and learning journey over the years</p>
+					<h5 class="section-heading">Resume</h5>
+					<p>More of my credentials.</p>
 				</div>
 
-				<!-- Skill Bars & Radar Chart Grid -->
 				<div class="skills-viz-grid">
 					
-					<!-- Animated Skill Bars -->
 					<div class="skill-bars-container">
 						<h3><i class="fas fa-code"></i> Frontend Development</h3>
 						
@@ -452,7 +437,6 @@
 						</div>
 					</div>
 
-					<!-- Radar Chart -->
 					<div class="radar-chart-container">
 						<h3><i class="fas fa-chart-line"></i> Tech Stack Overview</h3>
 						<div id="radarChart"></div>
@@ -460,7 +444,6 @@
 
 				</div>
 
-				<!-- Backend & Database Skills -->
 				<div class="skills-viz-grid">
 					
 					<div class="skill-bars-container">
@@ -515,7 +498,6 @@
 						</div>
 					</div>
 
-					<!-- Serverside & Cloud -->
 					<div class="skill-bars-container">
 						<h3><i class="fas fa-cloud"></i> Serverside & Cloud</h3>
 						
@@ -548,7 +530,7 @@
 								<span class="skill-name">
 									<i class="fab fa-aws"></i> AWS
 								</span>
-								<span class="skill-percentage">70%</span>
+								<span class="skill-percentage">60%</span>
 							</div>
 							<div class="skill-bar-bg">
 								<div class="skill-bar-fill"></div>
@@ -570,10 +552,8 @@
 
 				</div>
 
-				<!-- Learning Timeline - Full Width -->
 				<div class="skills-viz-grid" style="grid-template-columns: 1fr;">
-					
-					<!-- Learning Timeline -->
+
 					<div class="learning-timeline-container">
 						<h3><i class="fas fa-rocket"></i> Learning Journey</h3>
 						
@@ -583,7 +563,7 @@
 							<div class="timeline-item">
 								<div class="timeline-dot"></div>
 								<div class="timeline-content">
-									<div class="timeline-year">2021</div>
+									<div class="timeline-year">2023</div>
 									<div class="timeline-title">Started Web Development Journey</div>
 									<div class="timeline-desc">Began learning HTML, CSS, and JavaScript fundamentals. Created first portfolio website.</div>
 									<div class="timeline-skills">
@@ -597,7 +577,7 @@
 							<div class="timeline-item">
 								<div class="timeline-dot"></div>
 								<div class="timeline-content">
-									<div class="timeline-year">2022</div>
+									<div class="timeline-year">April - 2024</div>
 									<div class="timeline-title">Frontend Frameworks & React</div>
 									<div class="timeline-desc">Mastered React and modern frontend development. Built multiple SPA applications.</div>
 									<div class="timeline-skills">
@@ -611,13 +591,13 @@
 							<div class="timeline-item">
 								<div class="timeline-dot"></div>
 								<div class="timeline-content">
-									<div class="timeline-year">2023</div>
-									<div class="timeline-title">Full Stack & Cloud Services</div>
-									<div class="timeline-desc">Expanded to backend development with Node.js and Firebase. Deployed production apps.</div>
+									<div class="timeline-year">November - 2024</div>
+									<div class="timeline-title">Cybersecurity & Advanced Topics</div>
+									<div class="timeline-desc">Studied quantum cryptography (BB84), implemented secure authentication systems.</div>
 									<div class="timeline-skills">
-										<span class="timeline-skill-tag">Node.js</span>
-										<span class="timeline-skill-tag">Firebase</span>
-										<span class="timeline-skill-tag">MongoDB</span>
+										<span class="timeline-skill-tag">Cybersecurity</span>
+										<span class="timeline-skill-tag">Quantum</span>
+										<span class="timeline-skill-tag">Linux</span>
 									</div>
 								</div>
 							</div>
@@ -625,13 +605,13 @@
 							<div class="timeline-item">
 								<div class="timeline-dot"></div>
 								<div class="timeline-content">
-									<div class="timeline-year">2024</div>
-									<div class="timeline-title">Cybersecurity & Advanced Topics</div>
-									<div class="timeline-desc">Studied quantum cryptography (BB84), implemented secure authentication systems.</div>
+									<div class="timeline-year">2025</div>
+									<div class="timeline-title">Full Stack & Cloud Services</div>
+									<div class="timeline-desc">Expanded to backend development with Node.js and MongoDB. Deployed production apps.</div>
 									<div class="timeline-skills">
-										<span class="timeline-skill-tag">Cybersecurity</span>
-										<span class="timeline-skill-tag">Quantum</span>
-										<span class="timeline-skill-tag">Auth Systems</span>
+										<span class="timeline-skill-tag">Node.js</span>
+										<span class="timeline-skill-tag">AWS</span>
+										<span class="timeline-skill-tag">MongoDB</span>
 									</div>
 								</div>
 							</div>
@@ -641,7 +621,7 @@
 								<div class="timeline-content">
 									<div class="timeline-year">2025</div>
 									<div class="timeline-title">Meta Certifications & Mastery</div>
-									<div class="timeline-desc">Completed Meta Front-End Developer certification. Mastering Three.js and WebGL.</div>
+									<div class="timeline-desc">Completed Meta Full Stack Developer Certification. Mastering Three.js and WebGL.</div>
 									<div class="timeline-skills">
 										<span class="timeline-skill-tag">Three.js</span>
 										<span class="timeline-skill-tag">WebGL</span>
@@ -658,14 +638,6 @@
 			</div>
 		</div>
 
-		<div class="row button-section">
-
-				<a href="#contact" title="Hire Me" class="button stroke smoothscroll">Contact Me</a>
-				<a href="Resume.pdf" title="Download CV" class="button button-primary" download>Download CV</a>
-			</div> 
-
-		</div>
-
 	</section> 
 
     <!--       Resume Section
@@ -676,16 +648,14 @@
 
 			<div class="col-twelve">
 
-				<h5 class="section-heading">Resume</h5>
-				<h1>More of my credentials.</h1>
-				<p class="lead">I’ve got Meta certificates in Front-End Development and Python from Coursera. I’ve built web apps, worked on automation projects, and explored cybersecurity. Also, I’m into smart home automation and network security.</p>
+				<h5 class="section-heading">Education</h5>
 			</div>
 
 		</div>
 
 		<div class="row resume-timeline">
 
-			<div class="col-twelve resume-header">
+			<!-- <div class="col-twelve resume-header">
 				<h2>SKILLS</h2>
 			</div>	
 
@@ -751,13 +721,9 @@
 
 			</div>
 
-		</div>
+		</div> -->
 
 		<div class="row resume-timeline">
-
-			<div class="col-twelve resume-header">
-				<h2>Education</h2>
-			</div>
 
 			<div class="col-twelve">
 
@@ -1067,7 +1033,7 @@
 						</div>
 
 						<div class="link-box">
-							<a href="bb84.gowreesh.works">Details</a>
+							<a href="bb84/">Live View</a>
 							<a href="#" class="popup-modal-dismiss">Close</a>
 						</div>		      
 
@@ -1086,7 +1052,7 @@
 						</div>
 
 						<div class="link-box">
-							<a href="smartlinxliving/">Details</a>
+							<a href="smartlinxliving/">Live View</a>
 							<a href="#" class="popup-modal-dismiss">Close</a>
 						</div>		      
 
@@ -1206,7 +1172,7 @@
 						</div>
 
 						<div class="link-box">
-						<a href="Netflix/in/">Details</a>
+						<a href="Netflix/in/">Live View</a>
 							<a href="#" class="popup-modal-dismiss">Close</a>
 						</div>		      
 
@@ -1232,7 +1198,7 @@
 		
 		<div class="row section-intro">
 			<div class="col-twelve">
-				<h5>Blog</h5>
+				<h5 class="section-heading">Blog</h5>
 				<h1>Latest Articles & Insights</h1>
 				<p class="lead">Sharing knowledge about web development, cybersecurity, and technology trends. Explore my thoughts, tutorials, and experiences in the world of code.</p>
 			</div>
@@ -1245,7 +1211,7 @@
 					<!-- Article 1: Project Case Study -->
 					<article class="blog-card">
 						<div class="blog-image">
-							<img src="images/portfolio/netflix.webp" alt="Netflix Clone Case Study" loading="lazy">
+							<img src="images/blog/Netflix-Clone.webp" alt="Netflix Clone Case Study" loading="lazy">
 							<span class="blog-category">Case Study</span>
 						</div>
 						<div class="blog-content-text">
@@ -1260,7 +1226,7 @@
 								<span class="tag">Firebase</span>
 								<span class="tag">CSS3</span>
 							</div>
-							<a href="#blog-article-1" class="blog-read-more">
+							<a href="#blog-article-4" class="blog-read-more">
 								Read Full Article <i class="fa fa-arrow-right"></i>
 							</a>
 						</div>
@@ -1269,7 +1235,7 @@
 					<!-- Article 2: Technical Tutorial -->
 					<article class="blog-card">
 						<div class="blog-image">
-							<img src="images/portfolio/bb84.webp" alt="BB84 Protocol" loading="lazy">
+							<img src="images/blog/BB84 Simulation.webp" alt="BB84 Protocol" loading="lazy">
 							<span class="blog-category">Tutorial</span>
 						</div>
 						<div class="blog-content-text">
@@ -1284,7 +1250,7 @@
 								<span class="tag">Python</span>
 								<span class="tag">Quantum</span>
 							</div>
-							<a href="#blog-article-2" class="blog-read-more">
+							<a href="#blog-article-4" class="blog-read-more">
 								Read Full Article <i class="fa fa-arrow-right"></i>
 							</a>
 						</div>
@@ -1293,7 +1259,7 @@
 					<!-- Article 3: Best Practices -->
 					<article class="blog-card">
 						<div class="blog-image">
-							<img src="images/portfolio/smartlinx.webp" alt="Smart Home Dashboard" loading="lazy">
+							<img src="images/blog/SmartLinx_Living HomePage.webp" alt="Smart Home Dashboard" loading="lazy">
 							<span class="blog-category">Best Practices</span>
 						</div>
 						<div class="blog-content-text">
@@ -1314,10 +1280,10 @@
 						</div>
 					</article>
 
-					<!-- Article 4: Performance -->
+					<!-- Article 4: Dakshin Chitra -->
 					<article class="blog-card">
 						<div class="blog-image">
-							<img src="images/intro-bg.webp" alt="Web Performance" loading="lazy">
+							<img src="images/blog/Dakshin.webp" alt="Web Performance" loading="lazy">
 							<span class="blog-category">Performance</span>
 						</div>
 						<div class="blog-content-text">
@@ -1325,62 +1291,14 @@
 								<span class="blog-date"><i class="fa fa-calendar"></i> July 2024</span>
 								<span class="blog-read-time"><i class="fa fa-clock-o"></i> 6 min read</span>
 							</div>
-							<h3>Optimizing Web Performance: From 70 to 99 in Lighthouse</h3>
-							<p>Comprehensive guide to web performance optimization. Image formats, lazy loading, code splitting, and caching strategies that matter.</p>
+							<h3>Exploring Dakshin Chitra: A Cultural Journey</h3>
+							<p>A deep dive into Dakshin Chitra, its significance, and the rich cultural heritage it represents. Discover the art, architecture, and stories behind this unique destination.</p>
 							<div class="blog-tags">
-								<span class="tag">Performance</span>
-								<span class="tag">Optimization</span>
-								<span class="tag">SEO</span>
+								<span class="tag">Culture</span>
+								<span class="tag">Heritage</span>
+								<span class="tag">Travel</span>
 							</div>
 							<a href="#blog-article-4" class="blog-read-more">
-								Read Full Article <i class="fa fa-arrow-right"></i>
-							</a>
-						</div>
-					</article>
-
-					<!-- Article 5: Security -->
-					<article class="blog-card">
-						<div class="blog-image">
-							<img src="images/logo.webp" alt="Web Security" loading="lazy">
-							<span class="blog-category">Security</span>
-						</div>
-						<div class="blog-content-text">
-							<div class="blog-meta">
-								<span class="blog-date"><i class="fa fa-calendar"></i> June 2024</span>
-								<span class="blog-read-time"><i class="fa fa-clock-o"></i> 9 min read</span>
-							</div>
-							<h3>Web Security Best Practices for 2024</h3>
-							<p>Essential security headers, CSP implementation, and protection against common vulnerabilities. Build secure web applications from the ground up.</p>
-							<div class="blog-tags">
-								<span class="tag">Security</span>
-								<span class="tag">CSP</span>
-								<span class="tag">Headers</span>
-							</div>
-							<a href="#blog-article-5" class="blog-read-more">
-								Read Full Article <i class="fa fa-arrow-right"></i>
-							</a>
-						</div>
-					</article>
-
-					<!-- Article 6: Three.js -->
-					<article class="blog-card">
-						<div class="blog-image">
-							<img src="images/portfolio/modals/m-netflix.webp" alt="Three.js Graphics" loading="lazy">
-							<span class="blog-category">Graphics</span>
-						</div>
-						<div class="blog-content-text">
-							<div class="blog-meta">
-								<span class="blog-date"><i class="fa fa-calendar"></i> May 2024</span>
-								<span class="blog-read-time"><i class="fa fa-clock-o"></i> 15 min read</span>
-							</div>
-							<h3>Creating Interactive 3D Experiences with Three.js</h3>
-							<p>Master Three.js for creating stunning 3D graphics on the web. From basic scenes to particle systems and interactive animations.</p>
-							<div class="blog-tags">
-								<span class="tag">Three.js</span>
-								<span class="tag">WebGL</span>
-								<span class="tag">3D</span>
-							</div>
-							<a href="#blog-article-6" class="blog-read-more">
 								Read Full Article <i class="fa fa-arrow-right"></i>
 							</a>
 						</div>
@@ -2194,7 +2112,8 @@
 	<script defer src="js/particles-3d.js"></script>
 	<script defer src="js/structured-data.js"></script>
 	<script defer src="js/breadcrumb-schema.js"></script>
-	<script defer src="js/skills-visualization.js"></script>	
+	<script defer src="js/skills-visualization.js"></script>
+	<script defer src="js/about-modal.js"></script>
 
 	<script>
 		document.addEventListener('DOMContentLoaded', function() {

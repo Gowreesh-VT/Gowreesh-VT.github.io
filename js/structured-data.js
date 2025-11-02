@@ -1,6 +1,7 @@
 /**
  * Structured Data (JSON-LD) for SEO
  * Enhances search engine understanding and rich snippet display
+ * Updated: November 2025
  */
 
 // Person Schema - Main profile information
@@ -8,37 +9,78 @@ const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Gowreesh V T",
+  "alternateName": "Gowreesh VT",
   "url": "https://gowreesh.works",
-  "image": "https://gowreesh.works/images/logo.webp",
-  "jobTitle": "Front-End Developer & Cybersecurity Enthusiast",
+  "image": "https://gowreesh.works/images/profile-photo.webp",
+  "jobTitle": "Full-Stack Developer & Tech Enthusiast",
   "worksFor": {
-    "@type": "Organization",
-    "name": "Freelance"
+    "@type": "EducationalOrganization",
+    "name": "VIT Chennai",
+    "sameAs": "https://chennai.vit.ac.in/"
   },
-  "description": "Passionate developer specializing in front-end development, JavaScript, and cybersecurity. Building innovative web solutions with modern technologies.",
+  "description": "Passionate developer specializing in web development, cybersecurity, and emerging technologies. Currently studying at VIT Chennai, building innovative solutions with modern tech stacks.",
+  "birthDate": "2007-09-24",
   "knowsAbout": [
-    "JavaScript",
+    "Full-Stack Web Development",
     "HTML5",
     "CSS3",
+    "JavaScript",
     "React",
-    "Web Development",
-    "Front-End Development",
-    "UI/UX Design",
-    "Cybersecurity",
     "Three.js",
+    "Python",
+    "Node.js",
+    "MySQL",
+    "MongoDB",
+    "Supabase",
+    "Firebase",
+    "Google Cloud",
+    "AWS",
+    "Cybersecurity",
+    "Quantum Cryptography",
+    "BB84 Protocol",
+    "Progressive Web Apps",
+    "UI/UX Design",
+    "Web Performance Optimization",
     "WebGL",
-    "Responsive Design",
-    "PWA Development"
+    "Responsive Design"
+  ],
+  "knowsLanguage": [
+    {
+      "@type": "Language",
+      "name": "English",
+      "alternateName": "en"
+    }
   ],
   "hasCredential": [
     {
       "@type": "EducationalOccupationalCredential",
       "credentialCategory": "certificate",
-      "name": "Meta Front-End Developer Certificate",
+      "name": "Meta Front-End Developer Professional Certificate",
       "recognizedBy": {
         "@type": "Organization",
         "name": "Meta"
-      }
+      },
+      "about": "Front-End Development, React, JavaScript"
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "certificate",
+      "name": "Google UX Design Certificate",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "Google"
+      },
+      "about": "User Experience Design, UI Design"
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "certificate",
+      "name": "GitHub Foundations Certificate",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "GitHub"
+      },
+      "about": "Version Control, Git, GitHub"
     },
     {
       "@type": "EducationalOccupationalCredential",
@@ -47,7 +89,8 @@ const personSchema = {
       "recognizedBy": {
         "@type": "Organization",
         "name": "MongoDB University"
-      }
+      },
+      "about": "Database Management, NoSQL"
     },
     {
       "@type": "EducationalOccupationalCredential",
@@ -56,35 +99,35 @@ const personSchema = {
       "recognizedBy": {
         "@type": "Organization",
         "name": "EdX"
-      }
+      },
+      "about": "Front-End Development"
     }
   ],
   "sameAs": [
     "https://github.com/Gowreesh-VT",
-    "https://www.linkedin.com/in/gowreesh-v-t/",
-    "https://twitter.com/GowreeshVT"
+    "https://www.linkedin.com/in/gowreesh-vt"
   ],
   "alumniOf": {
-    "@type": "CollegeOrUniversity",
-    "name": "Bannari Amman Institute Of Technology"
+    "@type": "EducationalOrganization",
+    "name": "VIT Chennai"
   },
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Erode",
+    "addressLocality": "Chennai",
     "addressRegion": "Tamil Nadu",
     "addressCountry": "India"
   },
-  "email": "vt.gowreesh43@gmail.com",
-  "telephone": "+91-8300144343"
+  "email": "vt.gowreesh43@gmail.com"
 };
 
 // WebSite Schema - Site information
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "Gowreesh V T Portfolio",
+  "name": "Gowreesh V T - Portfolio",
+  "alternateName": "Gowreesh VT Portfolio",
   "url": "https://gowreesh.works",
-  "description": "Professional portfolio showcasing web development projects, skills, and achievements",
+  "description": "Personal portfolio showcasing web development projects, skills, certifications, and technical achievements. Specializing in full-stack development, cybersecurity, and modern web technologies.",
   "author": {
     "@type": "Person",
     "name": "Gowreesh V T"
@@ -94,21 +137,46 @@ const websiteSchema = {
   "copyrightHolder": {
     "@type": "Person",
     "name": "Gowreesh V T"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://gowreesh.works/?s={search_term_string}",
+    "query-input": "required name=search_term_string"
   }
 };
 
-// Portfolio Projects Schema
-const portfolioSchema = {
+// WebPage Schema
+const webPageSchema = {
   "@context": "https://schema.org",
-  "@type": "CreativeWork",
-  "name": "Gowreesh V T - Web Development Portfolio",
-  "creator": {
+  "@type": "WebPage",
+  "name": "Gowreesh V T - Developer Portfolio",
+  "url": "https://gowreesh.works",
+  "description": "Full-stack developer portfolio featuring projects in web development, cybersecurity, and emerging technologies",
+  "about": {
     "@type": "Person",
     "name": "Gowreesh V T"
   },
-  "description": "Collection of professional web development projects including Netflix Clone, Smart Home Dashboard, E-commerce platforms, and more",
-  "keywords": "web development, portfolio, front-end development, JavaScript, React, UI/UX design",
-  "url": "https://gowreesh.works/#portfolio"
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://gowreesh.works/images/profile-photo.webp",
+    "width": 200,
+    "height": 200
+  },
+  "datePublished": "2024-01-01",
+  "dateModified": "2025-11-02",
+  "inLanguage": "en-US"
+};
+
+// ProfilePage Schema
+const profilePageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "Gowreesh V T"
+  },
+  "dateCreated": "2024-01-01",
+  "dateModified": "2025-11-02"
 };
 
 // Professional Service Schema
@@ -133,16 +201,24 @@ const serviceSchema = {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Web Design",
-          "description": "Captivating websites that blend style and functionality"
+          "name": "Full-Stack Web Development",
+          "description": "Building responsive, modern web applications with React, Node.js, and modern frameworks"
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Web Development",
-          "description": "Functional and dynamic websites with seamless user experience"
+          "name": "Frontend Development",
+          "description": "Creating beautiful, interactive user interfaces with HTML5, CSS3, JavaScript, and React"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Backend Development",
+          "description": "Building scalable server-side applications with Python, Node.js, and databases"
         }
       },
       {
@@ -157,20 +233,23 @@ const serviceSchema = {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Branding",
-          "description": "Unique brand identity from logos to brand guidelines"
+          "name": "Progressive Web Apps",
+          "description": "Building fast, reliable, and engaging web applications that work offline"
         }
       }
     ]
   }
 };
 
-// Function to inject schemas into the page
+/**
+ * Inject all structured data schemas into the document head
+ */
 function injectStructuredData() {
   const schemas = [
     personSchema,
     websiteSchema,
-    portfolioSchema,
+    webPageSchema,
+    profilePageSchema,
     serviceSchema
   ];
 
@@ -180,23 +259,22 @@ function injectStructuredData() {
     script.text = JSON.stringify(schema);
     document.head.appendChild(script);
   });
-
-  console.log('✅ Structured data (JSON-LD) injected successfully');
 }
 
-// Inject schemas when DOM is ready
+// Initialize when DOM is ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', injectStructuredData);
 } else {
   injectStructuredData();
 }
 
-// Export for potential use in other scripts
+// Export for testing/development (optional)
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
     personSchema,
     websiteSchema,
-    portfolioSchema,
+    webPageSchema,
+    profilePageSchema,
     serviceSchema
   };
 }

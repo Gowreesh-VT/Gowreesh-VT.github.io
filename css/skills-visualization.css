@@ -3,21 +3,11 @@
  * Interactive skill bars, radar chart, and learning timeline
  */
 
+/* Skills Visualization Section */
 .skills-visualization-section {
-    align-items: center;
-    justify-content: center;
-    padding: 6rem 0;
-    position: relative;
-    overflow: hidden;
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-    width: 100vw;
-}
-
-.skills-visualization-section > .col-twelve {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 3rem;
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .skills-visualization-section::before {
@@ -56,23 +46,26 @@
 }
 
 .skills-viz-header p {
-  font-size: 1.8rem;
-  color: rgba(255, 255, 255, 0.7);
+  font-size: 4.2rem;
+  color: rgb(255, 255, 255);
   max-width: 70rem;
   margin: 0 auto;
   line-height: 1.8;
+  font-weight: bold;
+  margin-bottom: 2rem;
 }
 
+/* Skills Grid Layout */
 .skills-viz-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  margin: 0 auto 6rem auto;
+  margin-bottom: 6rem;
   position: relative;
   z-index: 2;
-  max-width: 1200px;
 }
 
+/* Animated Skill Bars */
 .skill-bars-container {
   background: rgba(255, 255, 255, 0.05);
   padding: 4rem;
@@ -166,6 +159,7 @@
   width: var(--skill-width);
 }
 
+/* Radar Chart Container */
 .radar-chart-container {
   background: rgba(255, 255, 255, 0.05);
   padding: 4rem;
@@ -206,9 +200,6 @@
   backdrop-filter: blur(10px);
   position: relative;
   z-index: 2;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .learning-timeline-container h3 {
@@ -368,9 +359,6 @@
 /* Light Mode Styles */
 html:not(.dark-mode) .skills-visualization-section {
   background: linear-gradient(135deg, rgba(248, 249, 250, 0.95) 0%, rgba(240, 242, 245, 0.95) 100%);
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-  width: 100vw;
 }
 
 html:not(.dark-mode) .skills-visualization-section::before {
@@ -440,6 +428,7 @@ html:not(.dark-mode) #radarChart {
   filter: drop-shadow(0 0 20px rgba(255, 0, 119, 0.2));
 }
 
+/* Responsive Design */
 @media only screen and (max-width: 1200px) {
   .skills-viz-grid {
     gap: 3rem;

@@ -59,8 +59,6 @@ function injectBreadcrumbSchema() {
   script.type = 'application/ld+json';
   script.text = JSON.stringify(breadcrumbSchema);
   document.head.appendChild(script);
-
-  console.log('✅ Breadcrumb schema (JSON-LD) injected successfully');
 }
 
 // Inject schema when DOM is ready

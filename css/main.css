@@ -16,8 +16,8 @@
  *  12. about
  *  13. resume
  *  14. portfolio
- *  15. login-Section
- *  16. Login-popup
+ *  15. Blog-Section
+ *  16. Services
  *  17. stats
  *  18. contact
  *  19. footer
@@ -48,7 +48,7 @@ html.dark-mode {
   --bg-secondary: #1a1a1a;
   --bg-header: #000000;
   --text-primary: #ffffff;
-  --text-secondary: #b8b8b8;
+  --text-secondary: #dddcdce9;
   --text-muted: #888888;
   --border-color: #333333;
   --shadow: rgba(255, 255, 255, 0.1);
@@ -527,7 +527,7 @@ a:active {
 
 /** 
  * ===================================================================
- * 03. typography & general theme styles - (_document-setup.scss)
+ *04. typography & general theme styles - (_document-setup.scss)
  *
  * ------------------------------------------------------------------- 
  */
@@ -921,7 +921,7 @@ img.pull-left {
 
 /** 
  * ===================================================================
- * 04. preloader - (_preloader-1.scss)
+ * 05. preloader - (_preloader-1.scss)
  *
  * ------------------------------------------------------------------- 
  */
@@ -972,7 +972,7 @@ img.pull-left {
 
 /** 
  * ===================================================================
- * 05. forms - (_forms.scss)
+ * 06. forms - (_forms.scss)
  *
  * ------------------------------------------------------------------- 
  */
@@ -1089,7 +1089,7 @@ label > input[type="radio"] {
 
 /** 
  * ===================================================================
- * 06. buttons - (_button-essentials.scss)
+ * 07. buttons - (_button-essentials.scss)
  *
  * ------------------------------------------------------------------- 
  */
@@ -1107,9 +1107,9 @@ input[type="button"] {
   height: 5.4rem;
   line-height: 5.4rem;
   padding: 0 3rem;
-  margin: 0 0.3rem 1.2rem 0;
+  margin: 0 0.3rem 1.2rem 20px;
   background: #d8d8d8;
-  color: #313131;
+  color: #504f4f;
   text-decoration: none;
   cursor: pointer;
   text-align: center;
@@ -1174,7 +1174,7 @@ button.large,
 button.stroke,
 .button.stroke {
   background: transparent !important;
-  border: 3px solid #313131;
+  border: 3px solid #585757;
   line-height: 4.8rem;
 }
 button.stroke.medium,
@@ -1193,7 +1193,7 @@ button.stroke:hover,
 
 /** 
  * ===================================================================
- * 07. other components - (_others.scss)
+ * 08. other components - (_others.scss)
  *
  * ------------------------------------------------------------------- 
  */
@@ -1507,7 +1507,7 @@ button.stroke:hover,
 
 /** 
  * ===================================================================
- * 08. common styles (_layout.scss)
+ * 09. common styles (_layout.scss)
  *
  * ------------------------------------------------------------------- 
  */
@@ -1568,7 +1568,7 @@ button.stroke:hover,
 
 /** 
  * ===================================================================
- * 09. header styles - (_layout.scss)
+ * 10. header styles - (_layout.scss)
  *
  * ------------------------------------------------------------------- 
  */
@@ -2059,7 +2059,7 @@ html:not(.dark-mode) #theme-toggle-btn:hover .sun-icon {
 
 /** 
  * ===================================================================
- * 10. intro - (_layout.scss) 
+ * 11. intro - (_layout.scss) 
  *
  * ------------------------------------------------------------------- 
  */
@@ -2306,7 +2306,7 @@ html:not(.dark-mode) #theme-toggle-btn:hover .sun-icon {
 
 /** 
  * ===================================================================
- * 11. about - (_layout.scss)
+ * 12. about - (_layout.scss)
  *
  * ------------------------------------------------------------------- 
  */
@@ -2360,17 +2360,18 @@ html:not(.dark-mode) #theme-toggle-btn:hover .sun-icon {
 }
 .about-content .info-list li strong {
   font-family: 'Netflix-Sans-Bold', "poppins-bold", sans-serif;
-  color: #313131;
+  color: var(--text-secondary);
   text-transform: uppercase;
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.1rem;
   font-size: 1.5rem;
+  font-weight: 600;
   line-height: 3rem;
 }
 .about-content .info-list li span {
   display: block;
   font-family: 'Netflix Sans', "poppins-regular", sans-serif;
-  color: #888888;
-  font-size: 1.5rem;
+  color: #9e9d9d;
+  font-size: 1.6rem;
   line-height: 1;
 }
 .about-content .skill-bars {
@@ -2435,7 +2436,7 @@ html:not(.dark-mode) #theme-toggle-btn:hover .sun-icon {
 
 /** 
  * ===================================================================
- * 12. resume - (_layout.scss)
+ * 13. resume - (_layout.scss)
  *
  * ------------------------------------------------------------------- 
  */
@@ -2824,12 +2825,12 @@ html:not(.dark-mode) #theme-toggle-btn:hover .sun-icon {
 
 /** 
  * ===================================================================
- * 13. portfolio - (_layout.scss)
+ * 14. portfolio - (_layout.scss)
  * ------------------------------------------------------------------- 
  */
 #portfolio {
 	background: #FFFFFF;
-	padding-top: 5rem;
+	padding-top: 6rem;
 	padding-bottom: 5rem;
 }
 #portfolio .folio-item {
@@ -3047,12 +3048,338 @@ html:not(.dark-mode) #theme-toggle-btn:hover .sun-icon {
 
 /** 
  * ===================================================================
+ * 15. Blog-Section - (_layout.scss)
+ *
+ * ------------------------------------------------------------------- 
+ */
+
+ /**
+ * Blog Section Styles
+ * Modern, clean blog/article cards with responsive grid
+ */
+
+#blog {
+  background: var(--color-bg, #0f0f0f);
+  padding-top: 12rem;
+  padding-bottom: 12rem;
+  position: relative;
+}
+
+#blog .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+#blog .section-intro {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-bottom: 6rem;
+}
+
+#blog .section-intro h5 {
+  color: var(--color-primary, #ff0077);
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+#blog .section-intro h1 {
+  font-size: 4.8rem;
+  color: #ffffff;
+  margin-bottom: 2rem;
+}
+
+#blog .section-intro .lead {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.blog-content {
+  position: relative;
+  z-index: 2;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(35rem, 1fr));
+  gap: 3rem;
+  margin-bottom: 6rem;
+}
+
+.blog-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1.2rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-card:hover {
+  transform: translateY(-0.8rem);
+  box-shadow: 0 2rem 4rem rgba(255, 0, 119, 0.2);
+  border-color: var(--color-primary, #ff0077);
+}
+
+.blog-image {
+  position: relative;
+  width: 100%;
+  height: 25rem;
+  overflow: hidden;
+}
+
+.blog-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.blog-card:hover .blog-image img {
+  transform: scale(1.05);
+}
+
+.blog-category {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: var(--color-primary, #ff0077);
+  color: #ffffff;
+  padding: 0.6rem 1.5rem;
+  border-radius: 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  z-index: 1;
+}
+
+.blog-content-text {
+  padding: 2.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-meta {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.blog-meta i {
+  margin-right: 0.5rem;
+  color: var(--color-primary, #ff0077);
+}
+
+.blog-content-text h3 {
+  font-size: 2.2rem;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.blog-content-text > p {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 2rem;
+  flex: 1;
+}
+
+.blog-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.blog-tags .tag {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.blog-tags .tag:hover {
+  background: var(--color-primary, #ff0077);
+  color: #ffffff;
+}
+
+.blog-read-more {
+  color: #ff0077;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: gap 0.3s ease;
+  align-self: flex-start;
+}
+
+.blog-read-more:hover {
+  gap: 1.5rem;
+}
+
+.blog-read-more i {
+  transition: transform 0.3s ease;
+}
+
+.blog-read-more:hover i {
+  transform: translateX(0.5rem);
+}
+
+.blog-cta {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: rgba(255, 0, 119, 0.1);
+  border-radius: 1.2rem;
+  border: 2px solid rgba(255, 0, 119, 0.3);
+}
+
+.blog-cta-text {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.blog-cta .button {
+  font-size: 1.6rem;
+  padding: 1.5rem 3.5rem;
+}
+
+/**
+ * Responsive Design
+ * ------------------------------------------------------------------ 
+ */
+
+@media only screen and (max-width: 1200px) {
+  .blog-grid {
+    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  #blog {
+    padding-top: 9rem;
+    padding-bottom: 9rem;
+  }
+
+  #blog .section-intro h1 {
+    font-size: 3.6rem;
+  }
+
+  .blog-grid {
+    grid-template-columns: repeat(auto-fill, minmax(28rem, 1fr));
+    gap: 2.5rem;
+  }
+
+  .blog-card {
+    max-width: 100%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #blog {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  #blog .section-intro {
+    margin-bottom: 4rem;
+  }
+
+  #blog .section-intro h1 {
+    font-size: 2.8rem;
+  }
+
+  #blog .section-intro .lead {
+    font-size: 1.6rem;
+  }
+
+  .blog-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .blog-image {
+    height: 20rem;
+  }
+
+  .blog-content-text {
+    padding: 2rem;
+  }
+
+  .blog-content-text h3 {
+    font-size: 2rem;
+  }
+
+  .blog-meta {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .blog-cta {
+    padding: 3rem 1.5rem;
+  }
+
+  .blog-cta-text {
+    font-size: 1.7rem;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.dark-mode #blog {
+  background: #0a0a0a;
+}
+
+.dark-mode .blog-card {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.dark-mode .blog-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+
+/** 
+ * ===================================================================
  * 14. Login-Section - (_layout.scss)
  *
  * ------------------------------------------------------------------- 
  */
 
-#login-section {
+/* #login-section {
   font-family: 'Netflix Sans', "lora-regular", serif !important;
   background: #131313;
   display: flex;
@@ -3126,14 +3453,14 @@ html:not(.dark-mode) .login-content h2 a:visited {
 
 html:not(.dark-mode) .login-content span {
   color: #3f0d39;
-}
+} */
 
 /**
  * Responsive Design
  * ------------------------------------------------------------------ 
  */
 
-@media only screen and (max-width: 650px) {
+/* @media only screen and (max-width: 650px) {
   .login-container {
     max-width: 650px;
   }
@@ -3155,7 +3482,7 @@ html:not(.dark-mode) .login-content span {
   .Login-popup-btn {
     font-size: 1rem !important;
   }
-}
+} */
 
 
 /** 
@@ -3164,7 +3491,7 @@ html:not(.dark-mode) .login-content span {
  *
  * ------------------------------------------------------------------- 
  */
-
+/* 
 .Login-popup-btn {
   cursor: pointer;
 }
@@ -3837,14 +4164,14 @@ body.modal-open {
 #forgot-confirm-password-container {
   margin-top: 25px;
   margin-bottom: 25px;
-}
+} */
 
 /**
  * Responsive Design
  * ------------------------------------------------------------------ 
  */
 
-@media only screen and (max-width: 1300px) {
+/* @media only screen and (max-width: 1300px) {
   .form-box {
     padding: 50px 45px 40px;
   }
@@ -4018,7 +4345,7 @@ body.modal-open {
   .wrapper.active {
     width: 100%;
   }
-}
+} */
 
 /** 
  * ===================================================================
