@@ -1,0 +1,84 @@
+/**
+ * Font Display Optimization
+ * Overrides font-face declarations to use font-display: swap
+ * Ensures text remains visible during webfont load (prevents FOIT)
+ */
+
+/* Font Awesome Brands - Optimized */
+@font-face {
+  font-family: 'Font Awesome 6 Brands';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-brands-400.woff2) format('woff2');
+}
+
+/* Font Awesome Solid - Optimized */
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2) format('woff2');
+}
+
+/* Font Awesome Regular - Optimized */
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-regular-400.woff2) format('woff2');
+}
+
+/* Font Awesome v4 Compatibility - Optimized */
+@font-face {
+  font-family: 'FontAwesome';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-v4compatibility.woff2) format('woff2');
+}
+
+/* Fallback font stack to minimize layout shift */
+.fa, .fas, .far, .fab, .fal, .fad, .fa-brands, .fa-solid, .fa-regular {
+  font-family: 'Font Awesome 6 Free', 'Font Awesome 6 Brands', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Size adjustments to match font metrics (reduce CLS) */
+.fa, .fas, .far, .fab {
+  font-size: inherit;
+  line-height: inherit;
+  vertical-align: baseline;
+}
+
+/* Prevent layout shift during font swap */
+.fa::before, .fas::before, .far::before, .fab::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optional: Add size-adjust for better metric matching */
+@supports (size-adjust: 100%) {
+  @font-face {
+    font-family: 'Font Awesome 6 Free';
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    size-adjust: 100%;
+    src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2) format('woff2');
+  }
+  
+  @font-face {
+    font-family: 'Font Awesome 6 Brands';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    size-adjust: 100%;
+    src: url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-brands-400.woff2) format('woff2');
+  }
+}

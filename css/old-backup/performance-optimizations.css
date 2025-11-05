@@ -1,0 +1,163 @@
+/**
+ * Performance Optimizations CSS
+ * CSS-based animations to replace jQuery animations
+ * Uses GPU-accelerated properties (opacity, transform) for better performance
+ */
+
+/* Go to top button smooth transitions */
+#go-top {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  will-change: opacity, transform;
+}
+
+#go-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Message boxes with CSS animations */
+#message-warning,
+#message-success {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  will-change: opacity, transform;
+}
+
+#message-warning.show,
+#message-success.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Loader optimizations */
+#preloader,
+#loader {
+  transition: opacity 0.5s ease;
+  will-change: opacity;
+}
+
+#preloader.hidden,
+#loader.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Form input validation states */
+input.valid,
+textarea.valid {
+  border-color: #28a745;
+  transition: border-color 0.2s ease;
+}
+
+input.error,
+textarea.error {
+  border-color: #dc3545;
+  transition: border-color 0.2s ease;
+}
+
+/* Nav menu transitions */
+#nav-menu {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  will-change: opacity, transform;
+}
+
+#nav-menu.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Modal transitions */
+.popup-modal,
+.about-modal {
+  transition: opacity 0.3s ease;
+  will-change: opacity;
+}
+
+.popup-modal.show,
+.about-modal.show {
+  opacity: 1;
+}
+
+/* Optimize animations with GPU acceleration */
+.animated-element {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Reduce repaints for smooth scrolling */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optimize will-change for frequently animated elements */
+.folio-item,
+.blog-card,
+.service {
+  will-change: transform, opacity;
+}
+
+/* Remove will-change after animation completes */
+.folio-item.animated,
+.blog-card.animated,
+.service.animated {
+  will-change: auto;
+}
+
+/* Counter animation */
+.stat-count {
+  display: inline-block;
+  transform: translateZ(0);
+}
+
+/* Reduce layout shifts */
+.skill-bar-fill {
+  contain: layout style paint;
+}
+
+/* Image loading optimization */
+img {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 1px;
+}
+
+/* Scroll performance */
+.scroll-container {
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent layout thrashing on resize */
+.resize-optimized {
+  transition: width 0.2s ease, height 0.2s ease;
+}
+
+/* Contact form submit button loading state */
+.submitform {
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.submitform:active {
+  transform: scale(0.98);
+}
+
+/* Optimize portfolio grid */
+#folio-wrapper {
+  contain: layout style paint;
+}
+
+/* Timeline animations */
+.timeline-item {
+  will-change: transform, opacity;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.timeline-item.visible {
+  transform: translateY(0);
+  opacity: 1;
+}

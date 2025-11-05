@@ -17,14 +17,33 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
 	<meta name="format-detection" content="telephone=no">
 	<meta name="mobile-web-app-capable" content="yes">
+	<!-- Performance optimization hints -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="renderer" content="webkit">
 	<!-- Disable caching for development -->
+	
+	<!-- Resource Hints for Performance -->
 	<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 	<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
 	<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+	<link rel="dns-prefetch" href="https://www.googletagmanager.com">
 	<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
 	<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+	<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+	
+	<!-- Preload Critical Assets for Parallel Loading -->
+	<link rel="preload" as="style" href="css/base.min.css?v=1.0.0">
+	<link rel="preload" as="style" href="css/main.css?v=1.0.5">
+	<link rel="preload" as="style" href="css/performance-optimizations.css?v=1.0.0">
+	<link rel="preload" as="style" href="css/font-display-optimization.css?v=1.0.0">
 	<link rel="preload" as="image" href="images/intro-bg.webp" fetchpriority="high">
-
+	<link rel="preload" as="image" href="images/profile-photo-300w.webp" fetchpriority="low" media="(min-width: 768px)">
+	<link rel="preload" as="image" href="images/profile-photo-150w.webp" fetchpriority="low" media="(max-width: 767px)">
+	
+	<!-- Preload critical webfonts for instant display with font-display: swap -->
+	<link rel="preload" as="font" type="font/woff2" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2" crossorigin>
+	<link rel="preload" as="font" type="font/woff2" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-brands-400.woff2" crossorigin>
+	
 	<link rel="manifest" href="manifest.json">
 	<meta name="theme-color" content="#ff0077">
 	<meta name="apple-mobile-web-app-capable" content="yes">
@@ -32,47 +51,74 @@
 	<meta name="apple-mobile-web-app-title" content="Gowreesh Portfolio">
 	<link rel="apple-touch-icon" href="images/logo.webp">
 
-		<!-- Google tag (gtag.js)
+		<!-- Google tag (gtag.js) - Lazy Loaded
    ================================================== -->
 
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-5YQRSDG91L"></script>
 	<script>
+	// Minimal Google Analytics - Load gtag.js only after user interaction
 	window.dataLayer = window.dataLayer || [];
 	function gtag(){dataLayer.push(arguments);}
 	gtag('js', new Date());
-	gtag('config', 'G-5YQRSDG91L');
+	gtag('config', 'G-5YQRSDG91L', {
+		'send_page_view': false // Don't send until script loads
+	});
+
+	// Lazy load gtag.js after user interaction or after 3 seconds
+	(function() {
+		let gtagLoaded = false;
+		
+		function loadGtag() {
+			if (gtagLoaded) return;
+			gtagLoaded = true;
+			
+			const script = document.createElement('script');
+			script.src = 'https://www.googletagmanager.com/gtag/js?id=G-5YQRSDG91L';
+			script.async = true;
+			script.onload = () => {
+				// Send page view after load
+				gtag('event', 'page_view');
+				console.log('✓ Google Analytics loaded');
+			};
+			document.head.appendChild(script);
+		}
+		
+		// Load on first interaction
+		const events = ['scroll', 'click', 'touchstart', 'mousemove'];
+		const loadOnce = () => {
+			loadGtag();
+			events.forEach(e => window.removeEventListener(e, loadOnce));
+		};
+		events.forEach(e => window.addEventListener(e, loadOnce, { passive: true, once: true }));
+		
+		// Fallback: Load after 3 seconds if no interaction
+		setTimeout(loadGtag, 3000);
+	})();
 	</script>
 
 
 		<!-- Links
    ================================================== -->
 
-	<link rel="preload" href="css/base.min.css?v=1.0.0" as="style">
-	<link rel="stylesheet" href="css/base.min.css?v=1.0.0">
-	<link rel="stylesheet" href="css/main.css?v=1.0.5">
-	<link rel="stylesheet" href="css/blog.css?v=1.0.0">
-	<link rel="stylesheet" href="css/skills-visualization.css?v=1.0.5">
-	<link rel="stylesheet" href="css/about-modal.css?v=1.0.3">
-	<link rel="preload" href="css/vendor.min.css?v=1.0.0" as="style" onload="this.onload=null;this.rel='stylesheet'">
-	<noscript><link rel="stylesheet" href="css/vendor.min.css?v=1.0.0"></noscript>
-	<link rel="preload" href="css/typing-animation.css?v=1.0.0" as="style" onload="this.onload=null;this.rel='stylesheet'">
-	<noscript><link rel="stylesheet" href="css/typing-animation.css?v=1.0.0"></noscript>
-	<link rel="preload" href="css/scroll-animations.css?v=1.0.0" as="style" onload="this.onload=null;this.rel='stylesheet'">
-	<noscript><link rel="stylesheet" href="css/scroll-animations.css?v=1.0.0"></noscript>
+	<!-- SIMPLIFIED CSS - Only 2 files instead of 12! -->
 	
-	<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-	<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+	<!-- 1. Critical CSS - Above-the-fold (loaded immediately) -->
+	<link rel="stylesheet" href="css/critical.min.css?v=1.1.0">
+	
+	<!-- 2. Main CSS - Everything else consolidated (deferred) -->
+	<link rel="preload" href="css/main.min.css?v=1.1.0" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript><link rel="stylesheet" href="css/main.min.css?v=1.1.0"></noscript>
+	
+	<!-- Font Awesome CDN removed - using custom subset (saves 17.6 KB) -->
 	
 	<link rel="preload" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=cancel&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 	<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=cancel&display=swap"></noscript>
 	
-	<link rel="icon" type="image/png" href="images/Top_Photo.webp">	
+	<link rel="icon" type="image/png" href="images/Top_Photo.webp">
 
 
 	<!-- Java Script 
 	==================================================-->
-	<script src="js/pace.min.js"></script>
-	
+	<!-- Theme script inlined for instant execution -->
 	<script>
 		(function() {
 			const savedTheme = localStorage.getItem('theme') || 'dark';
@@ -83,7 +129,7 @@
 			}
 		})();
 	</script>
-
+	
    	<!-- Open Graph Meta Tags
 	==================================================-->
 
@@ -237,7 +283,27 @@
 				<h1>Let me introduce myself.</h1>
 				<div class="intro-info">
 
-					<img src="images/profile-photo.webp" alt="Gowreesh V T - Profile Picture" loading="lazy" width="200" height="200">
+					<picture>
+						<source 
+							type="image/webp"
+							srcset="images/profile-photo-150w.webp 150w,
+							        images/profile-photo-300w.webp 300w,
+							        images/profile-photo-600w.webp 600w"
+							sizes="(max-width: 768px) 150px, 200px">
+						<source 
+							type="image/png"
+							srcset="images/profile-photo-150w.png 150w,
+							        images/profile-photo-300w.png 300w,
+							        images/profile-photo-600w.png 600w"
+							sizes="(max-width: 768px) 150px, 200px">
+						<img 
+							src="images/profile-photo-300w.png" 
+							alt="Gowreesh V T - Profile Picture" 
+							loading="lazy" 
+							width="200" 
+							height="200"
+							decoding="async">
+					</picture>
 					<p class="lead">Gowreesh V T. is a passionate programmer and tech enthusiast with a keen interest in cybersecurity and app development. He enjoys building innovative projects and exploring new technologies.</p>
 
 				</div> 
@@ -303,7 +369,25 @@
 		
 		<div class="about-modal-body">
 			<div class="about-modal-photo">
-				<img src="images/profile-photo.webp" alt="Gowreesh V T" loading="lazy">
+				<picture>
+					<source 
+						type="image/webp"
+						srcset="images/profile-photo-150w.webp 150w,
+						        images/profile-photo-300w.webp 300w,
+						        images/profile-photo-600w.webp 600w"
+						sizes="(max-width: 480px) 150px, (max-width: 768px) 250px, 300px">
+					<source 
+						type="image/png"
+						srcset="images/profile-photo-150w.png 150w,
+						        images/profile-photo-300w.png 300w,
+						        images/profile-photo-600w.png 600w"
+						sizes="(max-width: 480px) 150px, (max-width: 768px) 250px, 300px">
+					<img 
+						src="images/profile-photo-300w.png" 
+						alt="Gowreesh V T" 
+						loading="lazy"
+						decoding="async">
+				</picture>
 				
 				<!-- Info Grid -->
 				<div class="about-info-grid">
@@ -2084,6 +2168,18 @@
 
 	<!-- Java Script
 	================================================== -->
+	<!-- CSS load polyfill for deferred stylesheets -->
+	<script>
+		/*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
+		(function(w){"use strict";if(!w.loadCSS){w.loadCSS=function(){}}
+		var rp=loadCSS.relpreload={};rp.support=(function(){var ret;try{ret=w.document.createElement("link").relList.supports("preload")}catch(e){ret=!1}
+		return function(){return ret}})();rp.bindMediaToggle=function(link){var finalMedia=link.media||"all";function enableStylesheet(){link.media=finalMedia}
+		if(link.addEventListener){link.addEventListener("load",enableStylesheet)}else if(link.attachEvent){link.attachEvent("onload",enableStylesheet)}
+		setTimeout(function(){link.rel="stylesheet";link.media="only x"});setTimeout(enableStylesheet,3000)};rp.poly=function(){if(rp.support()){return}
+		var links=w.document.getElementsByTagName("link");for(var i=0;i<links.length;i++){var link=links[i];if(link.rel==="preload"&&link.getAttribute("as")==="style"&&!link.getAttribute("data-loadcss")){link.setAttribute("data-loadcss",!0);rp.bindMediaToggle(link)}}};if(!rp.support()){rp.poly();var run=w.setInterval(rp.poly,500);if(w.addEventListener){w.addEventListener("load",function(){rp.poly();w.clearInterval(run)})}else if(w.attachEvent){w.attachEvent("onload",function(){rp.poly();w.clearInterval(run)})}}
+		if(typeof exports!=="undefined"){exports.loadCSS=loadCSS}else{w.loadCSS=loadCSS}}(typeof global!=="undefined"?global:this));
+	</script>
+	
 	<!-- Firebase CDN scripts -->
 	<!-- <script defer src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 	<script defer src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
@@ -2092,23 +2188,30 @@
 	<script defer src="js/firebase-config.js"></script>
 	<script defer src="js/auth.js"></script> -->
    
-
+	<!-- Pace.js loaded after other scripts to not block critical path -->
+	<script defer src="js/pace.min.js"></script>
+	
+	<!-- Lazy load Three.js and particles (saves 90KB on initial load) -->
+	<script defer src="js/lazy-three.js"></script>
+	
+	<!-- Core scripts -->
    	<script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-   	<script defer src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
 	<script defer src="js/jquery-2.1.3.min.js"></script>
+	<script defer src="js/performance-optimizations.js"></script>
 	<script defer src="js/jquery.validate.min.js"></script>
 	<script defer src="js/plugins.min.js"></script>
 	<script defer src="js/enhanced-ui.min.js"></script>
 	<script defer src="js/main.min.js"></script>
 
+	<!-- Additional features -->
 	<script defer src="js/lazy-loading.min.js"></script>
 	<script defer src="js/typing-animation.min.js"></script>
 	<script defer src="js/scroll-animations.js"></script>
-	<script defer src="js/particles-3d.js"></script>
 	<script defer src="js/structured-data.js"></script>
 	<script defer src="js/breadcrumb-schema.js"></script>
 	<script defer src="js/skills-visualization.js"></script>
 	<script defer src="js/about-modal.js"></script>
+	<script defer src="js/lazy-modals.js"></script>
 
 	<script>
 		document.addEventListener('DOMContentLoaded', function() {

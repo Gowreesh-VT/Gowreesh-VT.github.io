@@ -2,6 +2,23 @@
   "projects": {
     "default": "gowreesh-portfolio"
   },
-  "targets": {},
+  "targets": {
+    "gowreesh-portfolio": {
+      "hosting": {
+        "portfolio": [
+          "gowreesh-portfolio"
+        ],
+        "smartlinx": [
+          "smartlinx-living"
+        ],
+        "netflix": [
+          "gowreesh-netflix"
+        ],
+        "bb84": [
+          "bb84-simulation"
+        ]
+      }
+    }
+  },
   "etags": {}
 }

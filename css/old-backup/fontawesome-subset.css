@@ -1,0 +1,94 @@
+/* Custom Font Awesome Subset - Only Used Icons (~96% smaller than full version) */
+
+/* Core Font Awesome Base Styles */
+.fa, .fas, .far, .fab, .fa-solid, .fa-regular, .fa-brands {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+}
+
+.fa, .fas, .fa-solid {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+}
+
+.far, .fa-regular {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 400;
+}
+
+.fab, .fa-brands {
+  font-family: "Font Awesome 6 Brands";
+  font-weight: 400;
+}
+
+/* Animation */
+.fa-spin {
+  animation: fa-spin 2s linear infinite;
+}
+
+@keyframes fa-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Icon Definitions - Only icons actually used in your site */
+/* Solid Icons (fas) */
+.fa-user::before { content: "\f007"; }
+.fa-sign-out-alt::before { content: "\f2f5"; }
+.fa-sun::before { content: "\f185"; }
+.fa-moon::before { content: "\f186"; }
+.fa-code::before { content: "\f121"; }
+.fa-heart::before { content: "\f004"; }
+.fa-cube::before { content: "\f1b2"; }
+.fa-chart-line::before { content: "\f201"; }
+.fa-server::before { content: "\f233"; }
+.fa-database::before { content: "\f1c0"; }
+.fa-leaf::before { content: "\f06c"; }
+.fa-cloud::before { content: "\f0c2"; }
+.fa-fire::before { content: "\f06d"; }
+.fa-rocket::before { content: "\f135"; }
+.fa-graduation-cap::before { content: "\f19d"; }
+.fa-briefcase::before { content: "\f0b1"; }
+.fa-spinner::before { content: "\f110"; }
+.fa-calendar::before { content: "\f133"; }
+.fa-clock-o::before, .fa-clock::before { content: "\f017"; }
+.fa-arrow-right::before { content: "\f061"; }
+.fa-times::before { content: "\f00d"; }
+.fa-globe::before { content: "\f0ac"; }
+.fa-mobile::before { content: "\f10b"; }
+.fa-paint-brush::before { content: "\f1fc"; }
+.fa-image::before { content: "\f03e"; }
+.fa-comments::before { content: "\f086"; }
+.fa-pen-to-square::before { content: "\f044"; }
+.fa-users::before { content: "\f0c0"; }
+.fa-trophy::before { content: "\f091"; }
+.fa-lightbulb::before { content: "\f0eb"; }
+.fa-mug-hot::before { content: "\f7b6"; }
+.fa-check::before { content: "\f00c"; }
+.fa-arrow-up::before { content: "\f062"; }
+
+/* Regular Icons (far) */
+.fa-regular.fa-eye::before { content: "\f06e"; }
+
+/* Brand Icons (fab) */
+.fa-brands.fa-linkedin::before, .fa-linkedin::before { content: "\f0e1"; }
+.fa-brands.fa-twitter::before, .fa-twitter::before { content: "\f099"; }
+.fa-brands.fa-github::before, .fa-github::before { content: "\f09b"; }
+.fa-brands.fa-instagram::before, .fa-instagram::before { content: "\f16d"; }
+.fa-brands.fa-youtube::before, .fa-youtube::before { content: "\f167"; }
+.fa-brands.fa-html5::before, .fa-html5::before { content: "\f13b"; }
+.fa-brands.fa-css3-alt::before, .fa-css3-alt::before { content: "\f38b"; }
+.fa-brands.fa-js-square::before, .fa-js-square::before { content: "\f3b9"; }
+.fa-brands.fa-react::before, .fa-react::before { content: "\f41b"; }
+.fa-brands.fa-python::before, .fa-python::before { content: "\f3e2"; }
+.fa-brands.fa-node-js::before, .fa-node-js::before { content: "\f3d3"; }
+.fa-brands.fa-google::before, .fa-google::before { content: "\f1a0"; }
+.fa-brands.fa-aws::before, .fa-aws::before { content: "\f375"; }
+
+/* Font Face Declarations with font-display: swap already in font-display-optimization.css */
+/* This file only contains icon mappings to reduce CSS size */
