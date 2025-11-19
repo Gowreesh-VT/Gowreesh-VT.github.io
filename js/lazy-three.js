@@ -58,6 +58,9 @@
    */
   function initParticlesWhenReady() {
     loadThreeJs(() => {
+      // Set global flag for mobile optimization
+      window._particlesMobileMode = isMobileDevice();
+      
       // Load particles-3d.js after Three.js
       const particlesScript = document.createElement('script');
       particlesScript.src = '/js/particles-3d.js';
@@ -81,13 +84,21 @@
     const memory = navigator.deviceMemory; // GB
     const cores = navigator.hardwareConcurrency;
     
-    // Disable on devices with < 4GB RAM or < 4 CPU cores
-    if (memory && memory < 4) return true;
-    if (cores && cores < 4) return true;
+    // Only disable on very low-end devices (< 2GB RAM or < 2 CPU cores)
+    if (memory && memory < 2) return true;
+    if (cores && cores < 2) return true;
     
-    // Check for mobile devices
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    return isMobile;
+    // Check for very old mobile devices (screen width < 360px typically very old/low-end)
+    if (window.innerWidth < 360) return true;
+    
+    return false;
+  }
+
+  /**
+   * Check if device is mobile
+   */
+  function isMobileDevice() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   }
 
   /**

@@ -49,7 +49,10 @@
         const positions = [];
         const colors = [];
         const color = new THREE.Color();
-        const particleCount = 1000;
+        
+        // Optimize particle count for mobile devices
+        const isMobile = window._particlesMobileMode || false;
+        const particleCount = isMobile ? 300 : 1000;
         
         for (let i = 0; i < particleCount; i++) {
             const x = Math.random() * 2000 - 1000;
@@ -71,10 +74,10 @@
         geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
         
         const material = new THREE.PointsMaterial({
-            size: 3,
+            size: isMobile ? 2 : 3,
             vertexColors: true,
             transparent: true,
-            opacity: 1.0,
+            opacity: isMobile ? 0.8 : 1.0,
             blending: THREE.AdditiveBlending,
             sizeAttenuation: true
         });
@@ -85,10 +88,11 @@
         renderer = new THREE.WebGLRenderer({ 
             canvas: canvas,
             alpha: true, 
-            antialias: true 
+            antialias: !isMobile // Disable antialiasing on mobile for better performance
         });
         renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(window.devicePixelRatio);
+        // Limit pixel ratio on mobile to improve performance
+        renderer.setPixelRatio(isMobile ? Math.min(window.devicePixelRatio, 1.5) : window.devicePixelRatio);
         
         document.addEventListener('mousemove', (e) => {
             mouseX = (e.clientX - windowHalfX) * 0.5;
@@ -118,14 +122,17 @@
             geometry.setAttribute('color', new THREE.Float32BufferAttribute(newColors, 3));
         });
         
+        const rotationSpeed = isMobile ? 0.5 : 1; // Slower rotation on mobile
+        const cameraSpeed = isMobile ? 0.03 : 0.05; // Slower camera movement on mobile
+        
         function animate() {
             requestAnimationFrame(animate);
             
-            particles.rotation.x += 0.0003;
-            particles.rotation.y += 0.0005;
+            particles.rotation.x += 0.0003 * rotationSpeed;
+            particles.rotation.y += 0.0005 * rotationSpeed;
             
-            camera.position.x += (mouseX - camera.position.x) * 0.05;
-            camera.position.y += (-mouseY - camera.position.y) * 0.05;
+            camera.position.x += (mouseX - camera.position.x) * cameraSpeed;
+            camera.position.y += (-mouseY - camera.position.y) * cameraSpeed;
             camera.lookAt(scene.position);
             
             renderer.render(scene, camera);
