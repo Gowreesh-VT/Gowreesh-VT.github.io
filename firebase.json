@@ -11,7 +11,6 @@
         "**/*.md",
         "backups/**",
         "smartlinxliving/**",
-        "Netflix/**",
         "bb84/**",
         "ras-medical-chatbot/**",
         "Designs/**"
@@ -108,11 +107,6 @@
         {
           "source": "/smartlinxliving{,/**}",
           "destination": "https://smartlinx-living.web.app",
-          "type": 301
-        },
-        {
-          "source": "/netflix{,/**}",
-          "destination": "https://gowreesh-netflix.web.app",
           "type": 301
         },
         {
