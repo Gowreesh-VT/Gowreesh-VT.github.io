@@ -31,7 +31,6 @@ self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(STATIC_CACHE)
       .then(cache => {
-        console.log('Service Worker: Caching static assets');
         return cache.addAll(urlsToCache);
       })
       .catch(err => console.error('Service Worker: Cache failed', err))
@@ -47,7 +46,6 @@ self.addEventListener('activate', event => {
             if (cacheName !== STATIC_CACHE && 
                 cacheName !== DYNAMIC_CACHE && 
                 cacheName !== IMAGE_CACHE) {
-              console.log('Service Worker: Deleting old cache', cacheName);
               return caches.delete(cacheName);
             }
           })
@@ -103,7 +101,6 @@ async function cacheFirst(request, cacheName) {
     }
     return response;
   } catch (error) {
-    console.error('Fetch failed:', error);
     throw error;
   }
 }
@@ -128,7 +125,6 @@ async function cacheFirstWithLimit(request, cacheName, maxItems) {
     }
     return response;
   } catch (error) {
-    console.error('Image fetch failed:', error);
     throw error;
   }
 }
@@ -140,5 +136,4 @@ self.addEventListener('sync', event => {
 });
 
 async function syncContactForm() {
-  console.log('Service Worker: Syncing contact form submissions');
 }

@@ -1,15 +1,12 @@
 (function() {
     'use strict';
-    
     if (window.particlesInitialized) {
         return;
     }
-    
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) {
         return;
     }
-    
     let retryCount = 0;
     const maxRetries = 50;
     let initializationStarted = false;
@@ -28,7 +25,6 @@
         }
         
         initializationStarted = true;
-        
         const canvas = document.getElementById('particle-canvas');
         if (!canvas) return;
         
@@ -50,7 +46,6 @@
         const colors = [];
         const color = new THREE.Color();
         
-        // Optimize particle count for mobile devices
         const isMobile = window._particlesMobileMode || false;
         const particleCount = isMobile ? 300 : 1000;
         
@@ -88,10 +83,9 @@
         renderer = new THREE.WebGLRenderer({ 
             canvas: canvas,
             alpha: true, 
-            antialias: !isMobile // Disable antialiasing on mobile for better performance
+            antialias: !isMobile 
         });
         renderer.setSize(window.innerWidth, window.innerHeight);
-        // Limit pixel ratio on mobile to improve performance
         renderer.setPixelRatio(isMobile ? Math.min(window.devicePixelRatio, 1.5) : window.devicePixelRatio);
         
         document.addEventListener('mousemove', (e) => {
@@ -122,8 +116,8 @@
             geometry.setAttribute('color', new THREE.Float32BufferAttribute(newColors, 3));
         });
         
-        const rotationSpeed = isMobile ? 0.5 : 1; // Slower rotation on mobile
-        const cameraSpeed = isMobile ? 0.03 : 0.05; // Slower camera movement on mobile
+        const rotationSpeed = isMobile ? 0.5 : 1;
+        const cameraSpeed = isMobile ? 0.03 : 0.05;
         
         function animate() {
             requestAnimationFrame(animate);

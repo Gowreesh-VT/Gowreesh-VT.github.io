@@ -1,13 +1,6 @@
-/**
- * Modal Lazy Loading System
- * Reduces initial DOM size by creating modals on-demand
- * Saves ~250-280 DOM elements from initial load
- */
-
 (function() {
   'use strict';
 
-  // Modal content stored as data (instead of full DOM)
   const modalData = {
     'modal-01': {
       title: 'BB84 Simulation',
@@ -80,7 +73,6 @@
     }
   };
 
-  // Create modal HTML
   function createModalHTML(id, data) {
     const titleIcon = data.icon ? `<i class="fa ${data.icon}"></i> ` : '';
     const target = data.external ? 'target="_blank" rel="noopener noreferrer"' : '';
@@ -101,7 +93,6 @@
     `;
   }
 
-  // Create and show modal
   function showModal(modalId) {
     const data = modalData[modalId];
     if (!data) {
@@ -109,21 +100,17 @@
       return;
     }
 
-    // Check if modal already exists
     let modal = document.getElementById(modalId);
     
     if (!modal) {
-      // Create modal element
+
       modal = document.createElement('div');
       modal.id = modalId;
       modal.className = 'popup-modal slider mfp-hide';
       modal.innerHTML = createModalHTML(modalId, data);
       document.body.appendChild(modal);
-      
-      console.log(`✓ Lazy loaded modal: ${modalId}`);
     }
 
-    // Open modal using Magnific Popup (if available)
     if (typeof $.magnificPopup !== 'undefined') {
       $.magnificPopup.open({
         items: {
@@ -138,30 +125,24 @@
     }
   }
 
-  // Initialize lazy modal triggers
   function initLazyModals() {
-    // Find all portfolio item links
     const portfolioLinks = document.querySelectorAll('.item-wrap a[href^="#modal-"]');
     
     portfolioLinks.forEach(link => {
       link.addEventListener('click', function(e) {
         e.preventDefault();
-        const modalId = this.getAttribute('href').substring(1); // Remove #
+        const modalId = this.getAttribute('href').substring(1);
         showModal(modalId);
       });
     });
-
-    console.log(`✓ Initialized ${portfolioLinks.length} lazy modal triggers`);
   }
 
-  // Initialize when DOM is ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initLazyModals);
   } else {
     initLazyModals();
   }
 
-  // Also handle popup-modal-dismiss clicks
   document.addEventListener('click', function(e) {
     if (e.target.classList.contains('popup-modal-dismiss')) {
       e.preventDefault();

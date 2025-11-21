@@ -13,6 +13,7 @@
         "smartlinxliving/**",
         "bb84/**",
         "ras-medical-chatbot/**",
+        "lumi-link/**",
         "Designs/**"
       ],
       "headers": [
@@ -25,7 +26,7 @@
             },
             {
               "key": "Link",
-              "value": "</css/base.min.css?v=1.0.0>; rel=preload; as=style, </css/main.css?v=1.0.5>; rel=preload; as=style, </css/performance-optimizations.css?v=1.0.0>; rel=preload; as=style, </images/intro-bg.webp>; rel=preload; as=image, </images/profile-photo.webp>; rel=preload; as=image"
+              "value": "</css/critical.min.css?v=1.1.0>; rel=preload; as=style, </css/main.css?v=1.3.0>; rel=preload; as=style, </images/intro-bg.webp>; rel=preload; as=image; fetchpriority=high"
             }
           ]
         },
@@ -38,7 +39,7 @@
             },
             {
               "key": "Link",
-              "value": "</css/base.min.css?v=1.0.0>; rel=preload; as=style, </css/main.css?v=1.0.5>; rel=preload; as=style"
+              "value": "</css/critical.min.css?v=1.1.0>; rel=preload; as=style, </css/main.css?v=1.3.0>; rel=preload; as=style"
             }
           ]
         },
@@ -117,6 +118,11 @@
         {
           "source": "/ras-medical-chatbot{,/**}",
           "destination": "https://ras-medical-chatbot.web.app",
+          "type": 301
+        },
+        {
+          "source": "/lumi-link{,/**}",
+          "destination": "https://lumi-link.web.app",
           "type": 301
         }
       ]

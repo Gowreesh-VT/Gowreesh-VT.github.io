@@ -29,7 +29,6 @@ const imageObserver = new IntersectionObserver((entries, observer) => {
   threshold: 0.01
 });
 
-// Initialize lazy loading
 function initLazyLoading() {
   const lazyImages = document.querySelectorAll('img[data-src]');
   

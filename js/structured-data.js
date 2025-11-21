@@ -1,10 +1,7 @@
 /**
- * Structured Data (JSON-LD) for SEO
- * Enhances search engine understanding and rich snippet display
  * Updated: November 2025
  */
 
-// Person Schema - Main profile information
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -145,7 +142,6 @@ const websiteSchema = {
   }
 };
 
-// WebPage Schema
 const webPageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
@@ -167,7 +163,6 @@ const webPageSchema = {
   "inLanguage": "en-US"
 };
 
-// ProfilePage Schema
 const profilePageSchema = {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
@@ -179,7 +174,6 @@ const profilePageSchema = {
   "dateModified": "2025-11-02"
 };
 
-// Professional Service Schema
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
@@ -241,9 +235,6 @@ const serviceSchema = {
   }
 };
 
-/**
- * Inject all structured data schemas into the document head
- */
 function injectStructuredData() {
   const schemas = [
     personSchema,

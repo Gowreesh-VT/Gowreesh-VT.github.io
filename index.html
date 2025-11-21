@@ -11,16 +11,14 @@
    ================================================== -->
 
    	<meta charset="utf-8">
-	<meta name="description" content="I'm Gowreesh VT, a passionate developer specializing in front-end development. Explore my projects, skills, and achievements."">  
+	<meta name="description" content="I'm Gowreesh VT, a passionate developer specializing in front-end development. Explore my projects, skills, and achievements.">  
 	<meta name="author" content="Gowreesh VT">
 	<meta name="keywords" content="Gowreesh VT, Gowreesh Profile, Gowreesh Portfolio, Gowreesh V T Portfolio, Gowreesh V T Profile" >
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
 	<meta name="format-detection" content="telephone=no">
 	<meta name="mobile-web-app-capable" content="yes">
-	<!-- Performance optimization hints -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="renderer" content="webkit">
-	<!-- Disable caching for development -->
 	
 	<!-- Resource Hints for Performance -->
 	<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
@@ -31,14 +29,8 @@
 	<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 	<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 	
-	<!-- Preload Critical Assets for Parallel Loading -->
-	<link rel="preload" as="style" href="css/base.min.css?v=1.0.0">
-	<link rel="preload" as="style" href="css/main.css?v=1.0.5">
-	<link rel="preload" as="style" href="css/performance-optimizations.css?v=1.0.0">
-	<link rel="preload" as="style" href="css/font-display-optimization.css?v=1.0.0">
+	<link rel="preload" as="style" href="css/main.css?v=1.3.0">
 	<link rel="preload" as="image" href="images/intro-bg.webp" fetchpriority="high">
-	<link rel="preload" as="image" href="images/profile-photo-300w.webp" fetchpriority="low" media="(min-width: 768px)">
-	<link rel="preload" as="image" href="images/profile-photo-150w.webp" fetchpriority="low" media="(max-width: 767px)">
 	
 	<!-- Preload critical webfonts for instant display with font-display: swap -->
 	<link rel="preload" as="font" type="font/woff2" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/webfonts/fa-solid-900.woff2" crossorigin>
@@ -49,21 +41,19 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 	<meta name="apple-mobile-web-app-title" content="Gowreesh Portfolio">
-	<link rel="apple-touch-icon" href="images/logo.webp">
+	<link rel="apple-touch-icon" href="images/profile-photo-300w.webp">
 
 		<!-- Google tag (gtag.js) - Lazy Loaded
    ================================================== -->
 
 	<script>
-	// Minimal Google Analytics - Load gtag.js only after user interaction
 	window.dataLayer = window.dataLayer || [];
 	function gtag(){dataLayer.push(arguments);}
 	gtag('js', new Date());
 	gtag('config', 'G-5YQRSDG91L', {
-		'send_page_view': false // Don't send until script loads
+		'send_page_view': false
 	});
 
-	// Lazy load gtag.js after user interaction or after 3 seconds
 	(function() {
 		let gtagLoaded = false;
 		
@@ -75,14 +65,12 @@
 			script.src = 'https://www.googletagmanager.com/gtag/js?id=G-5YQRSDG91L';
 			script.async = true;
 			script.onload = () => {
-				// Send page view after load
+
 				gtag('event', 'page_view');
-				console.log('✓ Google Analytics loaded');
 			};
 			document.head.appendChild(script);
 		}
 		
-		// Load on first interaction
 		const events = ['scroll', 'click', 'touchstart', 'mousemove'];
 		const loadOnce = () => {
 			loadGtag();
@@ -90,7 +78,6 @@
 		};
 		events.forEach(e => window.addEventListener(e, loadOnce, { passive: true, once: true }));
 		
-		// Fallback: Load after 3 seconds if no interaction
 		setTimeout(loadGtag, 3000);
 	})();
 	</script>
@@ -98,17 +85,12 @@
 
 		<!-- Links
    ================================================== -->
-
-	<!-- SIMPLIFIED CSS - Only 2 files instead of 12! -->
 	
-	<!-- 1. Critical CSS - Above-the-fold (loaded immediately) -->
 	<link rel="stylesheet" href="css/critical.min.css?v=1.1.0">
+
+	<link rel="preload" href="css/main.css?v=1.3.0" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript><link rel="stylesheet" href="css/main.css?v=1.3.0"></noscript>
 	
-	<!-- 2. Main CSS - Everything else consolidated (deferred) -->
-	<link rel="preload" href="css/main.min.css?v=1.3.0" as="style" onload="this.onload=null;this.rel='stylesheet'">
-	<noscript><link rel="stylesheet" href="css/main.min.css?v=1.2.0"></noscript>
-	
-	<!-- Font Awesome 6 CDN for icon support -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 	
 	<link rel="preload" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=cancel&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -119,7 +101,6 @@
 
 	<!-- Java Script 
 	==================================================-->
-	<!-- Theme script inlined for instant execution -->
 	<script>
 		(function() {
 			const savedTheme = localStorage.getItem('theme') || 'dark';
@@ -144,7 +125,7 @@
 	<meta property="og:type" content="website">
 	<meta property="og:site_name" content="Gowreesh V T Portfolio">
 	<meta property="og:locale" content="en_US">
-	
+
 
    <!-- Open Graph Twitter Tags
 	==================================================-->
@@ -167,9 +148,9 @@
 	================================================== -->
 	<nav class="navbar">
 		<div class="nav-container">
-			
+
 			<div class="nav-logo">
-				<a href="index.html" aria-label="Portfolio home page">PortFolio</a>
+				<a href="index.html" aria-label="Portfolio home page">Gowreesh V T</a>
 			</div>
 
 			<div class="nav-menu" id="nav-menu">
@@ -227,7 +208,7 @@
 						<span class="moon-icon"><i class="fa-solid fa-moon"></i></span>
 					</button>
 				</div>
-				
+
 				<div class="nav-toggle" id="nav-toggle">
 					<span class="bar"></span>
 					<span class="bar"></span>
@@ -318,7 +299,7 @@
 			<div class="col-twelve tab-full">
 
 				<h3>Profile</h3>
-				<p>Gowreesh V T. is a developer with a passion for coding, automation, and cybersecurity. He loves creating smart solutions and exploring emerging technologies.</p>
+				<p class="info-list-p">Gowreesh V T. is a developer with a passion for coding, automation, and cybersecurity. He loves creating smart solutions and exploring emerging technologies.</p>
 				<ul class="info-list">
 					<li>
 						<strong>Fullname:</strong>
@@ -377,14 +358,8 @@
 						        images/profile-photo-300w.webp 300w,
 						        images/profile-photo-600w.webp 600w"
 						sizes="(max-width: 480px) 150px, (max-width: 768px) 250px, 300px">
-					<source 
-						type="image/png"
-						srcset="images/profile-photo-150w.png 150w,
-						        images/profile-photo-300w.png 300w,
-						        images/profile-photo-600w.png 600w"
-						sizes="(max-width: 480px) 150px, (max-width: 768px) 250px, 300px">
 					<img 
-						src="images/profile-photo-300w.png" 
+						src="images/profile-photo-300w.webp" 
 						alt="Gowreesh V T" 
 						loading="lazy"
 						decoding="async">
@@ -896,11 +871,12 @@
 
 				<div id="folio-wrapper" class="block-1-2 block-mob-full stack">
 
+					<!--Starting of Portfolio Items -->
 					<div class="bgrid folio-item">
 
 						<div class="item-wrap">
 
-							<img src="images/portfolio/Netflix-Clone.webp" alt="Netflix Clone Website Design" loading="lazy" width="600" height="400">
+							<img src="images/portfolio/Netflix-Clone.webp" alt="Netflix Clone Website Design">
 							<a href="#modal-08" class="overlay">
 
 								<div class="folio-item-table">
@@ -925,7 +901,7 @@
 
 						<div class="item-wrap">
 
-							<img src="images/portfolio/SmartLinx_Living HomePage.webp" alt="SmartLinx Living Dashboard" loading="lazy" width="600" height="400">
+							<img src="images/portfolio/SmartLinx_Living HomePage.webp" alt="SmartLinx Living Dashboard">
 							<a href="#modal-02" class="overlay">  
 
 								<div class="folio-item-table">
@@ -950,7 +926,7 @@
 						
 						<div class="item-wrap">
 
-							<img src="images/BB84.webp" alt="BB84 Quantum Cryptography Simulation" loading="lazy" width="600" height="400">
+							<img src="images/BB84.webp" alt="BB84 Quantum Cryptography Simulation">
 							<a href="#modal-01" class="overlay">
 
 								<div class="folio-item-table">
@@ -976,14 +952,39 @@
 
 						<div class="item-wrap">
 
-							<img src="images/Top-Left.webp" alt="Meta Front-End Developer Certificate" loading="lazy" width="600" height="400">
+							<img src="images/Data Rhythm.webp" alt="DataRhythmAcademy">
+							<a href="#modal-05" class="overlay">
+
+								<div class="folio-item-table">
+
+									<div class="folio-item-cell">
+
+										<h3 class="folio-title">Data Rhythm Academy</h3>	     					    
+											<span class="folio-types">
+												Web Development
+											</span>		     		
+									</div>
+
+								</div>
+
+							</a>
+							
+						</div>
+
+					</div>
+
+					<div class="bgrid folio-item">
+
+						<div class="item-wrap">
+
+							<img src="images/Full Stack.webp" alt="Meta Front-End Developer Certificate">
 							<a href="#modal-03" class="overlay"> 
 
 								<div class="folio-item-table">
 
 									<div class="folio-item-cell">
 
-										<h3 class="folio-title">Certificates</h3>	     					    
+										<h3 class="folio-title">Certificates</h3>     					    
 											<span class="folio-types">
 												From Meta
 											</span>		     		
@@ -1001,14 +1002,14 @@
 
 						<div class="item-wrap">
 
-							<img src="images/Top-Right.webp" alt="Google Certificate" loading="lazy" width="600" height="400">
-							<a href="#modal-04" class="overlay">  
+							<img src="images/Google Cloud.webp" alt="Google Certificate">
+							<a href="#modal-04" class="overlay">
 
 								<div class="folio-item-table">
 
 									<div class="folio-item-cell">
 
-										<h3 class="folio-title">Certificates</h3>	     					    
+										<h3 class="folio-title">Certificates</h3>     					    
 											<span class="folio-types">
 												From Google
 											</span>		     		
@@ -1019,22 +1020,22 @@
 							</a>
 						</div>
 						
-					</div>     
-
+					</div> 
+					
 					<div class="bgrid folio-item">
 
 						<div class="item-wrap">
 
-							<img src="images/Middle-Left.webp" alt="DataCamp Certificate" loading="lazy" width="600" height="400">
+							<img src="images/Lumi Link.webp" alt="Lumi Link">
 							<a href="#modal-06" class="overlay">
 
 								<div class="folio-item-table">
 
 									<div class="folio-item-cell">
 
-										<h3 class="folio-title">Certificates</h3>	     					    
+										<h3 class="folio-title">Lumi Link</h3>	     					    
 											<span class="folio-types">
-												From DataCamp
+												Web Development
 											</span>		     		
 									</div>
 
@@ -1044,38 +1045,13 @@
 
 						</div>
 
-					</div> 
-					
-					<div class="bgrid folio-item">
-
-						<div class="item-wrap">
-
-							<img src="images/Middle-Right.webp" alt="Harvard University Certificate - In Progress" loading="lazy" width="600" height="400">
-							<a href="#modal-05" class="overlay">
-
-								<div class="folio-item-table">
-
-									<div class="folio-item-cell">
-
-										<h3 class="folio-title"><i class="fa fa-spinner fa-spin"></i>  Loading</h3>	     					    
-											<span class="folio-types">
-											From Harvard University
-											</span>		     		
-									</div>
-
-								</div>
-
-							</a>
-							
-						</div>
-
 					</div>
 
 					<div class="bgrid folio-item">
 
 						<div class="item-wrap">
 
-							<img src="images/Bottom-Left.webp" alt="GitHub Certificate" loading="lazy" width="600" height="400">
+							<img src="images/Github Foundation.webp" alt="GitHub Certificate">
 							<a href="#modal-07" class="overlay">
 
 								<div class="folio-item-table">
@@ -1099,10 +1075,11 @@
 
 					<!-- modal popups - begin
 					============================================================= -->
+
 					<div id="modal-01" class="popup-modal slider mfp-hide">	
 
 						<div class="media">
-								<img src="images/portfolio/BB84 Simulation.webp" alt="BB84" width="1200" height="800" />
+								<img src="images/portfolio/BB84 Simulation.webp" alt="BB84" />
 						</div>
 
 						<div class="description-box">
@@ -1113,7 +1090,7 @@
 						</div>
 
 						<div class="link-box">
-							<a href="bb84/">Live View</a>
+							<a href="bb84-simulation.web.app">Live View</a>
 							<a href="#" class="popup-modal-dismiss">Close</a>
 						</div>		      
 
@@ -1122,7 +1099,7 @@
 					<div id="modal-02" class="popup-modal slider mfp-hide">	
 
 						<div class="media">
-							<img src="images/portfolio/SmartLinx_Living HomePage.webp" alt="SmartLinx Living" width="1200" height="800" />
+							<img src="images/portfolio/SmartLinx_Living HomePage.webp" alt="SmartLinx Living" />
 						</div>      	
 
 						<div class="description-box">
@@ -1141,7 +1118,7 @@
 					<div id="modal-03" class="popup-modal slider mfp-hide">	
 
 						<div class="media">
-							<img src="images/Top-Left.webp" alt="Meta Certificate" width="1200" height="800" />
+							<img src="images/Full Stack.webp" alt="Meta Certificate" />
 						</div>      	
 
 						<div class="description-box">
@@ -1152,7 +1129,7 @@
 						</div>
 
 						<div class="link-box">
-							<a target="_blank" href="https://www.coursera.org/account/accomplishments/professional-cert/EPLZM65KNQWE">Details</a>
+							<a target="_blank" href="https://coursera.org/verify/specialization/FAIQHBWWSLK0">Details</a>
 							<a href="#" class="popup-modal-dismiss">Close</a>
 						</div>		      
 
@@ -1161,7 +1138,7 @@
 					<div id="modal-04" class="popup-modal slider mfp-hide">	
 
 						<div class="media">
-							<img src="images/Top-Right.webp" alt="Google Certificate" width="1200" height="800" />
+							<img src="images/Google Cloud.webp" alt="Google Certificate" />
 						</div>      	
 
 						<div class="description-box">
@@ -1181,18 +1158,18 @@
 					<div id="modal-05" class="popup-modal slider mfp-hide">	
 
 						<div class="media">
-							<img src="images/Middle-Right.webp" alt="Harvard Certificate" width="1200" height="800" />
+							<img src="images/Data Rhythm.webp" alt="DataRhythmAcademy" />
 						</div>      	
 
 						<div class="description-box">
-							<h4>Certificate Loading <i class="fa fa-spinner fa-spin"></i></h4>		      
-							<p></p>
+							<h4>Data Rhythm Academy</h4>		      
+							<p>Developed a modern and responsive website for Data Rhythm Academy to streamline course discovery and enhance the academy’s digital presence. Focused on usability, clarity, and visual consistency.</p>
 
-							<div class="categories">From Harvard</div>			               
+							<div class="categories">Web Development</div>			               
 						</div>
 
 						<div class="link-box">
-							<a href="#" class="popup-modal-dismiss">Details</a>
+							<a href="https://datarhythmacademy.in" class="popup-modal-dismiss">Details</a>
 							<a href="#" class="popup-modal-dismiss">Close</a>
 						</div>		      
 
@@ -1201,14 +1178,14 @@
 					<div id="modal-06" class="popup-modal slider mfp-hide">	
 
 						<div class="media">
-							<img src="images/Middle-Left.webp" alt="DataCamp Certificate" width="1200" height="800" />
+							<img src="images/Lumi Link.webp" alt="Lumi Link" />
 						</div>      	
 
 						<div class="description-box">
-							<h4>Certificates</i></h4>		      
-							<p></p>
+							<h4>Lumi Link</h4>		      
+							<p>Engineered a smart-home automation system integrating both hardware and software to enable centralized control of home appliances and energy usage. Designed a seamless dashboard interface linked with physical IoT-based hardware for real-time automation.</p>
 
-							<div class="categories">From DataCamp</div>			               
+							<div class="categories">Web Development</div>			               
 						</div>
 
 						<div class="link-box">
@@ -1222,7 +1199,7 @@
 					<div id="modal-07" class="popup-modal slider mfp-hide">	
 
 						<div class="media">
-							<img src="images/Bottom-Left.webp" alt="GitHub Certificate" width="1200" height="800" />
+							<img src="images/Github Foundation.webp" alt="GitHub Certificate" />
 						</div>      	
 
 						<div class="description-box">
@@ -1242,7 +1219,7 @@
 					<div id="modal-08" class="popup-modal slider mfp-hide">	
 
 						<div class="media">
-							<img src="images/portfolio/Netflix-Clone.webp" alt="Netflix-Clone" width="1200" height="800" />
+							<img src="images/portfolio/Netflix-Clone.webp" alt="Netflix-Clone" />
 						</div>      	
 
 						<div class="description-box">
@@ -1270,497 +1247,501 @@
 		
 	</section> <!-- /portfolio --> 
 
-	<!-- Blog/Articles Section
-   ================================================== -->
+<!-- Remove the section comment if you want to enable the blog section and Login -->
+	<section>
 
-	<!-- <section id="blog">
-		<div class="overlay"></div>
-		
-		<div class="row section-intro">
-			<div class="col-twelve">
-				<h5 class="section-heading">Blog</h5>
-				<h1>Latest Articles & Insights</h1>
-				<p class="lead">Sharing knowledge about web development, cybersecurity, and technology trends. Explore my thoughts, tutorials, and experiences in the world of code.</p>
-			</div>
-		</div>
+		<!-- Blog/Articles Section
+	================================================== -->
 
-		<div class="row blog-content">
-			<div class="col-twelve">
-				<div class="blog-grid">
-
-					<article class="blog-card">
-						<div class="blog-image">
-							<img src="images/blog/Netflix-Clone.webp" alt="Netflix Clone Case Study" loading="lazy">
-							<span class="blog-category">Case Study</span>
-						</div>
-						<div class="blog-content-text">
-							<div class="blog-meta">
-								<span class="blog-date"><i class="fa fa-calendar"></i> October 2024</span>
-								<span class="blog-read-time"><i class="fa fa-clock-o"></i> 8 min read</span>
-							</div>
-							<h3>Building a Netflix Clone: Full-Stack Journey</h3>
-							<p>Deep dive into recreating Netflix's UI/UX with modern web technologies. From responsive design to authentication systems, explore the challenges and solutions.</p>
-							<div class="blog-tags">
-								<span class="tag">React</span>
-								<span class="tag">Firebase</span>
-								<span class="tag">CSS3</span>
-							</div>
-							<a href="#blog-article-4" class="blog-read-more">
-								Read Full Article <i class="fa fa-arrow-right"></i>
-							</a>
-						</div>
-					</article>
-
-					<article class="blog-card">
-						<div class="blog-image">
-							<img src="images/blog/BB84 Simulation.webp" alt="BB84 Protocol" loading="lazy">
-							<span class="blog-category">Tutorial</span>
-						</div>
-						<div class="blog-content-text">
-							<div class="blog-meta">
-								<span class="blog-date"><i class="fa fa-calendar"></i> September 2024</span>
-								<span class="blog-read-time"><i class="fa fa-clock-o"></i> 12 min read</span>
-							</div>
-							<h3>Quantum Cryptography: Implementing BB84 Protocol</h3>
-							<p>Understanding and implementing the BB84 quantum key distribution protocol. A step-by-step guide to quantum-safe cryptography with practical examples.</p>
-							<div class="blog-tags">
-								<span class="tag">Cybersecurity</span>
-								<span class="tag">Python</span>
-								<span class="tag">Quantum</span>
-							</div>
-							<a href="#blog-article-4" class="blog-read-more">
-								Read Full Article <i class="fa fa-arrow-right"></i>
-							</a>
-						</div>
-					</article>
-
-					<article class="blog-card">
-						<div class="blog-image">
-							<img src="images/blog/SmartLinx_Living HomePage.webp" alt="Smart Home Dashboard" loading="lazy">
-							<span class="blog-category">Best Practices</span>
-						</div>
-						<div class="blog-content-text">
-							<div class="blog-meta">
-								<span class="blog-date"><i class="fa fa-calendar"></i> August 2024</span>
-								<span class="blog-read-time"><i class="fa fa-clock-o"></i> 10 min read</span>
-							</div>
-							<h3>Building Accessible Web Applications</h3>
-							<p>Essential accessibility practices for modern web development. Learn how ARIA labels, semantic HTML, and keyboard navigation improve user experience.</p>
-							<div class="blog-tags">
-								<span class="tag">Accessibility</span>
-								<span class="tag">UX</span>
-								<span class="tag">WCAG</span>
-							</div>
-							<a href="#blog-article-3" class="blog-read-more">
-								Read Full Article <i class="fa fa-arrow-right"></i>
-							</a>
-						</div>
-					</article>
-
-
-					<article class="blog-card">
-						<div class="blog-image">
-							<img src="images/blog/Dakshin.webp" alt="Web Performance" loading="lazy">
-							<span class="blog-category">Performance</span>
-						</div>
-						<div class="blog-content-text">
-							<div class="blog-meta">
-								<span class="blog-date"><i class="fa fa-calendar"></i> July 2024</span>
-								<span class="blog-read-time"><i class="fa fa-clock-o"></i> 6 min read</span>
-							</div>
-							<h3>Exploring Dakshin Chitra: A Cultural Journey</h3>
-							<p>A deep dive into Dakshin Chitra, its significance, and the rich cultural heritage it represents. Discover the art, architecture, and stories behind this unique destination.</p>
-							<div class="blog-tags">
-								<span class="tag">Culture</span>
-								<span class="tag">Heritage</span>
-								<span class="tag">Travel</span>
-							</div>
-							<a href="#blog-article-4" class="blog-read-more">
-								Read Full Article <i class="fa fa-arrow-right"></i>
-							</a>
-						</div>
-					</article>
-
+		<!-- <section id="blog">
+			<div class="overlay"></div>
+			
+			<div class="row section-intro">
+				<div class="col-twelve">
+					<h5 class="section-heading">Blog</h5>
+					<h1>Latest Articles & Insights</h1>
+					<p class="lead">Sharing knowledge about web development, cybersecurity, and technology trends. Explore my thoughts, tutorials, and experiences in the world of code.</p>
 				</div>
-
-				<div class="blog-cta">
-					<p class="blog-cta-text">Want to read more? Subscribe to my newsletter for weekly insights!</p>
-					<a href="#contact" class="button button-primary smoothscroll">Get In Touch</a>
-				</div>
-
-			</div>
-		</div>
-	</section> -->
-
-	<!-- Login Section - COMMENTED OUT (kept for reference)
-   ================================================== -->
-
-	<!-- <section id="login-section">
-
-		<div class="row login-container">
-
-			<div class="login-content">	
-
-				<h2 id="login-section-heading">Access Granted... almost.</h2>
-
-				<p class="login-lead">
-					"Enter your email. Prove you're not a robot. Or a cat walking on your keyboard."<span></span>
-				</p>
-
-				<div class="action">
-					<a class="button button-primary large Login-popup-btn" href="javascript:void(0);">Click here to Login</a>
-				</div>
-
 			</div>
 
-		</div>
+			<div class="row blog-content">
+				<div class="col-twelve">
+					<div class="blog-grid">
 
-	</section> -->
+						<article class="blog-card">
+							<div class="blog-image">
+								<img src="images/blog/Netflix-Clone.webp" alt="Netflix Clone Case Study" loading="lazy">
+								<span class="blog-category">Case Study</span>
+							</div>
+							<div class="blog-content-text">
+								<div class="blog-meta">
+									<span class="blog-date"><i class="fa fa-calendar"></i> October 2024</span>
+									<span class="blog-read-time"><i class="fa fa-clock-o"></i> 8 min read</span>
+								</div>
+								<h3>Building a Netflix Clone: Full-Stack Journey</h3>
+								<p>Deep dive into recreating Netflix's UI/UX with modern web technologies. From responsive design to authentication systems, explore the challenges and solutions.</p>
+								<div class="blog-tags">
+									<span class="tag">React</span>
+									<span class="tag">Firebase</span>
+									<span class="tag">CSS3</span>
+								</div>
+								<a href="#blog-article-4" class="blog-read-more">
+									Read Full Article <i class="fa fa-arrow-right"></i>
+								</a>
+							</div>
+						</article>
 
-   <!-- Login Popup - COMMENTED OUT (kept for reference)
-	====================================================-->
-	<!-- <section id="login-popup">
+						<article class="blog-card">
+							<div class="blog-image">
+								<img src="images/blog/BB84 Simulation.webp" alt="BB84 Protocol" loading="lazy">
+								<span class="blog-category">Tutorial</span>
+							</div>
+							<div class="blog-content-text">
+								<div class="blog-meta">
+									<span class="blog-date"><i class="fa fa-calendar"></i> September 2024</span>
+									<span class="blog-read-time"><i class="fa fa-clock-o"></i> 12 min read</span>
+								</div>
+								<h3>Quantum Cryptography: Implementing BB84 Protocol</h3>
+								<p>Understanding and implementing the BB84 quantum key distribution protocol. A step-by-step guide to quantum-safe cryptography with practical examples.</p>
+								<div class="blog-tags">
+									<span class="tag">Cybersecurity</span>
+									<span class="tag">Python</span>
+									<span class="tag">Quantum</span>
+								</div>
+								<a href="#blog-article-4" class="blog-read-more">
+									Read Full Article <i class="fa fa-arrow-right"></i>
+								</a>
+							</div>
+						</article>
 
-		<div class="popup-overlay"></div>
-		
-		<div class="wrapper">
+						<article class="blog-card">
+							<div class="blog-image">
+								<img src="images/blog/SmartLinx_Living HomePage.webp" alt="Smart Home Dashboard" loading="lazy">
+								<span class="blog-category">Best Practices</span>
+							</div>
+							<div class="blog-content-text">
+								<div class="blog-meta">
+									<span class="blog-date"><i class="fa fa-calendar"></i> August 2024</span>
+									<span class="blog-read-time"><i class="fa fa-clock-o"></i> 10 min read</span>
+								</div>
+								<h3>Building Accessible Web Applications</h3>
+								<p>Essential accessibility practices for modern web development. Learn how ARIA labels, semantic HTML, and keyboard navigation improve user experience.</p>
+								<div class="blog-tags">
+									<span class="tag">Accessibility</span>
+									<span class="tag">UX</span>
+									<span class="tag">WCAG</span>
+								</div>
+								<a href="#blog-article-3" class="blog-read-more">
+									Read Full Article <i class="fa fa-arrow-right"></i>
+								</a>
+							</div>
+						</article>
 
-			<span class="icon-close">
-				<i class="fa fa-times" ></i>
-			</span>
 
+						<article class="blog-card">
+							<div class="blog-image">
+								<img src="images/blog/Dakshin.webp" alt="Web Performance" loading="lazy">
+								<span class="blog-category">Performance</span>
+							</div>
+							<div class="blog-content-text">
+								<div class="blog-meta">
+									<span class="blog-date"><i class="fa fa-calendar"></i> July 2024</span>
+									<span class="blog-read-time"><i class="fa fa-clock-o"></i> 6 min read</span>
+								</div>
+								<h3>Exploring Dakshin Chitra: A Cultural Journey</h3>
+								<p>A deep dive into Dakshin Chitra, its significance, and the rich cultural heritage it represents. Discover the art, architecture, and stories behind this unique destination.</p>
+								<div class="blog-tags">
+									<span class="tag">Culture</span>
+									<span class="tag">Heritage</span>
+									<span class="tag">Travel</span>
+								</div>
+								<a href="#blog-article-4" class="blog-read-more">
+									Read Full Article <i class="fa fa-arrow-right"></i>
+								</a>
+							</div>
+						</article>
 
-			<div class="form-box login">
-
-				<div class="go-back-wrapper">
-					<span id="go-back-link" class="go-back-link">
-						<svg class="go-back-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-							<path d="M15 18l-6-6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-						</svg>
-						Go Back
-					</span>
-				</div>
-
-				<h2 class="popup-heading" id="Login-heading">Login</h2>
-
-				<div class="email-form" id="login-email-form">
-
-					<div class="input-container" id="input-container">
-						<input type="email" id="email" placeholder=" " required>
-						<label for="email">Email</label>
-						<small id="email-error" class="error-message">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
-								<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
-							</svg>
-							 Please enter a valid Email.
-						</small>
 					</div>
 
-					<div class="input-container" id="otp-email-input-container" style="display: none;">
-						<input type="email" id="otp-email" placeholder=" " required>
-						<label for="email">Email</label>
-						<small id="otp-email-error" class="error-message">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
-								<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
-							</svg>
-							 Please enter a valid Email.
-						</small>
+					<div class="blog-cta">
+						<p class="blog-cta-text">Want to read more? Subscribe to my newsletter for weekly insights!</p>
+						<a href="#contact" class="button button-primary smoothscroll">Get In Touch</a>
 					</div>
 
-					<div class="input-container" id="password-container">
-						<input type="password" id="password" placeholder=" " required>
-						<label for="password">Password</label>
-						<small id="password-error" class="error-message">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
-								<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+				</div>
+			</div>
+		</section> -->
+
+		<!-- Login Section - COMMENTED OUT (kept for reference)
+	================================================== -->
+
+		<!-- <section id="login-section">
+
+			<div class="row login-container">
+
+				<div class="login-content">	
+
+					<h2 id="login-section-heading">Access Granted... almost.</h2>
+
+					<p class="login-lead">
+						"Enter your email. Prove you're not a robot. Or a cat walking on your keyboard."<span></span>
+					</p>
+
+					<div class="action">
+						<a class="button button-primary large Login-popup-btn" href="javascript:void(0);">Click here to Login</a>
+					</div>
+
+				</div>
+
+			</div>
+
+		</section> -->
+
+	<!-- Login Popup - COMMENTED OUT (kept for reference)
+		====================================================-->
+		<!-- <section id="login-popup">
+
+			<div class="popup-overlay"></div>
+			
+			<div class="wrapper">
+
+				<span class="icon-close">
+					<i class="fa fa-times" ></i>
+				</span>
+
+
+				<div class="form-box login">
+
+					<div class="go-back-wrapper">
+						<span id="go-back-link" class="go-back-link">
+							<svg class="go-back-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+								<path d="M15 18l-6-6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 							</svg>
-							 Your password must contain between 4 and 60 characters.
-						</small>
-						<span class="toggle-password" onclick="togglePassword()">
-							<i class="fa-regular fa-eye" id="togglePasswordIcon"></i>
+							Go Back
 						</span>
 					</div>
 
-					<div class="code-container" id="code-container">
-						<h1>Enter the code we just sent</h1>
-						<p>We sent a sign-in code to <br> your email. The code will expire in 15 minutes.</p>
-						<div class="otp-container">
-							<input type="number" class="otp-inputarea" maxlength="1">
-							<input type="number" class="otp-inputarea" maxlength="1" disabled>
-							<input type="number" class="otp-inputarea" maxlength="1" disabled>
-							<input type="number" class="otp-inputarea" maxlength="1" disabled>
-							<input type="number" class="otp-inputarea" maxlength="1" disabled>
-							<input type="number" class="otp-inputarea" maxlength="1" disabled>
+					<h2 class="popup-heading" id="Login-heading">Login</h2>
+
+					<div class="email-form" id="login-email-form">
+
+						<div class="input-container" id="input-container">
+							<input type="email" id="email" placeholder=" " required>
+							<label for="email">Email</label>
+							<small id="email-error" class="error-message">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
+									<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+								</svg>
+								Please enter a valid Email.
+							</small>
 						</div>
-						<small id="code-error" class="error-message">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
-								<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
-							</svg>
-							 Incorrect code. Please try again.
-						</small>
-						<button class="sgn-in-btn otp-btn">
-							<span class="btn-text">Sign In</span>
-  							<span class="btn-loader" style="display: none;"></span>
-						</button>
-						<p class="code-cont-para">Did not receive a code?
-							<span id="resend-code-link"> Resend Code</span>
-						</p>
-						<button class="sgn-code-btn" id="use-password-instead-btn">Use Password Instead</button>
+
+						<div class="input-container" id="otp-email-input-container" style="display: none;">
+							<input type="email" id="otp-email" placeholder=" " required>
+							<label for="email">Email</label>
+							<small id="otp-email-error" class="error-message">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
+									<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+								</svg>
+								Please enter a valid Email.
+							</small>
+						</div>
+
+						<div class="input-container" id="password-container">
+							<input type="password" id="password" placeholder=" " required>
+							<label for="password">Password</label>
+							<small id="password-error" class="error-message">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
+									<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+								</svg>
+								Your password must contain between 4 and 60 characters.
+							</small>
+							<span class="toggle-password" onclick="togglePassword()">
+								<i class="fa-regular fa-eye" id="togglePasswordIcon"></i>
+							</span>
+						</div>
+
+						<div class="code-container" id="code-container">
+							<h1>Enter the code we just sent</h1>
+							<p>We sent a sign-in code to <br> your email. The code will expire in 15 minutes.</p>
+							<div class="otp-container">
+								<input type="number" class="otp-inputarea" maxlength="1">
+								<input type="number" class="otp-inputarea" maxlength="1" disabled>
+								<input type="number" class="otp-inputarea" maxlength="1" disabled>
+								<input type="number" class="otp-inputarea" maxlength="1" disabled>
+								<input type="number" class="otp-inputarea" maxlength="1" disabled>
+								<input type="number" class="otp-inputarea" maxlength="1" disabled>
+							</div>
+							<small id="code-error" class="error-message">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
+									<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+								</svg>
+								Incorrect code. Please try again.
+							</small>
+							<button class="sgn-in-btn otp-btn">
+								<span class="btn-text">Sign In</span>
+								<span class="btn-loader" style="display: none;"></span>
+							</button>
+							<p class="code-cont-para">Did not receive a code?
+								<span id="resend-code-link"> Resend Code</span>
+							</p>
+							<button class="sgn-code-btn" id="use-password-instead-btn">Use Password Instead</button>
+						</div>
+
 					</div>
 
-				</div>
-
-				<div class="ent-btns" id="ent-btns-hide">  
-					<button class="sgn-in-btn login-btn">
-						<span class="btn-text">Sign In</span>
-						<span class="btn-loader" style="display: none;"></span>
-					</button>
-					<p class="ent-btns-or">OR</p>
-					<button class="sgn-code-btn" id="use-code-btn">
-						<span class="btn-text">Use a sign-in code</span>
-						<span class="btn-loader" style="display: none;"></span>
-					</button>
-					<p><span id="forgot-pass">Forgot password?</span></p>
-				</div>
-
-
-				<div class="email-form-code" id="form-show" style="display: none;">
-					<div class="ent-btns">
-						<p class="ent-btns-or" style="font-size: 14px !important; margin-top: 0px;">Message and data rates may apply</p>
-						<button class="sgn-in-btn" id="send-code-btn">
-							<span class="btn-text">Send sign-in code</span>
+					<div class="ent-btns" id="ent-btns-hide">  
+						<button class="sgn-in-btn login-btn">
+							<span class="btn-text">Sign In</span>
 							<span class="btn-loader" style="display: none;"></span>
 						</button>
 						<p class="ent-btns-or">OR</p>
-						<button class="sgn-code-btn" id="use-password-btn">Use Password</button>
-					</div>
-                </div>
-
-
-				<div class="Remember-container" id="remember-container">
-					<input type="checkbox" id="remember-me" name="remember-me" value="remember-me"/>
-					<label for="remember-me" class="rmbr-me">Remember me</label>
-				</div>
-				
-
-				<div id="recaptcha-container">
-					<h2>Don't have a Account?<a class="register-link1">Sign up now.</a></h2>
-					<p >This page is protected by Google reCAPTCHA to ensure you're not a bot.</p>
-					<p><a class="popup-links" id="learn-more">Learn more.</a></p>
-					<p id="recaptcha-info" style="display: none;">
-						The information collected by Google reCAPTCHA is subject to the Google
-						<a class="popup-links" href="https://policies.google.com/privacy" target="_blank">Privacy Policy </a> &nbsp; and &nbsp; <a class="popup-links" href="https://policies.google.com/terms" target="_blank"> Terms of Service</a>	
-					</p> 
-				</div>  
-
-				<div id="forgot-password-container">
-
-					<h2 class="forgot-password-heading">Reset Your Password</h2>
-
-					<p>We will send you an email with instructions on how to reset your password.</p>
-
-					<div class="input-container" id="forgot-pass-input-container">
-						<input type="email" id="forgot-password-email" placeholder=" " required>
-						<label for="email" class="input-container-label">Email</label>
-						<small id="forgot-pass-email-error" class="error-message">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
-								<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
-							</svg>
-							 Please enter a valid Email address.
-						</small>
+						<button class="sgn-code-btn" id="use-code-btn">
+							<span class="btn-text">Use a sign-in code</span>
+							<span class="btn-loader" style="display: none;"></span>
+						</button>
+						<p><span id="forgot-pass">Forgot password?</span></p>
 					</div>
 
-					<button class="sgn-in-btn" id="forgot-password-submit-btn">
-						<span class="btn-text">Sign In</span>
-						<span class="btn-loader" style="display: none;"></span>
-					</button>
 
-					<a class="forgot-email-redirect" href="javascript:void(0);">I can't remember my Email address.</a>
-
-				</div>
-
-				<div id="forgot-password-success-container" style="display: none;">
-
-					<h2 class="popup-heading-success">Email Sent</h2>
-
-					<p>An email with instructions on how to reset your password has been sent to your registered email. Check your spam or junk folder if you don’t see the email in your inbox.</p>
-
-					<p>If you no longer have access to this email account, please contact me.</p>
-
-				</div>
+					<div class="email-form-code" id="form-show" style="display: none;">
+						<div class="ent-btns">
+							<p class="ent-btns-or" style="font-size: 14px !important; margin-top: 0px;">Message and data rates may apply</p>
+							<button class="sgn-in-btn" id="send-code-btn">
+								<span class="btn-text">Send sign-in code</span>
+								<span class="btn-loader" style="display: none;"></span>
+							</button>
+							<p class="ent-btns-or">OR</p>
+							<button class="sgn-code-btn" id="use-password-btn">Use Password</button>
+						</div>
+					</div>
 
 
-				<div class="reset-password-container" id="reset-password-container" style="display: none;">
+					<div class="Remember-container" id="remember-container">
+						<input type="checkbox" id="remember-me" name="remember-me" value="remember-me"/>
+						<label for="remember-me" class="rmbr-me">Remember me</label>
+					</div>
+					
 
-					<h2 class="forgot-password-heading">Change Password</h2>
+					<div id="recaptcha-container">
+						<h2>Don't have a Account?<a class="register-link1">Sign up now.</a></h2>
+						<p >This page is protected by Google reCAPTCHA to ensure you're not a bot.</p>
+						<p><a class="popup-links" id="learn-more">Learn more.</a></p>
+						<p id="recaptcha-info" style="display: none;">
+							The information collected by Google reCAPTCHA is subject to the Google
+							<a class="popup-links" href="https://policies.google.com/privacy" target="_blank">Privacy Policy </a> &nbsp; and &nbsp; <a class="popup-links" href="https://policies.google.com/terms" target="_blank"> Terms of Service</a>	
+						</p> 
+					</div>  
 
-					<div class="input-container" id="forgot-password-input-container">
-						<input type="password" id="forgot-password" placeholder=" " required>
-						<label for="password">Password</label>
+					<div id="forgot-password-container">
 
-						<div class="strength-meter-container">
-							<div id="forgot-password-strength" class="strength-meter">
-								<div class="strength-bar" id="forgot-pass-strength-bar"></div>
+						<h2 class="forgot-password-heading">Reset Your Password</h2>
+
+						<p>We will send you an email with instructions on how to reset your password.</p>
+
+						<div class="input-container" id="forgot-pass-input-container">
+							<input type="email" id="forgot-password-email" placeholder=" " required>
+							<label for="email" class="input-container-label">Email</label>
+							<small id="forgot-pass-email-error" class="error-message">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
+									<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+								</svg>
+								Please enter a valid Email address.
+							</small>
+						</div>
+
+						<button class="sgn-in-btn" id="forgot-password-submit-btn">
+							<span class="btn-text">Sign In</span>
+							<span class="btn-loader" style="display: none;"></span>
+						</button>
+
+						<a class="forgot-email-redirect" href="javascript:void(0);">I can't remember my Email address.</a>
+
+					</div>
+
+					<div id="forgot-password-success-container" style="display: none;">
+
+						<h2 class="popup-heading-success">Email Sent</h2>
+
+						<p>An email with instructions on how to reset your password has been sent to your registered email. Check your spam or junk folder if you don’t see the email in your inbox.</p>
+
+						<p>If you no longer have access to this email account, please contact me.</p>
+
+					</div>
+
+
+					<div class="reset-password-container" id="reset-password-container" style="display: none;">
+
+						<h2 class="forgot-password-heading">Change Password</h2>
+
+						<div class="input-container" id="forgot-password-input-container">
+							<input type="password" id="forgot-password" placeholder=" " required>
+							<label for="password">Password</label>
+
+							<div class="strength-meter-container">
+								<div id="forgot-password-strength" class="strength-meter">
+									<div class="strength-bar" id="forgot-pass-strength-bar"></div>
+								</div>
+								<small id="forgot-password-strength-text" class="strength-text">Password strength</small>
 							</div>
-							<small id="forgot-password-strength-text" class="strength-text">Password strength</small>
+
+							<small id="forgot-password-error" class="error-message">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
+									<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+								</svg>
+								Your password must contain between 4 and 60 characters.
+							</small>
+							<span class="toggle-password" onclick="togglePassword()">
+								<i class="fa-regular fa-eye" id="togglePasswordIcon"></i>
+							</span>
 						</div>
 
-						<small id="forgot-password-error" class="error-message">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
-								<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+						<div class="input-container" id="forgot-confirm-password-container">
+							<input type="password" id="forgot-confirm-password" placeholder=" " required>
+							<label for="password">Confirm Password</label>
+							<small id="forgot-confirm-password-error" class="error-message">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
+									<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+								</svg>
+								Password Does not Match.
+							</small>
+						</div>
+
+						<button class="sgn-in-btn" id="set-password-btn">
+							<span class="btn-text">Set Password</span>
+							<span class="btn-loader" style="display: none;"></span>
+						</button>
+
+						<p id="reset-status" style="margin-top: 10px;"></p>
+
+					</div>
+
+					<div id="forgot-pass-recaptcha-container" style="display: none;">
+						<p>This page is protected by Google reCAPTCHA to ensure you're not a bot.</p>
+						<p><a class="popup-links" id="forgot-learn-more">Learn more.</a></p>
+						<p id="forgot-recaptcha-info" style="display: none;">
+							The information collected by Google reCAPTCHA is subject to the Google
+							<a class="popup-links" href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> &nbsp; and &nbsp; <a class="popup-links" href="https://policies.google.com/terms" target="_blank">Terms of Service</a>	
+						</p> 
+					</div>
+
+
+				</div> -->
+
+				<!-- Signup Section
+				================================================== -->
+
+				<!-- <div class="form-box register" id="signup-form-box">
+
+					<div class="go-back-wrapper" id="signup-go-back-wrapper" style="display: none;">
+						<span id="signup-go-back-link" class="go-back-link">
+							<svg class="go-back-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+							<path d="M15 18l-6-6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 							</svg>
-							Your password must contain between 4 and 60 characters.
-						</small>
-						<span class="toggle-password" onclick="togglePassword()">
-							<i class="fa-regular fa-eye" id="togglePasswordIcon"></i>
+							Go Back
 						</span>
 					</div>
 
-					<div class="input-container" id="forgot-confirm-password-container">
-						<input type="password" id="forgot-confirm-password" placeholder=" " required>
-						<label for="password">Confirm Password</label>
-						<small id="forgot-confirm-password-error" class="error-message">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
-								<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
-							</svg>
-							Password Does not Match.
-						</small>
-					</div>
+					<h2 class="popup-heading">Signup</h2>
 
-					<button class="sgn-in-btn" id="set-password-btn">
-						<span class="btn-text">Set Password</span>
-						<span class="btn-loader" style="display: none;"></span>
-					</button>
+					<div class="email-form" id="signup-email-form">
 
-					<p id="reset-status" style="margin-top: 10px;"></p>
-
-				</div>
-
-				<div id="forgot-pass-recaptcha-container" style="display: none;">
-					<p>This page is protected by Google reCAPTCHA to ensure you're not a bot.</p>
-					<p><a class="popup-links" id="forgot-learn-more">Learn more.</a></p>
-					<p id="forgot-recaptcha-info" style="display: none;">
-						The information collected by Google reCAPTCHA is subject to the Google
-						<a class="popup-links" href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> &nbsp; and &nbsp; <a class="popup-links" href="https://policies.google.com/terms" target="_blank">Terms of Service</a>	
-					</p> 
-				</div>
-
-
-			</div> -->
-
-			<!-- Signup Section
-   			================================================== -->
-
-			<!-- <div class="form-box register" id="signup-form-box">
-
-				<div class="go-back-wrapper" id="signup-go-back-wrapper" style="display: none;">
-					<span id="signup-go-back-link" class="go-back-link">
-						<svg class="go-back-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-						<path d="M15 18l-6-6 6-6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-						</svg>
-						Go Back
-					</span>
-				</div>
-
-				<h2 class="popup-heading">Signup</h2>
-
-				<div class="email-form" id="signup-email-form">
-
-					<div class="input-container" id="signup-name-container">
-						<input type="name" id="signup-name" placeholder=" " required>
-						<label for="name">Name</label>
-						<small id="signup-name-error" class="error-message">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
-								<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
-							</svg>
-							Name must contain atleast 5 characters.
-						</small>
-					</div>
-
-					<div class="input-container" id="signup-input-container">
-						<input type="email" id="signup-email" placeholder=" " required>
-						<label for="email">Email</label>
-						<small id="signup-email-error" class="error-message">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
-								<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
-							</svg>
-							Please enter a valid email or phone number.
-						</small>
-					</div>
-
-					<div class="input-container" id="signup-password-container" style="display: none;">
-						<input type="password" id="signup-password" placeholder=" " required>
-						<label for="password">Password</label>
-						<div id="password-strength" class="strength-meter">
-							<div class="strength-bar" id="strength-bar"></div>
+						<div class="input-container" id="signup-name-container">
+							<input type="name" id="signup-name" placeholder=" " required>
+							<label for="name">Name</label>
+							<small id="signup-name-error" class="error-message">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
+									<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+								</svg>
+								Name must contain atleast 5 characters.
+							</small>
 						</div>
-						<small id="password-strength-text" class="strength-text">Password strength</small>
-						<small id="signup-password-error" class="password-error-message">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
-								<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
-							</svg>
-							Your password must contain between 4 and 60 characters.
-						</small>
-						<span class="toggle-password" onclick="togglePassword()">
-							<i class="fa-regular fa-eye" id="togglePasswordIcon"></i>
-						</span>
+
+						<div class="input-container" id="signup-input-container">
+							<input type="email" id="signup-email" placeholder=" " required>
+							<label for="email">Email</label>
+							<small id="signup-email-error" class="error-message">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
+									<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+								</svg>
+								Please enter a valid email or phone number.
+							</small>
+						</div>
+
+						<div class="input-container" id="signup-password-container" style="display: none;">
+							<input type="password" id="signup-password" placeholder=" " required>
+							<label for="password">Password</label>
+							<div id="password-strength" class="strength-meter">
+								<div class="strength-bar" id="strength-bar"></div>
+							</div>
+							<small id="password-strength-text" class="strength-text">Password strength</small>
+							<small id="signup-password-error" class="password-error-message">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
+									<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+								</svg>
+								Your password must contain between 4 and 60 characters.
+							</small>
+							<span class="toggle-password" onclick="togglePassword()">
+								<i class="fa-regular fa-eye" id="togglePasswordIcon"></i>
+							</span>
+						</div>
+
+						<div class="input-container" id="confirm-password-container" style="display: none;">
+							<input type="password" id="signup-confirm-password" placeholder=" " required>
+							<label for="password">Confirm Password</label>
+							<small id="signup-confirm-password-error" class="password-error-message">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
+									<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+								</svg>
+								Password Does not Match.
+							</small>
+						</div>
+
 					</div>
 
-					<div class="input-container" id="confirm-password-container" style="display: none;">
-						<input type="password" id="signup-confirm-password" placeholder=" " required>
-						<label for="password">Confirm Password</label>
-						<small id="signup-confirm-password-error" class="password-error-message">
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" class="cancel-icon">
-								<path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
-							</svg>
-							Password Does not Match.
-						</small>
+					<div class="ent-btns" id="signup-next-btn">  
+						<button class="sgn-in-btn">Next</button>
 					</div>
 
-				</div>
+					<div class="ent-btns" id="signup-btn" style="display: none;">  
+						<button class="sgn-in-btn">
+							<span class="btn-text">Sign Up</span>
+							<span class="btn-loader" style="display: none;"></span>
+						</button>
+					</div>
 
-				<div class="ent-btns" id="signup-next-btn">  
-                    <button class="sgn-in-btn">Next</button>
-                </div>
+					<div class="divider">
+						<span>or Sign In with</span>
+					</div>
 
-				<div class="ent-btns" id="signup-btn" style="display: none;">  
-                    <button class="sgn-in-btn">
-						<span class="btn-text">Sign Up</span>
-  						<span class="btn-loader" style="display: none;"></span>
-					</button>
-                </div>
+					<div class="social-buttons">
+						<button id="google-auth-btn" class="social-btn google">
+							<img src="images/Google-Symbol.webp" alt="Google Symbol" class="logo-icon">
+							<img src="images/Google-Logo.webp" alt="Google Text" class="logo-text">
+						</button>
+						<button id="microsoft-auth-btn" class="social-btn microsoft">
+							<img src="images/Microsoft-Azure-Symbol.webp" alt="Microsoft Azure Logo" class="microsoft-logo">
+						</button>
+					</div>
+					
+					<div>
+						<h2>Already have an account? <a href="javascript:void(0);" class="login-link">Login</a></h2>
+						<p>This page is protected by Google reCAPTCHA to ensure you're not a bot.</p>
+						<p><a class="popup-links" id="signup-learn-more">Learn more.</a></p>
+						<p id="signup-recaptcha-info" style="display: none;">
+							The information collected by Google reCAPTCHA is subject to the Google
+							<a class="popup-links" href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> &nbsp; and &nbsp; <a class="popup-links" href="https://policies.google.com/terms" target="_blank">Terms of Service</a>	
+						</p> 
+					</div>
 
-				<div class="divider">
-					<span>or Sign In with</span>
-				</div>
-
-				<div class="social-buttons">
-					<button id="google-auth-btn" class="social-btn google">
-						<img src="images/Google-Symbol.webp" alt="Google Symbol" class="logo-icon">
-						<img src="images/Google-Logo.webp" alt="Google Text" class="logo-text">
-					</button>
-					<button id="microsoft-auth-btn" class="social-btn microsoft">
-						<img src="images/Microsoft-Azure-Symbol.webp" alt="Microsoft Azure Logo" class="microsoft-logo">
-					</button>
-				</div>
-				
-				<div>
-					<h2>Already have an account? <a href="javascript:void(0);" class="login-link">Login</a></h2>
-					<p>This page is protected by Google reCAPTCHA to ensure you're not a bot.</p>
-					<p><a class="popup-links" id="signup-learn-more">Learn more.</a></p>
-					<p id="signup-recaptcha-info" style="display: none;">
-						The information collected by Google reCAPTCHA is subject to the Google
-						<a class="popup-links" href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> &nbsp; and &nbsp; <a class="popup-links" href="https://policies.google.com/terms" target="_blank">Terms of Service</a>	
-					</p> 
 				</div>
 
 			</div>
 
-		</div>
+		</section> -->
+		<!-- END OF AUTH SYSTEM - All login/auth functionality above this line -->
 
-	</section> -->
-	<!-- END OF AUTH SYSTEM - All login/auth functionality above this line -->
-
+	</section>
 	
 	<!-- services Section
    ================================================== -->
@@ -2166,9 +2147,7 @@
 
 	<!-- Java Script
 	================================================== -->
-	<!-- CSS load polyfill for deferred stylesheets -->
-	<script>
-		/*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
+	<script> 
 		(function(w){"use strict";if(!w.loadCSS){w.loadCSS=function(){}}
 		var rp=loadCSS.relpreload={};rp.support=(function(){var ret;try{ret=w.document.createElement("link").relList.supports("preload")}catch(e){ret=!1}
 		return function(){return ret}})();rp.bindMediaToggle=function(link){var finalMedia=link.media||"all";function enableStylesheet(){link.media=finalMedia}
@@ -2186,10 +2165,7 @@
 	<script defer src="js/firebase-config.js"></script>
 	<script defer src="js/auth.js"></script> -->
    
-	<!-- Pace.js loaded after other scripts to not block critical path -->
 	<script defer src="js/pace.min.js"></script>
-	
-	<!-- Lazy load Three.js and particles (saves 90KB on initial load) -->
 	<script defer src="js/lazy-three.js"></script>
 	
 	<!-- Core scripts -->
@@ -2197,9 +2173,9 @@
 	<script defer src="js/jquery-2.1.3.min.js"></script>
 	<script defer src="js/performance-optimizations.js"></script>
 	<script defer src="js/jquery.validate.min.js"></script>
-	<script defer src="js/plugins.min.js"></script>
+	<script defer src="js/plugins.js"></script>
 	<script defer src="js/enhanced-ui.min.js"></script>
-	<script defer src="js/main.min.js"></script>
+	<script defer src="js/main.js"></script>
 
 	<!-- Additional features -->
 	<script defer src="js/lazy-loading.min.js"></script>
@@ -2234,7 +2210,6 @@
 	</script>	
 
 	<script>
-		// Skip Service Worker during local development
 		const isLocalDevelopment = location.hostname === 'localhost' || 
 		                           location.hostname === '127.0.0.1' ||
 		                           location.port === '5500';
@@ -2243,24 +2218,20 @@
 			window.addEventListener('load', () => {
 				navigator.serviceWorker.register('/sw.js')
 					.then(registration => {
-						console.log('SW registered: ', registration);
 						
-						// Check for updates periodically
 						setInterval(() => {
 							registration.update();
-						}, 60000); // Check every minute
+						}, 60000);
 						
 						registration.addEventListener('updatefound', () => {
 							const newWorker = registration.installing;
 							newWorker.addEventListener('statechange', () => {
 								if (newWorker.state === 'activated' && !navigator.serviceWorker.controller) {
-									console.log('New service worker activated');
 								}
 							});
 						});
 					})
 					.catch(registrationError => {
-						console.log('SW registration failed: ', registrationError);
 					});
 			});
 		}
