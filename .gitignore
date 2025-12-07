@@ -55,7 +55,6 @@ node_modules/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
 
 # dataconnect generated files
 .dataconnect
@@ -81,3 +80,4 @@ backup/
 
 # Unused folders
 public/
+config.bat
