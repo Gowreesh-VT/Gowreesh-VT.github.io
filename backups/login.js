@@ -491,7 +491,7 @@ document.getElementById('send-code-btn').addEventListener('click', async () => {
   const { error } = await supabase.auth.signInWithOtp({
     email,
     options: {
-      emailRedirectTo: "https://gowreesh.works/verify"
+      emailRedirectTo: "https://gowreesh.me/verify"
     }
   });
 
@@ -547,7 +547,7 @@ resendCodeLink.addEventListener("click", async () => {
   const { error } = await supabase.auth.signInWithOtp({
     email,
     options: {
-      emailRedirectTo: "https://gowreesh.works/verify"
+      emailRedirectTo: "https://gowreesh.me/verify"
     }
   });
 
@@ -628,7 +628,7 @@ forgotSubmitBtn.addEventListener("click", async () => {
   loader.style.display = "inline-block";
 
   const { error } = await supabase.auth.resetPasswordForEmail(email, {
-    redirectTo: "https://gowreesh.works/#reset"
+    redirectTo: "https://gowreesh.me/#reset"
 
   });
 
@@ -959,7 +959,7 @@ microsoftBtn?.addEventListener('click', async () => {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'azure',
     options: {
-      redirectTo: 'https://gowreesh.works/thanks'
+      redirectTo: 'https://gowreesh.me/thanks'
     }
   });
 

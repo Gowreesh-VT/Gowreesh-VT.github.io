@@ -1,12 +1,12 @@
 # Gowreesh V T - Portfolio Website
 
-[![Website Status](https://img.shields.io/website?url=https%3A%2F%2Fgowreesh.works)](https://gowreesh.works)
+[![Website Status](https://img.shields.io/website?url=https%3A%2F%2Fgowreesh.me)](https://gowreesh.me)
 [![Firebase Hosting](https://img.shields.io/badge/Hosted%20on-Firebase-orange)](https://firebase.google.com/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 A modern, responsive, and highly optimized personal portfolio website showcasing my skills, projects, and achievements in web development and cybersecurity.
 
-🔗 **Live Site**: [gowreesh.works](https://gowreesh.works)
+🔗 **Live Site**: [gowreesh.me](https://gowreesh.me)
 
 ## 🌟 Features
 
@@ -180,7 +180,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👤 Author
 
 **Gowreesh V T**
-- Website: [gowreesh.works](https://gowreesh.works)
+- Website: [gowreesh.me](https://gowreesh.me)
 - LinkedIn: [@gowreesh](https://www.linkedin.com/in/gowreesh/)
 - Twitter: [@gowreesh_vt](https://twitter.com/gowreesh_vt)
 - GitHub: [@Gowreesh-VT](https://github.com/Gowreesh-VT)
