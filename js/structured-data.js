@@ -159,7 +159,7 @@ const webPageSchema = {
     "height": 200
   },
   "datePublished": "2024-01-01",
-  "dateModified": "2025-11-02",
+  "dateModified": "2025-11-02T00:00:00Z",
   "inLanguage": "en-US"
 };
 
@@ -171,7 +171,7 @@ const profilePageSchema = {
     "name": "Gowreesh V T"
   },
   "dateCreated": "2024-01-01",
-  "dateModified": "2025-11-02"
+  "dateModified": "2025-11-02T00:00:00Z"
 };
 
 const serviceSchema = {
