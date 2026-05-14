@@ -7,8 +7,8 @@ const personSchema = {
   "@type": "Person",
   "name": "Gowreesh V T",
   "alternateName": "Gowreesh VT",
-  "url": "https://gowreesh.works",
-  "image": "https://gowreesh.works/images/profile-photo.webp",
+  "url": "https://gowreesh.me",
+  "image": "https://gowreesh.me/images/profile-photo.webp",
   "jobTitle": "Full-Stack Developer & Tech Enthusiast",
   "worksFor": {
     "@type": "EducationalOrganization",
@@ -123,7 +123,7 @@ const websiteSchema = {
   "@type": "WebSite",
   "name": "Gowreesh V T - Portfolio",
   "alternateName": "Gowreesh VT Portfolio",
-  "url": "https://gowreesh.works",
+  "url": "https://gowreesh.me",
   "description": "Personal portfolio showcasing web development projects, skills, certifications, and technical achievements. Specializing in full-stack development, cybersecurity, and modern web technologies.",
   "author": {
     "@type": "Person",
@@ -137,7 +137,7 @@ const websiteSchema = {
   },
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://gowreesh.works/?s={search_term_string}",
+    "target": "https://gowreesh.me/?s={search_term_string}",
     "query-input": "required name=search_term_string"
   }
 };
@@ -146,7 +146,7 @@ const webPageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "Gowreesh V T - Developer Portfolio",
-  "url": "https://gowreesh.works",
+  "url": "https://gowreesh.me",
   "description": "Full-stack developer portfolio featuring projects in web development, cybersecurity, and emerging technologies",
   "about": {
     "@type": "Person",
@@ -154,7 +154,7 @@ const webPageSchema = {
   },
   "primaryImageOfPage": {
     "@type": "ImageObject",
-    "url": "https://gowreesh.works/images/profile-photo.webp",
+    "url": "https://gowreesh.me/images/profile-photo.webp",
     "width": 200,
     "height": 200
   },
@@ -181,7 +181,7 @@ const serviceSchema = {
   "provider": {
     "@type": "Person",
     "name": "Gowreesh V T",
-    "url": "https://gowreesh.works"
+    "url": "https://gowreesh.me"
   },
   "areaServed": {
     "@type": "Country",

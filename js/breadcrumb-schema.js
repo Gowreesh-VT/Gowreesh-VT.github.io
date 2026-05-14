@@ -12,43 +12,43 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://gowreesh.works"
+      "item": "https://gowreesh.me"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "About",
-      "item": "https://gowreesh.works#about"
+      "item": "https://gowreesh.me#about"
     },
     {
       "@type": "ListItem",
       "position": 3,
       "name": "Resume",
-      "item": "https://gowreesh.works#resume"
+      "item": "https://gowreesh.me#resume"
     },
     {
       "@type": "ListItem",
       "position": 4,
       "name": "Portfolio",
-      "item": "https://gowreesh.works#portfolio"
+      "item": "https://gowreesh.me#portfolio"
     },
     {
       "@type": "ListItem",
       "position": 5,
       "name": "Services",
-      "item": "https://gowreesh.works#services"
+      "item": "https://gowreesh.me#services"
     },
     {
       "@type": "ListItem",
       "position": 6,
       "name": "Blog",
-      "item": "https://gowreesh.works#blog"
+      "item": "https://gowreesh.me#blog"
     },
     {
       "@type": "ListItem",
       "position": 7,
       "name": "Contact",
-      "item": "https://gowreesh.works#contact"
+      "item": "https://gowreesh.me#contact"
     }
   ]
 };
